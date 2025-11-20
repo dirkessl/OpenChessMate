@@ -28,14 +28,14 @@ private:
     
     char board[8][8];
     const char INITIAL_BOARD[8][8] = {
-        {'R','N','B','Q','K','B','N','R'},  // row 0 (rank 1)
-        {'P','P','P','P','P','P','P','P'},  // row 1 (rank 2)
-        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 2 (rank 3)
-        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 3 (rank 4)
-        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 4 (rank 5)
-        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 5 (rank 6)
-        {'p','p','p','p','p','p','p','p'},  // row 6 (rank 7)
-        {'r','n','b','q','k','b','n','r'}   // row 7 (rank 8)
+        {'R','N','B','K','Q','B','N','R'},  // row 0 (rank 8 - black pieces at top)
+        {'P','P','P','P','P','P','P','P'},  // row 1 (rank 7)
+        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 2 (rank 6)
+        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 3 (rank 5)
+        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 4 (rank 4)
+        {' ',' ',' ',' ',' ',' ',' ',' '},  // row 5 (rank 3)
+        {'p','p','p','p','p','p','p','p'},  // row 6 (rank 2)
+        {'r','n','b','k','q','b','n','r'}   // row 7 (rank 1 - white pieces at bottom)
     };
     
     StockfishSettings settings;
