@@ -42,6 +42,7 @@ private:
     BotDifficulty difficulty;
     
     bool isWhiteTurn;
+    bool playerIsWhite;  // true = player plays White, false = player plays Black
     bool gameStarted;
     bool botThinking;
     bool wifiConnected;
@@ -77,7 +78,7 @@ private:
     void printCurrentBoard();
     
 public:
-    ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, BotDifficulty diff = BOT_MEDIUM);
+    ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, BotDifficulty diff = BOT_MEDIUM, bool playerWhite = true);
     void begin();
     void update();
     void setDifficulty(BotDifficulty diff);

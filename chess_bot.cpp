@@ -1,10 +1,11 @@
 #include "chess_bot.h"
 #include <Arduino.h>
 
-ChessBot::ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, BotDifficulty diff) {
+ChessBot::ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, BotDifficulty diff, bool playerWhite) {
     _boardDriver = boardDriver;
     _chessEngine = chessEngine;
     difficulty = diff;
+    playerIsWhite = playerWhite;
     
     // Set difficulty settings
     switch(difficulty) {
@@ -14,7 +15,10 @@ ChessBot::ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, BotDiffic
         case BOT_EXPERT: settings = StockfishSettings::expert(); break;
     }
     
-    isWhiteTurn = true;
+    // Set initial turn: In chess, White always moves first
+    // If player is White, player goes first (isWhiteTurn = true)
+    // If player is Black, bot (White) goes first (isWhiteTurn = true)
+    isWhiteTurn = true;  // White always moves first in chess
     gameStarted = false;
     botThinking = false;
     wifiConnected = false;
@@ -23,6 +27,10 @@ ChessBot::ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, BotDiffic
 
 void ChessBot::begin() {
     Serial.println("=== Starting Chess Bot Mode ===");
+    Serial.print("Player plays: ");
+    Serial.println(playerIsWhite ? "White" : "Black");
+    Serial.print("Bot plays: ");
+    Serial.println(playerIsWhite ? "Black" : "White");
     Serial.print("Bot Difficulty: ");
     
     switch(difficulty) {
@@ -102,11 +110,13 @@ void ChessBot::update() {
     
     _boardDriver->readSensors();
     
-    // Detect piece movements (player's turn - White pieces only)
-    if (isWhiteTurn) {
+    // Detect piece movements (player's turn)
+    bool isPlayerTurn = (playerIsWhite && isWhiteTurn) || (!playerIsWhite && !isWhiteTurn);
+    if (isPlayerTurn) {
         static unsigned long lastTurnDebug = 0;
         if (millis() - lastTurnDebug > 5000) {
-            Serial.println("Your turn! Move a WHITE piece (uppercase letters)");
+            Serial.print("Your turn! Move a ");
+            Serial.println(playerIsWhite ? "WHITE piece (uppercase letters)" : "BLACK piece (lowercase letters)");
             lastTurnDebug = millis();
         }
         // Look for piece pickups and placements
@@ -122,13 +132,17 @@ void ChessBot::update() {
                         char piece = board[row][col];
                         
                         if (piece != ' ') {
-                            // Player should only be able to move White pieces (uppercase)
-                            if (piece >= 'A' && piece <= 'Z') {
+                            // Player should only be able to move their own pieces
+                            bool isPlayerPiece = (playerIsWhite && piece >= 'A' && piece <= 'Z') || 
+                                                 (!playerIsWhite && piece >= 'a' && piece <= 'z');
+                            if (isPlayerPiece) {
                             selectedRow = row;
                             selectedCol = col;
                             piecePickedUp = true;
                             
-                            Serial.print("Player picked up WHITE piece '");
+                            Serial.print("Player picked up ");
+                            Serial.print(playerIsWhite ? "WHITE" : "BLACK");
+                            Serial.print(" piece '");
                             Serial.print(board[row][col]);
                             Serial.print("' at ");
                             Serial.print((char)('a' + col));
@@ -153,13 +167,17 @@ void ChessBot::update() {
                             _boardDriver->showLEDs();
                             break;
                             } else {
-                                // Player tried to pick up a Black piece - not allowed!
-                                Serial.print("ERROR: You tried to pick up BLACK piece '");
+                                // Player tried to pick up the wrong color piece
+                                Serial.print("ERROR: You tried to pick up ");
+                                Serial.print((piece >= 'A' && piece <= 'Z') ? "WHITE" : "BLACK");
+                                Serial.print(" piece '");
                                 Serial.print(piece);
                                 Serial.print("' at ");
                                 Serial.print((char)('a' + col));
                                 Serial.print(8 - row);
-                                Serial.println(". You can only move WHITE pieces!");
+                                Serial.print(". You can only move ");
+                                Serial.print(playerIsWhite ? "WHITE" : "BLACK");
+                                Serial.println(" pieces!");
                                 
                                 // Flash red to indicate error
                                 _boardDriver->blinkSquare(row, col, 3);
@@ -215,7 +233,9 @@ void ChessBot::update() {
                             selectedRow = selectedCol = -1;
                             
                             // Switch to bot's turn
-                            isWhiteTurn = false;
+                            // If player is White, bot is Black (isWhiteTurn = false)
+                            // If player is Black, bot is White (isWhiteTurn = true)
+                            isWhiteTurn = !playerIsWhite;
                             botThinking = true;
                             
                             Serial.println("Player move completed. Bot thinking...");
@@ -248,6 +268,17 @@ void ChessBot::update() {
                     }
                 }
             }
+        }
+    } else {
+        // Bot's turn - if player is Black, bot (White) goes first
+        if (!botThinking && !playerIsWhite && isWhiteTurn) {
+            // Bot plays White and it's White's turn
+            botThinking = true;
+            makeBotMove();
+        } else if (!botThinking && playerIsWhite && !isWhiteTurn) {
+            // Bot plays Black and it's Black's turn
+            botThinking = true;
+            makeBotMove();
         }
     }
     
@@ -583,10 +614,18 @@ void ChessBot::makeBotMove() {
                 Serial.print("Bot calculated move: ");
                 Serial.println(bestMove);
                 
-                // Verify the move is from a black piece (bot plays black)
+                // Verify the move is from the correct color piece
+                // Bot plays White if player is Black, Bot plays Black if player is White
                 char piece = board[fromRow][fromCol];
-                if (piece >= 'A' && piece <= 'Z') {
-                    Serial.println("ERROR: Bot tried to move a white piece! This shouldn't happen.");
+                bool botPlaysWhite = !playerIsWhite;
+                bool isBotPiece = (botPlaysWhite && piece >= 'A' && piece <= 'Z') || 
+                                  (!botPlaysWhite && piece >= 'a' && piece <= 'z');
+                
+                if (!isBotPiece) {
+                    Serial.print("ERROR: Bot tried to move a ");
+                    Serial.print((piece >= 'A' && piece <= 'Z') ? "WHITE" : "BLACK");
+                    Serial.print(" piece, but bot plays ");
+                    Serial.println(botPlaysWhite ? "WHITE" : "BLACK");
                     Serial.print("Piece at source: ");
                     Serial.println(piece);
                     botThinking = false;
@@ -602,7 +641,8 @@ void ChessBot::makeBotMove() {
                 executeBotMove(fromRow, fromCol, toRow, toCol);
                 
                 // Switch back to player's turn
-                isWhiteTurn = true;
+                // If player is White, isWhiteTurn = true; if player is Black, isWhiteTurn = false
+                isWhiteTurn = playerIsWhite;
                 botThinking = false;
                 
                 Serial.println("Bot move completed. Your turn!");

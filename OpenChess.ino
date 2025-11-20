@@ -27,8 +27,8 @@
 enum GameMode {
   MODE_SELECTION = 0,
   MODE_CHESS_MOVES = 1,
-  MODE_CHESS_BOT = 2,      // Chess vs Bot mode
-  MODE_GAME_3 = 3,         // Reserved for future game mode
+  MODE_CHESS_BOT = 2,      // Chess vs Bot mode (Medium difficulty)
+  MODE_GAME_3 = 3,         // Black AI Stockfish (Medium difficulty)
   MODE_SENSOR_TEST = 4
 };
 
@@ -37,7 +37,8 @@ BoardDriver boardDriver;
 ChessEngine chessEngine;
 ChessMoves chessMoves(&boardDriver, &chessEngine);
 SensorTest sensorTest(&boardDriver);
-ChessBot chessBot(&boardDriver, &chessEngine, BOT_MEDIUM);
+ChessBot chessBot(&boardDriver, &chessEngine, BOT_MEDIUM, true);   // Mode 2: Player White, AI Black, Medium
+ChessBot chessBot3(&boardDriver, &chessEngine, BOT_MEDIUM, false);   // Mode 3: Player Black, AI White, Hard
 
 #ifdef ENABLE_WIFI
 WiFiManager wifiManager;
@@ -140,7 +141,7 @@ void setup() {
   Serial.println("Four white LEDs should be lit in the center of the board:");
   Serial.println("Position 1 (3,3): Chess Moves (Human vs Human)");
   Serial.println("Position 2 (3,4): Chess Bot (Human vs AI)");
-  Serial.println("Position 3 (4,3): Game Mode 3 (Coming Soon)");
+  Serial.println("Position 3 (4,3): Black AI Stockfish (Hard)");
   Serial.println("Position 4 (4,4): Sensor Test");
   Serial.println();
   Serial.println("Place any chess piece on a white LED to select that mode");
@@ -184,6 +185,9 @@ void loop() {
     } else if (currentMode == MODE_CHESS_BOT && modeInitialized) {
       chessBot.setBoardState(editBoard);
       Serial.println("Board edit applied to Chess Bot mode");
+    } else if (currentMode == MODE_GAME_3 && modeInitialized) {
+      chessBot3.setBoardState(editBoard);
+      Serial.println("Board edit applied to Black AI Stockfish mode");
     } else {
       Serial.println("Warning: Board edit received but no active game mode");
     }
@@ -204,6 +208,10 @@ void loop() {
     } else if (currentMode == MODE_CHESS_BOT && modeInitialized) {
       chessBot.getBoardState(currentBoard);
       evaluation = chessBot.getEvaluation();
+      boardUpdated = true;
+    } else if (currentMode == MODE_GAME_3 && modeInitialized) {
+      chessBot3.getBoardState(currentBoard);
+      evaluation = chessBot3.getEvaluation();
       boardUpdated = true;
     }
     
@@ -226,6 +234,9 @@ void loop() {
         break;
       case 2:
         currentMode = MODE_CHESS_BOT;
+        break;
+      case 3:
+        currentMode = MODE_GAME_3;
         break;
       case 4:
         currentMode = MODE_SENSOR_TEST;
@@ -279,13 +290,11 @@ void loop() {
       case MODE_CHESS_BOT:
         chessBot.update();
         break;
+      case MODE_GAME_3:
+        chessBot3.update();
+        break;
       case MODE_SENSOR_TEST:
         sensorTest.update();
-        break;
-      case MODE_GAME_3:
-        // Future game modes - placeholder
-        Serial.println("Game mode coming soon!");
-        delay(1000);
         break;
       default:
         currentMode = MODE_SELECTION;
@@ -308,14 +317,14 @@ void showGameSelection() {
   
   // Light up the 4 selector positions in the middle of the board
   // Each mode has a different color for easy identification
-  // Position 1: Chess Moves (row 3, col 3) - Blue
-  boardDriver.setSquareLED(3, 3, 0, 0, 255);
+  // Position 1: Chess Moves (row 3, col 3) - Orange
+  boardDriver.setSquareLED(3, 3, 255, 165, 0);
   
-  // Position 2: Chess Bot (row 3, col 4) - Green
-  boardDriver.setSquareLED(3, 4, 0, 255, 0);
+  // Position 2: Chess Bot (row 3, col 4) - White
+  boardDriver.setSquareLED(3, 4, 0, 0, 0, 255);
   
-  // Position 3: Game Mode 3 (row 4, col 3) - Yellow/Orange
-  boardDriver.setSquareLED(4, 3, 255, 200, 0);
+  // Position 3: Black AI Stockfish (row 4, col 3) - Blue
+  boardDriver.setSquareLED(4, 3, 0, 0, 255);
   
   // Position 4: Sensor Test (row 4, col 4) - Red
   boardDriver.setSquareLED(4, 4, 255, 0, 0);
@@ -344,8 +353,8 @@ void handleGameSelection() {
     delay(500);
   }
   else if (boardDriver.getSensorState(4, 3)) {
-    // Game Mode 3 selected
-    Serial.println("Game Mode 3 selected (Coming Soon)!");
+    // Game Mode 3 selected - Black AI Stockfish (Hard)
+    Serial.println("Game Mode 3 selected (Black AI Stockfish - Hard)!");
     currentMode = MODE_GAME_3;
     modeInitialized = false;
     boardDriver.clearAllLEDs();
@@ -370,7 +379,7 @@ void initializeSelectedMode(GameMode mode) {
       chessMoves.begin();
       break;
     case MODE_CHESS_BOT:
-      Serial.println("Starting Chess Bot (Human vs AI)...");
+      Serial.println("Starting Chess Bot (Player White vs AI Black - Medium)...");
       chessBot.begin();
       break;
     case MODE_SENSOR_TEST:
@@ -378,12 +387,8 @@ void initializeSelectedMode(GameMode mode) {
       sensorTest.begin();
       break;
     case MODE_GAME_3:
-      Serial.println("This game mode will be available in a future update!");
-      Serial.println("Returning to game selection in 3 seconds...");
-      delay(3000);
-      currentMode = MODE_SELECTION;
-      modeInitialized = false;
-      showGameSelection();
+      Serial.println("Starting Black AI Stockfish (Player Black vs AI White - Hard)...");
+      chessBot3.begin();
       break;
     default:
       currentMode = MODE_SELECTION;
