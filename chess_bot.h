@@ -88,4 +88,4 @@ public:
     void setBoardState(char newBoardState[8][8]);
 };
 
-#endif
+#endif // CHESS_BOT_H

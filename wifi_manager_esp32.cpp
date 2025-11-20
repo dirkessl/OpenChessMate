@@ -1,5 +1,6 @@
 #include "wifi_manager_esp32.h"
 #include <Arduino.h>
+#include "arduino_secrets.h"
 
 WiFiManagerESP32::WiFiManagerESP32() : server(AP_PORT) {
     apMode = true;
@@ -25,7 +26,8 @@ void WiFiManagerESP32::begin() {
     Serial.println("=== Starting OpenChess WiFi Manager (ESP32) ===");
     Serial.println("Debug: WiFi Manager begin() called");
     
-    // Start Access Point
+    // ESP32 can run both AP and Station modes simultaneously
+    // Start Access Point first (always available)
     Serial.print("Debug: Creating Access Point with SSID: ");
     Serial.println(AP_SSID);
     Serial.print("Debug: Using password: ");
@@ -43,20 +45,46 @@ void WiFiManagerESP32::begin() {
     
     Serial.println("Debug: Access Point created successfully");
     
-    // Wait a moment for AP to stabilize
+    // Try to connect to existing WiFi (if credentials available)
+    bool connected = false;
+    
+    if (wifiSSID.length() > 0 || strlen(SECRET_SSID) > 0) {
+        String ssidToUse = wifiSSID.length() > 0 ? wifiSSID : String(SECRET_SSID);
+        String passToUse = wifiPassword.length() > 0 ? wifiPassword : String(SECRET_PASS);
+        
+        Serial.println("=== Attempting to connect to WiFi network ===");
+        Serial.print("SSID: ");
+        Serial.println(ssidToUse);
+        
+        connected = connectToWiFi(ssidToUse, passToUse);
+        
+        if (connected) {
+            Serial.println("Successfully connected to WiFi network!");
+        } else {
+            Serial.println("Failed to connect to WiFi. Access Point mode still available.");
+        }
+    }
+    
+    // Wait a moment for everything to stabilize
     delay(100);
     
-    // Print AP information
-    IPAddress ip = WiFi.softAPIP();
-    Serial.println("=== WiFi Access Point Information ===");
-    Serial.print("SSID: ");
+    // Print connection information
+    Serial.println("=== WiFi Connection Information ===");
+    Serial.print("Access Point SSID: ");
     Serial.println(AP_SSID);
-    Serial.print("Password: ");
-    Serial.println(AP_PASSWORD);
-    Serial.print("IP Address: ");
-    Serial.println(ip);
-    Serial.print("Web Interface: http://");
-    Serial.println(ip);
+    Serial.print("Access Point IP: ");
+    Serial.println(WiFi.softAPIP());
+    if (connected) {
+        Serial.print("Connected to WiFi: ");
+        Serial.println(WiFi.SSID());
+        Serial.print("Station IP: ");
+        Serial.println(WiFi.localIP());
+        Serial.print("Access board via: http://");
+        Serial.println(WiFi.localIP());
+    } else {
+        Serial.print("Access board via: http://");
+        Serial.println(WiFi.softAPIP());
+    }
     Serial.print("MAC Address: ");
     Serial.println(WiFi.softAPmacAddress());
     Serial.println("=====================================");
@@ -74,6 +102,7 @@ void WiFiManagerESP32::begin() {
         this->server.send(200, "text/html", boardEditPage);
     });
     server.on("/board-edit", HTTP_POST, [this]() { this->handleBoardEdit(); });
+    server.on("/connect-wifi", HTTP_POST, [this]() { this->handleConnectWiFi(); });
     server.on("/submit", HTTP_POST, [this]() { this->handleConfigSubmit(); });
     server.on("/gameselect", HTTP_POST, [this]() { this->handleGameSelection(); });
     server.onNotFound([this]() {
@@ -236,6 +265,21 @@ String WiFiManagerESP32::generateWebPage() {
     
     html += "<input type=\"submit\" value=\"Save Configuration\">";
     html += "</form>";
+    
+    // WiFi Connection Status
+    html += "<div class=\"form-group\" style=\"margin-top: 30px; padding: 15px; background-color: #444; border-radius: 5px;\">";
+    html += "<h3 style=\"color: #ec8703; margin-top: 0;\">WiFi Connection</h3>";
+    html += "<p style=\"color: #ec8703;\">Status: " + getConnectionStatus() + "</p>";
+    if (!isConnectedToWiFi() || wifiSSID.length() > 0) {
+        html += "<form action=\"/connect-wifi\" method=\"POST\" style=\"margin-top: 15px;\">";
+        html += "<input type=\"hidden\" name=\"ssid\" value=\"" + wifiSSID + "\">";
+        html += "<input type=\"hidden\" name=\"password\" value=\"" + wifiPassword + "\">";
+        html += "<button type=\"submit\" class=\"button\" style=\"background-color: #4CAF50;\">Connect to WiFi</button>";
+        html += "</form>";
+        html += "<p style=\"font-size: 12px; color: #ec8703; margin-top: 10px;\">Enter WiFi credentials above and click 'Connect to WiFi' to join your network.</p>";
+    }
+    html += "</div>";
+    
     html += "<a href=\"/game\" class=\"button\">Game Selection Interface</a>";
     html += "<a href=\"/board-view\" class=\"button\">View Chess Board</a>";
     html += "<div class=\"note\">";
@@ -729,5 +773,106 @@ bool WiFiManagerESP32::getPendingBoardEdit(char editBoard[8][8]) {
 
 void WiFiManagerESP32::clearPendingEdit() {
     hasPendingEdit = false;
+}
+
+bool WiFiManagerESP32::connectToWiFi(String ssid, String password) {
+    Serial.println("=== Connecting to WiFi Network ===");
+    Serial.print("SSID: ");
+    Serial.println(ssid);
+    
+    // ESP32 can run both AP and Station modes simultaneously
+    WiFi.mode(WIFI_AP_STA); // Enable both AP and Station modes
+    
+    WiFi.begin(ssid.c_str(), password.c_str());
+    
+    int attempts = 0;
+    while (WiFi.status() != WL_CONNECTED && attempts < 20) {
+        delay(500);
+        attempts++;
+        Serial.print("Connection attempt ");
+        Serial.print(attempts);
+        Serial.print("/20 - Status: ");
+        Serial.println(WiFi.status());
+    }
+    
+    if (WiFi.status() == WL_CONNECTED) {
+        Serial.println("Connected to WiFi!");
+        Serial.print("IP address: ");
+        Serial.println(WiFi.localIP());
+        apMode = false; // We're connected, but AP is still running
+        return true;
+    } else {
+        Serial.println("Failed to connect to WiFi");
+        // AP mode is still available
+        return false;
+    }
+}
+
+bool WiFiManagerESP32::startAccessPoint() {
+    // AP is already started in begin(), this is just for compatibility
+    return WiFi.softAP(AP_SSID, AP_PASSWORD);
+}
+
+IPAddress WiFiManagerESP32::getIPAddress() {
+    // Return station IP if connected, otherwise AP IP
+    if (WiFi.status() == WL_CONNECTED) {
+        return WiFi.localIP();
+    } else {
+        return WiFi.softAPIP();
+    }
+}
+
+bool WiFiManagerESP32::isConnectedToWiFi() {
+    return WiFi.status() == WL_CONNECTED;
+}
+
+String WiFiManagerESP32::getConnectionStatus() {
+    String status = "";
+    if (WiFi.status() == WL_CONNECTED) {
+        status = "Connected to: " + WiFi.SSID() + " (IP: " + WiFi.localIP().toString() + ")";
+        status += " | AP also available at: " + WiFi.softAPIP().toString();
+    } else {
+        status = "Access Point Mode - SSID: " + String(AP_SSID) + " (IP: " + WiFi.softAPIP().toString() + ")";
+    }
+    return status;
+}
+
+void WiFiManagerESP32::handleConnectWiFi() {
+    // Parse WiFi credentials from POST
+    if (server.hasArg("ssid")) {
+        wifiSSID = server.arg("ssid");
+    }
+    if (server.hasArg("password")) {
+        wifiPassword = server.arg("password");
+    }
+    
+    if (wifiSSID.length() > 0) {
+        Serial.println("Attempting to connect to WiFi from web interface...");
+        bool connected = connectToWiFi(wifiSSID, wifiPassword);
+        
+        String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
+        if (connected) {
+            response += "<h2>WiFi Connected!</h2>";
+            response += "<p>Successfully connected to: " + wifiSSID + "</p>";
+            response += "<p>Station IP Address: " + WiFi.localIP().toString() + "</p>";
+            response += "<p>Access Point still available at: " + WiFi.softAPIP().toString() + "</p>";
+            response += "<p>You can access the board at either IP address.</p>";
+        } else {
+            response += "<h2>WiFi Connection Failed</h2>";
+            response += "<p>Could not connect to: " + wifiSSID + "</p>";
+            response += "<p>Please check your credentials and try again.</p>";
+            response += "<p>Access Point mode is still available at: " + WiFi.softAPIP().toString() + "</p>";
+        }
+        response += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
+        response += "</body></html>";
+        sendResponse(response);
+    } else {
+        String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
+        response += "<h2>Error</h2>";
+        response += "<p>No WiFi SSID provided.</p>";
+        response += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
+        response += "</body></html>";
+        sendResponse(response);
+    }
 }
 

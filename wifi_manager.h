@@ -43,6 +43,12 @@ private:
     char pendingBoardEdit[8][8];
     bool hasPendingEdit;
     
+    // WiFi connection methods
+    bool connectToWiFi(String ssid, String password);
+    bool startAccessPoint();
+    IPAddress getIPAddress();
+    bool isConnectedToWiFi();
+    
     // Web interface methods
     String generateWebPage();
     String generateGameSelectionPage();
@@ -53,6 +59,7 @@ private:
     void handleConfigSubmit(WiFiClient& client, String request);
     void handleGameSelection(WiFiClient& client, String request);
     void handleBoardEdit(WiFiClient& client, String request, String body);
+    void handleConnectWiFi(WiFiClient& client, String request, String body);
     void sendResponse(WiFiClient& client, String content, String contentType = "text/html");
     void parseFormData(String data);
     void parseBoardEditData(String data);
@@ -81,6 +88,9 @@ public:
     // Board edit management
     bool getPendingBoardEdit(char editBoard[8][8]);
     void clearPendingEdit();
+    
+    // WiFi status
+    String getConnectionStatus();
 };
 
 #endif // WIFI_MANAGER_WIFININA_ENABLED

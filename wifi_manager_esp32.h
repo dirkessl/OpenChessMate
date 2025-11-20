@@ -46,6 +46,12 @@ private:
     char pendingBoardEdit[8][8];
     bool hasPendingEdit;
     
+    // WiFi connection methods
+    bool connectToWiFi(String ssid, String password);
+    bool startAccessPoint();
+    IPAddress getIPAddress();
+    bool isConnectedToWiFi();
+    
     // Web interface methods
     String generateWebPage();
     String generateGameSelectionPage();
@@ -59,6 +65,7 @@ private:
     void handleBoard();
     void handleBoardView();
     void handleBoardEdit();
+    void handleConnectWiFi();
     void sendResponse(String content, String contentType = "text/html");
     void parseFormData(String data);
     void parseBoardEditData();
@@ -87,6 +94,9 @@ public:
     // Board edit management
     bool getPendingBoardEdit(char editBoard[8][8]);
     void clearPendingEdit();
+    
+    // WiFi status
+    String getConnectionStatus();
 };
 
 #endif // WIFI_MANAGER_ESP32_H

@@ -4,6 +4,7 @@
 #ifdef WIFI_MANAGER_WIFININA_ENABLED
 
 #include <Arduino.h>
+#include "arduino_secrets.h"
 
 WiFiManager::WiFiManager() : server(AP_PORT) {
     apMode = true;
@@ -58,94 +59,50 @@ void WiFiManager::begin() {
     Serial.print("Debug: WiFi firmware version: ");
     Serial.println(fv);
     
-    // Start Access Point
-    Serial.print("Debug: Creating Access Point with SSID: ");
-    Serial.println(AP_SSID);
-    Serial.print("Debug: Using password: ");
-    Serial.println(AP_PASSWORD);
+    // Try to connect to existing WiFi first (if credentials are available)
+    bool connected = false;
     
-    Serial.println("Debug: Calling WiFi.beginAP()...");
-    
-    // First, try without channel specification (like Arduino example)
-    Serial.println("Debug: Attempting AP creation without channel...");
-    int status = WiFi.beginAP(AP_SSID, AP_PASSWORD);
-    
-    if (status != WL_AP_LISTENING) {
-        Serial.println("Debug: First attempt failed, trying with channel 6...");
-        status = WiFi.beginAP(AP_SSID, AP_PASSWORD, 6);
-    }
-    
-    Serial.print("Debug: WiFi.beginAP() returned: ");
-    Serial.println(status);
-    
-    // Print detailed status explanation
-    Serial.print("Debug: Status meaning: ");
-    switch(status) {
-        case WL_IDLE_STATUS: Serial.println("WL_IDLE_STATUS (0) - Temporary status"); break;
-        case WL_NO_SSID_AVAIL: Serial.println("WL_NO_SSID_AVAIL (1) - No SSID available"); break;
-        case WL_SCAN_COMPLETED: Serial.println("WL_SCAN_COMPLETED (2) - Scan completed"); break;
-        case WL_CONNECTED: Serial.println("WL_CONNECTED (3) - Connected to network"); break;
-        case WL_CONNECT_FAILED: Serial.println("WL_CONNECT_FAILED (4) - Connection failed"); break;
-        case WL_CONNECTION_LOST: Serial.println("WL_CONNECTION_LOST (5) - Connection lost"); break;
-        case WL_DISCONNECTED: Serial.println("WL_DISCONNECTED (6) - Disconnected"); break;
-        case WL_AP_LISTENING: Serial.println("WL_AP_LISTENING (7) - AP listening (SUCCESS!)"); break;
-        case WL_AP_CONNECTED: Serial.println("WL_AP_CONNECTED (8) - AP connected"); break;
-        case WL_AP_FAILED: Serial.println("WL_AP_FAILED (9) - AP failed"); break;
-        default: Serial.print("UNKNOWN STATUS ("); Serial.print(status); Serial.println(")"); break;
-    }
-    
-    if (status != WL_AP_LISTENING) {
-        Serial.println("ERROR: Failed to create Access Point!");
-        Serial.println("Expected WL_AP_LISTENING (7), but got different status");
-        return;
-    }
-    
-    Serial.println("Debug: Access Point creation initiated");
-    
-    // Wait for AP to start and check status
-    Serial.println("Debug: Waiting for AP to start...");
-    for (int i = 0; i < 10; i++) {
-        delay(1000);
-        status = WiFi.status();
-        Serial.print("Debug: WiFi status check ");
-        Serial.print(i + 1);
-        Serial.print("/10 - Status: ");
-        Serial.println(status);
+    if (wifiSSID.length() > 0 || strlen(SECRET_SSID) > 0) {
+        String ssidToUse = wifiSSID.length() > 0 ? wifiSSID : String(SECRET_SSID);
+        String passToUse = wifiPassword.length() > 0 ? wifiPassword : String(SECRET_PASS);
         
-        if (status == WL_AP_LISTENING) {
-            Serial.println("Debug: AP is now listening!");
-            break;
+        Serial.println("=== Attempting to connect to WiFi network ===");
+        Serial.print("SSID: ");
+        Serial.println(ssidToUse);
+        
+        connected = connectToWiFi(ssidToUse, passToUse);
+        
+        if (connected) {
+            Serial.println("Successfully connected to WiFi network!");
+            apMode = false;
+        } else {
+            Serial.println("Failed to connect to WiFi. Starting Access Point mode...");
         }
     }
     
-    // Print AP information and verify it's actually working
-    IPAddress ip = WiFi.localIP();
-    Serial.println("=== WiFi Access Point Information ===");
-    Serial.print("SSID: ");
-    Serial.println(WiFi.SSID());  // Get actual SSID from WiFi module
-    Serial.print("Expected SSID: ");
-    Serial.println(AP_SSID);
-    Serial.print("Password: ");
-    Serial.println(AP_PASSWORD);
+    // If not connected, start Access Point
+    if (!connected) {
+        startAccessPoint();
+    }
+    
+    // Print connection information
+    IPAddress ip = getIPAddress();
+    Serial.println("=== WiFi Connection Information ===");
+    if (apMode) {
+        Serial.print("Mode: Access Point");
+        Serial.print("SSID: ");
+        Serial.println(AP_SSID);
+        Serial.print("Password: ");
+        Serial.println(AP_PASSWORD);
+    } else {
+        Serial.println("Mode: Connected to WiFi Network");
+        Serial.print("Connected to: ");
+        Serial.println(WiFi.SSID());
+    }
     Serial.print("IP Address: ");
     Serial.println(ip);
     Serial.print("Web Interface: http://");
     Serial.println(ip);
-    
-    // Additional diagnostic information
-    Serial.print("WiFi Status: ");
-    Serial.println(WiFi.status());
-    Serial.print("WiFi Mode: ");
-    // Note: WiFiNINA might not have explicit AP mode check
-    Serial.println("Access Point Mode");
-    
-    // Verify IP is valid
-    if (ip == IPAddress(0, 0, 0, 0)) {
-        Serial.println("WARNING: IP address is 0.0.0.0 - AP might not be working!");
-    } else {
-        Serial.println("IP address looks valid");
-    }
-    
     Serial.println("=====================================");
     
     // Start the web server
@@ -225,6 +182,10 @@ void WiFiManager::handleClient() {
         else if (request.indexOf("POST /board-edit") >= 0) {
             // Board edit submission
             handleBoardEdit(client, request, body);
+        }
+        else if (request.indexOf("POST /connect-wifi") >= 0) {
+            // WiFi connection request
+            handleConnectWiFi(client, request, body);
         }
         else if (request.indexOf("POST /submit") >= 0) {
             // Configuration form submission
@@ -335,6 +296,21 @@ String WiFiManager::generateWebPage() {
     
     html += "<input type=\"submit\" value=\"Save Configuration\">";
     html += "</form>";
+    
+    // WiFi Connection Status
+    html += "<div class=\"form-group\" style=\"margin-top: 30px; padding: 15px; background-color: #444; border-radius: 5px;\">";
+    html += "<h3 style=\"color: #ec8703; margin-top: 0;\">WiFi Connection</h3>";
+    html += "<p style=\"color: #ec8703;\">Status: " + getConnectionStatus() + "</p>";
+    if (apMode) {
+        html += "<form action=\"/connect-wifi\" method=\"POST\" style=\"margin-top: 15px;\">";
+        html += "<input type=\"hidden\" name=\"ssid\" value=\"" + wifiSSID + "\">";
+        html += "<input type=\"hidden\" name=\"password\" value=\"" + wifiPassword + "\">";
+        html += "<button type=\"submit\" class=\"button\" style=\"background-color: #4CAF50;\">Connect to WiFi</button>";
+        html += "</form>";
+        html += "<p style=\"font-size: 12px; color: #ec8703; margin-top: 10px;\">Enter WiFi credentials above and click 'Connect to WiFi' to join your network.</p>";
+    }
+    html += "</div>";
+    
     html += "<a href=\"/game\" class=\"button\">Game Selection Interface</a>";
     html += "<a href=\"/board-view\" class=\"button\">View Chess Board</a>";
     html += "<div class=\"note\">";
@@ -850,6 +826,124 @@ bool WiFiManager::getPendingBoardEdit(char editBoard[8][8]) {
 
 void WiFiManager::clearPendingEdit() {
     hasPendingEdit = false;
+}
+
+bool WiFiManager::connectToWiFi(String ssid, String password) {
+    Serial.println("=== Connecting to WiFi Network ===");
+    Serial.print("SSID: ");
+    Serial.println(ssid);
+    
+    int attempts = 0;
+    WiFi.begin(ssid.c_str(), password.c_str());
+    
+    while (WiFi.status() != WL_CONNECTED && attempts < 20) {
+        delay(500);
+        attempts++;
+        Serial.print("Connection attempt ");
+        Serial.print(attempts);
+        Serial.print("/20 - Status: ");
+        Serial.println(WiFi.status());
+    }
+    
+    if (WiFi.status() == WL_CONNECTED) {
+        Serial.println("Connected to WiFi!");
+        Serial.print("IP address: ");
+        Serial.println(WiFi.localIP());
+        apMode = false;
+        return true;
+    } else {
+        Serial.println("Failed to connect to WiFi");
+        return false;
+    }
+}
+
+bool WiFiManager::startAccessPoint() {
+    Serial.println("=== Starting Access Point ===");
+    Serial.print("SSID: ");
+    Serial.println(AP_SSID);
+    Serial.print("Password: ");
+    Serial.println(AP_PASSWORD);
+    
+    int status = WiFi.beginAP(AP_SSID, AP_PASSWORD);
+    
+    if (status != WL_AP_LISTENING) {
+        Serial.println("First attempt failed, trying with channel 6...");
+        status = WiFi.beginAP(AP_SSID, AP_PASSWORD, 6);
+    }
+    
+    if (status != WL_AP_LISTENING) {
+        Serial.println("ERROR: Failed to create Access Point!");
+        return false;
+    }
+    
+    // Wait for AP to start
+    for (int i = 0; i < 10; i++) {
+        delay(1000);
+        if (WiFi.status() == WL_AP_LISTENING) {
+            Serial.println("AP is now listening!");
+            break;
+        }
+    }
+    
+    apMode = true;
+    return true;
+}
+
+IPAddress WiFiManager::getIPAddress() {
+    if (apMode) {
+        return WiFi.localIP(); // In AP mode, localIP() returns AP IP
+    } else {
+        return WiFi.localIP(); // In station mode, localIP() returns assigned IP
+    }
+}
+
+bool WiFiManager::isConnectedToWiFi() {
+    return !apMode && WiFi.status() == WL_CONNECTED;
+}
+
+String WiFiManager::getConnectionStatus() {
+    String status = "";
+    if (apMode) {
+        status = "Access Point Mode - SSID: " + String(AP_SSID);
+    } else if (WiFi.status() == WL_CONNECTED) {
+        status = "Connected to: " + WiFi.SSID() + " (IP: " + WiFi.localIP().toString() + ")";
+    } else {
+        status = "Not connected";
+    }
+    return status;
+}
+
+void WiFiManager::handleConnectWiFi(WiFiClient& client, String request, String body) {
+    // Parse WiFi credentials from POST body
+    parseFormData(body);
+    
+    if (wifiSSID.length() > 0) {
+        Serial.println("Attempting to connect to WiFi from web interface...");
+        bool connected = connectToWiFi(wifiSSID, wifiPassword);
+        
+        String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
+        if (connected) {
+            response += "<h2>WiFi Connected!</h2>";
+            response += "<p>Successfully connected to: " + wifiSSID + "</p>";
+            response += "<p>IP Address: " + WiFi.localIP().toString() + "</p>";
+            response += "<p>You can now access the board at: http://" + WiFi.localIP().toString() + "</p>";
+        } else {
+            response += "<h2>WiFi Connection Failed</h2>";
+            response += "<p>Could not connect to: " + wifiSSID + "</p>";
+            response += "<p>Please check your credentials and try again.</p>";
+            response += "<p>Access Point mode will remain active.</p>";
+        }
+        response += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
+        response += "</body></html>";
+        sendResponse(client, response);
+    } else {
+        String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
+        response += "<h2>Error</h2>";
+        response += "<p>No WiFi SSID provided.</p>";
+        response += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
+        response += "</body></html>";
+        sendResponse(client, response);
+    }
 }
 
 #endif // WIFI_MANAGER_WIFININA_ENABLED
