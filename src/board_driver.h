@@ -37,23 +37,6 @@ class BoardDriver
 {
 private:
     Adafruit_NeoPixel strip;
-    // ---------------------------
-    // Row Input Pins (Safe pins for ESP32: 4, 13, 14, [16-17], 18, 19, 21, 22, 23, 25, 26, 27, 32, 33)
-    // ---------------------------
-    static constexpr int rowPins[NUM_ROWS] = {23, 22, 21, 19, 18, 17, 16, 4};
-    // ---------------------------
-    // LED Strip Col/Row to Pixel index mapping
-    // ---------------------------
-    static constexpr int RowColToLEDindexMap[NUM_ROWS][NUM_COLS] = {
-        {0, 1, 2, 3, 4, 5, 6, 7},
-        {15, 14, 13, 12, 11, 10, 9, 8},
-        {16, 17, 18, 19, 20, 21, 22, 23},
-        {31, 30, 29, 28, 27, 26, 25, 24},
-        {32, 33, 34, 35, 36, 37, 38, 39},
-        {47, 46, 45, 44, 43, 42, 41, 40},
-        {48, 49, 50, 51, 52, 53, 54, 55},
-        {63, 62, 61, 60, 59, 58, 57, 56},
-    };
     bool sensorState[NUM_ROWS][NUM_COLS];
     bool sensorPrev[NUM_ROWS][NUM_COLS];
 

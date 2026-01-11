@@ -5,6 +5,24 @@
 // BoardDriver Implementation
 // ---------------------------
 
+// ---------------------------
+// Row Input Pins (Safe pins for ESP32: 4, 13, 14, [16-17], 18, 19, 21, 22, 23, 25, 26, 27, 32, 33)
+// ---------------------------
+static constexpr int rowPins[NUM_ROWS] = {23, 22, 21, 19, 18, 17, 16, 4};
+// ---------------------------
+// LED Strip Col/Row to Pixel index mapping
+// ---------------------------
+static constexpr int RowColToLEDindexMap[NUM_ROWS][NUM_COLS] = {
+    {0, 1, 2, 3, 4, 5, 6, 7},
+    {15, 14, 13, 12, 11, 10, 9, 8},
+    {16, 17, 18, 19, 20, 21, 22, 23},
+    {31, 30, 29, 28, 27, 26, 25, 24},
+    {32, 33, 34, 35, 36, 37, 38, 39},
+    {47, 46, 45, 44, 43, 42, 41, 40},
+    {48, 49, 50, 51, 52, 53, 54, 55},
+    {63, 62, 61, 60, 59, 58, 57, 56},
+};
+
 BoardDriver::BoardDriver() : strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800)
 {
 }
@@ -112,7 +130,12 @@ void BoardDriver::setSquareLED(int row, int col, uint32_t color)
 void BoardDriver::setSquareLED(int row, int col, uint8_t r, uint8_t g, uint8_t b, uint8_t w)
 {
     int pixelIndex = getPixelIndex(row, col);
-    strip.setPixelColor(pixelIndex, strip.Color(r, g, b, w));
+    uint32_t color;
+    float multiplier = 1.0f;
+    if (pixelIndex % 2 == 0)
+        multiplier = 0.7f; // Dim dark squares to 70% brightness because they appear brighter due to the contrast
+    (w == 255 && r == 0 && g == 0 && b == 0) ? color = strip.Color(255 * multiplier, 255 * multiplier, 255 * multiplier) : color = strip.Color(r * multiplier, g * multiplier, b * multiplier);
+    strip.setPixelColor(pixelIndex, color);
 }
 
 void BoardDriver::showLEDs()
