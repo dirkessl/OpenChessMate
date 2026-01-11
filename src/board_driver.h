@@ -62,7 +62,7 @@ public:
     void fireworkAnimation();
     void captureAnimation();
     void promotionAnimation(int col);
-    void blinkSquare(int row, int col, int times = 3);
+    void blinkSquare(int row, int col, uint8_t r, uint8_t g, uint8_t b, int times = 4);
 
     // Setup Functions
     bool checkInitialBoard(const char initialBoard[8][8]);

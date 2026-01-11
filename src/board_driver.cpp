@@ -128,7 +128,7 @@ void BoardDriver::setSquareLED(int row, int col, uint8_t r, uint8_t g, uint8_t b
     int pixelIndex = getPixelIndex(row, col);
     if (pixelIndex % 2 == 0)
         multiplier = 0.7f; // Dim dark squares to 70% brightness because they appear brighter due to the contrast
-    (w == 255 && ((r == 0 && g == 0 && b == 0) || (r == 255 && g == 255 && b == 255))) ? color = strip.Color(255 * multiplier, 255 * multiplier, 255 * multiplier) : color = strip.Color(r * multiplier, g * multiplier, b * multiplier);
+    (w > 0 && ((r == 0 && g == 0 && b == 0) || (r == 255 && g == 255 && b == 255))) ? color = strip.Color(255 * multiplier, 255 * multiplier, 255 * multiplier) : color = strip.Color(r * multiplier, g * multiplier, b * multiplier);
     strip.setPixelColor(pixelIndex, color);
 }
 
@@ -137,16 +137,15 @@ void BoardDriver::showLEDs()
     strip.show();
 }
 
-void BoardDriver::blinkSquare(int row, int col, int times)
+void BoardDriver::blinkSquare(int row, int col, uint8_t r, uint8_t g, uint8_t b, int times)
 {
-    int pixelIndex = getPixelIndex(row, col);
     for (int i = 0; i < times; i++)
     {
-        strip.setPixelColor(pixelIndex, strip.Color(0, 0, 0, 255));
-        strip.show();
+        setSquareLED(row, col, r, g, b);
+        showLEDs();
         delay(200);
-        strip.setPixelColor(pixelIndex, 0);
-        strip.show();
+        setSquareLED(row, col, 0, 0, 0);
+        showLEDs();
         delay(200);
     }
 }

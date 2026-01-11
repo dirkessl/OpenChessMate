@@ -572,7 +572,7 @@ String WiFiManagerESP32::generateBoardViewPage()
     html += "<head>";
     html += "<meta charset=\"UTF-8\">";
     html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
-    html += "<meta http-equiv=\"refresh\" content=\"2\">"; // Auto-refresh every 2 seconds
+    html += "<meta http-equiv=\"refresh\" content=\"1\">"; // Auto-refreshing every 1 second (that's really stupid, the browser will show a white flash on every refresh, reloading only the board data via JS would be better)
     html += "<title>OpenChess Board View</title>";
     html += "<style>";
     html += "body { font-family: Arial, sans-serif; background-color: #5c5d5e; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }";
@@ -653,7 +653,7 @@ String WiFiManagerESP32::generateBoardViewPage()
     }
 
     html += "<div class=\"info\">";
-    html += "<p>Auto-refreshing every 2 seconds</p>";
+    html += "<p>Auto-refreshing every 1 second</p>";
     html += "<div id=\"evaluation\" style=\"margin-top: 15px; padding: 15px; background-color: #444; border-radius: 5px;\">";
     html += "<div style=\"text-align: center; margin-bottom: 10px; color: #ec8703; font-weight: bold;\">Stockfish Evaluation</div>";
     html += "<div style=\"position: relative; width: 100%; height: 40px; background-color: #333; border: 2px solid #555; border-radius: 5px; overflow: hidden;\">";
@@ -768,17 +768,17 @@ String WiFiManagerESP32::getPieceSymbol(char piece)
     case 'P':
         return "♙"; // White Pawn
     case 'r':
-        return "♜"; // Black Rook
+        return "♖"; // Black Rook
     case 'n':
-        return "♞"; // Black Knight
+        return "♘"; // Black Knight
     case 'b':
-        return "♝"; // Black Bishop
+        return "♗"; // Black Bishop
     case 'q':
-        return "♛"; // Black Queen
+        return "♕"; // Black Queen
     case 'k':
-        return "♚"; // Black King
+        return "♔"; // Black King
     case 'p':
-        return "♟"; // Black Pawn
+        return "♙"; // Black Pawn
     default:
         return String(piece);
     }

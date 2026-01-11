@@ -74,7 +74,6 @@ private:
   void showConnectionStatus();
   void showBotMoveIndicator(int fromRow, int fromCol, int toRow, int toCol);
   void waitForBotMoveCompletion(int fromRow, int fromCol, int toRow, int toCol);
-  void confirmMoveCompletion();
   void confirmSquareCompletion(int row, int col);
   void printCurrentBoard();
 

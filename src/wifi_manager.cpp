@@ -618,7 +618,7 @@ String WiFiManager::generateBoardViewPage()
     html += "<head>";
     html += "<meta charset=\"UTF-8\">";
     html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
-    html += "<meta http-equiv=\"refresh\" content=\"2\">"; // Auto-refresh every 2 seconds
+    html += "<meta http-equiv=\"refresh\" content=\"1\">"; // Auto-refresh every 1 second
     html += "<title>OpenChess Board View</title>";
     html += "<style>";
     html += "body { font-family: Arial, sans-serif; background-color: #5c5d5e; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }";
@@ -699,7 +699,7 @@ String WiFiManager::generateBoardViewPage()
     }
 
     html += "<div class=\"info\">";
-    html += "<p>Auto-refreshing every 2 seconds</p>";
+    html += "<p>Auto-refreshing every 1 second</p>";
     html += "<div id=\"evaluation\" style=\"margin-top: 15px; padding: 15px; background-color: #444; border-radius: 5px;\">";
     html += "<div style=\"text-align: center; margin-bottom: 10px; color: #ec8703; font-weight: bold;\">Stockfish Evaluation</div>";
     html += "<div style=\"position: relative; width: 100%; height: 40px; background-color: #333; border: 2px solid #555; border-radius: 5px; overflow: hidden;\">";

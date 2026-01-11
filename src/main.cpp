@@ -211,8 +211,8 @@ void loop()
 
   // Update board state for WiFi display
   static unsigned long lastBoardUpdate = 0;
-  if (millis() - lastBoardUpdate > 500)
-  { // Update every 500ms
+  if (millis() - lastBoardUpdate > 100)
+  { // Update every 100ms (that's really stupid, should immediately upate when there is any change instead of polling)
     char currentBoard[8][8];
     bool boardUpdated = false;
 

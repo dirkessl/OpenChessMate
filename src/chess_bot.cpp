@@ -223,7 +223,7 @@ void ChessBot::update()
                                 Serial.println(" pieces!");
 
                                 // Flash red to indicate error
-                                _boardDriver->blinkSquare(row, col, 3);
+                                _boardDriver->blinkSquare(row, col, 255, 0, 0); // Blink red
                             }
                         }
                     }
@@ -298,7 +298,7 @@ void ChessBot::update()
                         else
                         {
                             Serial.println("Invalid move! Please try again.");
-                            _boardDriver->blinkSquare(row, col, 3); // Blink red for invalid move
+                            _boardDriver->blinkSquare(row, col, 255, 0, 0); // Blink red for invalid move
 
                             // Restore move indicators - piece is still selected
                             _boardDriver->clearAllLEDs();
@@ -1245,48 +1245,9 @@ void ChessBot::waitForBotMoveCompletion(int fromRow, int fromCol, int toRow, int
     }
 }
 
-void ChessBot::confirmMoveCompletion()
-{
-    // This will be called with specific square coordinates when we need them
-    confirmSquareCompletion(-1, -1); // Default - no specific square
-}
-
 void ChessBot::confirmSquareCompletion(int row, int col)
 {
-    if (row >= 0 && col >= 0)
-    {
-        // Flash specific square twice
-        for (int flash = 0; flash < 2; flash++)
-        {
-            _boardDriver->setSquareLED(row, col, 0, 255, 0); // Green flash
-            _boardDriver->showLEDs();
-            delay(150);
-
-            _boardDriver->clearAllLEDs();
-            _boardDriver->showLEDs();
-            delay(150);
-        }
-    }
-    else
-    {
-        // Flash entire board (fallback for when we don't have specific coords)
-        for (int flash = 0; flash < 2; flash++)
-        {
-            for (int r = 0; r < 8; r++)
-            {
-                for (int c = 0; c < 8; c++)
-                {
-                    _boardDriver->setSquareLED(r, c, 0, 255, 0); // Green flash
-                }
-            }
-            _boardDriver->showLEDs();
-            delay(150);
-
-            _boardDriver->clearAllLEDs();
-            _boardDriver->showLEDs();
-            delay(150);
-        }
-    }
+    _boardDriver->blinkSquare(row, col, 0, 255, 0, 3); // Green flash
 }
 
 void ChessBot::printCurrentBoard()
