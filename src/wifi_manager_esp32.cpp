@@ -96,26 +96,22 @@ void WiFiManagerESP32::begin()
 
     // Set up web server routes with async handlers
     server.on("/", HTTP_GET, [this](AsyncWebServerRequest *request)
-              { this->handleRoot(request); });
+              { request->send(200, "text/html", this->indexHTML()); });
 
     server.on("/game", HTTP_GET, [this](AsyncWebServerRequest *request)
-              {
-        String gameSelectionPage = this->generateGameSelectionPage();
-        request->send(200, "text/html", gameSelectionPage); });
+              { request->send(200, "text/html", this->gameModeSelectHTML()); });
 
     server.on("/board", HTTP_GET, [this](AsyncWebServerRequest *request)
-              { this->handleBoard(request); });
+              { request->send(200, "application/json", this->boardUpdateJSON()); });
 
     server.on("/board-view", HTTP_GET, [this](AsyncWebServerRequest *request)
-              { this->handleBoardView(request); });
+              { request->send(200, "text/html", this->boardViewHTML()); });
 
     server.on("/board-edit", HTTP_GET, [this](AsyncWebServerRequest *request)
-              {
-        String boardEditPage = this->generateBoardEditPage();
-        request->send(200, "text/html", boardEditPage); });
+              { request->send(200, "text/html", this->boardEditHTML()); });
 
     server.on("/board-edit", HTTP_POST, [this](AsyncWebServerRequest *request)
-              { this->handleBoardEdit(request); });
+              { this->handleBoardEditSuccess(request); });
 
     server.on("/connect-wifi", HTTP_POST, [this](AsyncWebServerRequest *request)
               { this->handleConnectWiFi(request); });
@@ -128,11 +124,11 @@ void WiFiManagerESP32::begin()
 
     server.onNotFound([this](AsyncWebServerRequest *request)
                       {
-        String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
-        response += "<h2>404 - Page Not Found</h2>";
-        response += "<p><a href='/' style='color:#ec8703;'>Back to Home</a></p>";
-        response += "</body></html>";
-        request->send(404, "text/html", response); });
+        String resp = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
+        resp += "<h2>404 - Page Not Found</h2>";
+        resp += "<p><a href='/' style='color:#ec8703;'>Back to Home</a></p>";
+        resp += "</body></html>";
+        request->send(404, "text/html", resp); });
 
     // Start the web server
     Serial.println("Debug: Starting web server...");
@@ -141,144 +137,9 @@ void WiFiManagerESP32::begin()
     Serial.println("WiFi Manager initialization complete!");
 }
 
-void WiFiManagerESP32::handleRoot(AsyncWebServerRequest *request)
+String WiFiManagerESP32::indexHTML()
 {
-    String webpage = generateWebPage();
-    sendResponse(request, webpage);
-}
-
-void WiFiManagerESP32::handleConfigSubmit(AsyncWebServerRequest *request)
-{
-    // Parse form data from async request
-    if (request->hasArg("ssid"))
-        wifiSSID = request->arg("ssid");
-    if (request->hasArg("password"))
-        wifiPassword = request->arg("password");
-    Serial.println("Configuration updated:");
-    Serial.println("SSID: " + wifiSSID);
-    Serial.println("Password: " + wifiPassword);
-    prefs.begin("wifiCreds", false);
-    prefs.putString("ssid", wifiSSID);
-    prefs.putString("pass", wifiPassword);
-    prefs.end();
-
-    String html = R"rawliteral(
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OpenChess</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #5c5d5e;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-            }
-
-            .container {
-                background-color: #353434;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                padding: 30px;
-                width: 100%;
-                max-width: 500px;
-            }
-
-            h2 {
-                text-align: center;
-                color: #ec8703;
-                font-size: 30px;
-                margin-bottom: 20px;
-            }
-
-            h3 {
-                text-align: center;
-                color: #ec8703;
-                font-size: 16px;
-                margin-bottom: 20px;
-            }
-
-            label {
-                font-size: 16px;
-                color: #ec8703;
-                margin-bottom: 8px;
-                display: block;
-            }
-            
-            input[type="submit"], .button {
-                background-color: #ec8703;
-                color: white;
-                border: none;
-                padding: 15px;
-                font-size: 16px;
-                width: 100%;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-                text-decoration: none;
-                display: block;
-                text-align: center;
-                margin: 10px auto;
-                box-sizing: border-box;
-            }
-
-            input[type="submit"]:hover, .button:hover {
-                background-color: #ebca13;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-        <h2>Configuration Saved!</h2>
-        <h3>
-            <span>WiFi SSID:</span>
-            <span style="color:#ffffff;">%SSID%</span>
-        </h3>
-            <h3>
-            <span>WiFi Password:</span>
-            <span style="color:#ffffff;">%PASSWORD%</span>
-        </h3>
-        <a href='/game' class="button">GameMode Selection</a>
-        </div>  
-    </body>
-</html>
-)rawliteral";
-    html.replace("%SSID%", wifiSSID);
-    html.replace("%PASSWORD%", wifiPassword);
-    sendResponse(request, html);
-}
-
-void WiFiManagerESP32::handleGameSelection(AsyncWebServerRequest *request)
-{
-    int mode = 0;
-
-    if (request->hasArg("gamemode"))
-    {
-        mode = request->arg("gamemode").toInt();
-    }
-
-    Serial.print("Game mode selected via web: ");
-    Serial.println(mode);
-
-    gameMode = String(mode);
-
-    String response = "{\"status\":\"success\",\"message\":\"Game mode selected\",\"mode\":" + String(mode) + "}";
-    sendResponse(request, response, "application/json");
-}
-
-void WiFiManagerESP32::sendResponse(AsyncWebServerRequest *request, String content, String contentType)
-{
-    request->send(200, contentType, content);
-}
-
-String WiFiManagerESP32::generateWebPage()
-{
-    String html = R"rawliteral(
+    String resp = R"rawliteral(
     <html>
     <head>
         <meta charset="UTF-8">
@@ -386,15 +247,15 @@ String WiFiManagerESP32::generateWebPage()
     </body>
 </html>
     )rawliteral";
-    html.replace("%SSID%", wifiSSID);
-    html.replace("%PASSWORD%", wifiPassword);
-    html.replace("%STATUS%", getConnectionStatus());
-    return html;
+    resp.replace("%SSID%", wifiSSID);
+    resp.replace("%PASSWORD%", wifiPassword);
+    resp.replace("%STATUS%", WiFi.status() == WL_CONNECTED ? "Connected to: " + WiFi.SSID() + " (IP: " + WiFi.localIP().toString() + ")" + " | AP also available at: " + WiFi.softAPIP().toString() : "Access Point Mode - SSID: " + String(AP_SSID) + " (IP: " + WiFi.softAPIP().toString() + ")");
+    return resp;
 }
 
-String WiFiManagerESP32::generateGameSelectionPage()
+String WiFiManagerESP32::gameModeSelectHTML()
 {
-    String html = R"rawliteral(
+    String resp = R"rawliteral(
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -606,87 +467,48 @@ String WiFiManagerESP32::generateGameSelectionPage()
 </html>
     )rawliteral";
 
-    return html;
+    return resp;
 }
 
-bool WiFiManagerESP32::isClientConnected()
+String WiFiManagerESP32::boardUpdateJSON()
 {
-    return WiFi.softAPgetStationNum() > 0;
-}
-
-int WiFiManagerESP32::getSelectedGameMode()
-{
-    return gameMode.toInt();
-}
-
-void WiFiManagerESP32::resetGameSelection()
-{
-    gameMode = "0";
-}
-
-void WiFiManagerESP32::updateBoardState(char newBoardState[8][8])
-{
-    updateBoardState(newBoardState, 0.0);
-}
-
-void WiFiManagerESP32::updateBoardState(char newBoardState[8][8], float evaluation)
-{
-    for (int row = 0; row < 8; row++)
-    {
-        for (int col = 0; col < 8; col++)
-        {
-            boardState[row][col] = newBoardState[row][col];
-        }
-    }
-    boardStateValid = true;
-    boardEvaluation = evaluation;
-}
-
-void WiFiManagerESP32::handleBoard(AsyncWebServerRequest *request)
-{
-    String json = "{";
-    json += "\"board\":[";
+    String resp = "{";
+    resp += "\"board\":[";
 
     for (int row = 0; row < 8; row++)
     {
-        json += "[";
+        resp += "[";
         for (int col = 0; col < 8; col++)
         {
             char piece = boardState[row][col];
             if (piece == ' ')
             {
-                json += "\"\"";
+                resp += "\"\"";
             }
             else
             {
-                json += "\"";
-                json += String(piece);
-                json += "\"";
+                resp += "\"";
+                resp += String(piece);
+                resp += "\"";
             }
             if (col < 7)
-                json += ",";
+                resp += ",";
         }
-        json += "]";
+        resp += "]";
         if (row < 7)
-            json += ",";
+            resp += ",";
     }
 
-    json += "],";
-    json += "\"valid\":" + String(boardStateValid ? "true" : "false");
-    json += ",\"evaluation\":" + String(boardEvaluation, 2);
-    json += "}";
-    sendResponse(request, json, "application/json");
+    resp += "],";
+    resp += "\"valid\":" + String(boardStateValid ? "true" : "false");
+    resp += ",\"evaluation\":" + String(boardEvaluation, 2);
+    resp += "}";
+    return resp;
 }
 
-void WiFiManagerESP32::handleBoardView(AsyncWebServerRequest *request)
+String WiFiManagerESP32::boardViewHTML()
 {
-    String boardViewPage = generateBoardViewPage();
-    sendResponse(request, boardViewPage, "text/html");
-}
-
-String WiFiManagerESP32::generateBoardViewPage()
-{
-    String html = R"rawliteral(
+    String resp = R"rawliteral(
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -976,47 +798,14 @@ String WiFiManagerESP32::generateBoardViewPage()
         boardHTML += "<div class=\"status\">Board state: Not available</div>";
         boardHTML += "<p style=\"text-align: center; color: #ec8703;\">No active game detected. Start a game to view the board.</p>";
     }
-    html.replace("%BOARD_HTML%", boardHTML);
+    resp.replace("%BOARD_HTML%", boardHTML);
 
-    return html;
+    return resp;
 }
 
-String WiFiManagerESP32::getPieceSymbol(char piece)
+String WiFiManagerESP32::boardEditHTML()
 {
-    switch (piece)
-    {
-    case 'R':
-        return "♖"; // White Rook
-    case 'N':
-        return "♘"; // White Knight
-    case 'B':
-        return "♗"; // White Bishop
-    case 'Q':
-        return "♕"; // White Queen
-    case 'K':
-        return "♔"; // White King
-    case 'P':
-        return "♙"; // White Pawn
-    case 'r':
-        return "♖"; // Black Rook
-    case 'n':
-        return "♘"; // Black Knight
-    case 'b':
-        return "♗"; // Black Bishop
-    case 'q':
-        return "♕"; // Black Queen
-    case 'k':
-        return "♔"; // Black King
-    case 'p':
-        return "♙"; // Black Pawn
-    default:
-        return String(piece);
-    }
-}
-
-String WiFiManagerESP32::generateBoardEditPage()
-{
-    String html = R"rawliteral(
+    String resp = R"rawliteral(
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -1249,44 +1038,25 @@ String WiFiManagerESP32::generateBoardEditPage()
             boardHTML += "</div>";
         }
     }
-    html.replace("%BOARD_HTML%", boardHTML);
+    resp.replace("%BOARD_HTML%", boardHTML);
 
-    return html;
+    return resp;
 }
 
-void WiFiManagerESP32::handleBoardEdit(AsyncWebServerRequest *request)
-{
-    parseBoardEditData(request);
-
-    String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
-    response += "<h2>Board Updated!</h2>";
-    response += "<p>Your board changes have been applied.</p>";
-    response += "<p><a href='/board-view' style='color:#ec8703;'>View Board</a></p>";
-    response += "<p><a href='/board-edit' style='color:#ec8703;'>Edit Again</a></p>";
-    response += "<p><a href='/' style='color:#ec8703;'>Back to Home</a></p>";
-    response += "</body></html>";
-    sendResponse(request, response);
-}
-
-void WiFiManagerESP32::parseBoardEditData(AsyncWebServerRequest *request)
+void WiFiManagerESP32::handleBoardEditSuccess(AsyncWebServerRequest *request)
 {
     for (int row = 0; row < 8; row++)
     {
         for (int col = 0; col < 8; col++)
         {
             String paramName = "r" + String(row) + "c" + String(col);
-
             if (request->hasArg(paramName.c_str()))
             {
                 String value = request->arg(paramName.c_str());
                 if (value.length() > 0)
-                {
                     pendingBoardEdit[row][col] = value.charAt(0);
-                }
                 else
-                {
                     pendingBoardEdit[row][col] = ' ';
-                }
             }
             else
             {
@@ -1294,9 +1064,231 @@ void WiFiManagerESP32::parseBoardEditData(AsyncWebServerRequest *request)
             }
         }
     }
-
     hasPendingEdit = true;
     Serial.println("Board edit received and stored");
+
+    String resp = R"rawliteral(
+<html>
+<body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>
+    <h2>Board Updated!</h2>
+    <p>Your board changes have been applied.</p>
+    <p><a href='/board-view' style='color:#ec8703;'>View Board</a></p>
+    <p><a href='/board-edit' style='color:#ec8703;'>Edit Again</a></p>
+    <p><a href='/' style='color:#ec8703;'>Back to Home</a></p>
+</body>
+</html>
+    )rawliteral";
+    request->send(200, "text/html", resp);
+}
+
+void WiFiManagerESP32::handleConnectWiFi(AsyncWebServerRequest *request)
+{
+    if (request->hasArg("ssid"))
+        wifiSSID = request->arg("ssid");
+    if (request->hasArg("password"))
+        wifiPassword = request->arg("password");
+
+    if (wifiSSID.length() > 0 && wifiPassword.length() > 0)
+    {
+        Serial.println("Attempting to connect to WiFi from web interface...");
+        bool connected = connectToWiFi(wifiSSID, wifiPassword);
+
+        String resp = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
+        if (connected)
+        {
+            resp += "<h2>WiFi Connected!</h2>";
+            resp += "<p>Successfully connected to: " + wifiSSID + "</p>";
+            resp += "<p>Station IP Address: " + WiFi.localIP().toString() + "</p>";
+            resp += "<p>Access Point still available at: " + WiFi.softAPIP().toString() + "</p>";
+            resp += "<p>You can access the board at either IP address.</p>";
+            prefs.begin("wifiCreds", false);
+            prefs.putString("ssid", wifiSSID);
+            prefs.putString("pass", wifiPassword);
+            prefs.end();
+        }
+        else
+        {
+            resp += "<h2>WiFi Connection Failed</h2>";
+            resp += "<p>Could not connect to: " + wifiSSID + "</p>";
+            resp += "<p>Please check your credentials and try again.</p>";
+            resp += "<p>Access Point mode is still available at: " + WiFi.softAPIP().toString() + "</p>";
+        }
+        resp += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
+        resp += "</body></html>";
+        request->send(200, "text/html", resp);
+    }
+    else
+    {
+        String resp = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
+        resp += "<h2>Error</h2>";
+        resp += "<p>No WiFi SSID or Password provided.</p>";
+        resp += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
+        resp += "</body></html>";
+        request->send(200, "text/html", resp);
+    }
+}
+
+void WiFiManagerESP32::handleConfigSubmit(AsyncWebServerRequest *request)
+{
+    // Parse form data from async request
+    if (request->hasArg("ssid"))
+        wifiSSID = request->arg("ssid");
+    if (request->hasArg("password"))
+        wifiPassword = request->arg("password");
+    Serial.println("Configuration updated:");
+    Serial.println("SSID: " + wifiSSID);
+    Serial.println("Password: " + wifiPassword);
+    prefs.begin("wifiCreds", false);
+    prefs.putString("ssid", wifiSSID);
+    prefs.putString("pass", wifiPassword);
+    prefs.end();
+
+    String resp = R"rawliteral(
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OpenChess</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #5c5d5e;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            .container {
+                background-color: #353434;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                width: 100%;
+                max-width: 500px;
+            }
+
+            h2 {
+                text-align: center;
+                color: #ec8703;
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                text-align: center;
+                color: #ec8703;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            label {
+                font-size: 16px;
+                color: #ec8703;
+                margin-bottom: 8px;
+                display: block;
+            }
+            
+            input[type="submit"], .button {
+                background-color: #ec8703;
+                color: white;
+                border: none;
+                padding: 15px;
+                font-size: 16px;
+                width: 100%;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                margin: 10px auto;
+                box-sizing: border-box;
+            }
+
+            input[type="submit"]:hover, .button:hover {
+                background-color: #ebca13;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <h2>Configuration Saved!</h2>
+        <h3>
+            <span>WiFi SSID:</span>
+            <span style="color:#ffffff;">%SSID%</span>
+        </h3>
+            <h3>
+            <span>WiFi Password:</span>
+            <span style="color:#ffffff;">%PASSWORD%</span>
+        </h3>
+        <a href='/game' class="button">GameMode Selection</a>
+        </div>  
+    </body>
+</html>
+)rawliteral";
+    resp.replace("%SSID%", wifiSSID);
+    resp.replace("%PASSWORD%", wifiPassword);
+    request->send(200, "text/html", resp);
+}
+
+void WiFiManagerESP32::handleGameSelection(AsyncWebServerRequest *request)
+{
+    int mode = 0;
+    if (request->hasArg("gamemode"))
+        mode = request->arg("gamemode").toInt();
+    gameMode = String(mode);
+    Serial.println("Game mode selected via web: " + gameMode);
+    String resp = "{\"status\":\"success\",\"message\":\"Game mode selected\",\"mode\":" + gameMode + "}";
+    request->send(200, "application/json", resp);
+}
+
+String WiFiManagerESP32::getPieceSymbol(char piece)
+{
+    switch (piece)
+    {
+    case 'R':
+        return "♖"; // White Rook
+    case 'N':
+        return "♘"; // White Knight
+    case 'B':
+        return "♗"; // White Bishop
+    case 'Q':
+        return "♕"; // White Queen
+    case 'K':
+        return "♔"; // White King
+    case 'P':
+        return "♙"; // White Pawn
+    case 'r':
+        return "♖"; // Black Rook
+    case 'n':
+        return "♘"; // Black Knight
+    case 'b':
+        return "♗"; // Black Bishop
+    case 'q':
+        return "♕"; // Black Queen
+    case 'k':
+        return "♔"; // Black King
+    case 'p':
+        return "♙"; // Black Pawn
+    default:
+        return String(piece);
+    }
+}
+
+void WiFiManagerESP32::updateBoardState(char newBoardState[8][8], float evaluation)
+{
+    for (int row = 0; row < 8; row++)
+    {
+        for (int col = 0; col < 8; col++)
+        {
+            boardState[row][col] = newBoardState[row][col];
+        }
+    }
+    boardStateValid = true;
+    boardEvaluation = evaluation;
 }
 
 bool WiFiManagerESP32::getPendingBoardEdit(char editBoard[8][8])
@@ -1368,92 +1360,7 @@ bool WiFiManagerESP32::connectToWiFi(String ssid, String password)
     }
 }
 
-bool WiFiManagerESP32::startAccessPoint()
+bool WiFiManagerESP32::isClientConnected()
 {
-    // AP is already started in begin(), this is just for compatibility
-    return WiFi.softAP(AP_SSID, AP_PASSWORD);
-}
-
-IPAddress WiFiManagerESP32::getIPAddress()
-{
-    // Return station IP if connected, otherwise AP IP
-    if (WiFi.status() == WL_CONNECTED)
-    {
-        return WiFi.localIP();
-    }
-    else
-    {
-        return WiFi.softAPIP();
-    }
-}
-
-bool WiFiManagerESP32::isConnectedToWiFi()
-{
-    return WiFi.status() == WL_CONNECTED;
-}
-
-String WiFiManagerESP32::getConnectionStatus()
-{
-    String status = "";
-    if (WiFi.status() == WL_CONNECTED)
-    {
-        status = "Connected to: " + WiFi.SSID() + " (IP: " + WiFi.localIP().toString() + ")";
-        status += " | AP also available at: " + WiFi.softAPIP().toString();
-    }
-    else
-    {
-        status = "Access Point Mode - SSID: " + String(AP_SSID) + " (IP: " + WiFi.softAPIP().toString() + ")";
-    }
-    return status;
-}
-
-void WiFiManagerESP32::handleConnectWiFi(AsyncWebServerRequest *request)
-{
-    if (request->hasArg("ssid"))
-    {
-        wifiSSID = request->arg("ssid");
-    }
-    if (request->hasArg("password"))
-    {
-        wifiPassword = request->arg("password");
-    }
-
-    if (wifiSSID.length() > 0 && wifiPassword.length() > 0)
-    {
-        Serial.println("Attempting to connect to WiFi from web interface...");
-        bool connected = connectToWiFi(wifiSSID, wifiPassword);
-
-        String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
-        if (connected)
-        {
-            response += "<h2>WiFi Connected!</h2>";
-            response += "<p>Successfully connected to: " + wifiSSID + "</p>";
-            response += "<p>Station IP Address: " + WiFi.localIP().toString() + "</p>";
-            response += "<p>Access Point still available at: " + WiFi.softAPIP().toString() + "</p>";
-            response += "<p>You can access the board at either IP address.</p>";
-            prefs.begin("wifiCreds", false);
-            prefs.putString("ssid", wifiSSID);
-            prefs.putString("pass", wifiPassword);
-            prefs.end();
-        }
-        else
-        {
-            response += "<h2>WiFi Connection Failed</h2>";
-            response += "<p>Could not connect to: " + wifiSSID + "</p>";
-            response += "<p>Please check your credentials and try again.</p>";
-            response += "<p>Access Point mode is still available at: " + WiFi.softAPIP().toString() + "</p>";
-        }
-        response += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
-        response += "</body></html>";
-        sendResponse(request, response);
-    }
-    else
-    {
-        String response = "<html><body style='font-family:Arial;background:#5c5d5e;color:#ec8703;text-align:center;padding:50px;'>";
-        response += "<h2>Error</h2>";
-        response += "<p>No WiFi SSID or Password provided.</p>";
-        response += "<p><a href='/' style='color:#ec8703;'>Back to Configuration</a></p>";
-        response += "</body></html>";
-        sendResponse(request, response);
-    }
+    return WiFi.softAPgetStationNum() > 0;
 }

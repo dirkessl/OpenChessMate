@@ -51,55 +51,40 @@ private:
     char pendingBoardEdit[8][8];
     bool hasPendingEdit;
 
-    // WiFi connection methods
-    bool startAccessPoint();
-    IPAddress getIPAddress();
-    bool isConnectedToWiFi();
-
     // Web interface methods
-    String generateWebPage();
-    String generateGameSelectionPage();
-    String generateBoardViewPage();
-    String generateBoardEditPage();
-    String getPieceSymbol(char piece);
-    void handleRoot(AsyncWebServerRequest *request);
-    void handleGameSelection(AsyncWebServerRequest *request);
-    void handleConfigSubmit(AsyncWebServerRequest *request);
-    void handleBoard(AsyncWebServerRequest *request);
-    void handleBoardView(AsyncWebServerRequest *request);
-    void handleBoardEdit(AsyncWebServerRequest *request);
+    String indexHTML();
+    String gameModeSelectHTML();
+    String boardUpdateJSON();
+    String boardViewHTML();
+    String boardEditHTML();
+    void handleBoardEditSuccess(AsyncWebServerRequest *request);
     void handleConnectWiFi(AsyncWebServerRequest *request);
-    void sendResponse(AsyncWebServerRequest *request, String content, String contentType = "text/html");
-    void parseFormData(String data);
-    void parseBoardEditData(AsyncWebServerRequest *request);
+    void handleConfigSubmit(AsyncWebServerRequest *request);
+    void handleGameSelection(AsyncWebServerRequest *request);
+
+    String getPieceSymbol(char piece);
 
 public:
     WiFiManagerESP32(BoardDriver *boardDriver);
     void begin();
-    bool isClientConnected();
-    bool connectToWiFi(String ssid, String password);
 
     // Configuration getters
     String getWiFiSSID() { return wifiSSID; }
     String getWiFiPassword() { return wifiPassword; }
-    String getGameMode() { return gameMode; }
-
     // Game selection via web
-    int getSelectedGameMode();
-    void resetGameSelection();
-
+    int getSelectedGameMode() { return gameMode.toInt(); }
+    void resetGameSelection() { gameMode = "0"; };
     // Board state management
     void updateBoardState(char newBoardState[8][8]);
-    void updateBoardState(char newBoardState[8][8], float evaluation);
+    void updateBoardState(char newBoardState[8][8], float evaluation = 0.0f);
     bool hasValidBoardState() { return boardStateValid; }
     float getEvaluation() { return boardEvaluation; }
-
     // Board edit management
     bool getPendingBoardEdit(char editBoard[8][8]);
     void clearPendingEdit();
-
-    // WiFi status
-    String getConnectionStatus();
+    // WiFi connection management
+    bool connectToWiFi(String ssid, String password);
+    bool isClientConnected();
 };
 
 #endif // WIFI_MANAGER_ESP32_H
