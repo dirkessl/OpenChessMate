@@ -19,6 +19,13 @@ class ChessEngine {
   bool isValidSquare(int row, int col);
   char getPieceColor(char piece);
 
+  // Check detection helpers
+  void getPseudoLegalMoves(const char board[8][8], int row, int col, int& moveCount, int moves[][2]);
+  bool isSquareUnderAttack(const char board[8][8], int row, int col, char defendingColor);
+  bool findKing(const char board[8][8], char kingColor, int& kingRow, int& kingCol);
+  bool wouldMoveLeaveKingInCheck(const char board[8][8], int fromRow, int fromCol, int toRow, int toCol);
+  void makeMove(char board[8][8], int fromRow, int fromCol, int toRow, int toCol, char& capturedPiece);
+
  public:
   ChessEngine();
 
@@ -31,6 +38,9 @@ class ChessEngine {
   // Game state checks
   bool isPawnPromotion(char piece, int targetRow);
   char getPromotedPiece(char piece);
+  bool isKingInCheck(const char board[8][8], char kingColor);
+  bool isCheckmate(const char board[8][8], char kingColor);
+  bool isStalemate(const char board[8][8], char colorToMove);
 
   // Utility functions
   void printMove(int fromRow, int fromCol, int toRow, int toCol);

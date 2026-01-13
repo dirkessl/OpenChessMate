@@ -342,7 +342,6 @@ bool ChessBot::parseStockfishResponse(String response, String& bestMove, float& 
 
 void ChessBot::makeBotMove() {
   Serial.println("=== BOT MOVE CALCULATION ===");
-  Serial.println("Bot is playing as: " + String(isWhiteTurn ? "White" : "Black"));
   showBotThinking();
   String fen = ChessUtils::boardToFEN(board, isWhiteTurn);
   Serial.println("Sending FEN to Stockfish: " + fen);
@@ -410,11 +409,13 @@ void ChessBot::executeBotMove(int fromRow, int fromCol, int toRow, int toCol) {
 }
 
 void ChessBot::showBotThinking() {
+  int green = isWhiteTurn ? 255 : 0;
   _boardDriver->clearAllLEDs();
-  _boardDriver->setSquareLED(0, 0, 0, 0, 255); // Corner LEDs blue
-  _boardDriver->setSquareLED(0, 7, 0, 0, 255);
-  _boardDriver->setSquareLED(7, 0, 0, 0, 255);
-  _boardDriver->setSquareLED(7, 7, 0, 0, 255);
+  // Corner LEDs blue if bot is Black, green/blue if bot is White
+  _boardDriver->setSquareLED(0, 0, 0, green, 255);
+  _boardDriver->setSquareLED(0, 7, 0, green, 255);
+  _boardDriver->setSquareLED(7, 0, 0, green, 255);
+  _boardDriver->setSquareLED(7, 7, 0, green, 255);
   _boardDriver->showLEDs();
 }
 

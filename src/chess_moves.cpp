@@ -16,6 +16,7 @@ const char ChessMoves::INITIAL_BOARD[8][8] = {
 ChessMoves::ChessMoves(BoardDriver* bd, ChessEngine* ce) : boardDriver(bd), chessEngine(ce) {
   // Initialize board state
   initializeBoard();
+  currentTurn = 'w'; // White starts
 }
 
 void ChessMoves::begin() {
@@ -40,6 +41,17 @@ void ChessMoves::update() {
         // Skip empty squares
         if (piece == ' ')
           continue;
+
+        // Check if it's the correct player's turn
+        char pieceColor = (piece >= 'a' && piece <= 'z') ? 'b' : 'w';
+        if (pieceColor != currentTurn) {
+          Serial.printf("Wrong turn! It's %s's turn to move.\n", (currentTurn == 'w') ? "White" : "Black");
+
+          // Flash the square red to indicate wrong turn
+          boardDriver->blinkSquare(row, col, 255, 0, 0, 2);
+
+          continue; // Skip this piece
+        }
 
         Serial.printf("Piece lifted from %c%d\n", (char)('a' + col), row + 1);
 
@@ -233,6 +245,12 @@ void ChessMoves::processMove(int fromRow, int fromCol, int toRow, int toCol, cha
   // Update board state
   board[toRow][toCol] = piece;
   board[fromRow][fromCol] = ' ';
+
+  // Switch turns
+  currentTurn = (currentTurn == 'w') ? 'b' : 'w';
+
+  // Check for check, checkmate, or stalemate
+  checkGameState();
 }
 
 void ChessMoves::checkForPromotion(int targetRow, int targetCol, char piece) {
@@ -319,4 +337,41 @@ void ChessMoves::setBoardState(char newBoardState[8][8]) {
   boardDriver->readSensors();
   boardDriver->updateSensorPrev();
   ChessUtils::printBoard(board);
+}
+
+// Check game state after a move
+void ChessMoves::checkGameState() {
+  const char* colorName = (currentTurn == 'w') ? "White" : "Black";
+
+  // Check for checkmate
+  if (chessEngine->isCheckmate(board, currentTurn)) {
+    const char* winnerName = (currentTurn == 'w') ? "Black" : "White";
+    Serial.printf("CHECKMATE! %s wins!\n", winnerName);
+    boardDriver->fireworkAnimation();
+    return;
+  }
+
+  // Check for stalemate
+  if (chessEngine->isStalemate(board, currentTurn)) {
+    Serial.println("STALEMATE! Game is a draw.");
+    boardDriver->clearAllLEDs();
+    return;
+  }
+
+  // Check for check (but not checkmate)
+  if (chessEngine->isKingInCheck(board, currentTurn)) {
+    Serial.printf("%s is in CHECK!\n", colorName);
+    boardDriver->clearAllLEDs();
+    // Find the king position and blink it red
+    char kingPiece = (currentTurn == 'w') ? 'K' : 'k';
+    for (int row = 0; row < 8; row++) {
+      for (int col = 0; col < 8; col++) {
+        if (board[row][col] == kingPiece) {
+          // Blink the king's square orange/yellow to indicate check
+          boardDriver->blinkSquare(row, col, 255, 100, 0);
+          return;
+        }
+      }
+    }
+  }
 }
