@@ -130,4 +130,8 @@ bool handleGameState(BoardDriver* boardDriver, ChessEngine* engine, const char b
   return false;
 }
 
+void confirmSquareCompletion(BoardDriver* boardDriver, int row, int col) {
+  boardDriver->blinkSquare(row, col, LedColors::ConfirmGreen.r, LedColors::ConfirmGreen.g, LedColors::ConfirmGreen.b, 2);
+}
+
 } // namespace ChessCommon

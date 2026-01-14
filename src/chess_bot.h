@@ -68,7 +68,6 @@ class ChessBot {
   void showBotMoveIndicator(int fromRow, int fromCol, int toRow, int toCol, bool isCapture);
   void waitForBotMoveCompletion(int fromRow, int fromCol, int toRow, int toCol, bool isCapture);
   void waitForBotCastlingCompletion(int kingFromRow, int kingFromCol, int kingToRow, int kingToCol);
-  void confirmSquareCompletion(int row, int col);
 
  public:
   ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, WiFiManagerESP32* _wifiManager, BotDifficulty diff = BOT_MEDIUM, bool playerWhite = true);

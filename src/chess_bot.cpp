@@ -72,7 +72,7 @@ void ChessBot::begin() {
       // Light up entire board green briefly
       for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
-          _boardDriver->setSquareLED(row, col, 0, 255, 0); // Green
+          _boardDriver->setSquareLED(row, col, LedColors::ConfirmGreen.r, LedColors::ConfirmGreen.g, LedColors::ConfirmGreen.b); // Green
         }
       }
       _boardDriver->showLEDs();
@@ -98,7 +98,7 @@ void ChessBot::begin() {
       // Light up entire board red briefly
       for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
-          _boardDriver->setSquareLED(row, col, 255, 0, 0); // Red
+          _boardDriver->setSquareLED(row, col, LedColors::ErrorRed.r, LedColors::ErrorRed.g, LedColors::ErrorRed.b); // Red
         }
       }
       _boardDriver->showLEDs();
@@ -183,7 +183,7 @@ void ChessBot::update() {
                 Serial.printf("ERROR: You tried to pick up %s piece '%c' at %c%d. You can only move %s pieces!\n", (piece >= 'A' && piece <= 'Z') ? "WHITE" : "BLACK", piece, (char)('a' + col), 8 - row, playerIsWhite ? "WHITE" : "BLACK");
 
                 // Flash red to indicate error
-                _boardDriver->blinkSquare(row, col, 255, 0, 0); // Blink red
+                _boardDriver->blinkSquare(row, col, LedColors::ErrorRed.r, LedColors::ErrorRed.g, LedColors::ErrorRed.b); // Blink red
               }
             }
           }
@@ -238,7 +238,7 @@ void ChessBot::update() {
               }
 
               // Flash confirmation on destination square for player move
-              confirmSquareCompletion(row, col);
+              ChessCommon::confirmSquareCompletion(_boardDriver, row, col);
 
               piecePickedUp = false;
               selectedRow = selectedCol = -1;
@@ -260,7 +260,7 @@ void ChessBot::update() {
               }
             } else {
               Serial.println("Invalid move! Please try again.");
-              _boardDriver->blinkSquare(row, col, 255, 0, 0); // Blink red for invalid move
+              _boardDriver->blinkSquare(row, col, LedColors::ErrorRed.r, LedColors::ErrorRed.g, LedColors::ErrorRed.b); // Blink red for invalid move
 
               // Restore move indicators - piece is still selected
               _boardDriver->clearAllLEDs();
@@ -469,7 +469,7 @@ void ChessBot::executeBotMove(int fromRow, int fromCol, int toRow, int toCol) {
   }
 
   // Flash confirmation on the destination square
-  confirmSquareCompletion(toRow, toCol);
+  ChessCommon::confirmSquareCompletion(_boardDriver, toRow, toCol);
 
   // Publish the bot move only after the physical move is completed.
   if (_wifiManager) {
@@ -480,13 +480,13 @@ void ChessBot::executeBotMove(int fromRow, int fromCol, int toRow, int toCol) {
 }
 
 void ChessBot::showBotThinking() {
-  int green = isWhiteTurn ? 255 : 0;
+  LedRGB thinkingColor = isWhiteTurn ? LedColors::BotThinkingWhite : LedColors::BotThinkingBlack;
   _boardDriver->clearAllLEDs();
   // Corner LEDs blue if bot is Black, green/blue if bot is White
-  _boardDriver->setSquareLED(0, 0, 0, green, 255);
-  _boardDriver->setSquareLED(0, 7, 0, green, 255);
-  _boardDriver->setSquareLED(7, 0, 0, green, 255);
-  _boardDriver->setSquareLED(7, 7, 0, green, 255);
+  _boardDriver->setSquareLED(0, 0, thinkingColor.r, thinkingColor.g, thinkingColor.b);
+  _boardDriver->setSquareLED(0, 7, thinkingColor.r, thinkingColor.g, thinkingColor.b);
+  _boardDriver->setSquareLED(7, 0, thinkingColor.r, thinkingColor.g, thinkingColor.b);
+  _boardDriver->setSquareLED(7, 7, thinkingColor.r, thinkingColor.g, thinkingColor.b);
   _boardDriver->showLEDs();
 }
 
@@ -592,19 +592,18 @@ void ChessBot::waitForBotMoveCompletion(int fromRow, int fromCol, int toRow, int
 
   Serial.println("Waiting for you to complete the bot's move...");
 
+  // Set LEDs once at the beginning to avoid flickering
+  _boardDriver->clearAllLEDs();
+  _boardDriver->setSquareLED(fromRow, fromCol, LedColors::PickupCyan.r, LedColors::PickupCyan.g, LedColors::PickupCyan.b);
+  if (isCapture) {
+    _boardDriver->setSquareLED(toRow, toCol, LedColors::AttackRed.r, LedColors::AttackRed.g, LedColors::AttackRed.b);
+  } else {
+    _boardDriver->setSquareLED(toRow, toCol, LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b);
+  }
+  _boardDriver->showLEDs();
+
   while (!moveCompleted) {
     _boardDriver->readSensors();
-
-    // No blinking: keep pickup/source and destination indicators steadily lit.
-    // Also keep the pickup LED on even after the piece is lifted (matches player mode).
-    _boardDriver->clearAllLEDs();
-    _boardDriver->setSquareLED(fromRow, fromCol, LedColors::PickupCyan.r, LedColors::PickupCyan.g, LedColors::PickupCyan.b);
-    if (isCapture) {
-      _boardDriver->setSquareLED(toRow, toCol, LedColors::AttackRed.r, LedColors::AttackRed.g, LedColors::AttackRed.b);
-    } else {
-      _boardDriver->setSquareLED(toRow, toCol, LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b);
-    }
-    _boardDriver->showLEDs();
 
     // Check if piece was picked up from source
     if (!piecePickedUp && !_boardDriver->getSensorState(fromRow, fromCol)) {
@@ -630,6 +629,14 @@ void ChessBot::waitForBotCastlingCompletion(int kingFromRow, int kingFromCol, in
 
   Serial.println("Waiting for you to complete the bot's castling move...");
 
+  // Set LEDs once at the beginning to avoid flickering
+  _boardDriver->clearAllLEDs();
+  _boardDriver->setSquareLED(kingFromRow, kingFromCol, LedColors::PickupCyan.r, LedColors::PickupCyan.g, LedColors::PickupCyan.b);
+  _boardDriver->setSquareLED(kingFromRow, rookFromCol, LedColors::PickupCyan.r, LedColors::PickupCyan.g, LedColors::PickupCyan.b);
+  _boardDriver->setSquareLED(kingToRow, kingToCol, LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b);
+  _boardDriver->setSquareLED(kingToRow, rookToCol, LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b);
+  _boardDriver->showLEDs();
+
   bool kingSourceEmpty = false;
   bool rookSourceEmpty = false;
   bool kingDestOccupied = false;
@@ -643,23 +650,10 @@ void ChessBot::waitForBotCastlingCompletion(int kingFromRow, int kingFromCol, in
     kingDestOccupied = _boardDriver->getSensorState(kingToRow, kingToCol);
     rookDestOccupied = _boardDriver->getSensorState(kingToRow, rookToCol);
 
-    // No blinking: keep both source squares and both destination squares lit until completion.
-    // This matches player-mode behavior and avoids losing the pickup indicator after pickup.
-    _boardDriver->clearAllLEDs();
-    _boardDriver->setSquareLED(kingFromRow, kingFromCol, LedColors::PickupCyan.r, LedColors::PickupCyan.g, LedColors::PickupCyan.b);
-    _boardDriver->setSquareLED(kingFromRow, rookFromCol, LedColors::PickupCyan.r, LedColors::PickupCyan.g, LedColors::PickupCyan.b);
-    _boardDriver->setSquareLED(kingToRow, kingToCol, LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b);
-    _boardDriver->setSquareLED(kingToRow, rookToCol, LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b);
-    _boardDriver->showLEDs();
-
     delay(10);
   }
 
   _boardDriver->clearAllLEDs();
-}
-
-void ChessBot::confirmSquareCompletion(int row, int col) {
-  _boardDriver->blinkSquare(row, col, 0, 255, 0, 3); // Green flash
 }
 
 void ChessBot::setDifficulty(BotDifficulty diff) {

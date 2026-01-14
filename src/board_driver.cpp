@@ -1,4 +1,5 @@
 #include "board_driver.h"
+#include "led_colors.h"
 #include <math.h>
 
 // ---------------------------
@@ -146,8 +147,8 @@ void BoardDriver::showLEDs() {
 void BoardDriver::showConnectingAnimation() {
   // Show each WiFi connection attempt with animated LEDs
   for (int i = 0; i < 8; i++) {
-    setSquareLED(3, i, 0, 0, 255);
-    setSquareLED(4, i, 0, 0, 255);
+    setSquareLED(3, i, LedColors::BotThinkingBlack.r, LedColors::BotThinkingBlack.g, LedColors::BotThinkingBlack.b);
+    setSquareLED(4, i, LedColors::BotThinkingBlack.r, LedColors::BotThinkingBlack.g, LedColors::BotThinkingBlack.b);
     showLEDs();
     delay(100);
   }
@@ -159,7 +160,7 @@ void BoardDriver::blinkSquare(int row, int col, uint8_t r, uint8_t g, uint8_t b,
     setSquareLED(row, col, r, g, b);
     showLEDs();
     delay(200);
-    setSquareLED(row, col, 0, 0, 0);
+    setSquareLED(row, col, LedColors::Off.r, LedColors::Off.g, LedColors::Off.b);
     showLEDs();
     delay(200);
   }
@@ -178,7 +179,7 @@ void BoardDriver::fireworkAnimation() {
         float dist = sqrt(dx * dx + dy * dy);
         int pixelIndex = getPixelIndex(row, col);
         if (fabs(dist - radius) < 0.5)
-          strip.setPixelColor(pixelIndex, strip.Color(255, 255, 255));
+          strip.setPixelColor(pixelIndex, strip.Color(LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b));
         else
           strip.setPixelColor(pixelIndex, 0);
       }
@@ -196,7 +197,7 @@ void BoardDriver::fireworkAnimation() {
         float dist = sqrt(dx * dx + dy * dy);
         int pixelIndex = getPixelIndex(row, col);
         if (fabs(dist - radius) < 0.5)
-          strip.setPixelColor(pixelIndex, strip.Color(255, 255, 255));
+          strip.setPixelColor(pixelIndex, strip.Color(LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b));
         else
           strip.setPixelColor(pixelIndex, 0);
       }
@@ -214,7 +215,7 @@ void BoardDriver::fireworkAnimation() {
         float dist = sqrt(dx * dx + dy * dy);
         int pixelIndex = getPixelIndex(row, col);
         if (fabs(dist - radius) < 0.5)
-          strip.setPixelColor(pixelIndex, strip.Color(255, 255, 255));
+          strip.setPixelColor(pixelIndex, strip.Color(LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b));
         else
           strip.setPixelColor(pixelIndex, 0);
       }
@@ -246,8 +247,8 @@ void BoardDriver::captureAnimation() {
         if (dist >= pulseWidth - 0.5 && dist <= pulseWidth + 0.5) {
           // Alternate between red and orange for capture effect
           uint32_t color = (pulse % 2 == 0)
-                               ? strip.Color(255, 0, 0)    // Red
-                               : strip.Color(255, 165, 0); // Orange
+                               ? strip.Color(LedColors::AttackRed.r, LedColors::AttackRed.g, LedColors::AttackRed.b)     // Red
+                               : strip.Color(LedColors::CheckAmber.r, LedColors::CheckAmber.g, LedColors::CheckAmber.b); // Orange
           strip.setPixelColor(pixelIndex, color);
         } else {
           strip.setPixelColor(pixelIndex, 0);
@@ -263,8 +264,6 @@ void BoardDriver::captureAnimation() {
 }
 
 void BoardDriver::promotionAnimation(int col) {
-  const uint32_t PROMOTION_COLOR = strip.Color(255, 215, 0); // Gold
-
   // Column-based waterfall animation
   for (int step = 0; step < 16; step++) {
     for (int row = 0; row < 8; row++) {
@@ -272,7 +271,7 @@ void BoardDriver::promotionAnimation(int col) {
 
       // Create a golden wave moving up and down the column
       if ((step + row) % 8 < 4) {
-        strip.setPixelColor(pixelIndex, PROMOTION_COLOR);
+        strip.setPixelColor(pixelIndex, strip.Color(LedColors::Gold.r, LedColors::Gold.g, LedColors::Gold.b));
       } else {
         strip.setPixelColor(pixelIndex, 0);
       }
@@ -309,14 +308,14 @@ void BoardDriver::updateSetupDisplay(const char initialBoard[8][8]) {
       if (sensorState[row][col]) {
         // Determine color based on where the piece is placed
         if (row <= 1)
-          setSquareLED(row, col, 0, 0, 255); // Black side
+          setSquareLED(row, col, LedColors::BotThinkingBlack.r, LedColors::BotThinkingBlack.g, LedColors::BotThinkingBlack.b); // Black side
         else if (row >= 6)
-          setSquareLED(row, col, 255, 255, 255); // White side
+          setSquareLED(row, col, LedColors::MoveWhite.r, LedColors::MoveWhite.g, LedColors::MoveWhite.b); // White side
         else
-          setSquareLED(row, col, 255, 0, 0); // Middle rows
+          setSquareLED(row, col, LedColors::ErrorRed.r, LedColors::ErrorRed.g, LedColors::ErrorRed.b); // Middle rows
       } else {
         // No piece detected - turn off LED
-        setSquareLED(row, col, 0, 0, 0);
+        setSquareLED(row, col, LedColors::Off.r, LedColors::Off.g, LedColors::Off.b);
       }
     }
   }

@@ -50,7 +50,7 @@ void ChessMoves::update() {
           Serial.printf("Wrong turn! It's %s's turn to move.\n", (currentTurn == 'w') ? "White" : "Black");
 
           // Flash the square red to indicate wrong turn
-          boardDriver->blinkSquare(row, col, 255, 0, 0, 2);
+          boardDriver->blinkSquare(row, col, LedColors::ErrorRed.r, LedColors::ErrorRed.g, LedColors::ErrorRed.b, 2);
 
           continue; // Skip this piece
         }
@@ -151,7 +151,7 @@ void ChessMoves::update() {
                 captureInProgress = true;
 
                 // Flash the capture square to indicate waiting for piece placement
-                boardDriver->setSquareLED(r2, c2, 255, 0, 0, 100);
+                boardDriver->setSquareLED(r2, c2, LedColors::AttackRed.r, LedColors::AttackRed.g, LedColors::AttackRed.b, 100);
                 boardDriver->showLEDs();
 
                 // Wait for the capturing piece to be placed
@@ -229,15 +229,8 @@ void ChessMoves::update() {
           // Check for pawn promotion
           checkForPromotion(targetRow, targetCol, piece);
 
-          // Confirmation: Double blink destination square (green)
-          for (int blink = 0; blink < 2; blink++) {
-            boardDriver->setSquareLED(targetRow, targetCol, LedColors::ConfirmGreen.r, LedColors::ConfirmGreen.g, LedColors::ConfirmGreen.b);
-            boardDriver->showLEDs();
-            delay(200);
-            boardDriver->setSquareLED(targetRow, targetCol, 0, 0, 0);
-            boardDriver->showLEDs();
-            delay(200);
-          }
+          // Confirmation: Flash destination square green
+          ChessCommon::confirmSquareCompletion(boardDriver, targetRow, targetCol);
         } else {
           Serial.println("Illegal move, reverting");
         }
@@ -343,10 +336,10 @@ void ChessMoves::handlePromotion(int targetRow, int targetCol, char piece) {
   // First wait for the pawn to be removed
   while (boardDriver->getSensorState(targetRow, targetCol)) {
     // Blink the square to indicate action needed
-    boardDriver->setSquareLED(targetRow, targetCol, 255, 215, 0, 50);
+    boardDriver->setSquareLED(targetRow, targetCol, LedColors::Gold.r, LedColors::Gold.g, LedColors::Gold.b, 50);
     boardDriver->showLEDs();
     delay(250);
-    boardDriver->setSquareLED(targetRow, targetCol, 0, 0, 0, 0);
+    boardDriver->setSquareLED(targetRow, targetCol, LedColors::Off.r, LedColors::Off.g, LedColors::Off.b, 0);
     boardDriver->showLEDs();
     delay(250);
 
@@ -359,10 +352,10 @@ void ChessMoves::handlePromotion(int targetRow, int targetCol, char piece) {
   // Then wait for the queen to be placed
   while (!boardDriver->getSensorState(targetRow, targetCol)) {
     // Blink the square to indicate action needed
-    boardDriver->setSquareLED(targetRow, targetCol, 255, 215, 0, 50);
+    boardDriver->setSquareLED(targetRow, targetCol, LedColors::Gold.r, LedColors::Gold.g, LedColors::Gold.b, 50);
     boardDriver->showLEDs();
     delay(250);
-    boardDriver->setSquareLED(targetRow, targetCol, 0, 0, 0, 0);
+    boardDriver->setSquareLED(targetRow, targetCol, LedColors::Off.r, LedColors::Off.g, LedColors::Off.b, 0);
     boardDriver->showLEDs();
     delay(250);
 
@@ -374,10 +367,10 @@ void ChessMoves::handlePromotion(int targetRow, int targetCol, char piece) {
 
   // Final confirmation blink
   for (int i = 0; i < 3; i++) {
-    boardDriver->setSquareLED(targetRow, targetCol, 255, 215, 0, 50);
+    boardDriver->setSquareLED(targetRow, targetCol, LedColors::Gold.r, LedColors::Gold.g, LedColors::Gold.b, 50);
     boardDriver->showLEDs();
     delay(100);
-    boardDriver->setSquareLED(targetRow, targetCol, 0, 0, 0, 0);
+    boardDriver->setSquareLED(targetRow, targetCol, LedColors::Off.r, LedColors::Off.g, LedColors::Off.b, 0);
     boardDriver->showLEDs();
     delay(100);
   }
