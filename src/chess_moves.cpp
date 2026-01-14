@@ -193,12 +193,6 @@ void ChessMoves::update() {
         // Check if piece is replaced in the original spot
         if (targetRow == row && targetCol == col) {
           Serial.println("Piece replaced in original spot");
-          // Blink once to confirm
-          boardDriver->setSquareLED(row, col, 0, 0, 0, 255);
-          boardDriver->showLEDs();
-          delay(200);
-          boardDriver->setSquareLED(row, col, 0, 0, 0, 100);
-          boardDriver->showLEDs();
 
           // Clear all LED effects
           boardDriver->clearAllLEDs();

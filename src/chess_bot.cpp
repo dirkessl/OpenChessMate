@@ -28,6 +28,12 @@ ChessBot::ChessBot(BoardDriver* boardDriver, ChessEngine* chessEngine, WiFiManag
       settings = StockfishSettings::expert();
       break;
   }
+  isWhiteTurn = true;
+  gameStarted = false;
+  gameOver = false;
+  botThinking = false;
+  wifiConnected = false;
+  currentEvaluation = 0.0;
 }
 
 void ChessBot::begin() {
@@ -77,7 +83,6 @@ void ChessBot::begin() {
     gameStarted = false;
     gameOver = false;
     botThinking = false;
-    wifiConnected = false;
     currentEvaluation = 0.0;
     initializeBoard();
     waitForBoardSetup();
@@ -443,6 +448,9 @@ void ChessBot::executeBotMove(int fromRow, int fromCol, int toRow, int toCol) {
 
     // Wait for user to physically complete the bot's move
     waitForBotMoveCompletion(fromRow, fromCol, toRow, toCol, isCapture);
+
+    // Clear LEDs after move completion
+    _boardDriver->clearAllLEDs();
   } else {
     int rookFromCol = ((toCol - fromCol) == 2) ? 7 : 0;
     int rookToCol = ((toCol - fromCol) == 2) ? 5 : 3;
