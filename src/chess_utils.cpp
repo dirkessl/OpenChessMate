@@ -1,5 +1,11 @@
 #include "chess_utils.h"
 
+#if defined(ESP32)
+extern "C" {
+#include "nvs_flash.h"
+}
+#endif
+
 String ChessUtils::castlingRightsToString(uint8_t rights) {
   String s = "";
   if (rights & 0x01) s += "K";
@@ -128,4 +134,17 @@ void ChessUtils::printBoard(const char board[8][8]) {
   Serial.println("White pieces (uppercase): R N B Q K P");
   Serial.println("Black pieces (lowercase): r n b q k p");
   Serial.println("========================");
+}
+
+bool ChessUtils::ensureNvsInitialized() {
+#if defined(ESP32)
+  esp_err_t err = nvs_flash_init();
+  if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+    nvs_flash_erase();
+    err = nvs_flash_init();
+  }
+  return err == ESP_OK;
+#else
+  return false;
+#endif
 }

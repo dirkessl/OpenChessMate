@@ -293,7 +293,6 @@ void ChessMoves::waitForBoardSetup() {
   Serial.println("Waiting for pieces to be placed...");
   while (!boardDriver->checkInitialBoard(INITIAL_BOARD)) {
     boardDriver->updateSetupDisplay(INITIAL_BOARD);
-    ChessUtils::printBoard(INITIAL_BOARD);
     delay(500);
   }
 }

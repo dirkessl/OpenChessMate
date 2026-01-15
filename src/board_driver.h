@@ -7,7 +7,10 @@
 // Hardware Configuration
 // ---------------------------
 
-// // WS2812B LED Data IN GPIO pin (if ESP32 use pin GPIO 32, otherwise 17)
+// ---------------------------
+// WS2812B LED Data IN GPIO Pin
+// The strip doesn't need to have a specific layout, calibration will map it correctly
+// ---------------------------
 #if defined(ESP32)
 #define LED_PIN 32
 #else
@@ -31,7 +34,24 @@
 #define SR_SER_DATA_PIN 33
 
 // ---------------------------
+// Row and column pins don't need to be in any particular order, calibration will map them correctly
+// ---------------------------
+
+// ---------------------------
+// Row Input Pins (Safe pins for ESP32: 4, 13, 14, [16-17], 18, 19, 21, 22, 23, 25, 26, 27, 32, 33)ù
+// ---------------------------
+#define ROW_PIN_0 4
+#define ROW_PIN_1 16
+#define ROW_PIN_2 17
+#define ROW_PIN_3 18
+#define ROW_PIN_4 19
+#define ROW_PIN_5 21
+#define ROW_PIN_6 22
+#define ROW_PIN_7 23
+
+// ---------------------------
 // Board Driver Class
+// Logical board coordinates: row 0 = rank 8, column 0 = file a
 // ---------------------------
 class BoardDriver {
  private:
@@ -40,6 +60,28 @@ class BoardDriver {
   bool sensorPrev[NUM_ROWS][NUM_COLS];
   bool sensorRaw[NUM_ROWS][NUM_COLS];
   unsigned long sensorDebounceTime[NUM_ROWS][NUM_COLS];
+
+  enum Axis {
+    RowsAxis = 0,
+    ColsAxis = 1,
+    UnknownAxis = 2,
+  };
+  // Calibration data
+  uint8_t swapAxes;
+  uint8_t toLogicalRow[NUM_ROWS];
+  uint8_t toLogicalCol[NUM_COLS];
+  uint8_t ledIndexMap[NUM_ROWS][NUM_COLS];
+  bool calibrationLoaded;
+
+  bool loadCalibration();
+  void saveCalibration();
+  void runCalibration();
+  void readRawSensors(bool rawState[NUM_ROWS][NUM_COLS]);
+  bool waitForBoardEmpty();
+  bool waitForSingleRawPress(int& rawRow, int& rawCol, unsigned long stableMs = 200);
+  void showCalibrationError();
+  bool calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PINS, bool firstAxisSwapped);
+  String getAxisString(Axis axis) const { return (axis == RowsAxis) ? "Rows" : ((axis == ColsAxis) ? "Columns" : "Unknown"); };
 
   void loadShiftRegister(byte data);
   void disableAllCols();

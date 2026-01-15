@@ -26,6 +26,9 @@ class ChessUtils {
   // Print current board state to Serial for debugging
   // board: 8x8 array representing the chess board
   static void printBoard(const char board[8][8]);
+
+  // Initialize NVS for ESP32 (required before Preferences.begin)
+  static bool ensureNvsInitialized();
 };
 
 #endif // CHESS_UTILS_H

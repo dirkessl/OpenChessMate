@@ -2,6 +2,7 @@
 #include "chess_bot.h"
 #include "chess_engine.h"
 #include "chess_moves.h"
+#include "chess_utils.h"
 #include "sensor_test.h"
 
 // Uncomment the next line to enable WiFi features (requires compatible board)
@@ -100,6 +101,8 @@ void setup() {
 #endif
 
   Serial.println("DEBUG: About to initialize board driver...");
+  if (!ChessUtils::ensureNvsInitialized())
+    Serial.println("WARNING: NVS init failed (Preferences may not work)");
   // Initialize board driver
   boardDriver.begin();
   Serial.println("DEBUG: Board driver initialized successfully");

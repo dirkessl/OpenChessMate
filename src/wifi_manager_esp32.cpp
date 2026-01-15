@@ -1,12 +1,9 @@
 #include "wifi_manager_esp32.h"
 #include "arduino_secrets.h"
+#include "chess_utils.h"
 #include "page_router.h"
 #include <Arduino.h>
 #include <Preferences.h>
-
-extern "C" {
-#include "nvs_flash.h"
-}
 
 WiFiManagerESP32::WiFiManagerESP32(BoardDriver* boardDriver) : server(AP_PORT) {
   _boardDriver = boardDriver;
@@ -17,16 +14,9 @@ WiFiManagerESP32::WiFiManagerESP32(BoardDriver* boardDriver) : server(AP_PORT) {
   botConfig.playerIsWhite = true;                            // Default to player as white
   boardStateValid = false;
   hasPendingEdit = false;
-  boardEvaluation = 0.0;
-  esp_err_t err = nvs_flash_init();
-  if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-    nvs_flash_erase(); // erase and retry
-    nvs_flash_init();
-  }
-  prefs.begin("wifiCreds", true);
-  wifiSSID = prefs.getString("ssid", SECRET_SSID);
-  wifiPassword = prefs.getString("pass", SECRET_PASS);
-  prefs.end();
+  boardEvaluation = 0.0f;
+  wifiSSID = SECRET_SSID;
+  wifiPassword = SECRET_PASS;
   // Initialize board state to empty
   for (int row = 0; row < 8; row++) {
     for (int col = 0; col < 8; col++) {
@@ -38,6 +28,14 @@ WiFiManagerESP32::WiFiManagerESP32(BoardDriver* boardDriver) : server(AP_PORT) {
 
 void WiFiManagerESP32::begin() {
   Serial.println("=== Starting OpenChess WiFi Manager (ESP32) ===");
+  if (!ChessUtils::ensureNvsInitialized()) {
+    Serial.println("NVS init failed - WiFi credentials not loaded");
+  } else {
+    prefs.begin("wifiCreds", true);
+    wifiSSID = prefs.getString("ssid", SECRET_SSID);
+    wifiPassword = prefs.getString("pass", SECRET_PASS);
+    prefs.end();
+  }
   // ESP32 can run both AP and Station modes simultaneously. Start Access Point first (always available)
   Serial.printf("Creating Access Point with SSID: %s\nUsing password: %s\n", AP_SSID, AP_PASSWORD);
   if (!WiFi.softAP(AP_SSID, AP_PASSWORD)) {
@@ -141,6 +139,8 @@ void WiFiManagerESP32::handleConnectWiFi(AsyncWebServerRequest* request) {
   if (newWifiSSID.length() >= 1 && newWifiPassword.length() >= 5 && newWifiSSID != wifiSSID && newWifiPassword != wifiPassword) {
     request->send(200, "text/plain", "OK");
     if (connectToWiFi(newWifiSSID, newWifiPassword, true)) {
+      if (!ChessUtils::ensureNvsInitialized())
+        Serial.println("NVS init failed - WiFi credentials not saved");
       prefs.begin("wifiCreds", false);
       prefs.putString("ssid", newWifiSSID);
       prefs.putString("pass", newWifiPassword);
