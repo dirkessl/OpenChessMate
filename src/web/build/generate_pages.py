@@ -1,6 +1,6 @@
-Import("env")
-import gzip
 from pathlib import Path
+import gzip
+Import("env")
 
 SRC = Path("src")
 WEB = Path("src/web/build")
@@ -8,6 +8,13 @@ WEB = Path("src/web/build")
 PAGES_CPP = SRC / "web_pages.cpp"
 PAGES_H = SRC / "web_pages.h"
 ROUTER_CPP = SRC / "page_router.cpp"
+
+# Check if minified files exist
+if not WEB.exists() or not any(WEB.iterdir()):
+    print("Warning: No minified files found in src/web/build/")
+    print("Skipping code generation. Using existing pre-generated files from repository.")
+    print("To regenerate, ensure minify.py runs first or minified files exist.")
+    exit(0)
 
 MIME = {
     ".html": "text/html",
@@ -65,7 +72,7 @@ def gen():
         for p in pages:
             f.write(f"extern const uint8_t {p['symbol']}[];\n")
             f.write(f"extern const size_t {p['symbol']}_LEN;\n\n")
-        
+
         f.write("#endif\n")
 
     # ---------- web_pages.cpp ----------
