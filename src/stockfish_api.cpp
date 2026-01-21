@@ -1,5 +1,4 @@
 #include "stockfish_api.h"
-#include "arduino_secrets.h"
 
 bool StockfishAPI::parseResponse(const String& response, StockfishResponse& stockfishResp) {
   if (response.length() == 0) {

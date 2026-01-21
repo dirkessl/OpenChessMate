@@ -3,6 +3,11 @@
 
 #include <ArduinoJson.h>
 
+// Stockfish API Endpoint
+#define STOCKFISH_API_URL "stockfish.online"
+#define STOCKFISH_API_PATH "/api/s/v2.php"
+#define STOCKFISH_API_PORT 443
+
 // Struct to hold parsed Stockfish API response
 struct StockfishResponse {
   bool success;

@@ -1,29 +1,10 @@
 #include "wifi_manager_esp32.h"
-#include "arduino_secrets.h"
 #include "chess_utils.h"
 #include "page_router.h"
 #include <Arduino.h>
 #include <Preferences.h>
 
-WiFiManagerESP32::WiFiManagerESP32(BoardDriver* boardDriver) : server(AP_PORT) {
-  _boardDriver = boardDriver;
-  apMode = true;
-  clientConnected = false;
-  gameMode = "None";
-  botConfig.stockfishSettings = StockfishSettings::medium(); // Default to medium
-  botConfig.playerIsWhite = true;                            // Default to player as white
-  boardStateValid = false;
-  hasPendingEdit = false;
-  boardEvaluation = 0.0f;
-  wifiSSID = SECRET_SSID;
-  wifiPassword = SECRET_PASS;
-  // Initialize board state to empty
-  for (int row = 0; row < 8; row++)
-    for (int col = 0; col < 8; col++) {
-      boardState[row][col] = ' ';
-      pendingBoardEdit[row][col] = ' ';
-    }
-}
+WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd) : boardDriver(bd), server(AP_PORT), wifiSSID(SECRET_SSID), wifiPassword(SECRET_PASS), gameMode("0"), botConfig(), boardStateValid(false), hasPendingEdit(false), boardEvaluation(0.0f) {}
 
 void WiFiManagerESP32::begin() {
   Serial.println("=== Starting OpenChess WiFi Manager (ESP32) ===");
@@ -89,7 +70,7 @@ String WiFiManagerESP32::getBoardUpdateJSON() {
   for (int row = 0; row < 8; row++) {
     resp += "[";
     for (int col = 0; col < 8; col++) {
-      char piece = boardState[row][col];
+      char piece = boardStateValid ? boardState[row][col] : ' ';
       if (piece == ' ')
         resp += "\"\"";
       else
@@ -221,7 +202,6 @@ void WiFiManagerESP32::clearPendingEdit() {
 bool WiFiManagerESP32::connectToWiFi(String ssid, String password, bool fromWeb) {
   if (!fromWeb && WiFi.status() == WL_CONNECTED) {
     Serial.println("Already connected to WiFi");
-    apMode = false;
     return true;
   }
   Serial.println("=== Connecting to WiFi Network" + String(fromWeb ? "(from web)" : "") + " ===");
@@ -234,22 +214,17 @@ bool WiFiManagerESP32::connectToWiFi(String ssid, String password, bool fromWeb)
 
   int attempts = 0;
   while (WiFi.status() != WL_CONNECTED && attempts < 10) {
-    _boardDriver->showConnectingAnimation();
+    boardDriver->showConnectingAnimation();
     attempts++;
     Serial.printf("Connection attempt %d/10 - Status: %d\n", attempts, WiFi.status());
   }
 
   if (WiFi.status() == WL_CONNECTED) {
     Serial.println("Connected to WiFi!");
-    apMode = false;
     return true;
   } else {
     Serial.println("Failed to connect to WiFi");
     // AP mode is still available
     return false;
   }
-}
-
-bool WiFiManagerESP32::isClientConnected() {
-  return WiFi.softAPgetStationNum() > 0;
 }

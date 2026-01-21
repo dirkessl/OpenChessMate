@@ -46,6 +46,12 @@
 #define ROW_PIN_7 23
 
 // ---------------------------
+// Sensor Polling Delay and Debounce
+// ---------------------------
+#define SENSOR_READ_DELAY_MS 25
+#define DEBOUNCE_MS 100
+
+// ---------------------------
 // Board Driver Class
 // Logical board coordinates: row 0 = rank 8, column 0 = file a
 // ---------------------------
@@ -106,7 +112,6 @@ class BoardDriver {
   void flashBoardAnimation(uint8_t r, uint8_t g, uint8_t b);
 
   // Setup Functions
-  bool checkInitialBoard(const char initialBoard[8][8]);
   void updateSetupDisplay();
 };
 

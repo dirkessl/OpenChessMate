@@ -1,7 +1,6 @@
 #ifndef CHESS_BOT_H
 #define CHESS_BOT_H
 
-#include "arduino_secrets.h"
 #include "chess_game.h"
 #include "chess_utils.h"
 #include "stockfish_api.h"

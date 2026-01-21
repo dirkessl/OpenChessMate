@@ -173,7 +173,7 @@ bool BoardDriver::waitForBoardEmpty() {
     }
     if (!any)
       return true;
-    delay(50);
+    delay(SENSOR_READ_DELAY_MS);
   }
 }
 
@@ -214,7 +214,7 @@ bool BoardDriver::waitForSingleRawPress(int& rawRow, int& rawCol, unsigned long 
       lastCol = -1;
       stableStart = 0;
     }
-    delay(25);
+    delay(SENSOR_READ_DELAY_MS);
   }
 }
 
@@ -428,7 +428,6 @@ void BoardDriver::enableCol(int col) {
 }
 
 void BoardDriver::readSensors() {
-  const unsigned long DEBOUNCE_DELAY = 100; // 100ms debounce time
   unsigned long currentTime = millis();
 
   for (int col = 0; col < NUM_COLS; col++) {
@@ -442,7 +441,7 @@ void BoardDriver::readSensors() {
         if (newReading != sensorRaw[logicalRow][logicalCol]) {
           sensorRaw[logicalRow][logicalCol] = newReading;
           sensorDebounceTime[logicalRow][logicalCol] = currentTime;
-        } else if (currentTime - sensorDebounceTime[logicalRow][logicalCol] >= DEBOUNCE_DELAY) {
+        } else if (currentTime - sensorDebounceTime[logicalRow][logicalCol] >= DEBOUNCE_MS) {
           sensorState[logicalRow][logicalCol] = newReading;
         }
       } else {
@@ -569,7 +568,6 @@ void BoardDriver::fireworkAnimation() {
     delay(100);
   }
 
-  // Clear all LEDs
   clearAllLEDs();
 }
 
@@ -603,7 +601,6 @@ void BoardDriver::captureAnimation() {
     delay(150);
   }
 
-  // Clear LEDs
   clearAllLEDs();
 }
 
@@ -645,22 +642,11 @@ void BoardDriver::flashBoardAnimation(uint8_t r, uint8_t g, uint8_t b) {
   clearAllLEDs();
 }
 
-bool BoardDriver::checkInitialBoard(const char initialBoard[8][8]) {
-  readSensors();
-  bool allPresent = true;
-  for (int row = 0; row < 8; row++)
-    for (int col = 0; col < 8; col++)
-      if (initialBoard[row][col] != ' ' && !sensorState[row][col])
-        allPresent = false;
-  return allPresent;
-}
-
 void BoardDriver::updateSetupDisplay() {
   for (int row = 0; row < 8; row++)
     for (int col = 0; col < 8; col++)
       // Check if a piece is detected on this square
       if (sensorState[row][col]) {
-        // Piece detected
         if (row <= 1 || row >= 6)
           // Black or white side - turn off LED (piece is in correct area)
           setSquareLED(row, col, LedColors::Off.r, LedColors::Off.g, LedColors::Off.b);

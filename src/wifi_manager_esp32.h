@@ -21,6 +21,9 @@
 #define AP_SSID "OpenChess"
 #define AP_PASSWORD "chess123"
 #define AP_PORT 80
+// Your WiFi Network Credentials (can also be set via web interface)
+#define SECRET_SSID "YOUR_SSID"
+#define SECRET_PASS "YOUR_PASSWORD"
 
 // ---------------------------
 // WiFi Manager Class for ESP32
@@ -28,8 +31,6 @@
 class WiFiManagerESP32 {
  private:
   AsyncWebServer server;
-  bool apMode;
-  bool clientConnected;
 
   // Configuration variables
   Preferences prefs;
@@ -38,13 +39,13 @@ class WiFiManagerESP32 {
   String gameMode;
 
   // Bot configuration
-  BotConfig botConfig;
+  BotConfig botConfig = {StockfishSettings::medium(), true};
 
   // Board state storage
-  BoardDriver* _boardDriver;
+  BoardDriver* boardDriver;
   char boardState[8][8];
   bool boardStateValid;
-  float boardEvaluation; // Stockfish evaluation (in pawns)
+  float boardEvaluation;
 
   // Board edit storage (pending edits from web interface)
   char pendingBoardEdit[8][8];
@@ -79,7 +80,6 @@ class WiFiManagerESP32 {
   void clearPendingEdit();
   // WiFi connection management
   bool connectToWiFi(String ssid, String password, bool fromWeb = false);
-  bool isClientConnected();
 };
 
 #endif // WIFI_MANAGER_ESP32_H

@@ -156,7 +156,6 @@ void ChessBot::executeBotMove(int fromRow, int fromCol, int toRow, int toCol) {
 
   bool castling = isCastlingMove(fromRow, fromCol, toRow, toCol, piece);
 
-  // Update board state
   board[toRow][toCol] = piece;
   board[fromRow][fromCol] = ' ';
 
@@ -176,7 +175,6 @@ void ChessBot::executeBotMove(int fromRow, int fromCol, int toRow, int toCol) {
     // Wait for user to physically complete the bot's move
     waitForBotMoveCompletion(fromRow, fromCol, toRow, toCol, isCapture);
 
-    // Clear LEDs after move completion
     boardDriver->clearAllLEDs();
   } else {
     int rookFromCol = ((toCol - fromCol) == 2) ? 7 : 0;
@@ -202,7 +200,6 @@ void ChessBot::showBotThinking() {
 }
 
 void ChessBot::showBotMoveIndicator(int fromRow, int fromCol, int toRow, int toCol, bool isCapture) {
-  // Clear all LEDs first
   boardDriver->clearAllLEDs();
 
   // Show source square (where to pick up from)
@@ -258,7 +255,7 @@ void ChessBot::waitForBotMoveCompletion(int fromRow, int fromCol, int toRow, int
         Serial.println("Bot move completed on physical board!");
       }
 
-    delay(50);
+    delay(SENSOR_READ_DELAY_MS);
     boardDriver->updateSensorPrev();
   }
 }
@@ -291,7 +288,7 @@ void ChessBot::waitForBotCastlingCompletion(int kingFromRow, int kingFromCol, in
     kingDestOccupied = boardDriver->getSensorState(kingToRow, kingToCol);
     rookDestOccupied = boardDriver->getSensorState(kingToRow, rookToCol);
 
-    delay(10);
+    delay(SENSOR_READ_DELAY_MS);
   }
 
   boardDriver->clearAllLEDs();

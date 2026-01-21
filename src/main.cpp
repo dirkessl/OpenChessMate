@@ -12,7 +12,6 @@
 // Game State and Configuration
 // ---------------------------
 
-// Game Mode Definitions
 enum GameMode {
   MODE_SELECTION = 0,
   MODE_CHESS_MOVES = 1,
@@ -20,10 +19,8 @@ enum GameMode {
   MODE_SENSOR_TEST = 3
 };
 
-// Bot configuration instance
 BotConfig botConfig = {StockfishSettings::medium(), true};
 
-// Global instances
 BoardDriver boardDriver;
 ChessEngine chessEngine;
 WiFiManager wifiManager(&boardDriver);
@@ -31,7 +28,6 @@ ChessMoves chessMoves(&boardDriver, &chessEngine, &wifiManager);
 ChessBot* chessBot = nullptr;
 SensorTest sensorTest(&boardDriver);
 
-// Current game state
 GameMode currentMode = MODE_SELECTION;
 bool modeInitialized = false;
 
@@ -94,7 +90,6 @@ void loop() {
   int selectedMode = wifiManager.getSelectedGameMode();
   if (selectedMode > 0) {
     Serial.printf("WiFi game selection detected: %d\n", selectedMode);
-
     switch (selectedMode) {
       case 1:
         currentMode = MODE_CHESS_MOVES;
@@ -111,55 +106,43 @@ void loop() {
         selectedMode = 0;
         break;
     }
-
     if (selectedMode > 0) {
       modeInitialized = false;
       boardDriver.clearAllLEDs();
       wifiManager.resetGameSelection();
-
-      // Brief confirmation animation
-      for (int i = 0; i < 3; i++) {
-        boardDriver.setSquareLED(3, 3, 0, 255, 0, 0);
-        boardDriver.setSquareLED(3, 4, 0, 255, 0, 0);
-        boardDriver.setSquareLED(4, 3, 0, 255, 0, 0);
-        boardDriver.setSquareLED(4, 4, 0, 255, 0, 0);
-        boardDriver.showLEDs();
-        delay(200);
-        boardDriver.clearAllLEDs();
-        delay(200);
-      }
+      boardDriver.flashBoardAnimation(LedColors::ConfirmGreen.r, LedColors::ConfirmGreen.g, LedColors::ConfirmGreen.b);
     }
   }
 
   if (currentMode == MODE_SELECTION) {
     handleGameSelection();
-  } else {
-    if (!modeInitialized) {
-      initializeSelectedMode(currentMode);
-      modeInitialized = true;
-    }
-
-    // Run the current game mode
-    switch (currentMode) {
-      case MODE_CHESS_MOVES:
-        chessMoves.update();
-        break;
-      case MODE_BOT:
-        if (chessBot != nullptr)
-          chessBot->update();
-        break;
-      case MODE_SENSOR_TEST:
-        sensorTest.update();
-        break;
-      default:
-        currentMode = MODE_SELECTION;
-        modeInitialized = false;
-        showGameSelection();
-        break;
-    }
+    return;
+  }
+  // Game mode selected
+  if (!modeInitialized) {
+    initializeSelectedMode(currentMode);
+    modeInitialized = true;
+  }
+  switch (currentMode) {
+    case MODE_CHESS_MOVES:
+      chessMoves.update();
+      break;
+    case MODE_BOT:
+      if (chessBot != nullptr)
+        chessBot->update();
+      break;
+    case MODE_SENSOR_TEST:
+      sensorTest.update();
+      break;
+    default:
+      // Should not reach here
+      currentMode = MODE_SELECTION;
+      modeInitialized = false;
+      showGameSelection();
+      break;
   }
 
-  delay(25);
+  delay(SENSOR_READ_DELAY_MS);
 }
 
 // ---------------------------
@@ -200,6 +183,8 @@ void handleGameSelection() {
     modeInitialized = false;
     boardDriver.clearAllLEDs();
   }
+
+  delay(SENSOR_READ_DELAY_MS);
 }
 
 void initializeSelectedMode(GameMode mode) {
@@ -274,7 +259,7 @@ void showBotConfigSelection() {
 void handleBotConfigSelection() {
   Serial.println("Waiting for bot configuration selection...");
 
-  while (currentMode == MODE_BOT && !modeInitialized) {
+  while (true) {
     boardDriver.readSensors();
 
     // Check rows 2 and 5 for selections
@@ -303,12 +288,10 @@ void handleBotConfigSelection() {
             continue;
           }
 
-          // Configuration complete
           boardDriver.clearAllLEDs();
-          delay(500);
           return;
         }
 
-    delay(100);
+    delay(SENSOR_READ_DELAY_MS);
   }
 }

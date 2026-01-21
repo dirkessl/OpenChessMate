@@ -27,9 +27,22 @@ void ChessGame::initializeBoard() {
 void ChessGame::waitForBoardSetup() {
   Serial.println("Set up the board in the starting position...");
 
-  while (!boardDriver->checkInitialBoard(INITIAL_BOARD)) {
+  bool allPresent = false;
+  while (!allPresent) {
+    boardDriver->readSensors();
+    allPresent = true;
+    for (int row = 0; row < 8; row++) {
+      for (int col = 0; col < 8; col++) {
+        if (INITIAL_BOARD[row][col] != ' ' && !boardDriver->getSensorState(row, col)) {
+          allPresent = false;
+          break;
+        }
+      }
+      if (!allPresent)
+        break;
+    }
     boardDriver->updateSetupDisplay();
-    delay(50);
+    delay(SENSOR_READ_DELAY_MS);
   }
 
   Serial.println("Board setup complete! Game starting...");
@@ -168,7 +181,7 @@ bool ChessGame::tryPlayerMove(char playerColor, int& fromRow, int& fromCol, int&
                   break;
                 }
 
-                delay(50);
+                delay(SENSOR_READ_DELAY_MS);
               }
 
               // If not cancelled, capture is complete
@@ -190,7 +203,7 @@ bool ChessGame::tryPlayerMove(char playerColor, int& fromRow, int& fromCol, int&
             break;
         }
 
-        delay(50);
+        delay(SENSOR_READ_DELAY_MS);
       }
 
       if (targetRow == row && targetCol == col) {
@@ -350,7 +363,7 @@ void ChessGame::applyCastling(int kingFromRow, int kingFromCol, int kingToRow, i
 
   while (boardDriver->getSensorState(kingToRow, rookFromCol)) {
     boardDriver->readSensors();
-    delay(50);
+    delay(SENSOR_READ_DELAY_MS);
   }
 
   // Wait for rook to be placed on destination square
@@ -360,7 +373,7 @@ void ChessGame::applyCastling(int kingFromRow, int kingFromCol, int kingToRow, i
 
   while (!boardDriver->getSensorState(kingToRow, rookToCol)) {
     boardDriver->readSensors();
-    delay(50);
+    delay(SENSOR_READ_DELAY_MS);
   }
 
   boardDriver->clearAllLEDs();
