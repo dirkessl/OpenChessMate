@@ -48,8 +48,8 @@
 // ---------------------------
 // Sensor Polling Delay and Debounce
 // ---------------------------
-#define SENSOR_READ_DELAY_MS 25
-#define DEBOUNCE_MS 100
+#define SENSOR_READ_DELAY_MS 40
+#define DEBOUNCE_MS 125
 
 // ---------------------------
 // Board Driver Class
@@ -109,7 +109,7 @@ class BoardDriver {
   void promotionAnimation(int col);
   void blinkSquare(int row, int col, uint8_t r, uint8_t g, uint8_t b, int times = 3);
   void showConnectingAnimation();
-  void flashBoardAnimation(uint8_t r, uint8_t g, uint8_t b);
+  void flashBoardAnimation(uint8_t r, uint8_t g, uint8_t b, int times = 3);
 
   // Setup Functions
   void updateSetupDisplay();

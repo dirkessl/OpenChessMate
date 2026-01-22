@@ -628,8 +628,8 @@ void BoardDriver::promotionAnimation(int col) {
   strip.show();
 }
 
-void BoardDriver::flashBoardAnimation(uint8_t r, uint8_t g, uint8_t b) {
-  for (int i = 0; i < 3; i++) {
+void BoardDriver::flashBoardAnimation(uint8_t r, uint8_t g, uint8_t b, int times) {
+  for (int i = 0; i < times; i++) {
     clearAllLEDs();
     delay(200);
     // Light up entire board with specified color

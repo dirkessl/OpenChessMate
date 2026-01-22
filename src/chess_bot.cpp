@@ -14,7 +14,6 @@ void ChessBot::begin() {
   Serial.printf("Bot Difficulty: Depth %d, Timeout %dms\n", botConfig.stockfishSettings.depth, botConfig.stockfishSettings.timeoutMs);
   Serial.println("====================================");
   if (wifiManager->connectToWiFi(wifiManager->getWiFiSSID(), wifiManager->getWiFiPassword())) {
-    boardDriver->flashBoardAnimation(LedColors::ConfirmGreen.r, LedColors::ConfirmGreen.g, LedColors::ConfirmGreen.b);
     Serial.println("WiFi connected! Bot mode ready.");
     wifiConnected = true;
     initializeBoard();

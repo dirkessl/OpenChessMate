@@ -108,9 +108,8 @@ void loop() {
     }
     if (selectedMode > 0) {
       modeInitialized = false;
-      boardDriver.clearAllLEDs();
       wifiManager.resetGameSelection();
-      boardDriver.flashBoardAnimation(LedColors::ConfirmGreen.r, LedColors::ConfirmGreen.g, LedColors::ConfirmGreen.b);
+      boardDriver.clearAllLEDs();
     }
   }
 
@@ -164,24 +163,69 @@ void showGameSelection() {
 
 void handleGameSelection() {
   boardDriver.readSensors();
+  bool currState[3] = {boardDriver.getSensorState(3, 3), boardDriver.getSensorState(3, 4), boardDriver.getSensorState(4, 4)};
 
-  // Check for piece placement on selector squares
-  if (boardDriver.getSensorState(3, 3)) {
-    Serial.println("Mode: 'Chess Moves' selected!");
-    currentMode = MODE_CHESS_MOVES;
-    modeInitialized = false;
-    boardDriver.clearAllLEDs();
-  } else if (boardDriver.getSensorState(3, 4)) {
-    Serial.println("Mode: 'Chess Bot' Selected! Showing bot configuration...");
-    currentMode = MODE_BOT;
-    modeInitialized = false;
-    boardDriver.clearAllLEDs();
-    showBotConfigSelection();
-  } else if (boardDriver.getSensorState(4, 4)) {
-    Serial.println("Mode: 'Sensor Test' Selected!");
-    currentMode = MODE_SENSOR_TEST;
-    modeInitialized = false;
-    boardDriver.clearAllLEDs();
+  struct SelectorState {
+    int emptyCount;
+    int occupiedCount;
+    bool readyForSelection;
+  };
+  const int DEBOUNCE_CYCLES = (DEBOUNCE_MS / SENSOR_READ_DELAY_MS) + 2;
+  static SelectorState selectorStates[3] = {};
+  static bool initializedStates = false;
+  if (!initializedStates) {
+    for (int i = 0; i < 3; ++i) {
+      selectorStates[i].emptyCount = 0;
+      selectorStates[i].occupiedCount = 0;
+      selectorStates[i].readyForSelection = false;
+    }
+    initializedStates = true;
+  }
+  for (int i = 0; i < 3; ++i) {
+    if (!currState[i]) {
+      if (selectorStates[i].emptyCount < DEBOUNCE_CYCLES)
+        selectorStates[i].emptyCount++;
+      selectorStates[i].occupiedCount = 0;
+      if (selectorStates[i].emptyCount >= DEBOUNCE_CYCLES)
+        selectorStates[i].readyForSelection = true;
+    } else {
+      selectorStates[i].emptyCount = 0;
+      if (selectorStates[i].readyForSelection) {
+        if (selectorStates[i].occupiedCount < DEBOUNCE_CYCLES)
+          selectorStates[i].occupiedCount++;
+      } else {
+        selectorStates[i].occupiedCount = 0;
+      }
+    }
+  }
+
+  // Check for valid rising edge (empty for DEBOUNCE_CYCLES, then occupied for DEBOUNCE_CYCLES)
+  for (int i = 0; i < 3; ++i) {
+    if (selectorStates[i].readyForSelection && selectorStates[i].occupiedCount >= DEBOUNCE_CYCLES) {
+      switch (i) {
+        case 0:
+          Serial.println("Mode: 'Chess Moves' selected!");
+          currentMode = MODE_CHESS_MOVES;
+          modeInitialized = false;
+          boardDriver.clearAllLEDs();
+          break;
+        case 1:
+          Serial.println("Mode: 'Chess Bot' Selected! Showing bot configuration...");
+          currentMode = MODE_BOT;
+          modeInitialized = false;
+          boardDriver.clearAllLEDs();
+          showBotConfigSelection();
+          break;
+        case 2:
+          Serial.println("Mode: 'Sensor Test' Selected!");
+          currentMode = MODE_SENSOR_TEST;
+          modeInitialized = false;
+          boardDriver.clearAllLEDs();
+          break;
+      }
+      initializedStates = false;
+      break;
+    }
   }
 
   delay(SENSOR_READ_DELAY_MS);
