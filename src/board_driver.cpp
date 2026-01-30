@@ -284,6 +284,17 @@ bool BoardDriver::calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PI
     Serial.println("Non-square boards not supported for calibration");
     return false;
   }
+
+  // 74HC595 shift register pin mapping: bits are sent MSB first, so bit 7 shifts to QH, bit 0 stays at QA
+  // col 0 -> QA (pin 15), col 1 -> QB (pin 1), ..., col 7 -> QH (pin 7)
+  auto shiftRegPin = [](int col) -> int {
+    const int pins[] = {15, 1, 2, 3, 4, 5, 6, 7}; // QA=15, QB=1, QC=2, QD=3, QE=4, QF=5, QG=6, QH=7
+    return (col >= 0 && col < 8) ? pins[col] : -1;
+  };
+  auto shiftRegOutput = [](int col) -> char {
+    return (col >= 0 && col < 8) ? (char)('A' + col) : '?'; // col 0 -> 'A' (QA), col 7 -> 'H' (QH)
+  };
+
   Axis detectedAxis = UnknownAxis;
   int firstRow = -1;
   int firstCol = -1;
@@ -314,16 +325,20 @@ bool BoardDriver::calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PI
     }
     square[2] = '\0';
 
-    Serial.printf("Place a piece on %s (%s calibration)\n", square, getAxisString(axis).c_str());
+    Serial.printf("Place a piece on %s (%s calibration)\n", square, axisToChessRankFile(axis).c_str());
     int row = 0;
     int col = 0;
     waitForSingleRawPress(row, col);
+    Serial.printf("  Detected: row=%d (GPIO %d), col=%d (74HC595 Q%c, pin %d)\n", row, rowPins[row], col, shiftRegOutput(col), shiftRegPin(col));
 
     // Verify pin consistency for column calibration
     if (axis == ColsAxis && expectedRawPin != -1) {
       int actualPin = useRow ? row : col;
       if (actualPin != expectedRawPin) {
-        Serial.printf("ERROR: Expected piece on %s pin %d but detected on %d. Place piece on %s.\n", useRow ? "row" : "col", expectedRawPin, actualPin, square);
+        if (useRow)
+          Serial.printf("[ERROR] Expected piece on rank 1 = row %d (GPIO %d) but detected on row %d (GPIO %d) which is not rank 1. Place piece on %s.\n", expectedRawPin, rowPins[expectedRawPin], actualPin, rowPins[actualPin], square);
+        else
+          Serial.printf("[ERROR] Expected piece on rank 1 = col %d (74HC595 Q%c, pin %d) but detected on col %d (74HC595 Q%c, pin %d) which is not rank 1. Place piece on %s.\n", expectedRawPin, shiftRegOutput(expectedRawPin), shiftRegPin(expectedRawPin), actualPin, shiftRegOutput(actualPin), shiftRegPin(actualPin), square);
         showCalibrationError();
         i--;
         continue;
@@ -343,14 +358,30 @@ bool BoardDriver::calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PI
         detectedAxis = ColsAxis;
         axisPinsOrder[firstCol] = i - 1;
         counts[firstCol]++;
-        Serial.printf("%s calibration using cols %s\n", getAxisString(axis).c_str(), axis != detectedAxis ? "(axis swap)" : "(no axis swap)");
+        Serial.printf("%s calibration using cols %s\n", axisToChessRankFile(axis).c_str(), axis != detectedAxis ? "(axis swap)" : "(no axis swap)");
       } else if (col == firstCol && row != firstRow) {
         detectedAxis = RowsAxis;
         axisPinsOrder[firstRow] = i - 1;
         counts[firstRow]++;
-        Serial.printf("%s calibration using rows %s\n", getAxisString(axis).c_str(), axis != detectedAxis ? "(axis swap)" : "(no axis swap)");
+        Serial.printf("%s calibration using rows %s\n", axisToChessRankFile(axis).c_str(), axis != detectedAxis ? "(axis swap)" : "(no axis swap)");
       } else {
-        Serial.printf("Ambiguous %s calibration (first two squares not aligned). Retry.\n", getAxisString(axis).c_str());
+        Serial.printf("\n=== AMBIGUOUS %s CALIBRATION ===\n", axisToChessRankFile(axis).c_str());
+        Serial.printf("First press:  row=%d (GPIO %d), col=%d (74HC595 Q%c, pin %d)\n", firstRow, rowPins[firstRow], firstCol, shiftRegOutput(firstCol), shiftRegPin(firstCol));
+        Serial.printf("Second press: row=%d (GPIO %d), col=%d (74HC595 Q%c, pin %d)\n", row, rowPins[row], col, shiftRegOutput(col), shiftRegPin(col));
+        if (row == firstRow && col == firstCol) {
+          // Same square detected twice
+          Serial.println("PROBLEM: Both presses detected by the SAME sensor");
+          Serial.println("Possible causes:");
+          Serial.println("  - You placed the piece on the same square both times");
+          Serial.println("  - Sensor cross-talk/wiring issue: multiple squares trigger the same sensor");
+        } else {
+          // Diagonal - both row and col changed
+          Serial.println("PROBLEM: Both row AND column changed between presses.");
+          Serial.println("Expected: Only ONE axis should change (squares should be in a straight line).");
+          Serial.println("  - You likely placed the second piece diagonally from the first.");
+          Serial.println("    TIP: Pick any corner, then move along the edge (not diagonally).");
+        }
+        Serial.println("================================\n");
         showCalibrationError();
         i = -1;
         continue;
@@ -359,7 +390,7 @@ bool BoardDriver::calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PI
 
     if (detectedAxis == UnknownAxis) {
       // Will never happen due to above logic, but just in case
-      Serial.printf("Ambiguous %s calibration (no orientation detected). Retry.\n", getAxisString(axis).c_str());
+      Serial.printf("Ambiguous %s calibration (no orientation detected). Retry.\n", axisToChessRankFile(axis).c_str());
       showCalibrationError();
       i = -1;
       continue;
@@ -367,7 +398,17 @@ bool BoardDriver::calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PI
 
     int pin = (detectedAxis == RowsAxis) ? row : col;
     if (counts[pin] > 0) {
-      Serial.printf("Duplicate %s detected with pin %d. Retry %s.\n", getAxisString(axis).c_str(), pin, square);
+      // Find what rank/file was already assigned to this pin
+      int assignedIndex = axisPinsOrder[pin];
+      char assignedRankFile[8];
+      if (axis == RowsAxis)
+        snprintf(assignedRankFile, sizeof(assignedRankFile), "rank %d", 8 - assignedIndex);
+      else
+        snprintf(assignedRankFile, sizeof(assignedRankFile), "file %c", 'a' + assignedIndex);
+      if (detectedAxis == RowsAxis)
+        Serial.printf("[ERROR] Row %d (GPIO %d) already has %s assigned. Retry %s.\n", pin, rowPins[pin], assignedRankFile, square);
+      else
+        Serial.printf("[ERROR] Col %d (74HC595 Q%c, pin %d) already has %s assigned. Retry %s.\n", pin, shiftRegOutput(pin), shiftRegPin(pin), assignedRankFile, square);
       showCalibrationError();
       i--;
       continue;
@@ -422,7 +463,10 @@ bool BoardDriver::runCalibration() {
     delay(50);
   }
   Serial.println("");
-  Serial.println("- Empty the board to begin the calibration, then follow the prompts to place a single piece");
+  Serial.println("- Empty the board to begin the calibration, instructions will follow as soon as the board is detected as empty");
+  Serial.println("- If calibration doesn't start and the board is empty, then some sensors are giving false readings");
+  Serial.println("- If calibration starts but doesn't continue after asking you to place 1 piece and you see no errors:");
+  Serial.println("  either multiple magnets are detected within half a second OR no magnet is detected (try the other side of the magnet)");
   Serial.println("================================================================================");
   waitForBoardEmpty();
 

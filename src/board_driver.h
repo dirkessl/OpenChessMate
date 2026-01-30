@@ -133,10 +133,10 @@ class BoardDriver {
   bool runCalibration();
   void readRawSensors(bool rawState[NUM_ROWS][NUM_COLS]);
   bool waitForBoardEmpty();
-  bool waitForSingleRawPress(int& rawRow, int& rawCol, unsigned long stableMs = 200);
+  bool waitForSingleRawPress(int& rawRow, int& rawCol, unsigned long stableMs = 500);
   void showCalibrationError();
   bool calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PINS, bool firstAxisSwapped);
-  String getAxisString(Axis axis) const { return (axis == RowsAxis) ? "Rows" : ((axis == ColsAxis) ? "Columns" : "Unknown"); };
+  String axisToChessRankFile(Axis axis) const { return (axis == RowsAxis) ? "Rank" : ((axis == ColsAxis) ? "File" : "Unknown"); };
 
   void loadShiftRegister(byte data);
   void disableAllCols();
