@@ -115,6 +115,7 @@ class BoardDriver {
   bool sensorPrev[NUM_ROWS][NUM_COLS];
   bool sensorRaw[NUM_ROWS][NUM_COLS];
   unsigned long sensorDebounceTime[NUM_ROWS][NUM_COLS];
+  int lastEnabledCol; // Tracks last enabled column for efficient sequential shifting
 
   enum Axis {
     RowsAxis = 0,
@@ -138,7 +139,7 @@ class BoardDriver {
   bool calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PINS, bool firstAxisSwapped);
   String axisToChessRankFile(Axis axis) const { return (axis == RowsAxis) ? "Rank" : ((axis == ColsAxis) ? "File" : "Unknown"); };
 
-  void loadShiftRegister(byte data);
+  void loadShiftRegister(byte data, int bits = 8);
   void disableAllCols();
   void enableCol(int col);
   int getPixelIndex(int row, int col);

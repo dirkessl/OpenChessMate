@@ -26,9 +26,7 @@ static constexpr int DefaultRowColToLEDindexMap[NUM_ROWS][NUM_COLS] = {
     {63, 62, 61, 60, 59, 58, 57, 56},
 };
 
-BoardDriver::BoardDriver() : strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800) {
-  calibrationLoaded = false;
-  swapAxes = 0;
+BoardDriver::BoardDriver() : strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800), lastEnabledCol(-1), swapAxes(0), calibrationLoaded(false) {
   for (int i = 0; i < NUM_ROWS; i++)
     toLogicalRow[i] = i;
   for (int i = 0; i < NUM_COLS; i++)
@@ -526,15 +524,19 @@ bool BoardDriver::runCalibration() {
   return false;
 }
 
-void BoardDriver::loadShiftRegister(byte data) {
+void BoardDriver::loadShiftRegister(byte data, int bits) {
+  // Make sure latch is low before shifting data
   digitalWrite(SR_LATCH_PIN, LOW);
-  for (int i = 7; i >= 0; i--) {
+  // Shift bits MSB first
+  for (int i = bits - 1; i >= 0; i--) {
     digitalWrite(SR_SER_DATA_PIN, !!(data & (1 << i)));
+    delayMicroseconds(10);
     digitalWrite(SR_CLK_PIN, HIGH);
     delayMicroseconds(10);
     digitalWrite(SR_CLK_PIN, LOW);
     delayMicroseconds(10);
   }
+  // Latch the data to output pins
   digitalWrite(SR_LATCH_PIN, HIGH);
   delayMicroseconds(10);
   digitalWrite(SR_LATCH_PIN, LOW);
@@ -542,11 +544,25 @@ void BoardDriver::loadShiftRegister(byte data) {
 
 void BoardDriver::disableAllCols() {
   loadShiftRegister(0);
+  lastEnabledCol = -1;
 }
 
 void BoardDriver::enableCol(int col) {
-  loadShiftRegister(((byte)((1 << (col)) & 0xFF)));
-  delayMicroseconds(100); // Allow time for the column to stabilize, otherwise random readings occur
+  if (col == 0 && lastEnabledCol == 7) {
+    // Sequential wrap-around: load a single 1 into QA
+    loadShiftRegister(0x01, 1);
+  } else if (col == 0) {
+    // Initialize scan: load a full byte with only QA high
+    loadShiftRegister(0x01);
+  } else if (col == lastEnabledCol + 1) {
+    // Sequential access: shift in a single 0 to move the 1 we shifted earlier to the next column position (towards QH)
+    loadShiftRegister(0x00, 1);
+  } else {
+    // Non-sequential access: load full byte (fallback) (never happens, but just in case)
+    loadShiftRegister((byte)(1 << col));
+  }
+  lastEnabledCol = col;
+  delayMicroseconds(100); // Allow time for the column to stabilize, otherwise random readings might occur
 }
 
 void BoardDriver::readSensors() {
