@@ -394,9 +394,6 @@ bool BoardDriver::calibrateAxis(Axis axis, uint8_t* axisPinsOrder, size_t NUM_PI
         Serial.printf("First press:  row=%d (GPIO %d), col=%d (74HC595 Q%c, pin %d)\n", firstRow, rowPins[firstRow], firstCol, shiftRegOutput(firstCol), shiftRegPin(firstCol));
         Serial.printf("Second press: row=%d (GPIO %d), col=%d (74HC595 Q%c, pin %d)\n", row, rowPins[row], col, shiftRegOutput(col), shiftRegPin(col));
         Serial.printf("PROBLEM: %s\n", (row == firstRow && col == firstCol) ? "Both presses detected by the SAME sensor" : "Both row AND column changed between presses");
-        Serial.println(" - Crosstalk/wiring issue: check if some input row GPIOs or shift-register outputs are connected together");
-        Serial.println(" - Low voltage output on GPIO pins could cause undefined shift register behavior");
-        Serial.println(" - You placed the piece in the same square both times or placed it diagonally?");
         Serial.println("==========================================================\n");
         showCalibrationError();
         i = -1;
@@ -479,9 +476,11 @@ bool BoardDriver::runCalibration() {
     delay(50);
   }
   Serial.println("");
-  Serial.println("- Empty the board to begin the calibration, instructions will follow as soon as the board is detected as empty");
-  Serial.println("- Low voltage output on GPIO pins could cause undefined shift register behavior");
-  Serial.println("- Try both sides of the magnet and try holding the magnet closer to the sensor if detection fails");
+  Serial.println("- Empty the board to begin calibration - instructions will follow once an empty board is detected");
+  Serial.println("- WARNING: Low GPIO voltage can cause unreliable shift register behavior (74HC595 needs Vih > 0.7*Vcc) use a level shifter or HCT variant");
+  Serial.println("- WARNING: Shift register outputs shouldn't power 8 sensors directly from 1 output pin, use transistors! (max 35mA per pin but each A3144 draws ~10mA");
+  Serial.println("- WARNING: If powering multiple sensors from one shift register pin, expect voltage drop and shift register failure");
+  Serial.println("- TIP: Try both magnet sides and move magnet closer if sensor doesn't trigger");
   Serial.println("================================================================================");
   waitForBoardEmpty();
 
@@ -496,7 +495,6 @@ bool BoardDriver::runCalibration() {
 
   // LED mapping calibration
   Serial.println("LED mapping calibration:");
-  Serial.println("A single LED will light. Place a piece on that square.");
 
   bool logicalUsed[NUM_ROWS][NUM_COLS] = {false};
 
@@ -516,6 +514,7 @@ bool BoardDriver::runCalibration() {
     int row = 0;
     int col = 0;
     displayCalibrationLEDs(pixelIndex);
+    Serial.println("Place a piece on the white LED");
     waitForSingleRawPress(row, col);
 
     uint8_t logicalRow = toLogicalRow[swapAxes ? col : row];
@@ -533,7 +532,7 @@ bool BoardDriver::runCalibration() {
     displayCalibrationLEDs(pixelIndex + 1);
 
     Serial.println("Remove the piece");
-    waitForBoardEmpty();
+    waitForBoardEmpty(100);
   }
 
   clearAllLEDs();
