@@ -36,7 +36,6 @@ class ChessGame {
   void updateGameStatus();
 
   // Chess rule helpers
-  void recomputeCastlingRightsFromBoard();
   void updateCastlingRightsAfterMove(int fromRow, int fromCol, int toRow, int toCol, char movedPiece, char capturedPiece);
   void applyCastling(int kingFromRow, int kingFromCol, int kingToRow, int kingToCol, char kingPiece, bool waitForKingCompletion = false);
   bool applyPawnPromotionIfNeeded(int toRow, int toCol, char movedPiece, char& promotedPieceOut);
@@ -53,7 +52,6 @@ class ChessGame {
   virtual void begin() = 0;
   virtual void update() = 0;
 
-  void setBoardState(char newBoardState[8][8]);
   void setBoardStateFromFEN(const String& fen);
   bool isGameOver() const { return gameOver; }
 };

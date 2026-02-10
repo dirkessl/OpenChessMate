@@ -1,6 +1,7 @@
 #ifndef CHESS_UTILS_H
 #define CHESS_UTILS_H
 
+#include "led_colors.h"
 #include <Arduino.h>
 
 // Forward declaration
@@ -10,6 +11,10 @@ class ChessUtils {
  public:
   static const char* colorName(char color) {
     return (color == 'w') ? "White" : "Black";
+  }
+
+  static const LedRGB colorLed(char color) {
+    return (color == 'w') ? LedColors::White : LedColors::Blu;
   }
 
   static const char getPieceColor(char piece) {

@@ -60,13 +60,10 @@ void ChessGame::waitForBoardSetup(const char targetBoard[8][8]) {
 
         if (shouldHavePiece && !hasPiece) {
           // Need to place a piece here - show where pieces should go
-          if (ChessUtils::getPieceColor(targetBoard[row][col]) == 'w') {
-            // White piece - show in White
-            boardDriver->setSquareLED(row, col, LedColors::White);
-          } else {
-            // Black piece - show in Blu
-            boardDriver->setSquareLED(row, col, LedColors::Blu);
-          }
+          if (ChessUtils::getPieceColor(targetBoard[row][col]) == 'w')
+            boardDriver->setSquareLED(row, col, ChessUtils::colorLed('w'));
+          else
+            boardDriver->setSquareLED(row, col, ChessUtils::colorLed('b'));
         } else if (!shouldHavePiece && hasPiece) {
           // Need to remove a piece from here - show in red
           boardDriver->setSquareLED(row, col, LedColors::Red);
@@ -302,14 +299,14 @@ void ChessGame::updateGameStatus() {
   if (chessEngine->isCheckmate(board, currentTurn)) {
     char winnerColor = (currentTurn == 'w') ? 'b' : 'w';
     Serial.printf("CHECKMATE! %s wins!\n", ChessUtils::colorName(winnerColor));
-    boardDriver->fireworkAnimation();
+    boardDriver->fireworkAnimation(ChessUtils::colorLed(winnerColor));
     gameOver = true;
     return;
   }
 
   if (chessEngine->isStalemate(board, currentTurn)) {
     Serial.println("STALEMATE! Game is a draw.");
-    boardDriver->clearAllLEDs();
+    boardDriver->fireworkAnimation(LedColors::Cyan);
     gameOver = true;
     return;
   }
@@ -327,15 +324,6 @@ void ChessGame::updateGameStatus() {
   Serial.printf("It's %s's turn !\n", ChessUtils::colorName(currentTurn));
 }
 
-void ChessGame::setBoardState(char newBoardState[8][8]) {
-  memcpy(board, newBoardState, 64);
-  recomputeCastlingRightsFromBoard();
-  // Update sensor previous state to match new board
-  boardDriver->readSensors();
-  boardDriver->updateSensorPrev();
-  ChessUtils::printBoard(board);
-}
-
 void ChessGame::setBoardStateFromFEN(const String& fen) {
   ChessUtils::fenToBoard(fen, board, currentTurn, chessEngine);
   // Update sensor previous state to match new board
@@ -343,21 +331,6 @@ void ChessGame::setBoardStateFromFEN(const String& fen) {
   boardDriver->updateSensorPrev();
   Serial.println("Board state set from FEN: " + fen);
   ChessUtils::printBoard(board);
-}
-
-void ChessGame::recomputeCastlingRightsFromBoard() {
-  uint8_t rights = 0;
-
-  if (board[7][4] == 'K') {
-    if (board[7][7] == 'R') rights |= 0x01;
-    if (board[7][0] == 'R') rights |= 0x02;
-  }
-  if (board[0][4] == 'k') {
-    if (board[0][7] == 'r') rights |= 0x04;
-    if (board[0][0] == 'r') rights |= 0x08;
-  }
-
-  chessEngine->setCastlingRights(rights);
 }
 
 void ChessGame::updateCastlingRightsAfterMove(int fromRow, int fromCol, int toRow, int toCol, char movedPiece, char capturedPiece) {

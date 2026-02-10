@@ -106,7 +106,7 @@ void BoardDriver::executeAnimation(const AnimationJob& job) {
       doThinking(job.stopFlag);
       break;
     case AnimationType::FIREWORK:
-      doFirework();
+      doFirework(job.params.firework.color);
       break;
     case AnimationType::FLASH:
       doFlash(job.params.flash.color, job.params.flash.times);
@@ -694,12 +694,13 @@ void BoardDriver::doBlink(int row, int col, LedRGB color, int times, bool clearA
   }
 }
 
-void BoardDriver::fireworkAnimation() {
+void BoardDriver::fireworkAnimation(LedRGB color) {
   AnimationJob job = {AnimationType::FIREWORK, nullptr, {}};
+  job.params.firework = {color};
   xQueueSend(animationQueue, &job, portMAX_DELAY);
 }
 
-void BoardDriver::doFirework() {
+void BoardDriver::doFirework(LedRGB color) {
   clearAllLEDs(false);
   float centerX = 3.5;
   float centerY = 3.5;
@@ -712,7 +713,7 @@ void BoardDriver::doFirework() {
         float dy = row - centerY;
         float dist = sqrt(dx * dx + dy * dy);
         if (fabs(dist - radius) < 0.5)
-          setSquareLED(row, col, LedColors::White);
+          setSquareLED(row, col, color);
         else
           setSquareLED(row, col, LedColors::Off);
       }
@@ -728,7 +729,7 @@ void BoardDriver::doFirework() {
         float dy = row - centerY;
         float dist = sqrt(dx * dx + dy * dy);
         if (fabs(dist - radius) < 0.5)
-          setSquareLED(row, col, LedColors::White);
+          setSquareLED(row, col, color);
         else
           setSquareLED(row, col, LedColors::Off);
       }

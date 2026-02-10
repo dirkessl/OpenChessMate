@@ -100,6 +100,9 @@ struct AnimationJob {
       LedRGB color;
       int times;
     } flash;
+    struct {
+      LedRGB color;
+    } firework;
   } params;
 };
 
@@ -123,7 +126,7 @@ class BoardDriver {
   void doBlink(int row, int col, LedRGB color, int times, bool clearAfter);
   void doWaiting(std::atomic<bool>* stopFlag);
   void doThinking(std::atomic<bool>* stopFlag);
-  void doFirework();
+  void doFirework(LedRGB color);
   void doFlash(LedRGB color, int times);
   bool sensorState[NUM_ROWS][NUM_COLS];
   bool sensorPrev[NUM_ROWS][NUM_COLS];
@@ -180,7 +183,7 @@ class BoardDriver {
   void showLEDs();
 
   // Animation Functions (queued for async execution)
-  void fireworkAnimation();
+  void fireworkAnimation(LedRGB color = LedColors::White);
   void captureAnimation(int row, int col);
   void promotionAnimation(int col);
   void blinkSquare(int row, int col, LedRGB color, int times = 3, bool clearAfter = true);
