@@ -140,14 +140,14 @@ void ChessBot::makeBotMove() {
         Serial.println("ERROR: Bot tried to move from an empty square!");
         return;
       }
-      executeOpponentMove(fromRow, fromCol, toRow, toCol);
+      executeOpponentMove(fromRow, fromCol, toRow, toCol, (bestMove.length() >= 5) ? bestMove[4] : ' ');
     } else {
       Serial.printf("Failed to parse bot move - %s\n", validationError.c_str());
     }
   }
 }
 
-void ChessBot::executeOpponentMove(int fromRow, int fromCol, int toRow, int toCol) {
+void ChessBot::executeOpponentMove(int fromRow, int fromCol, int toRow, int toCol, char promotion) {
   char piece = board[fromRow][fromCol];
   char capturedPiece = board[toRow][toCol];
 
@@ -180,10 +180,17 @@ void ChessBot::executeOpponentMove(int fromRow, int fromCol, int toRow, int toCo
   updateCastlingRightsAfterMove(fromRow, fromCol, toRow, toCol, piece, capturedPiece);
 
   if (capturedPiece != ' ') {
-    Serial.printf("Piece captured: %c\n", capturedPiece);
+    Serial.printf("Captured: %c\n", capturedPiece);
     boardDriver->captureAnimation(toRow, toCol);
   } else {
     confirmSquareCompletion(toRow, toCol);
+  }
+
+  if (chessEngine->isPawnPromotion(piece, toRow)) {
+    char promotedPiece = promotion != ' ' && promotion != '\0' ? (ChessUtils::isWhitePiece(piece) ? toupper(promotion) : tolower(promotion)) : (ChessUtils::isWhitePiece(piece) ? 'Q' : 'q');
+    board[toRow][toCol] = promotedPiece;
+    Serial.printf("Pawn promoted to %c\n", promotedPiece);
+    boardDriver->promotionAnimation(toCol);
   }
 }
 

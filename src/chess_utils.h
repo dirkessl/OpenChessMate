@@ -10,15 +10,23 @@ class ChessEngine;
 class ChessUtils {
  public:
   static const char* colorName(char color) {
-    return (color == 'w') ? "White" : "Black";
+    return (color == 'w') ? "White" : ((color == 'b') ? "Black" : "Unknown");
   }
 
   static const LedRGB colorLed(char color) {
-    return (color == 'w') ? LedColors::White : LedColors::Blu;
+    return (color == 'w') ? LedColors::White : ((color == 'b') ? LedColors::Blu : LedColors::Off);
   }
 
   static const char getPieceColor(char piece) {
     return (piece >= 'a' && piece <= 'z') ? 'b' : 'w';
+  }
+
+  static const bool isWhitePiece(char piece) {
+    return (piece >= 'A' && piece <= 'Z') ? true : false;
+  }
+
+  static const bool isBlackPiece(char piece) {
+    return (piece >= 'a' && piece <= 'z') ? true : false;
   }
 
   static bool isEnPassantMove(int fromRow, int fromCol, int toRow, int toCol, char piece, char capturedPiece) {
@@ -26,7 +34,7 @@ class ChessUtils {
   }
 
   static int getEnPassantCapturedPawnRow(int toRow, char piece) {
-    return toRow - ((getPieceColor(piece) == 'w') ? -1 : 1);
+    return toRow - (isWhitePiece(piece) ? -1 : 1);
   }
 
   static bool isCastlingMove(int fromRow, int fromCol, int toRow, int toCol, char piece) {

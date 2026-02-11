@@ -61,7 +61,7 @@ void ChessGame::waitForBoardSetup(const char targetBoard[8][8]) {
 
         if (shouldHavePiece && !hasPiece) {
           // Need to place a piece here - show where pieces should go
-          if (ChessUtils::getPieceColor(targetBoard[row][col]) == 'w')
+          if (ChessUtils::isWhitePiece(targetBoard[row][col]))
             boardDriver->setSquareLED(row, col, ChessUtils::colorLed('w'));
           else
             boardDriver->setSquareLED(row, col, ChessUtils::colorLed('b'));
@@ -107,16 +107,17 @@ void ChessGame::processPlayerMove(int fromRow, int fromCol, int toRow, int toCol
   Serial.printf("Player moved %c from %c%d to %c%d\n", piece, (char)('a' + fromCol), 8 - fromRow, (char)('a' + toCol), 8 - toRow);
 
   if (capturedPiece != ' ') {
-    Serial.printf("Captured %c\n", capturedPiece);
+    Serial.printf("Captured: %c\n", capturedPiece);
     boardDriver->captureAnimation(toRow, toCol);
   } else {
     confirmSquareCompletion(toRow, toCol);
   }
 
-  char promotedPiece = ' ';
-  if (applyPawnPromotionIfNeeded(toRow, toCol, piece, promotedPiece)) {
-    Serial.printf("Pawn promoted to %c\n", promotedPiece);
+  if (chessEngine->isPawnPromotion(piece, toRow)) {
+    char promotedPiece = ChessUtils::isWhitePiece(piece) ? 'Q' : 'q'; // For simplicity, auto-promote to queen. Can be enhanced to allow player choice later.
+    board[toRow][toCol] = promotedPiece;
     boardDriver->promotionAnimation(toCol);
+    Serial.printf("Pawn promoted to %c\n", promotedPiece);
   }
 }
 
@@ -466,15 +467,6 @@ void ChessGame::updateEnPassantTarget(int fromRow, int fromCol, int toRow, char 
   } else {
     chessEngine->clearEnPassantTarget();
   }
-}
-
-bool ChessGame::applyPawnPromotionIfNeeded(int toRow, int toCol, char movedPiece, char& promotedPieceOut) {
-  if (!chessEngine->isPawnPromotion(movedPiece, toRow))
-    return false;
-
-  promotedPieceOut = chessEngine->getPromotedPiece(movedPiece);
-  board[toRow][toCol] = promotedPieceOut;
-  return true;
 }
 
 void ChessGame::confirmSquareCompletion(int row, int col) {

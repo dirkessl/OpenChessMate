@@ -247,17 +247,5 @@ void ChessLichess::processLichessMove(const String& uciMove) {
 
   Serial.printf("Lichess move: %s -> Array coords: (%d,%d) to (%d,%d)\n", uciMove.c_str(), fromRow, fromCol, toRow, toCol);
 
-  executeLichessOpponentMove(fromRow, fromCol, toRow, toCol, promotion);
-}
-
-void ChessLichess::executeLichessOpponentMove(int fromRow, int fromCol, int toRow, int toCol, char promotion) {
-  char piece = board[fromRow][fromCol];
-
-  // Handle promotion - modify the piece before calling the parent's executeOpponentMove
-  if (promotion != ' ' && promotion != '\0') {
-    board[fromRow][fromCol] = promotion;
-  }
-
-  // Use parent's executeOpponentMove for the actual move handling
-  executeOpponentMove(fromRow, fromCol, toRow, toCol);
+  executeOpponentMove(fromRow, fromCol, toRow, toCol, promotion);
 }

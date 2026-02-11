@@ -451,11 +451,6 @@ bool ChessEngine::isPawnPromotion(char piece, int targetRow) {
   return false;
 }
 
-// Get the promoted piece (always queen for now)
-char ChessEngine::getPromotedPiece(char piece) {
-  return (piece == 'P') ? 'Q' : 'q';
-}
-
 // Utility function to print a move in readable format
 void ChessEngine::printMove(int fromRow, int fromCol, int toRow, int toCol) {
   Serial.printf("%c%d to %c%d\n", (char)('a' + fromCol), fromRow + 1, (char)('a' + toCol), toRow + 1);

@@ -30,9 +30,6 @@ class ChessLichess : public ChessBot {
   void processLichessMove(const String& uciMove);
   void sendMoveToLichess(int fromRow, int fromCol, int toRow, int toCol, char promotion = ' ');
 
-  // Override to handle Lichess-specific moves (with promotion)
-  void executeLichessOpponentMove(int fromRow, int fromCol, int toRow, int toCol, char promotion = ' ');
-
  public:
   ChessLichess(BoardDriver* bd, ChessEngine* ce, WiFiManagerESP32* wm, LichessConfig cfg);
   void begin() override;

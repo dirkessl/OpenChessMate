@@ -105,7 +105,6 @@ class ChessEngine {
 
   // Game state checks
   bool isPawnPromotion(char piece, int targetRow);
-  char getPromotedPiece(char piece);
   bool isKingInCheck(const char board[8][8], char kingColor);
   bool isCheckmate(const char board[8][8], char kingColor);
   bool isStalemate(const char board[8][8], char colorToMove);

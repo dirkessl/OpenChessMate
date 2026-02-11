@@ -38,7 +38,6 @@ class ChessGame {
   // Chess rule helpers
   void updateCastlingRightsAfterMove(int fromRow, int fromCol, int toRow, int toCol, char movedPiece, char capturedPiece);
   void applyCastling(int kingFromRow, int kingFromCol, int kingToRow, int kingToCol, char kingPiece, bool waitForKingCompletion = false);
-  bool applyPawnPromotionIfNeeded(int toRow, int toCol, char movedPiece, char& promotedPieceOut);
   bool findKingPosition(char colorToMove, int& kingRow, int& kingCol);
   void confirmSquareCompletion(int row, int col);
 

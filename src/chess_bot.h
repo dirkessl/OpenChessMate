@@ -26,7 +26,7 @@ class ChessBot : public ChessGame {
   float currentEvaluation; // Evaluation (in pawns, positive = white advantage)
 
   // Move handling - shared with subclasses (e.g., ChessLichess)
-  void executeOpponentMove(int fromRow, int fromCol, int toRow, int toCol);
+  void executeOpponentMove(int fromRow, int fromCol, int toRow, int toCol, char promotion = ' ');
   void showOpponentMoveIndicator(int fromRow, int fromCol, int toRow, int toCol, bool isCapture, bool isEnPassant = false, int enPassantCapturedPawnRow = -1);
   void waitForOpponentMoveCompletion(int fromRow, int fromCol, int toRow, int toCol, bool isCapture, bool isEnPassant = false, int enPassantCapturedPawnRow = -1);
 
