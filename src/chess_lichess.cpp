@@ -119,6 +119,8 @@ void ChessLichess::syncBoardWithLichess(const LichessGameState& state) {
   // If FEN is provided, use it directly
   if (state.fen.length() > 0 && state.fen != "startpos") {
     ChessUtils::fenToBoard(state.fen, board, currentTurn, chessEngine);
+    chessEngine->clearPositionHistory();
+    chessEngine->recordPosition(board, currentTurn);
     Serial.println("Board synced from FEN: " + state.fen);
   } else {
     Serial.println("No FEN provided, assuming starting position.");
@@ -169,14 +171,16 @@ void ChessLichess::update() {
   if (LichessAPI::pollGameStream(currentGameId, state)) {
     if (state.gameEnded) {
       Serial.println("Game ended! Status: " + state.status);
-      if (state.winner.length() > 0) {
+      if (state.winner.length() > 0)
         Serial.println("Winner: " + state.winner);
-      }
       if (stopAnimation) {
         stopAnimation->store(true);
         stopAnimation = nullptr;
       }
-      boardDriver->fireworkAnimation();
+      if (state.status == "draw" || state.status == "stalemate" || state.winner == "draw")
+        boardDriver->fireworkAnimation(LedColors::Cyan);
+      else
+        boardDriver->fireworkAnimation(ChessUtils::colorLed((state.winner == "white") ? 'w' : 'b'));
       gameOver = true;
       return;
     }

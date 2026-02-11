@@ -1,100 +1,72 @@
-# OpenChess - AI Coding Instructions
+# OpenChess - Copilot Instructions
 
 ## Project Overview
-ESP32-based smart chess board with hall effect sensors, WS2812B LEDs, and Stockfish AI integration via WiFi. Built with PlatformIO + Arduino framework.
+ESP32 Arduino smart chessboard: detects piece movements via hall-effect sensors + shift register, provides LED feedback via WS2812B strip, and communicates with Stockfish API / Lichess API over WiFi. Built with PlatformIO (`esp32dev` board, Arduino framework).
 
 ## Architecture
 
-### Core Components
-- **BoardDriver** ([board_driver.h](../src/board_driver.h)): Hardware abstraction - LEDs, sensors, shift registers, animations, calibration
-- **ChessEngine** ([chess_engine.h](../src/chess_engine.h)): Pure chess logic - move validation, check/checkmate detection, castling/en passant rules
-- **ChessGame** ([chess_game.h](../src/chess_game.h)): Base class for game modes with shared board state and turn management
-- **WiFiManagerESP32** ([wifi_manager_esp32.h](../src/wifi_manager_esp32.h)): Async web server, settings persistence via NVS Preferences
+### Class Hierarchy
+`ChessGame` (abstract base) → `ChessMoves` (human v human) → inherited by `ChessBot` (v Stockfish) → inherited by `ChessLichess` (online play). Each mode implements `begin()` and `update()` called from the main loop. `BoardDriver` and `ChessEngine` are shared via pointer injection — never duplicated.
 
-### Game Mode Inheritance
-```
-ChessGame (base) ─┬─ ChessMoves (human vs human)
-                  ├─ ChessBot (human vs Stockfish AI)
-                  └─ ChessLichess (play online Lichess games)
-```
-All inherit from `ChessGame` and implement `begin()` and `update()` virtual methods.
-
-### Data Flow
-1. `main.cpp` owns all core objects, handles game selection via physical piece placement or web UI
-2. `BoardDriver::readSensors()` applies debouncing before state changes propagate
-3. FEN strings are the interchange format between web UI ↔ game modes ↔ Stockfish API
-4. `wifiManager.updateBoardState(fen, eval)` pushes state to web clients
-
-## Build System
-
-### Commands
-- **Build & Upload**: `Ctrl+Alt+U` in VS Code with PlatformIO extension
-- **Monitor Serial**: `pio device monitor` (115200 baud)
-
-### Web Asset Pipeline (runs automatically on build)
-1. `minify.py` - Minifies HTML/CSS/JS in `src/web/` → `src/web/build/` (requires npm packages)
-2. `generate_pages.py` - Gzip compresses and embeds into `web_pages.cpp`/`page_router.cpp`
-
-**To edit web UI**: Modify files in `src/web/`, NOT `src/web/build/` (auto-generated).
-
-Install minifiers (optional but recommended):
-```bash
-npm install -g html-minifier-terser clean-css-cli terser
-```
-
-## Conventions
+### Key Components
+- **`BoardDriver`** — hardware abstraction: LED strip (NeoPixel), sensor grid (shift register column scan + row GPIO reads), calibration (NVS-persisted), and async animation queue (FreeRTOS task + queue).
+- **`ChessEngine`** — pure chess logic: move generation, validation, check/checkmate/stalemate, castling rights, en passant, 50-move rule. No hardware dependencies.
+- **`WiFiManagerESP32`** — async web server (`ESPAsyncWebServer`), serves gzipped pages from PROGMEM, handles API endpoints for board state, game selection, settings. Also manages WiFi credentials and Lichess token persistence via `Preferences` (NVS).
+- **`ChessUtils`** — static helpers: FEN ↔ board conversion, material evaluation, NVS init.
 
 ### Coordinate System
-- Board array: `board[row][col]` where row 0 = rank 8, col 0 = file a
-- Piece chars: uppercase = white (`KQRBNP`), lowercase = black (`kqrbnp`), empty = `' '`
+Board arrays use `[row][col]` where **row 0 = rank 8** (black's back rank), **col 0 = file a**. All internal logic uses this convention consistently.
 
-### State Management
-- Castling rights: bitmask in `ChessEngine` (0x01=K, 0x02=Q, 0x04=k, 0x08=q)
-- Turn tracking: `currentTurn` char (`'w'` or `'b'`) in game classes
-- Persistence: Use `Preferences` API with `ChessUtils::ensureNvsInitialized()` first
+## Build & Flash
 
-### Hardware Pins (configurable in board_driver.h)
-```cpp
-LED_PIN 32          // WS2812B data
-SR_CLK_PIN 14       // 74HC595 shift clock
-SR_LATCH_PIN 26     // 74HC595 latch
-SR_SER_DATA_PIN 33  // 74HC595 serial data
-ROW_PIN_0-7         // Hall sensor rows
-```
+### Prerequisites
+- VS Code + PlatformIO IDE extension
+- For web asset minification (optional): `npm install -g html-minifier-terser clean-css-cli terser`
 
-### LED Colors (defined in led_colors.h)
-Use named constants: `COLOR_MOVE_INDICATOR`, `COLOR_ATTACK`, `COLOR_CHECK`, etc.
+### Build Pipeline
+PlatformIO runs two **pre-build Python scripts** (defined in `platformio.ini`):
+1. `src/web/build/minify.py` — minifies HTML/CSS/JS from `src/web/` → `src/web/build/` (gracefully skips if npm tools absent)
+2. `src/web/build/generate_pages.py` — gzip-compresses assets and generates `web_pages.cpp`, `web_pages.h`, `page_router.cpp` as C arrays in PROGMEM
 
-## Key Patterns
+**Do not manually edit** `web_pages.cpp`, `web_pages.h`, or `page_router.cpp` — they are auto-generated. Edit source HTML/CSS/JS in `src/web/` instead.
 
-### Adding a New Game Mode
-1. Create class inheriting `ChessGame`
-2. Implement `begin()` for initialization, `update()` for main loop
-3. Add enum value in `main.cpp` `GameMode`
-4. Handle in `initializeSelectedMode()` and main `loop()` switch
+### Commands
+PlatformIO CLI (`pio`) is not on PATH by default. Use the full path:
+- **Windows**: `%USERPROFILE%\.platformio\penv\Scripts\pio.exe`
+- **Linux**: `~/.platformio/penv/bin/pio`
 
-### Stockfish Integration
-```cpp
-// See chess_bot.cpp for full example
-StockfishSettings::medium()  // Depth presets: easy(5), medium(8), hard(11), expert(15)
-StockfishAPI::buildRequestURL(fen, depth)
-StockfishAPI::parseResponse(json, response)  // Returns StockfishResponse struct
-```
+| Action | VS Code shortcut | CLI |
+|--------|-----------------|-----|
+| Build | `Ctrl+Alt+B` | `pio run` |
+| Upload | `Ctrl+Alt+U` | `pio run -t upload` |
+| Serial Monitor | — | `pio device monitor` (115200 baud) |
 
-### Web API Endpoints (defined in wifi_manager_esp32.cpp)
-- `GET /board-update` - Current FEN + evaluation
-- `POST /board-update` - Apply move from web UI
-- `GET /wifi-info` - Current WiFi status
-- `POST /connect-wifi` - Connect to specified WiFi network
-- `POST /gameselect` - Select game mode + bot config
-- `GET /lichess-info` - Lichess token status
-- `POST /save-lichess-token` - Save Lichess API token
+## Patterns & Conventions
 
-### Lichess Integration
-```cpp
-// See chess_lichess.cpp for full example
-LichessAPI::setToken(token)
-LichessAPI::pollForGameEvent(event)  // Find active games
-LichessAPI::pollGameStream(gameId, state)  // Get game updates
-LichessAPI::makeMove(gameId, uciMove)  // Send player's move
-```
+### LED Mutex
+LED strip access is guarded by a FreeRTOS mutex. For multi-step LED updates, wrap in `acquireLEDs()` / `releaseLEDs()`. Single animation calls (e.g., `blinkSquare`, `captureAnimation`) are queued and acquire the mutex automatically.
+
+### Async Animations
+Animations run on a dedicated FreeRTOS task via a queue (`AnimationJob`). Long-running animations (`waiting`, `thinking`) return an `std::atomic<bool>*` stop flag — set it to `true` to cancel.
+
+### Sensor Debouncing
+Sensors are polled every `SENSOR_READ_DELAY_MS` (40ms) with `DEBOUNCE_MS` (125ms) debounce. The game selection screen implements a two-phase debounce (must see empty→occupied transition). Always call `boardDriver.readSensors()` before reading state.
+
+### Color Semantics (LedColors namespace)
+Colors have fixed meanings in `led_colors.h`: `White` = valid move, `Red` = capture/error, `Green` = confirmation, `Yellow` = check/promotion, `Cyan` = piece origin, `Purple` = en passant, `Blu` = bot thinking. Use these consistently.
+
+### Web Assets & `.nogz.` Convention
+Files named `*.nogz.*` (e.g., `capture.nogz.mp3`) skip gzip compression in the build pipeline — used for binary files that don't benefit from gzip or need raw serving.
+
+### NVS Persistence
+Settings (WiFi creds, Lichess token, LED brightness, calibration) are stored in ESP32 NVS via Arduino `Preferences`. Always call `ChessUtils::ensureNvsInitialized()` before first use.
+
+### External APIs
+- **Stockfish**: HTTPS calls to `stockfish.online` — see `StockfishAPI` for request/response handling. Difficulty is controlled by search `depth` (5/8/11/15).
+- **Lichess**: HTTPS to `lichess.org` — polling-based game stream, move submission. Token stored in NVS.
+
+### Game Mode Lifecycle
+Each mode follows: `begin()` (setup board, wait for pieces) → `update()` (poll sensors, process moves) → `isGameOver()` triggers return to selection screen. The main loop in `main.cpp` orchestrates this state machine.
+
+## Pin Configuration
+GPIO pins are `#define`d in `board_driver.h`. The calibration system maps physical pin order to logical board coordinates, so **pin assignment order doesn't matter** — calibration handles it.

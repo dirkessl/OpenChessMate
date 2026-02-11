@@ -22,6 +22,18 @@ class ChessEngine {
   // Halfmove clock for 50-move rule (counts half-moves since last pawn move or capture)
   int halfmoveClock;
 
+  // --- Zobrist hashing for threefold repetition detection ---
+  // Position history (cleared on irreversible moves for memory efficiency)
+#define MAX_POSITION_HISTORY 128
+  uint64_t positionHistory[MAX_POSITION_HISTORY];
+  int positionHistoryCount;
+
+  static inline int pieceToZobristIndex(char piece) {
+    const char* pieces = "PNBRQKpnbrqk";
+    const char* p = __builtin_strchr(pieces, piece);
+    return p ? (int)(p - pieces) : -1;
+  };
+
   // Helper functions for move generation
   void addPawnMoves(const char board[8][8], int row, int col, char pieceColor, int& moveCount, int moves[][2]);
   void addRookMoves(const char board[8][8], int row, int col, char pieceColor, int& moveCount, int moves[][2]);
@@ -52,6 +64,7 @@ class ChessEngine {
     clearEnPassantTarget();
     castlingRights = 0x0F;
     halfmoveClock = 0;
+    clearPositionHistory();
   }
 
   // Set castling rights bitmask (KQkq = 0b1111)
@@ -69,6 +82,12 @@ class ChessEngine {
   void setHalfmoveClock(int clock);
   void updateHalfmoveClock(char movedPiece, char capturedPiece);
   bool isFiftyMoveRule() const;
+
+  // Threefold repetition detection (Zobrist hash-based)
+  uint64_t computeZobristHash(const char board[8][8], char sideToMove) const;
+  void recordPosition(const char board[8][8], char sideToMove);
+  void clearPositionHistory();
+  bool isThreefoldRepetition() const;
 
   // Main move generation function
   void getPossibleMoves(const char board[8][8], int row, int col, int& moveCount, int moves[][2]);

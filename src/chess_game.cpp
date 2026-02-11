@@ -21,6 +21,7 @@ void ChessGame::initializeBoard() {
   gameOver = false;
   memcpy(board, INITIAL_BOARD, sizeof(INITIAL_BOARD));
   chessEngine->reset();
+  chessEngine->recordPosition(board, currentTurn);
   wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), 0);
 }
 
@@ -297,6 +298,7 @@ bool ChessGame::findKingPosition(char colorToMove, int& kingRow, int& kingCol) {
 
 void ChessGame::updateGameStatus() {
   currentTurn = (currentTurn == 'w') ? 'b' : 'w';
+  chessEngine->recordPosition(board, currentTurn);
 
   if (chessEngine->isCheckmate(board, currentTurn)) {
     char winnerColor = (currentTurn == 'w') ? 'b' : 'w';
@@ -320,6 +322,13 @@ void ChessGame::updateGameStatus() {
     return;
   }
 
+  if (chessEngine->isThreefoldRepetition()) {
+    Serial.println("DRAW by threefold repetition! Same position occurred 3 times.");
+    boardDriver->fireworkAnimation(LedColors::Cyan);
+    gameOver = true;
+    return;
+  }
+
   if (chessEngine->isKingInCheck(board, currentTurn)) {
     Serial.printf("%s is in CHECK!\n", ChessUtils::colorName(currentTurn));
     boardDriver->clearAllLEDs(false);
@@ -335,6 +344,8 @@ void ChessGame::updateGameStatus() {
 
 void ChessGame::setBoardStateFromFEN(const String& fen) {
   ChessUtils::fenToBoard(fen, board, currentTurn, chessEngine);
+  chessEngine->clearPositionHistory();
+  chessEngine->recordPosition(board, currentTurn);
   // Update sensor previous state to match new board
   boardDriver->readSensors();
   boardDriver->updateSensorPrev();

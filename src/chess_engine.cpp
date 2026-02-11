@@ -1,12 +1,75 @@
 #include "chess_engine.h"
 #include "chess_utils.h"
+#include "zobrist_keys.h"
 #include <Arduino.h>
 
 // ---------------------------
 // ChessEngine Implementation
 // ---------------------------
 
-ChessEngine::ChessEngine() : castlingRights(0x0F), enPassantTargetRow(-1), enPassantTargetCol(-1), halfmoveClock(0) {}
+ChessEngine::ChessEngine() : castlingRights(0x0F), enPassantTargetRow(-1), enPassantTargetCol(-1), halfmoveClock(0), positionHistoryCount(0) {}
+
+uint64_t ChessEngine::computeZobristHash(const char board[8][8], char sideToMove) const {
+  uint64_t hash = 0;
+
+  // Hash piece positions
+  for (int row = 0; row < 8; row++)
+    for (int col = 0; col < 8; col++) {
+      char piece = board[row][col];
+      if (piece != ' ') {
+        int idx = pieceToZobristIndex(piece);
+        int sq = row * 8 + col;
+        hash ^= ZOBRIST_TABLE[idx][sq];
+      }
+    }
+
+  // Hash castling rights
+  hash ^= ZOBRIST_CASTLING[castlingRights];
+
+  // Hash en passant file (only if en passant is possible)
+  if (enPassantTargetCol >= 0)
+    hash ^= ZOBRIST_EN_PASSANT[enPassantTargetCol];
+
+  // Hash side to move
+  if (sideToMove == 'b')
+    hash ^= ZOBRIST_SIDE_TO_MOVE;
+
+  return hash;
+}
+
+void ChessEngine::recordPosition(const char board[8][8], char sideToMove) {
+  // Clear history on irreversible moves (pawn move or capture reset halfmoveClock to 0).
+  // Positions from before an irreversible move can never recur, so this is safe
+  // and keeps memory usage bounded by the 50-move rule (~100 entries max).
+  if (halfmoveClock == 0)
+    clearPositionHistory();
+
+  if (positionHistoryCount < MAX_POSITION_HISTORY)
+    positionHistory[positionHistoryCount++] = computeZobristHash(board, sideToMove);
+}
+
+void ChessEngine::clearPositionHistory() {
+  positionHistoryCount = 0;
+}
+
+bool ChessEngine::isThreefoldRepetition() const {
+  // Minimum 5 half-moves for 3 occurrences of same position
+  if (positionHistoryCount < 5)
+    return false;
+
+  uint64_t current = positionHistory[positionHistoryCount - 1];
+  int count = 1; // Current position counts as 1
+  // Scan backwards, skipping every other entry (only same side-to-move can match).
+  // Backwards scan finds recent repetitions faster for early exit.
+  for (int i = positionHistoryCount - 3; i >= 0; i -= 2) {
+    if (positionHistory[i] == current) {
+      count++;
+      if (count >= 3)
+        return true;
+    }
+  }
+  return false;
+}
 
 void ChessEngine::setCastlingRights(uint8_t rights) {
   castlingRights = rights;
