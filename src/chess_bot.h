@@ -16,8 +16,8 @@ class ChessBot : public ChessGame {
   BotConfig botConfig;
 
   // WiFi and API (Stockfish-specific)
-  String makeStockfishRequest(String fen);
-  bool parseStockfishResponse(String response, String& bestMove, float& evaluation);
+  String makeStockfishRequest(const String& fen);
+  bool parseStockfishResponse(const String& response, String& bestMove, float& evaluation);
 
   // Game flow (Stockfish-specific)
   void makeBotMove();

@@ -44,7 +44,7 @@ class ChessUtils {
   // Convert castling rights bitmask (KQkq) to string used in FEN.
   // rights: bitmask where 0x01=K, 0x02=Q, 0x04=k, 0x08=q
   static String castlingRightsToString(uint8_t rights);
-  static uint8_t castlingRightsFromString(String rightsStr);
+  static uint8_t castlingRightsFromString(const String& rightsStr);
 
   // Convert board state to FEN notation
   // board: 8x8 array representing the chess board
@@ -58,7 +58,7 @@ class ChessUtils {
   // board: 8x8 array to update with parsed position
   // currentTurn: output parameter for whose turn it is - 'w' or 'b' (optional)
   // chessEngine: ChessEngine pointer to set castling rights and en passant target square
-  static void fenToBoard(String fen, char board[8][8], char& currentTurn, ChessEngine* chessEngine = nullptr);
+  static void fenToBoard(const String& fen, char board[8][8], char& currentTurn, ChessEngine* chessEngine = nullptr);
 
   // Print current board state to Serial for debugging
   // board: 8x8 array representing the chess board

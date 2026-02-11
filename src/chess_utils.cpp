@@ -15,7 +15,7 @@ String ChessUtils::castlingRightsToString(uint8_t rights) {
   return s;
 }
 
-uint8_t ChessUtils::castlingRightsFromString(String rightsStr) {
+uint8_t ChessUtils::castlingRightsFromString(const String& rightsStr) {
   uint8_t rights = 0;
   for (int i = 0; i < rightsStr.length(); i++) {
     char c = rightsStr.charAt(i);
@@ -96,7 +96,7 @@ String ChessUtils::boardToFEN(const char board[8][8], char currentTurn, ChessEng
   return fen;
 }
 
-void ChessUtils::fenToBoard(String fen, char board[8][8], char& currentTurn, ChessEngine* chessEngine) {
+void ChessUtils::fenToBoard(const String& fen, char board[8][8], char& currentTurn, ChessEngine* chessEngine) {
   // Parse FEN string and update board state
   // FEN format: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 

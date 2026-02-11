@@ -49,7 +49,7 @@ void ChessBot::update() {
   boardDriver->updateSensorPrev();
 }
 
-String ChessBot::makeStockfishRequest(String fen) {
+String ChessBot::makeStockfishRequest(const String& fen) {
   WiFiSSLClient client;
   // Set insecure mode for SSL (or add proper certificate validation)
   client.setInsecure();
@@ -93,7 +93,7 @@ String ChessBot::makeStockfishRequest(String fen) {
   return "";
 }
 
-bool ChessBot::parseStockfishResponse(String response, String& bestMove, float& evaluation) {
+bool ChessBot::parseStockfishResponse(const String& response, String& bestMove, float& evaluation) {
   StockfishResponse stockfishResp;
   if (!StockfishAPI::parseResponse(response, stockfishResp)) {
     Serial.printf("Failed to parse Stockfish response: %s\n", stockfishResp.errorMessage.c_str());

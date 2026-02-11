@@ -279,7 +279,7 @@ void WiFiManagerESP32::clearPendingEdit() {
   hasPendingEdit = false;
 }
 
-bool WiFiManagerESP32::connectToWiFi(String ssid, String password, bool fromWeb) {
+bool WiFiManagerESP32::connectToWiFi(const String& ssid, const String& password, bool fromWeb) {
   if (!fromWeb && WiFi.status() == WL_CONNECTED) {
     Serial.println("Already connected to WiFi");
     return true;

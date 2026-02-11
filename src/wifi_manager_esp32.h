@@ -89,7 +89,7 @@ class WiFiManagerESP32 {
   bool getPendingBoardEdit(String& fenOut);
   void clearPendingEdit();
   // WiFi connection management
-  bool connectToWiFi(String ssid, String password, bool fromWeb = false);
+  bool connectToWiFi(const String& ssid, const String& password, bool fromWeb = false);
 };
 
 #endif // WIFI_MANAGER_ESP32_H
