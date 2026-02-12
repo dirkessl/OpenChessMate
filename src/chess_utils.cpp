@@ -17,7 +17,7 @@ String ChessUtils::castlingRightsToString(uint8_t rights) {
 
 uint8_t ChessUtils::castlingRightsFromString(const String& rightsStr) {
   uint8_t rights = 0;
-  for (int i = 0; i < rightsStr.length(); i++) {
+  for (size_t i = 0; i < rightsStr.length(); i++) {
     char c = rightsStr.charAt(i);
     switch (c) {
       case 'K':
@@ -42,8 +42,8 @@ uint8_t ChessUtils::castlingRightsFromString(const String& rightsStr) {
 String ChessUtils::boardToFEN(const char board[8][8], char currentTurn, ChessEngine* chessEngine) {
   String fen = "";
 
-  // Board position - FEN expects rank 8 (black pieces) first, rank 1 (white pieces) last
-  // Our array: row 0 = rank 8 (black), row 7 = rank 1 (White)
+  // Board position - FEN expects rank 8 (Black pieces) first, rank 1 (White pieces) last
+  // Our array: row 0 = rank 8 (Black), row 7 = rank 1 (White)
   // boardToFEN loops from row 0 to row 7, so rank 8 is output first (correct for FEN)
   for (int row = 0; row < 8; row++) {
     int emptyCount = 0;
@@ -115,11 +115,11 @@ void ChessUtils::fenToBoard(const String& fen, char board[8][8], char& currentTu
 
   // Parse FEN ranks (rank 8 first, rank 1 last)
   // FEN: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
-  // Our array: row 0 = rank 8 (black), row 7 = rank 1 (white)
+  // Our array: row 0 = rank 8 (Black), row 7 = rank 1 (White)
   int row = 0; // Start with rank 8 (row 0 in our array)
   int col = 0;
 
-  for (int i = 0; i < boardPart.length() && row < 8; i++) {
+  for (size_t i = 0; i < boardPart.length() && row < 8; i++) {
     char c = boardPart.charAt(i);
 
     if (c == '/') {
@@ -213,7 +213,7 @@ void ChessUtils::printBoard(const char board[8][8]) {
 
 float ChessUtils::evaluatePosition(const char board[8][8]) {
   // Simple material evaluation
-  // Positive = white advantage, negative = black advantage
+  // Positive = White advantage, negative = Black advantage
   float evaluation = 0.0f;
 
   for (int row = 0; row < 8; row++)
@@ -221,7 +221,7 @@ float ChessUtils::evaluatePosition(const char board[8][8]) {
       char piece = board[row][col];
       float value = 0.0f;
 
-      // Get piece value (uppercase = white, lowercase = black)
+      // Get piece value (uppercase = White, lowercase = Black)
       switch (tolower(piece)) {
         case 'p':
           value = 1.0f;
@@ -245,7 +245,7 @@ float ChessUtils::evaluatePosition(const char board[8][8]) {
           continue; // Empty square
       }
 
-      // Add to evaluation (positive for white, negative for black)
+      // Add to evaluation (positive for White, negative for Black)
       if (piece >= 'A' && piece <= 'Z')
         evaluation += value; // White piece
       else if (piece >= 'a' && piece <= 'z')

@@ -48,7 +48,7 @@ class ChessUtils {
 
   // Convert board state to FEN notation
   // board: 8x8 array representing the chess board
-  // currentTurn: 'w' for white's turn, 'b' for black's turn
+  // currentTurn: 'w' for White's turn, 'b' for Black's turn
   // chessEngine: ChessEngine pointer to get castling rights and en passant target square
   // Returns: FEN string representation
   static String boardToFEN(const char board[8][8], char currentTurn, ChessEngine* chessEngine = nullptr);
@@ -65,7 +65,7 @@ class ChessUtils {
   static void printBoard(const char board[8][8]);
 
   // Evaluate board position using simple material count
-  // Returns evaluation in pawns (positive = white advantage, negative = black advantage)
+  // Returns evaluation in pawns (positive = White advantage, negative = Black advantage)
   // Pawn=1, Knight=3, Bishop=3, Rook=5, Queen=9
   static float evaluatePosition(const char board[8][8]);
 

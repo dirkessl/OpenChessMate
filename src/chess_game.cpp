@@ -4,13 +4,13 @@
 #include <string.h>
 
 const char ChessGame::INITIAL_BOARD[8][8] = {
-    {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'}, // row 0 = rank 8 (black pieces, top row)
-    {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'}, // row 1 = rank 7 (black pawns)
+    {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'}, // row 0 = rank 8 (Black pieces, top row)
+    {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'}, // row 1 = rank 7 (Black pawns)
     {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // row 2 = rank 6
     {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // row 3 = rank 5
     {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // row 4 = rank 4
     {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}, // row 5 = rank 3
-    {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'}, // row 6 = rank 2 (white pawns)
+    {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'}, // row 6 = rank 2 (White pawns)
     {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}  // row 7 = rank 1 (White pieces, bottom row)
 };
 

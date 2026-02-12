@@ -311,9 +311,9 @@ bool LichessAPI::parseGameFullEvent(const String& json, LichessGameState& state)
   if (doc.containsKey("white") && doc.containsKey("black")) {
     // Check which one has aiLevel (if any) - that's the bot
     if (doc["white"].containsKey("aiLevel")) {
-      state.myColor = 'b'; // We're black, white is AI
+      state.myColor = 'b'; // We're Black, White is AI
     } else if (doc["black"].containsKey("aiLevel")) {
-      state.myColor = 'w'; // We're white, black is AI
+      state.myColor = 'w'; // We're White, Black is AI
     }
   }
 

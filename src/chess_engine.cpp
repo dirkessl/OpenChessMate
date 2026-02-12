@@ -202,7 +202,7 @@ void ChessEngine::getPossibleMoves(const char board[8][8], int row, int col, int
 
 // Pawn move generation
 void ChessEngine::addPawnMoves(const char board[8][8], int row, int col, char pieceColor, int& moveCount, int moves[][2]) const {
-  // Board layout: row 0 = rank 8 (black), row 7 = rank 1 (White)
+  // Board layout: row 0 = rank 8 (Black), row 7 = rank 1 (White)
   // White pawns move from row 6 (rank 2) toward row 0 (rank 8): direction -1
   // Black pawns move from row 1 (rank 7) toward row 7 (rank 1): direction +1
   int direction = (pieceColor == 'w') ? -1 : 1;
@@ -239,7 +239,7 @@ void ChessEngine::addPawnMoves(const char board[8][8], int row, int col, char pi
 
   // En passant captures
   if (hasEnPassantTarget()) {
-    // The pawn must be on the correct rank (white on row 3/rank 5, black on row 4/rank 4) and the en passant target must be diagonally forward
+    // The pawn must be on the correct rank (White on row 3/rank 5, Black on row 4/rank 4) and the en passant target must be diagonally forward
     if ((pieceColor == 'w' && row == 3) || (pieceColor == 'b' && row == 4)) {
       for (int i = 0; i < 2; i++) {
         int captureCol = captureColumns[i];

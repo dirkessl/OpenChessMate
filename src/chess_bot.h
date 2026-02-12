@@ -23,7 +23,7 @@ class ChessBot : public ChessGame {
   void makeBotMove();
 
  protected:
-  float currentEvaluation; // Evaluation (in pawns, positive = white advantage)
+  float currentEvaluation; // Evaluation (in pawns, positive = White advantage)
 
   // Remote move hooks (LED indicator + physical move wait)
   void waitForRemoteMoveCompletion(int fromRow, int fromCol, int toRow, int toCol, bool isCapture, bool isEnPassant = false, int enPassantCapturedPawnRow = -1) override;

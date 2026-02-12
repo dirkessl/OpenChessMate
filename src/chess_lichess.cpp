@@ -86,7 +86,7 @@ void ChessLichess::waitForLichessGame() {
     state.gameStarted = true;
     state.gameEnded = false;
     state.lastMove = "";
-    // Determine turn from FEN (6th field) or assume white starts
+    // Determine turn from FEN (6th field) or assume White starts
     if (event.fen.length() > 0) {
       int spaceCount = 0;
       for (size_t i = 0; i < event.fen.length(); i++) {

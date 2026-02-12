@@ -53,7 +53,7 @@ Animations run on a dedicated FreeRTOS task via a queue (`AnimationJob`). Long-r
 Sensors are polled every `SENSOR_READ_DELAY_MS` (40ms) with `DEBOUNCE_MS` (125ms) debounce. The game selection screen implements a two-phase debounce (must see empty→occupied transition). Always call `boardDriver.readSensors()` before reading state.
 
 ### Color Semantics (LedColors namespace)
-Colors have fixed meanings in `led_colors.h`: `White` = valid move, `Red` = capture/error, `Green` = confirmation, `Yellow` = check/promotion, `Cyan` = piece origin, `Purple` = en passant, `Blu` = bot thinking. Use these consistently.
+Colors have fixed meanings in `led_colors.h`: `White` = valid move, `Red` = capture/error, `Green` = confirmation, `Yellow` = check/promotion, `Cyan` = piece origin, `Purple` = en passant, `Blue` = bot thinking. Use these consistently.
 
 ### Web Assets & `.nogz.` Convention
 Files named `*.nogz.*` (e.g., `capture.nogz.mp3`) skip gzip compression in the build pipeline — used for binary files that don't benefit from gzip or need raw serving.

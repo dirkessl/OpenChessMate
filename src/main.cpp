@@ -8,8 +8,6 @@
 #include "sensor_test.h"
 #include "wifi_manager_esp32.h"
 
-#define WiFiManager WiFiManagerESP32
-
 // ---------------------------
 // Game State and Configuration
 // ---------------------------
@@ -27,7 +25,7 @@ LichessConfig lichessConfig = {""};
 
 BoardDriver boardDriver;
 ChessEngine chessEngine;
-WiFiManager wifiManager(&boardDriver);
+WiFiManagerESP32 wifiManager(&boardDriver);
 ChessMoves chessMoves(&boardDriver, &chessEngine, &wifiManager);
 ChessBot* chessBot = nullptr;
 ChessLichess* chessLichess = nullptr;
@@ -174,7 +172,7 @@ void showGameSelection() {
   boardDriver.acquireLEDs();
   boardDriver.clearAllLEDs(false);
   // Light up the 4 selector positions in the middle of the board
-  // Position 1: Chess Moves (row 3, col 3) - Blu
+  // Position 1: Chess Moves (row 3, col 3) - Blue
   boardDriver.setSquareLED(3, 3, LedColors::Blue);
   // Position 2: Chess Bot (row 3, col 4) - Green
   boardDriver.setSquareLED(3, 4, LedColors::Green);
@@ -186,7 +184,7 @@ void showGameSelection() {
   boardDriver.releaseLEDs();
   Serial.println("=============== Game Selection Mode ===============");
   Serial.println("Four LEDs are lit in the center of the board:");
-  Serial.println("  Blu:    Chess Moves (Human vs Human)");
+  Serial.println("  Blue:   Chess Moves (Human vs Human)");
   Serial.println("  Green:  Chess Bot (Human vs AI)");
   Serial.println("  Yellow: Lichess (Play online games)");
   Serial.println("  Red:    Sensor Test");
