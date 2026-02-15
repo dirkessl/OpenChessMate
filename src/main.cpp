@@ -38,6 +38,7 @@ SensorTest* sensorTest = nullptr;
 GameMode currentMode = MODE_SELECTION;
 bool modeInitialized = false;
 bool resumingGame = false;
+bool resetGameSelection = true;
 
 void showGameSelection();
 void handleGameSelection();
@@ -201,6 +202,7 @@ void loop() {
 void showGameSelection() {
   currentMode = MODE_SELECTION;
   modeInitialized = false;
+  resetGameSelection = true;
   boardDriver.acquireLEDs();
   boardDriver.clearAllLEDs(false);
   // Light up the 4 selector positions in the middle of the board
@@ -235,14 +237,14 @@ void handleGameSelection() {
   };
   const int DEBOUNCE_CYCLES = (DEBOUNCE_MS / SENSOR_READ_DELAY_MS) + 2;
   static SelectorState selectorStates[4] = {};
-  static bool initializedStates = false;
-  if (!initializedStates) {
+
+  if (resetGameSelection) {
     for (int i = 0; i < 4; ++i) {
       selectorStates[i].emptyCount = 0;
       selectorStates[i].occupiedCount = 0;
       selectorStates[i].readyForSelection = false;
     }
-    initializedStates = true;
+    resetGameSelection = false;
   }
   for (int i = 0; i < 4; ++i) {
     if (!currState[i]) {
@@ -293,7 +295,6 @@ void handleGameSelection() {
           boardDriver.clearAllLEDs();
           break;
       }
-      initializedStates = false;
       break;
     }
   }

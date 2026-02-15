@@ -69,6 +69,8 @@ void WiFiManagerESP32::begin() {
   server.on("/games", HTTP_DELETE, [this](AsyncWebServerRequest* request) { this->handleDeleteGame(request); });
   // Serve sound files directly (no gzip variant exists, avoids .gz probe errors)
   server.serveStatic("/sounds/", LittleFS, "/sounds/").setTryGzipFirst(false);
+  // Serve piece SVGs with aggressive caching, otherwise chrome doesn't actually use the cached versions
+  server.serveStatic("/pieces/", LittleFS, "/pieces/").setCacheControl("max-age=31536000, immutable");
   // Serve all other static files from LittleFS (gzip handled automatically)
   server.serveStatic("/", LittleFS, "/").setDefaultFile("index.html");
   server.onNotFound([](AsyncWebServerRequest* request) { request->send(404, "text/plain", "Not Found"); });
@@ -324,8 +326,32 @@ bool WiFiManagerESP32::connectToWiFi(const String& ssid, const String& password,
 
 void WiFiManagerESP32::handleGamesRequest(AsyncWebServerRequest* request) {
   if (request->hasArg("id")) {
+    String idStr = request->arg("id");
+
+    // GET /games?id=live1 — return live moves file directly
+    if (idStr == "live1") {
+      if (!MoveHistory::quietExists("/games/live.bin")) {
+        request->send(404, "text/plain", "No live game");
+        return;
+      }
+      AsyncWebServerResponse* response = request->beginResponse(LittleFS, "/games/live.bin", "application/octet-stream", true);
+      request->send(response);
+      return;
+    }
+
+    // GET /games?id=live2 — return live FEN table file directly
+    if (idStr == "live2") {
+      if (!MoveHistory::quietExists("/games/live_fen.bin")) {
+        request->send(404, "text/plain", "No live FEN table");
+        return;
+      }
+      AsyncWebServerResponse* response = request->beginResponse(LittleFS, "/games/live_fen.bin", "application/octet-stream", true);
+      request->send(response);
+      return;
+    }
+
     // GET /games?id=N — return binary of game N
-    int id = request->arg("id").toInt();
+    int id = idStr.toInt();
     if (id <= 0) {
       request->send(400, "text/plain", "Invalid game id");
       return;
