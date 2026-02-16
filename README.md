@@ -3,8 +3,8 @@
 OpenChess is a smart chessboard, it can show legal moves, plays against you using Stockfish or let you play online Lichess games on the physical board. It saves all games, allowing you to review them later
 
 <p align="center">
-   <img src="BuildGuide/51_PCB_SOLDER_ROWS_N_COLS.webp" height="300px">
-   <img src="BuildGuide/schematics/ESP32_PCB.webp" height="300px">
+   <img src="BuildGuide/51_PCB_SOLDER_ROWS_N_COLS.webp" height="400px">
+   <img src="BuildGuide/schematics/ESP32_PCB.webp" height="400px">
 </p>
 
 ##  Features (main differences with the original repo)
@@ -95,4 +95,4 @@ If you have any new ideas to add or feedback to share, I'd love to hear it!
 
 ##  License
 
-PolyForm Noncommercial License 1.0.0 - See LICENSE.md file for details (applies to code added after the fork, the original repo doesn't have a LICENSE file)
+PolyForm Noncommercial License 1.0.0 - See [LICENSE.md](/LICENSE.md) for details (applies to code added after the fork, the original repo doesn't have a LICENSE file)
