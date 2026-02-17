@@ -1,5 +1,5 @@
 {
-    "imagePath": "../BuildGuide/",
+    "imagePath": "./BuildGuide/",
     "githubUrl": "https://github.com/joojoooo/OpenChess",
     "hero": {
         "title": "Build Your Own",
