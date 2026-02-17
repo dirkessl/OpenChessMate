@@ -20,9 +20,13 @@ class MoveHistory;
 #define AP_SSID "OpenChess"
 #define AP_PASSWORD "chess123"
 #define AP_PORT 80
-// Your WiFi Network Credentials (can also be set via web interface)
+// Your WiFi Network Credentials for internet connection (can also be set via web interface)
 #define SECRET_SSID "YOUR_SSID"
 #define SECRET_PASS "YOUR_PASSWORD"
+// Set to 1 if the same SSID is available on multiple channels. Will scan all channels and sort by signal strength.
+// Will take longer to connect but helps find the AP with best signal in a mesh network.
+// Don't enable unless you have multiple APs with the same SSID on different channels, otherwise it just adds unnecessary delay (around +10 seconds) to WiFi connection.
+#define WIFI_SCAN_ALL_CHANNELS 0
 
 // ---------------------------
 // WiFi Manager Class for ESP32

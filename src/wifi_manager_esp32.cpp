@@ -303,8 +303,11 @@ bool WiFiManagerESP32::connectToWiFi(const String& ssid, const String& password,
   Serial.printf("SSID: %s\nPassword: %s\n", ssid.c_str(), password.c_str());
 
   // ESP32 can run both AP and Station modes simultaneously
-  WiFi.mode(WIFI_AP_STA); // Enable both AP and Station modes
-
+  WiFi.mode(WIFI_AP_STA);
+#if defined(WIFI_SCAN_ALL_CHANNELS) && WIFI_SCAN_ALL_CHANNELS != 0
+  WiFi.setScanMethod(WIFI_ALL_CHANNEL_SCAN);
+  WiFi.setSortMethod(WIFI_CONNECT_AP_BY_SIGNAL);
+#endif
   WiFi.begin(ssid.c_str(), password.c_str());
 
   int attempts = 0;
@@ -319,7 +322,6 @@ bool WiFiManagerESP32::connectToWiFi(const String& ssid, const String& password,
     return true;
   } else {
     Serial.println("Failed to connect to WiFi");
-    // AP mode is still available
     return false;
   }
 }
