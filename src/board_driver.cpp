@@ -1001,7 +1001,7 @@ void BoardDriver::loadLedSettings() {
     return;
   }
   Preferences prefs;
-  prefs.begin("ledSettings", true);
+  prefs.begin("ledSettings", false);
   brightness = prefs.getUChar("brightness", BRIGHTNESS);
   dimMultiplier = prefs.getUChar("dimMult", 70);
   prefs.end();
@@ -1040,10 +1040,10 @@ void BoardDriver::loadHardwareConfig() {
   if (!ChessUtils::ensureNvsInitialized()) return;
 
   Preferences prefs;
-  prefs.begin("hwConfig", true);
+  prefs.begin("hwConfig", false);
   if (!prefs.isKey("ver")) {
     prefs.end();
-    Serial.println("No saved hardware config — using compile-time defaults");
+    Serial.println("No saved hardware config, using compile-time defaults");
     return;
   }
   hwConfig.ledPin = prefs.getUChar("ledPin", LED_PIN);

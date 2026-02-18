@@ -10,7 +10,7 @@
 
 static const char* INITIAL_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
-WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(AP_PORT), wifiSSID(SECRET_SSID), wifiPassword(SECRET_PASS), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(WIFI_SCAN_ALL_CHANNELS), currentFen(INITIAL_FEN), hasPendingEdit(false), boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false) {}
+WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(AP_PORT), wifiSSID(SECRET_SSID), wifiPassword(SECRET_PASS), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(WIFI_SCAN_ALL_CHANNELS), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingWiFi(false), boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false) {}
 
 void WiFiManagerESP32::begin() {
   Serial.println("=== Starting OpenChess WiFi Manager (ESP32) ===");
@@ -159,32 +159,23 @@ void WiFiManagerESP32::handleConnectWiFi(AsyncWebServerRequest* request) {
         prefs.end();
         scanAllChannels = newScanAll;
         Serial.printf("WiFi scan all channels: %s\n", scanAllChannels ? "enabled" : "disabled");
-        request->send(200, "text/plain", "OK");
         changed = true;
       }
     }
   }
 
   if (newWifiSSID.length() >= 1 && newWifiPassword.length() >= 5 && (newWifiSSID != wifiSSID || newWifiPassword != wifiPassword)) {
-    if (!changed) {
-      request->send(200, "text/plain", "OK");
-      changed = true;
-    }
-    if (connectToWiFi(newWifiSSID, newWifiPassword, true)) {
-      if (!ChessUtils::ensureNvsInitialized())
-        Serial.println("NVS init failed - WiFi credentials not saved");
-      prefs.begin("wifiCreds", false);
-      prefs.putString("ssid", newWifiSSID);
-      prefs.putString("pass", newWifiPassword);
-      prefs.end();
-      wifiSSID = newWifiSSID;
-      wifiPassword = newWifiPassword;
-      Serial.println("WiFi credentials updated and saved to NVS");
-    }
-    return;
+    // Defer WiFi reconnection to the main loop to avoid blocking the async_tcp
+    // task, which would trigger the ESP32 task watchdog (WDT).
+    pendingWiFiSSID = newWifiSSID;
+    pendingWiFiPassword = newWifiPassword;
+    hasPendingWiFi = true;
+    changed = true;
   }
 
-  if (!changed)
+  if (changed)
+    request->send(200, "text/plain", "OK");
+  else
     request->send(400, "text/plain", "ERROR");
 }
 
@@ -398,6 +389,25 @@ bool WiFiManagerESP32::getPendingBoardEdit(String& fenOut) {
 void WiFiManagerESP32::clearPendingEdit() {
   currentFen = pendingFenEdit;
   hasPendingEdit = false;
+}
+
+void WiFiManagerESP32::checkPendingWiFi() {
+  if (!hasPendingWiFi)
+    return;
+  hasPendingWiFi = false;
+  String newSSID = pendingWiFiSSID;
+  String newPass = pendingWiFiPassword;
+  if (connectToWiFi(newSSID, newPass, true)) {
+    if (!ChessUtils::ensureNvsInitialized())
+      Serial.println("NVS init failed - WiFi credentials not saved");
+    prefs.begin("wifiCreds", false);
+    prefs.putString("ssid", newSSID);
+    prefs.putString("pass", newPass);
+    prefs.end();
+    wifiSSID = newSSID;
+    wifiPassword = newPass;
+    Serial.println("WiFi credentials updated and saved to NVS");
+  }
 }
 
 bool WiFiManagerESP32::connectToWiFi(const String& ssid, const String& password, bool fromWeb) {

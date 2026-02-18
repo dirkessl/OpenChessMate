@@ -54,6 +54,11 @@ class WiFiManagerESP32 {
   String pendingFenEdit;
   bool hasPendingEdit;
 
+  // Deferred WiFi reconnection (set by web handler, processed in main loop)
+  String pendingWiFiSSID;
+  String pendingWiFiPassword;
+  volatile bool hasPendingWiFi;
+
   // Web interface methods
   String getWiFiInfoJSON();
   String getBoardUpdateJSON();
@@ -117,6 +122,8 @@ class WiFiManagerESP32 {
   void clearPendingEdit();
   // WiFi connection management
   bool connectToWiFi(const String& ssid, const String& password, bool fromWeb = false);
+  // Call from main loop to process deferred WiFi reconnection
+  void checkPendingWiFi();
 };
 
 #endif // WIFI_MANAGER_ESP32_H

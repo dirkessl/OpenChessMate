@@ -105,6 +105,9 @@ void setup() {
 }
 
 void loop() {
+  // Process deferred WiFi reconnection (from web UI)
+  wifiManager.checkPendingWiFi();
+
   // Check for pending board edits from WiFi (FEN-based)
   String editFen;
   if (wifiManager.getPendingBoardEdit(editFen)) {
