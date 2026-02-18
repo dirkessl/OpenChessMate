@@ -2,6 +2,7 @@
 #define WIFI_MANAGER_ESP32_H
 
 #include "board_driver.h"
+#include "ota_updater.h"
 #include "stockfish_settings.h"
 #include <Arduino.h>
 #include <AsyncTCP.h>
@@ -65,10 +66,33 @@ class WiFiManagerESP32 {
   void handleBoardCalibration(AsyncWebServerRequest* request);
   void handleGamesRequest(AsyncWebServerRequest* request);
   void handleDeleteGame(AsyncWebServerRequest* request);
+  // OTA update handlers
+  void handleOtaStatus(AsyncWebServerRequest* request);
+  void handleOtaSettings(AsyncWebServerRequest* request);
+  void handleOtaCheck(AsyncWebServerRequest* request);
+  void handleOtaApply(AsyncWebServerRequest* request);
+  // ESPAsyncWebServer body handlers receive data in chunks via callbacks (data, len, index, total),
+  // not as a continuous Stream. This means we can't reuse the Stream-based OtaUpdater methods directly.
+  // For firmware: we call Update.begin/write/end incrementally across chunks.
+  // For web assets: we buffer the TAR to a temp file first, then pass it as a Stream to the TAR parser
+  // (the TAR format requires sequential 512-byte header reads that can't be split across async chunks).
+  void onFirmwareUploadBody(AsyncWebServerRequest* request, uint8_t* data, size_t len, size_t index, size_t total);
+  void onWebAssetsUploadBody(AsyncWebServerRequest* request, uint8_t* data, size_t len, size_t index, size_t total);
+
+  // OTA state
+  OtaUpdater otaUpdater;
+  OtaUpdateInfo lastUpdateInfo;
+  bool autoOtaEnabled;
+  // Temporary file for web asset TAR upload (needed because the TAR parser requires a seekable Stream)
+  File otaTarFile;
 
  public:
   WiFiManagerESP32(BoardDriver* boardDriver, MoveHistory* moveHistory);
   void begin();
+
+  // OTA update support
+  OtaUpdater& getOtaUpdater() { return otaUpdater; }
+  bool isAutoOtaEnabled() const { return autoOtaEnabled; }
 
   // Configuration getters
   String getWiFiSSID() { return wifiSSID; }

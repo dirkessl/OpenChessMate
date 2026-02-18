@@ -96,6 +96,52 @@
             </div>
         </div>
 
+        <!-- OTA Updates Section -->
+        <div class="settings-section">
+            <div class="section-header" onclick="toggleSection('ota')">
+                <span class="section-icon" id="ota-icon">▶</span>
+                <h3>Software Updates</h3>
+            </div>
+            <div class="section-content" id="ota-content">
+                <div class="ota-version-info" id="ota-version-info">
+                    <span>Current version: </span><strong id="current-version">loading...</strong>
+                </div>
+
+                <div class="ota-auto-toggle">
+                    <span>Automatic Updates</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoOtaToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <button type="button" id="checkUpdateBtn" class="button"
+                    style="background-color: #2196F3; margin-top: 10px;">
+                    Check for Updates Now
+                </button>
+                <div id="ota-status" class="ota-status" style="display:none;"></div>
+
+                <div class="ota-manual-section">
+                    <p class="section-description" style="margin-top: 15px; margin-bottom: 10px;">
+                        Manual update: drag & drop firmware (.bin) or web assets (.tar) files below.
+                    </p>
+                    <div class="ota-drop-zone" id="otaDropZone">
+                        <div class="ota-drop-icon">📦</div>
+                        <div class="ota-drop-text">Drop <strong>.bin</strong> (firmware) or <strong>.tar</strong> (web
+                            assets) here</div>
+                        <div class="ota-drop-subtext">or click to select a file</div>
+                        <input type="file" id="otaFileInput" accept=".bin,.tar" style="display:none;">
+                    </div>
+                    <div id="ota-upload-progress" class="ota-upload-progress" style="display:none;">
+                        <div class="ota-progress-bar">
+                            <div class="ota-progress-fill" id="otaProgressFill"></div>
+                        </div>
+                        <span id="ota-progress-text">Uploading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <a href="./game.html" class="button">GameMode Selection</a>
         <a href="./board.html" class="button">View Board</a>
     </div>
@@ -104,7 +150,8 @@
         const sectionStates = {
             wifi: false,
             lichess: false,
-            board: false
+            board: false,
+            ota: false
         };
 
         function toggleSection(name) {
@@ -163,6 +210,7 @@
         updateWiFiInfo();
         updateLichessInfo();
         updateBoardSettings();
+        updateOtaSettings();
 
         // Board settings functions
         function updateBoardSettings() {
@@ -299,6 +347,160 @@
                     alert('Error saving token. Please try again.');
                 });
         });
+
+        // ========== OTA Updates ==========
+
+        function updateOtaSettings() {
+            fetch('/ota/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('current-version').textContent = 'v' + data.version;
+                    document.getElementById('autoOtaToggle').checked = data.autoUpdate;
+                })
+                .catch(() => {
+                    document.getElementById('current-version').textContent = 'unknown';
+                });
+        }
+
+        // Auto-update toggle
+        document.getElementById('autoOtaToggle').addEventListener('change', function () {
+            const formData = new URLSearchParams();
+            formData.append('autoUpdate', this.checked ? '1' : '0');
+            fetch('/ota/settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData
+            }).catch(() => { });
+        });
+
+        // Check for updates button
+        document.getElementById('checkUpdateBtn').addEventListener('click', function () {
+            const statusEl = document.getElementById('ota-status');
+            const btn = this;
+            btn.disabled = true;
+            btn.textContent = 'Checking...';
+            statusEl.style.display = 'block';
+            statusEl.textContent = 'Checking for updates...';
+            statusEl.className = 'ota-status';
+
+            fetch('/ota/check')
+                .then(response => response.json())
+                .then(data => {
+                    btn.disabled = false;
+                    btn.textContent = 'Check for Updates Now';
+                    if (data.available) {
+                        statusEl.textContent = 'Update available: v' + data.version;
+                        statusEl.className = 'ota-status ota-status-available';
+                        if (confirm('Update to v' + data.version + '?\n\nThis will update firmware and web assets. The board will reboot.')) {
+                            statusEl.textContent = 'Updating... Do not power off the board!';
+                            fetch('/ota/apply', { method: 'POST' })
+                                .then(r => r.text())
+                                .then(msg => {
+                                    statusEl.textContent = msg;
+                                    // Board will reboot, so we'll lose connection
+                                    setTimeout(() => {
+                                        statusEl.textContent = 'Board is rebooting... Refresh this page in a few seconds.';
+                                    }, 3000);
+                                })
+                                .catch(() => {
+                                    statusEl.textContent = 'Update failed. Please try again.';
+                                    statusEl.className = 'ota-status ota-status-error';
+                                });
+                        }
+                    } else {
+                        statusEl.textContent = 'Firmware is up to date (v' + data.currentVersion + ')';
+                        statusEl.className = 'ota-status ota-status-uptodate';
+                    }
+                })
+                .catch(() => {
+                    btn.disabled = false;
+                    btn.textContent = 'Check for Updates Now';
+                    statusEl.textContent = 'Failed to check for updates. Is WiFi connected?';
+                    statusEl.className = 'ota-status ota-status-error';
+                });
+        });
+
+        // Drag & Drop OTA upload
+        const dropZone = document.getElementById('otaDropZone');
+        const fileInput = document.getElementById('otaFileInput');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length > 0) handleOtaFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) handleOtaFile(e.target.files[0]);
+            e.target.value = '';
+        });
+
+        function handleOtaFile(file) {
+            const name = file.name.toLowerCase();
+            let endpoint = '';
+            let typeLabel = '';
+
+            if (name.endsWith('.bin')) {
+                endpoint = '/ota/upload/firmware';
+                typeLabel = 'firmware';
+            } else if (name.endsWith('.tar')) {
+                endpoint = '/ota/upload/web';
+                typeLabel = 'web assets';
+            } else {
+                alert('Unsupported file type. Please use .bin (firmware) or .tar (web assets).');
+                return;
+            }
+
+            if (!confirm('Upload ' + file.name + ' as ' + typeLabel + ' update?\n\n' +
+                (typeLabel === 'firmware' ? 'The board will reboot after update.' : 'Web assets will be updated (saved games preserved).'))) {
+                return;
+            }
+
+            const progressEl = document.getElementById('ota-upload-progress');
+            const progressFill = document.getElementById('otaProgressFill');
+            const progressText = document.getElementById('ota-progress-text');
+            progressEl.style.display = 'block';
+            progressFill.style.width = '0%';
+            progressText.textContent = 'Uploading ' + typeLabel + '...';
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', endpoint);
+
+            xhr.upload.addEventListener('progress', (e) => {
+                if (e.lengthComputable) {
+                    const pct = Math.round((e.loaded / e.total) * 100);
+                    progressFill.style.width = pct + '%';
+                    progressText.textContent = 'Uploading ' + typeLabel + '... ' + pct + '%';
+                }
+            });
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    progressFill.style.width = '100%';
+                    progressText.textContent = typeLabel === 'firmware'
+                        ? 'Firmware updated! Board is rebooting...'
+                        : 'Web assets updated successfully!';
+                    progressFill.style.backgroundColor = '#4CAF50';
+                    if (typeLabel === 'web assets') {
+                        setTimeout(() => { progressEl.style.display = 'none'; }, 3000);
+                    }
+                } else {
+                    progressText.textContent = 'Upload failed: ' + xhr.responseText;
+                    progressFill.style.backgroundColor = '#f44336';
+                }
+            };
+
+            xhr.onerror = function () {
+                progressText.textContent = 'Upload error. Check connection.';
+                progressFill.style.backgroundColor = '#f44336';
+            };
+
+            xhr.setRequestHeader('Content-Type', 'application/octet-stream');
+            xhr.setRequestHeader('X-File-Name', file.name);
+            xhr.send(file);
+        }
     </script>
 </body>
 

@@ -1,0 +1,101 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PlatformIO
+        run: pip install platformio
+
+      - name: Extract version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Inject version into firmware
+        run: |
+          sed -i 's/#define FIRMWARE_VERSION "dev"/#define FIRMWARE_VERSION "${{ steps.version.outputs.version }}"/' src/version.h
+          echo "Firmware version set to: ${{ steps.version.outputs.version }}"
+          cat src/version.h
+
+      - name: Build firmware
+        run: pio run
+
+      - name: Build LittleFS image
+        run: pio run -t buildfs
+
+      - name: Create web assets TAR for OTA
+        run: |
+          cd data
+          # Create a tar archive of all web assets (for OTA web updates)
+          tar cf ../web_assets.tar *
+          cd ..
+          echo "Web assets TAR created:"
+          ls -lh web_assets.tar
+
+      - name: Prepare release artifacts
+        run: |
+          mkdir -p release
+          # Firmware binary
+          cp .pio/build/esp32dev/firmware.bin release/firmware.bin
+          # Bootloader (built by PlatformIO)
+          cp .pio/build/esp32dev/bootloader.bin release/bootloader.bin
+          # Partition table
+          cp .pio/build/esp32dev/partitions.bin release/partitions.bin
+          # Boot app (OTA boot selector)
+          cp $HOME/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin release/boot_app0.bin
+          # LittleFS filesystem image
+          cp .pio/build/esp32dev/littlefs.bin release/littlefs.bin
+          # Web assets TAR for OTA updates
+          cp web_assets.tar release/web_assets.tar
+          echo "=== Release artifacts ==="
+          ls -lh release/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: OpenChess ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            release/firmware.bin
+            release/bootloader.bin
+            release/partitions.bin
+            release/boot_app0.bin
+            release/littlefs.bin
+            release/web_assets.tar
+          body: |
+            ## OpenChess ${{ github.ref_name }}
+
+            ### Flash via Browser (ESP Web Tools)
+            Visit the [OpenChess Web Installer](https://joojoooo.github.io/OpenChess/flash.html) to flash your ESP32 directly from your browser.
+
+            ### Release Files
+            | File | Description |
+            |------|-------------|
+            | `firmware.bin` | Main application firmware |
+            | `bootloader.bin` | ESP32 bootloader |
+            | `partitions.bin` | Partition table |
+            | `boot_app0.bin` | OTA boot selector |
+            | `littlefs.bin` | Web UI filesystem image (initial flash only) |
+            | `web_assets.tar` | Web UI assets for OTA updates (preserves saved games) |
+
+            ### OTA Updates
+            The board checks for updates automatically at boot (can be disabled in Board Settings).
+            - **Firmware**: Updated via `firmware.bin`
+            - **Web UI**: Updated via `web_assets.tar` (preserves saved games on LittleFS)

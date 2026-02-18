@@ -30,6 +30,8 @@ Features that differentiate this fork from the original Concept-Bytes project:
 - **Web UI**: Many improvements to the Web UI, now has functionality instead of being completely useless: displays evaluation and board state correctly, allows for board edit (drag n drop pieces), WiFi credentials and Lichess token change and save, gamemode selection. Customizable piece theme and square colors, board flip and zoom, move sounds. Now has easily editable HTML/CSS/JS files (instead of crazy string concatenations) which are automatically minified and compressed into LittleFS.
 - **Game history**: Saves all the games in LittleFS storage so they can be reviewed later. If power is lost during gameplay, it automatically recovers where you left it on reboot.
 - **Brightness**: Dark squares now have 70% brightness by default. Adjustable in WebUI. This is because the perceived light is more on a dark background, which gives more contrast. With this simple change the dark squares look as bright as the light squares.
+- **OTA Updates**: Over-the-air firmware and web assets updates. Automatically checks GitHub releases at boot (configurable toggle). Manual Firmware (.BIN) or Web assets (.TAR) updates via drag & drop in Web UI.
+- **CI/CD**: GitHub Actions workflow automatically builds firmware, LittleFS image, and web assets TAR on tagged releases. Includes an [ESP Web Tools](https://esphome.github.io/esp-web-tools/) browser-based flash page for initial setup, no PlatformIO needed.
 
 ## Contributing
 Contributions are welcome!

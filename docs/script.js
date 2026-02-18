@@ -149,6 +149,19 @@
         section.append(el('h2', { className: 'section-title' }, sw.title));
         if (sw.intro) section.append(el('p', { className: 'section-intro' }, sw.intro));
 
+        // Web Installer callout
+        if (sw.webInstaller) {
+            const installerBox = el('div', { className: 'info-box', style: { marginBottom: '1.5rem' } });
+            installerBox.innerHTML = '<strong>⚡ Quick Flash</strong> ' + sw.webInstaller.text;
+            const btn = el('a', {
+                href: sw.webInstaller.buttonUrl,
+                className: 'btn-primary',
+                style: { display: 'inline-block', marginTop: '12px', fontSize: '0.95rem', padding: '10px 24px' }
+            }, sw.webInstaller.buttonText);
+            installerBox.append(btn);
+            section.append(installerBox);
+        }
+
         const card = el('div', { className: 'step-card software-steps' });
         sw.steps.forEach(step => {
             card.append(el('h3', null, step.title));

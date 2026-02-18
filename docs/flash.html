@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenChess Web Installer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2128;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-hover: #79b8ff;
+            --green: #3fb950;
+            --yellow: #d29922;
+            --red: #f85149;
+            --border: #30363d;
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .header .accent {
+            color: var(--accent);
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card p,
+        .card li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .install-section {
+            text-align: center;
+            padding: 30px 24px;
+        }
+
+        esp-web-install-button {
+            display: inline-block;
+        }
+
+        esp-web-install-button button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        esp-web-install-button button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3);
+        }
+
+        .warning {
+            background: rgba(210, 153, 34, 0.1);
+            border: 1px solid var(--yellow);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--yellow);
+        }
+
+        .warning strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .info-box {
+            background: rgba(88, 166, 255, 0.08);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+
+        .info-box a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            width: 100%;
+            max-width: 700px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Build Guide</a>
+
+        <div class="header">
+            <h1>♟ OpenChess <span class="accent">Web Installer</span></h1>
+            <p>Flash your ESP32 directly from the browser — no IDE needed</p>
+        </div>
+
+        <div class="card">
+            <h2><span class="step-number">1</span> Requirements</h2>
+            <ul>
+                <li>A <strong>Chromium-based browser</strong> (Chrome, Edge, Opera) — Firefox and Safari are not
+                    supported</li>
+                <li>An <strong>ESP32 dev board</strong> connected via USB</li>
+                <li>USB drivers installed for your board (CP2102 or CH340)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><span class="step-number">2</span> What gets flashed</h2>
+            <ul>
+                <li><strong>Bootloader</strong> — ESP32 boot code</li>
+                <li><strong>Partition table</strong> — memory layout with OTA support</li>
+                <li><strong>Firmware</strong> — OpenChess application</li>
+                <li><strong>Web UI</strong> — chess board interface (LittleFS filesystem)</li>
+            </ul>
+            <div class="warning">
+                <strong>⚠️ First-time flash</strong>
+                This will erase any existing data on the ESP32. After flashing, the board will start in calibration
+                mode. Follow the Serial Monitor instructions to calibrate the sensor grid.
+            </div>
+        </div>
+
+        <div class="card install-section">
+            <h2 style="justify-content: center;"><span class="step-number">3</span> Flash OpenChess</h2>
+            <p style="margin-bottom: 20px;">Connect your ESP32 via USB and click the button below.</p>
+
+            <esp-web-install-button id="installButton" manifest="manifest.json">
+                <button slot="activate">Install OpenChess</button>
+                <span slot="unsupported">
+                    <p style="color: var(--red);">Your browser does not support Web Serial.<br>Please use Chrome, Edge,
+                        or Opera.</p>
+                </span>
+                <span slot="not-allowed">
+                    <p style="color: var(--yellow);">Web Serial access was denied.<br>Please grant permission and try
+                        again.</p>
+                </span>
+            </esp-web-install-button>
+
+            <div class="info-box" style="margin-top: 24px;">
+                <strong>After flashing:</strong> The board will create a WiFi access point called
+                <strong>OpenChess</strong> (password: <code>chess123</code>). Connect to it and open
+                <code>http://192.168.4.1</code> to configure your WiFi network and start playing.
+                <br><br>
+                Future updates can be installed automatically over WiFi (OTA) from the board's web interface.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        OpenChess — <a href="https://github.com/joojoooo/OpenChess" target="_blank">View on GitHub</a>
+    </footer>
+</body>
+
+</html>

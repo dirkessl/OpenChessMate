@@ -6,7 +6,9 @@
 #include "chess_utils.h"
 #include "led_colors.h"
 #include "move_history.h"
+#include "ota_updater.h"
 #include "sensor_test.h"
+#include "version.h"
 #include "wifi_manager_esp32.h"
 #include <LittleFS.h>
 #include <time.h>
@@ -51,6 +53,7 @@ void setup() {
   Serial.println();
   Serial.println("================================================");
   Serial.println("         OpenChess Starting Up");
+  Serial.println("         Firmware version: " FIRMWARE_VERSION);
   Serial.println("================================================");
   if (!ChessUtils::ensureNvsInitialized())
     Serial.println("WARNING: NVS init failed (Preferences may not work)");
@@ -64,6 +67,13 @@ void setup() {
   Serial.println();
   // Kick off NTP time sync (non-blocking, will resolve in background)
   configTime(0, 0, "pool.ntp.org", "time.nist.gov");
+
+  // Check for OTA updates at boot (if enabled and WiFi is connected)
+  if (wifiManager.isAutoOtaEnabled() && WiFi.status() == WL_CONNECTED) {
+    Serial.println("OTA: Auto-update check enabled, checking for updates...");
+    wifiManager.getOtaUpdater().autoUpdate();
+  }
+
   // Check for a live game that can be resumed
   uint8_t resumeMode = 0, resumePlayerColor = 0, resumeBotDepth = 0;
   if (moveHistory.hasLiveGame() && moveHistory.getLiveGameInfo(resumeMode, resumePlayerColor, resumeBotDepth)) {
