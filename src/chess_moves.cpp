@@ -26,6 +26,9 @@ void ChessMoves::begin() {
 void ChessMoves::update() {
   boardDriver->readSensors();
 
+  // Check for physical resign/draw gesture (both kings lifted)
+  if (checkPhysicalResignOrDraw()) return;
+
   int fromRow, fromCol, toRow, toCol;
   if (tryPlayerMove(currentTurn, fromRow, fromCol, toRow, toCol)) {
     applyMove(fromRow, fromCol, toRow, toCol);

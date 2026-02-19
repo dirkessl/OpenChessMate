@@ -135,6 +135,9 @@ void ChessLichess::update() {
 
   boardDriver->readSensors();
 
+  // Check for physical resign/draw gesture (both kings lifted)
+  if (checkPhysicalResignOrDraw()) return;
+
   int fromRow, fromCol, toRow, toCol;
   char promotion = ' ';
 

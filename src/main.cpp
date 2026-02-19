@@ -129,6 +129,37 @@ void loop() {
     wifiManager.clearPendingEdit();
   }
 
+  // Check for pending resign from WiFi
+  char resignColor;
+  if (wifiManager.getPendingResign(resignColor)) {
+    Serial.printf("Processing resign from web UI: %c resigns\n", resignColor);
+    if (currentMode == MODE_CHESS_MOVES && modeInitialized && chessMoves != nullptr) {
+      chessMoves->resignGame(resignColor);
+    } else if (currentMode == MODE_BOT && modeInitialized && chessBot != nullptr) {
+      chessBot->resignGame(resignColor);
+    } else if (currentMode == MODE_LICHESS && modeInitialized && chessLichess != nullptr) {
+      chessLichess->resignGame(resignColor);
+    } else {
+      Serial.println("Warning: Resign received but no active game mode");
+    }
+    wifiManager.clearPendingResign();
+  }
+
+  // Check for pending draw from WiFi
+  if (wifiManager.getPendingDraw()) {
+    Serial.println("Processing draw from web UI");
+    if (currentMode == MODE_CHESS_MOVES && modeInitialized && chessMoves != nullptr) {
+      chessMoves->drawGame();
+    } else if (currentMode == MODE_BOT && modeInitialized && chessBot != nullptr) {
+      chessBot->drawGame();
+    } else if (currentMode == MODE_LICHESS && modeInitialized && chessLichess != nullptr) {
+      chessLichess->drawGame();
+    } else {
+      Serial.println("Warning: Draw received but no active game mode");
+    }
+    wifiManager.clearPendingDraw();
+  }
+
   // Check for WiFi game selection
   int selectedMode = wifiManager.getSelectedGameMode();
   if (selectedMode > 0) {

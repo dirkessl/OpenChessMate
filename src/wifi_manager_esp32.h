@@ -52,7 +52,12 @@ class WiFiManagerESP32 {
 
   // Board edit storage (pending edits from web interface)
   String pendingFenEdit;
-  bool hasPendingEdit;
+  volatile bool hasPendingEdit;
+
+  // Pending resign/draw from web interface
+  volatile bool hasPendingResign;
+  volatile bool hasPendingDraw;
+  char pendingResignColor; // 'w' or 'b' — the side resigning
 
   // Deferred WiFi reconnection (set by web handler, processed in main loop)
   String pendingWiFiSSID;
@@ -70,6 +75,8 @@ class WiFiManagerESP32 {
   void handleSaveLichessToken(AsyncWebServerRequest* request);
   void handleBoardSettings(AsyncWebServerRequest* request);
   void handleBoardCalibration(AsyncWebServerRequest* request);
+  void handleResign(AsyncWebServerRequest* request);
+  void handleDraw(AsyncWebServerRequest* request);
   void getHardwareConfigJSON(AsyncWebServerRequest* request);
   void handleHardwareConfig(AsyncWebServerRequest* request);
   void handleGamesRequest(AsyncWebServerRequest* request);
@@ -120,6 +127,11 @@ class WiFiManagerESP32 {
   // Board edit management (FEN-based)
   bool getPendingBoardEdit(String& fenOut);
   void clearPendingEdit();
+  // Resign/Draw management (from web interface)
+  bool getPendingResign(char& resignColor);
+  bool getPendingDraw();
+  void clearPendingResign();
+  void clearPendingDraw();
   // WiFi connection management
   bool connectToWiFi(const String& ssid, const String& password, bool fromWeb = false);
   // Call from main loop to process deferred WiFi reconnection

@@ -14,7 +14,8 @@ enum GameResult : uint8_t {
   RESULT_STALEMATE = 2,
   RESULT_DRAW_50 = 3,
   RESULT_DRAW_3FOLD = 4,
-  RESULT_RESIGNATION = 5
+  RESULT_RESIGNATION = 5,
+  RESULT_DRAW_AGREEMENT = 6
 };
 
 enum GameModeCode : uint8_t {

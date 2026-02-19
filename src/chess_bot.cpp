@@ -41,6 +41,9 @@ void ChessBot::update() {
 
   boardDriver->readSensors();
 
+  // Check for physical resign/draw gesture (both kings lifted)
+  if (checkPhysicalResignOrDraw()) return;
+
   if ((botConfig.playerIsWhite && currentTurn == 'w') || (!botConfig.playerIsWhite && currentTurn == 'b')) {
     // Player's turn
     int fromRow, fromCol, toRow, toCol;

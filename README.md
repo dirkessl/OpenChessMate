@@ -6,7 +6,7 @@ OpenChess is a smart chessboard, it can show legal moves, plays against you usin
 
 ## 🔨 Build Guide
 
-**👉 [Step-by-step build guide with photos](https://joojoooo.github.io/OpenChess)** - covers materials, schematics, assembly, and software setup
+**👉 [Step-by-step build guide](https://joojoooo.github.io/OpenChess)** - covers materials, schematics, assembly, and [software setup](https://joojoooo.github.io/OpenChess/flash.html)
 
 ## ☕ Support the project
 Love this project? You can [support it on Ko-fi](https://ko-fi.com/joojooo) Every contribution makes a difference!
@@ -16,22 +16,23 @@ Love this project? You can [support it on Ko-fi](https://ko-fi.com/joojooo) Ever
 ## ✨ Features
 Features that differentiate this fork from the original Concept-Bytes project:
 
+- **Game history**: Saves all the games in LittleFS storage so they can be reviewed later. If power is lost during gameplay, the game is automatically recovered on reboot.
 - **Lichess**: Play online Lichess games on your physical board!
-- **Turns**: Doesn't allow white to play infinite moves in a row, now turns are enforced
 - **Check**: Detects checks, doesn't display or allow illegal moves that would put or leave your king in check
-- **Checkmate/Stalemate**: Automatically detects when the game is over and shows an animation with the winner color (Blue for black) or cyan if it's a draw (also enforces 50-move and threefold repetition rules)
-- **Castling**: Castling is now a valid move! Finally you get to finish a game without the bot getting stuck because of impossible FEN with wrong castling rights
+- **Checkmate/Stalemate**: Detects when the game is over and shows an animation with the winner color (Blue for black) or cyan if it's a draw (also enforces 50-move and threefold repetition rules)
+- **Draw/Resign**: Lift both kings (non playing color first) off the board and hold them lifted for 2 seconds to end the game.
+- **Castling**: Castling is now possible, just move the king 2 squares towards the side you want to castle and it will show you where to move the rook.
 - **En passant**: En passant captures are now possible. Also correctly sets en passant square in the FEN (so Stockfish can take en passant too)
 - **Bot**: You can now pick the bot starting side and difficulty
-- **Calibration**: Allows you to rotate the board, so you can finally play in the correct orientation (original orientation is wrong). Allows for easier debug of sensors grid issues
+- **Turns**: Doesn't allow white to play infinite moves in a row, enforces turns
+- **Calibration**: Automatically orders GPIOs, shift-register outputs and LED index mapping. You won't need to care about pin order or LED strip layout. In simple terms: it can rotate/flip the board. Also makes it easier to throubleshoot magnet detection issues by printing info in the serial monitor console.
 - **QK**: Queen and King now on the correct squares!
 - **Async**: Web server is now Async, website doesn't become unresponsive by moving or not moving a piece. LED animations are now Async and also look cooler
 - **Sensors**: Added real debounce logic. Allows you to slide pieces without getting them immediately detected on the first square they briefly touch. Prevents accidental gamemode selection. Optimized sensor column scan (shift-register) for more reliable sensor reads
 - **Web UI**: Many improvements to the Web UI, now has functionality instead of being completely useless: displays evaluation and board state correctly, allows for board edit (drag n drop pieces), WiFi credentials and Lichess token change and save, gamemode selection. Customizable piece theme and square colors, board flip and zoom, move sounds. Now has easily editable HTML/CSS/JS files (instead of crazy string concatenations) which are automatically minified and compressed into LittleFS.
-- **Game history**: Saves all the games in LittleFS storage so they can be reviewed later. If power is lost during gameplay, it automatically recovers where you left it on reboot.
 - **Brightness**: Dark squares now have 70% brightness by default. Adjustable in WebUI. This is because the perceived light is more on a dark background, which gives more contrast. With this simple change the dark squares look as bright as the light squares.
 - **OTA Updates**: Over-the-air firmware and web assets updates. Automatically checks GitHub releases at boot (configurable toggle). Manual Firmware (.BIN) or Web assets (.TAR) updates via drag & drop in Web UI.
-- **CI/CD**: GitHub Actions workflow automatically builds firmware, LittleFS image, and web assets TAR on tagged releases. Includes an [ESP Web Tools](https://esphome.github.io/esp-web-tools/) browser-based flash page for initial setup, no PlatformIO needed.
+- **CI/CD**: GitHub Actions workflow automatically builds firmware, LittleFS image, and web assets TAR on tagged releases. Those file are then used by the web flasher and OTA updates.
 
 ## Contributing
 Contributions are welcome!
@@ -39,4 +40,6 @@ If you have any new ideas to add or feedback to share, I'd love to hear it!
 
 ## License
 
-PolyForm Noncommercial License 1.0.0 - See [LICENSE.md](/LICENSE.md) for details (applies to code added after the fork, the original repo doesn't have a LICENSE file)
+PolyForm Noncommercial License 1.0.0 - See [LICENSE.md](/LICENSE.md) for details (applies to code added after the fork)
+<br>
+The original Concept-Bytes repo code should be under MIT license but a copy of the license was never provided

@@ -10,7 +10,7 @@
 
 static const char* INITIAL_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
-WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(AP_PORT), wifiSSID(SECRET_SSID), wifiPassword(SECRET_PASS), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(WIFI_SCAN_ALL_CHANNELS), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingWiFi(false), boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false) {}
+WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(AP_PORT), wifiSSID(SECRET_SSID), wifiPassword(SECRET_PASS), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(WIFI_SCAN_ALL_CHANNELS), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), pendingResignColor('?'), hasPendingWiFi(false), boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false) {}
 
 void WiFiManagerESP32::begin() {
   Serial.println("=== Starting OpenChess WiFi Manager (ESP32) ===");
@@ -65,6 +65,8 @@ void WiFiManagerESP32::begin() {
   // Set up web server routes with async handlers
   server.on("/board-update", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(200, "application/json", this->getBoardUpdateJSON()); });
   server.on("/board-update", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleBoardEditSuccess(request); });
+  server.on("/resign", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleResign(request); });
+  server.on("/draw", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleDraw(request); });
   server.on("/wifi", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(200, "application/json", this->getWiFiInfoJSON()); });
   server.on("/wifi", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleConnectWiFi(request); });
   server.on("/gameselect", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleGameSelection(request); });
@@ -139,6 +141,28 @@ void WiFiManagerESP32::handleBoardEditSuccess(AsyncWebServerRequest* request) {
     Serial.println("Board edit failed: no FEN parameter");
     request->send(400, "text/plain", "Missing FEN parameter");
   }
+}
+
+void WiFiManagerESP32::handleResign(AsyncWebServerRequest* request) {
+  if (request->hasArg("color")) {
+    String color = request->arg("color");
+    if (color == "w" || color == "b") {
+      pendingResignColor = color.charAt(0);
+      hasPendingResign = true;
+      Serial.printf("Resign received from web: %s resigns\n", color == "w" ? "White" : "Black");
+      request->send(200, "text/plain", "OK");
+    } else {
+      request->send(400, "text/plain", "Invalid color (use 'w' or 'b')");
+    }
+  } else {
+    request->send(400, "text/plain", "Missing 'color' parameter");
+  }
+}
+
+void WiFiManagerESP32::handleDraw(AsyncWebServerRequest* request) {
+  hasPendingDraw = true;
+  Serial.println("Draw agreement received from web");
+  request->send(200, "text/plain", "OK");
 }
 
 void WiFiManagerESP32::handleConnectWiFi(AsyncWebServerRequest* request) {
@@ -389,6 +413,27 @@ bool WiFiManagerESP32::getPendingBoardEdit(String& fenOut) {
 void WiFiManagerESP32::clearPendingEdit() {
   currentFen = pendingFenEdit;
   hasPendingEdit = false;
+}
+
+bool WiFiManagerESP32::getPendingResign(char& resignColor) {
+  if (hasPendingResign) {
+    resignColor = pendingResignColor;
+    return true;
+  }
+  return false;
+}
+
+bool WiFiManagerESP32::getPendingDraw() {
+  return hasPendingDraw;
+}
+
+void WiFiManagerESP32::clearPendingResign() {
+  hasPendingResign = false;
+  pendingResignColor = '?';
+}
+
+void WiFiManagerESP32::clearPendingDraw() {
+  hasPendingDraw = false;
 }
 
 void WiFiManagerESP32::checkPendingWiFi() {

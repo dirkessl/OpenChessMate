@@ -685,6 +685,54 @@ input[type="submit"]:hover,
     border-color: #ec8703;
 }
 
+/* Game action buttons (resign / draw) — centered between left/right and nav */
+.board-controls-action-left,
+.board-controls-action-right {
+    position: absolute;
+    top: -34px;
+    display: flex;
+    z-index: 100;
+}
+
+.board-controls-action-left {
+    left: 25%;
+    transform: translateX(-50%);
+}
+
+.board-controls-action-right {
+    right: 25%;
+    transform: translateX(50%);
+}
+
+.game-action-btn {
+    width: auto !important;
+    padding: 0 8px !important;
+    gap: 4px;
+    font-size: 11px !important;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#resignBtn {
+    color: #e74c3c;
+    border-color: #e74c3c55;
+}
+
+#resignBtn:hover {
+    background-color: rgba(231, 76, 60, 0.25);
+    border-color: #e74c3c;
+}
+
+#drawBtn {
+    color: #95a5a6;
+    border-color: #95a5a655;
+}
+
+#drawBtn:hover {
+    background-color: rgba(149, 165, 166, 0.25);
+    border-color: #95a5a6;
+}
+
 /* Focus mode (fullscreen board) */
 .focus-mode .container {
     max-width: 95vmin;

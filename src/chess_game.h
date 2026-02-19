@@ -55,6 +55,14 @@ class ChessGame {
   void setBoardStateFromFEN(const String& fen);
   bool isGameOver() const { return gameOver; }
 
+  // Resign: the resigning color loses
+  void resignGame(char resigningColor);
+  // Draw by mutual agreement
+  void drawGame();
+  // Check if kings have been lifted off the board (physical resign/draw gesture)
+  // Returns true if a resign or draw was triggered
+  bool checkPhysicalResignOrDraw();
+
   // Advance turn and record position (extracted from updateGameStatus for replay use)
   void advanceTurn();
 };

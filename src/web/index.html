@@ -480,7 +480,7 @@
             fetch('/ota/status')
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('current-version').textContent = 'v' + data.version;
+                    document.getElementById('current-version').textContent = (data.version == 'dev' ? data.version : 'v' + data.version);
                     document.getElementById('autoOtaToggle').checked = data.autoUpdate;
                 })
                 .catch(() => {

@@ -357,6 +357,52 @@ void ChessGame::setBoardStateFromFEN(const String& fen) {
   ChessUtils::printBoard(board);
 }
 
+void ChessGame::resignGame(char resigningColor) {
+  if (gameOver) return;
+  char winnerColor = (resigningColor == 'w') ? 'b' : 'w';
+  Serial.printf("RESIGNATION! %s resigns. %s wins!\n", ChessUtils::colorName(resigningColor), ChessUtils::colorName(winnerColor));
+  boardDriver->fireworkAnimation(ChessUtils::colorLed(winnerColor));
+  gameOver = true;
+  if (moveHistory) moveHistory->finishGame(RESULT_RESIGNATION, winnerColor);
+}
+
+void ChessGame::drawGame() {
+  if (gameOver) return;
+  Serial.println("DRAW by mutual agreement!");
+  boardDriver->fireworkAnimation(LedColors::Cyan);
+  gameOver = true;
+  if (moveHistory) moveHistory->finishGame(RESULT_DRAW_AGREEMENT, 'd');
+}
+
+bool ChessGame::checkPhysicalResignOrDraw() {
+  if (gameOver) return false;
+
+  // Find both kings on the internal board
+  int wKingRow = -1, wKingCol = -1, bKingRow = -1, bKingCol = -1;
+  chessEngine->findKingPosition(board, 'w', wKingRow, wKingCol);
+  chessEngine->findKingPosition(board, 'b', bKingRow, bKingCol);
+  if (wKingRow < 0 || bKingRow < 0) return false; // Safety: can't find kings
+
+  bool whiteKingLifted = !boardDriver->getSensorState(wKingRow, wKingCol);
+  bool blackKingLifted = !boardDriver->getSensorState(bKingRow, bKingCol);
+
+  if (whiteKingLifted && blackKingLifted) {
+    // Both kings lifted off the board — wait for debounce confirmation
+    Serial.println("Both kings lifted! Confirming draw gesture...");
+    unsigned long start = millis();
+    while (millis() - start < 2000) {
+      boardDriver->readSensors();
+      // If either king is placed back, abort
+      if (boardDriver->getSensorState(wKingRow, wKingCol) || boardDriver->getSensorState(bKingRow, bKingCol))
+        return false;
+      delay(SENSOR_READ_DELAY_MS);
+    }
+    drawGame();
+    return true;
+  }
+  return false;
+}
+
 void ChessGame::updateCastlingRightsAfterMove(int fromRow, int fromCol, int toRow, int toCol, char movedPiece, char capturedPiece) {
   uint8_t rights = chessEngine->getCastlingRights();
 
