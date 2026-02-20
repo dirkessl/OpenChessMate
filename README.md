@@ -40,6 +40,8 @@ If you have any new ideas to add or feedback to share, I'd love to hear it!
 
 ## License
 
-PolyForm Noncommercial License 1.0.0 - See [LICENSE.md](/LICENSE.md) for details (applies to code added after the fork)
-<br>
-The original Concept-Bytes repo code should be under MIT license but a copy of the license was never provided
+This project is based on [Open-Chess](https://github.com/Concept-Bytes/Open-Chess) by [Concept-Bytes](https://github.com/Concept-Bytes), which is licensed under the [MIT License](/LICENSE-MIT).
+
+Original contributions made by [joojoooo](https://github.com/joojoooo) and all modifications in this repository are licensed under the [PolyForm Noncommercial License 1.0.0](/LICENSE.md).
+
+By submitting a pull request to this repository, you agree that your contribution will be licensed under the PolyForm Noncommercial License 1.0.0.
