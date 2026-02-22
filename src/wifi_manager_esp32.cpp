@@ -522,6 +522,8 @@ bool WiFiManagerESP32::connectToWiFi(const String& ssid, const String& password,
     boardDriver->showConnectingAnimation();
     attempts++;
     Serial.printf("Connection attempt %d/10 - Status: %d\n", attempts, WiFi.status());
+    // Give the WiFi stack time to make progress between attempts
+    delay(500);
   }
 
   if (WiFi.status() == WL_CONNECTED) {

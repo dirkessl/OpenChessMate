@@ -64,6 +64,16 @@ void setup() {
   moveHistory.begin();
   boardDriver.begin();
   wifiManager.begin();
+
+  Serial.printf("Trying SSID: %s\n", WiFi.SSID().c_str());
+  int attempts = 0;
+  while (WiFi.status() != WL_CONNECTED && attempts++ < 10) {
+    // Wait for the WiFi connection to complete; do NOT re-call wifiManager.begin()
+    // (re-creating the AP/server each loop interferes with connection attempts)
+    delay(500);
+    Serial.printf("Attempt %d Status: %d\n", attempts, WiFi.status());
+  }
+
   Serial.println();
   // Kick off NTP time sync (non-blocking, will resolve in background)
   configTime(0, 0, "pool.ntp.org", "time.nist.gov");
