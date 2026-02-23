@@ -22,6 +22,7 @@ void ChessBot::begin() {
       moveHistory->replayIntoGame(this);
       replaying = false;
       wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+      sendUiState();
     } else {
       moveHistory->startGame(GAME_MODE_BOT, botConfig.playerIsWhite ? 'w' : 'b', (uint8_t)botConfig.stockfishSettings.depth);
       moveHistory->addFen(ChessUtils::boardToFEN(board, currentTurn, chessEngine));
@@ -52,12 +53,14 @@ void ChessBot::update() {
       applyMove(fromRow, fromCol, toRow, toCol);
       updateGameStatus();
       wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), currentEvaluation);
+      sendUiState();
     }
   } else {
     // Bot's turn
     makeBotMove();
     updateGameStatus();
     wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), currentEvaluation);
+    sendUiState();
   }
 
   boardDriver->updateSensorPrev();

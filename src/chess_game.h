@@ -5,6 +5,7 @@
 #include "chess_engine.h"
 #include "chess_utils.h"
 #include "led_colors.h"
+#include "ui_comm.h"
 #include <Arduino.h>
 
 // Forward declarations to avoid circular dependencies
@@ -23,7 +24,8 @@ class ChessGame {
   char board[8][8];
   char currentTurn; // 'w' or 'b'
   bool gameOver;
-  bool replaying; // True while replaying moves during resume (suppresses LEDs and physical move waits)
+  bool replaying;     // True while replaying moves during resume (suppresses LEDs and physical move waits)
+  String lastUciMove; // Last move in UCI format (e.g. "e2e4") for UI slave display
 
   // Standard initial chess board setup
   static const char INITIAL_BOARD[8][8];
@@ -37,6 +39,7 @@ class ChessGame {
   void applyMove(int fromRow, int fromCol, int toRow, int toCol, char promotion = ' ', bool isRemoteMove = false);
   bool tryPlayerMove(char playerColor, int& fromRow, int& fromCol, int& toRow, int& toCol);
   void updateGameStatus();
+  void sendUiState(); // Send current FEN + last move to UI slave display
 
   // Chess rule helpers
   void updateCastlingRightsAfterMove(int fromRow, int fromCol, int toRow, int toCol, char movedPiece, char capturedPiece);
@@ -54,6 +57,7 @@ class ChessGame {
 
   void setBoardStateFromFEN(const String& fen);
   bool isGameOver() const { return gameOver; }
+  char getCurrentTurn() const { return currentTurn; }
 
   // Resign: the resigning color loses
   void resignGame(char resigningColor);

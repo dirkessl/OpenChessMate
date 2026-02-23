@@ -16,6 +16,7 @@ void ChessMoves::begin() {
     moveHistory->replayIntoGame(this);
     replaying = false;
     wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+    sendUiState();
   } else {
     moveHistory->startGame(GAME_MODE_CHESS_MOVES);
     moveHistory->addFen(ChessUtils::boardToFEN(board, currentTurn, chessEngine));
@@ -34,6 +35,7 @@ void ChessMoves::update() {
     applyMove(fromRow, fromCol, toRow, toCol);
     updateGameStatus();
     wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+    sendUiState();
   }
 
   boardDriver->updateSensorPrev();

@@ -8,9 +8,11 @@
 #include "move_history.h"
 #include "ota_updater.h"
 #include "sensor_test.h"
+#include "ui_comm.h"
 #include "version.h"
 #include "wifi_manager_esp32.h"
 #include <LittleFS.h>
+#include <WiFiClientSecure.h>
 #include <time.h>
 
 // ---------------------------
@@ -42,6 +44,80 @@ bool modeInitialized = false;
 bool resumingGame = false;
 bool resetGameSelection = true;
 
+// UI -> main flags
+static volatile bool uiHintRequested = false;
+static volatile bool uiNewGameRequested = false;
+static volatile bool uiResignRequested = false;
+
+static void ui_touch_handler(const char* action, int x, int y) {
+  Serial.printf("UI touch: %s (%d,%d)\n", action, x, y);
+  if (!action) return;
+  if (strcmp(action, "hint") == 0) {
+    uiHintRequested = true;
+  } else if (strcmp(action, "new") == 0) {
+    uiNewGameRequested = true;
+  } else if (strcmp(action, "resign") == 0) {
+    uiResignRequested = true;
+  } else if (strcmp(action, "undo") == 0) {
+    Serial.println("Undo requested from UI (not yet supported)");
+  } else if (strcmp(action, "board") == 0) {
+    Serial.printf("UI board touch: row=%d col=%d\n", x, y);
+  } else if (strcmp(action, "mode") == 0) {
+    Serial.printf("Mode selected from UI: %d\n", x);
+    if (x >= 1 && x <= 4) {
+      currentMode = (GameMode)x;
+      modeInitialized = false;
+      if (currentMode == MODE_BOT) {
+        botConfig = wifiManager.getBotConfig();
+      } else if (currentMode == MODE_LICHESS) {
+        lichessConfig = wifiManager.getLichessConfig();
+      }
+      boardDriver.clearAllLEDs();
+    }
+  }
+}
+
+// Perform a Stockfish API request and return bestMove in UCI (or empty on failure)
+static String requestStockfishBestMove(const String& fen, const StockfishSettings& settings) {
+  WiFiSSLClient client;
+  client.setInsecure();
+  String path = StockfishAPI::buildRequestURL(fen, settings.depth);
+  Serial.println("Stockfish request (UI hint): " STOCKFISH_API_URL + path);
+  for (int attempt = 1; attempt <= settings.maxRetries; ++attempt) {
+    if (client.connect(STOCKFISH_API_URL, STOCKFISH_API_PORT)) {
+      client.println("GET " + path + " HTTP/1.1");
+      client.println("Host: " STOCKFISH_API_URL);
+      client.println("Connection: close");
+      client.println();
+      unsigned long startTime = millis();
+      String response = "";
+      bool got = false;
+      while (client.connected() && (millis() - startTime < (unsigned long)settings.timeoutMs)) {
+        if (client.available()) {
+          response = client.readString();
+          got = true;
+          break;
+        }
+        delay(10);
+      }
+      client.stop();
+      if (got && response.length() > 0) {
+        StockfishResponse resp;
+        if (StockfishAPI::parseResponse(response, resp)) {
+          return resp.bestMove;
+        } else {
+          Serial.printf("Stockfish parse error: %s\n", resp.errorMessage.c_str());
+          return String();
+        }
+      }
+    }
+    Serial.println("Stockfish API attempt failed, retrying...");
+    delay(300);
+  }
+  Serial.println("Stockfish API: all attempts failed");
+  return String();
+}
+
 void showGameSelection();
 void handleGameSelection();
 void handleBotConfigSelection();
@@ -64,6 +140,10 @@ void setup() {
   moveHistory.begin();
   boardDriver.begin();
   wifiManager.begin();
+  // Start UI communication (Serial2) — chosen pins avoid board_driver defaults
+  // RX must be an input-capable pin; use RX=34, TX=25
+  UIComm::begin(115200, 34, 25);
+  UIComm::setTouchHandler(ui_touch_handler);
 
   Serial.printf("Trying SSID: %s\n", WiFi.SSID().c_str());
   int attempts = 0;
@@ -101,8 +181,11 @@ void setup() {
         break;
     }
     Serial.println("================================================");
-    if (currentMode != MODE_SELECTION)
+    if (currentMode != MODE_SELECTION) {
+      // Tell UI slave which mode we're resuming into
+      UIComm::sendMode((int)currentMode);
       return; // Skip showing game selection
+    }
   }
 
   showGameSelection();
@@ -111,6 +194,64 @@ void setup() {
 void loop() {
   // Process deferred WiFi reconnection (from web UI)
   wifiManager.checkPendingWiFi();
+
+  // Process UI comm
+  UIComm::loop();
+
+  if (uiHintRequested) {
+    uiHintRequested = false;
+    Serial.println("UI requested hint — computing via Stockfish API");
+    // Get current board FEN from WiFi manager (keeps latest game FEN)
+    String fen = wifiManager.getCurrentFen();
+    if (fen.length() == 0) {
+      Serial.println("Warning: no FEN available to compute hint");
+      UIComm::sendSimple("ERROR|reason=no_fen");
+    } else {
+      // Use botConfig settings as hint depth preset
+      String bestUci = requestStockfishBestMove(fen, botConfig.stockfishSettings);
+      if (bestUci.length() == 0) {
+        UIComm::sendSimple("ERROR|reason=stockfish_failed");
+      } else {
+        Serial.printf("Best move (UCI): %s\n", bestUci.c_str());
+        UIComm::sendHintResponse(bestUci);
+        // Also show hint on the LED board: blink origin and destination 3 times in Blue
+        int fromRow = -1, fromCol = -1, toRow = -1, toCol = -1;
+        char promotion = ' ';
+        if (ChessUtils::parseUCIMove(bestUci, fromRow, fromCol, toRow, toCol, promotion)) {
+          // Blink origin then destination (3 times each) in Blue
+          boardDriver.blinkSquare(fromRow, fromCol, LedColors::Blue, 3, true);
+          boardDriver.blinkSquare(toRow, toCol, LedColors::Blue, 3, true);
+        } else {
+          Serial.println("Failed to parse UCI move for LED hint");
+        }
+      }
+    }
+  }
+
+  // Handle new game request from UI slave
+  if (uiNewGameRequested) {
+    uiNewGameRequested = false;
+    Serial.println("New game requested from UI slave display");
+    showGameSelection();
+    return;
+  }
+
+  // Handle resign request from UI slave
+  if (uiResignRequested) {
+    uiResignRequested = false;
+    Serial.println("Resign requested from UI slave display");
+    if (currentMode == MODE_CHESS_MOVES && modeInitialized && chessMoves != nullptr) {
+      // In human vs human, resign the side whose turn it is
+      chessMoves->resignGame(chessMoves->getCurrentTurn());
+    } else if (currentMode == MODE_BOT && modeInitialized && chessBot != nullptr) {
+      // In bot mode, the human player resigns
+      chessBot->resignGame(botConfig.playerIsWhite ? 'w' : 'b');
+    } else if (currentMode == MODE_LICHESS && modeInitialized && chessLichess != nullptr) {
+      chessLichess->resignGame(chessLichess->getCurrentTurn());
+    } else {
+      Serial.println("No active game to resign");
+    }
+  }
 
   // Check for pending board edits from WiFi (FEN-based)
   String editFen;
@@ -192,6 +333,7 @@ void loop() {
       modeInitialized = false;
       wifiManager.resetGameSelection();
       boardDriver.clearAllLEDs();
+      UIComm::sendMode(selectedMode);
     }
   }
 
@@ -251,6 +393,7 @@ void showGameSelection() {
   currentMode = MODE_SELECTION;
   modeInitialized = false;
   resetGameSelection = true;
+  UIComm::sendMode(0); // Tell UI slave to show welcome screen
   boardDriver.acquireLEDs();
   boardDriver.clearAllLEDs(false);
   // Light up the 4 selector positions in the middle of the board
@@ -321,12 +464,14 @@ void handleGameSelection() {
           currentMode = MODE_CHESS_MOVES;
           modeInitialized = false;
           boardDriver.clearAllLEDs();
+          UIComm::sendMode(1);
           break;
         case 1:
           Serial.println("Mode: 'Chess Bot' Selected! Showing bot configuration...");
           currentMode = MODE_BOT;
           modeInitialized = false;
           boardDriver.clearAllLEDs();
+          UIComm::sendMode(2);
           handleBotConfigSelection();
           break;
         case 2:
@@ -334,6 +479,7 @@ void handleGameSelection() {
           currentMode = MODE_LICHESS;
           modeInitialized = false;
           boardDriver.clearAllLEDs();
+          UIComm::sendMode(3);
           lichessConfig = wifiManager.getLichessConfig();
           break;
         case 3:
@@ -341,6 +487,7 @@ void handleGameSelection() {
           currentMode = MODE_SENSOR_TEST;
           modeInitialized = false;
           boardDriver.clearAllLEDs();
+          UIComm::sendMode(4);
           break;
       }
       break;

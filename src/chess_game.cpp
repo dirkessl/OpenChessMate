@@ -1,6 +1,7 @@
 #include "chess_game.h"
 #include "chess_utils.h"
 #include "move_history.h"
+#include "ui_comm.h"
 #include "wifi_manager_esp32.h"
 #include <string.h>
 
@@ -15,15 +16,17 @@ const char ChessGame::INITIAL_BOARD[8][8] = {
     {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}  // row 7 = rank 1 (White pieces, bottom row)
 };
 
-ChessGame::ChessGame(BoardDriver* bd, ChessEngine* ce, WiFiManagerESP32* wm, MoveHistory* mh) : boardDriver(bd), chessEngine(ce), wifiManager(wm), moveHistory(mh), currentTurn('w'), gameOver(false), replaying(false) {}
+ChessGame::ChessGame(BoardDriver* bd, ChessEngine* ce, WiFiManagerESP32* wm, MoveHistory* mh) : boardDriver(bd), chessEngine(ce), wifiManager(wm), moveHistory(mh), currentTurn('w'), gameOver(false), replaying(false), lastUciMove("") {}
 
 void ChessGame::initializeBoard() {
   currentTurn = 'w';
   gameOver = false;
+  lastUciMove = "";
   memcpy(board, INITIAL_BOARD, sizeof(INITIAL_BOARD));
   chessEngine->reset();
   chessEngine->recordPosition(board, currentTurn);
   wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+  sendUiState();
 }
 
 void ChessGame::waitForBoardSetup(const char targetBoard[8][8]) {
@@ -165,6 +168,9 @@ void ChessGame::applyMove(int fromRow, int fromCol, int toRow, int toCol, char p
 
   if (moveHistory && moveHistory->isRecording())
     moveHistory->addMove(fromRow, fromCol, toRow, toCol, promotion);
+
+  // Record last move in UCI format for UI slave display
+  lastUciMove = ChessUtils::toUCIMove(fromRow, fromCol, toRow, toCol, promotion);
 }
 
 bool ChessGame::tryPlayerMove(char playerColor, int& fromRow, int& fromCol, int& toRow, int& toCol) {
@@ -395,6 +401,8 @@ void ChessGame::setBoardStateFromFEN(const String& fen) {
   if (moveHistory && moveHistory->isRecording())
     moveHistory->addFen(fen);
   wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+  lastUciMove = "";
+  sendUiState();
   Serial.println("Board state set from FEN: " + fen);
   ChessUtils::printBoard(board);
 }
@@ -548,4 +556,9 @@ void ChessGame::applyCastling(int kingFromRow, int kingFromCol, int kingToRow, i
 
 void ChessGame::confirmSquareCompletion(int row, int col) {
   boardDriver->blinkSquare(row, col, LedColors::Green, 1);
+}
+
+void ChessGame::sendUiState() {
+  String fen = ChessUtils::boardToFEN(board, currentTurn, chessEngine);
+  UIComm::sendStateUpdate(fen, lastUciMove);
 }
