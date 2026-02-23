@@ -1,7 +1,8 @@
 # OpenChessMate - Smart Chess Board Addon.
 
 The Code in this repo is most likely not working, as I am waiting for Hardware and can not test at the moment.
-<img width="1017" height="701" alt="Screenshot 2026-02-23 at 15 59 09" src="https://github.com/user-attachments/assets/7a39179e-93fd-4b23-adf6-c847204870c6" />
+
+<img width="1129" height="716" alt="OpenChessMateRendering" src="https://github.com/user-attachments/assets/8e309647-229b-466c-babd-c80fda3a973b" />
 
 OpenChess is a smart chessboard, it can show legal moves, plays against you using Stockfish or let you play online Lichess games on the physical board. It saves all g
 ## Contributing
