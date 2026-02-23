@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild
+CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild
+CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild
 
 # Utility rule file for lvgl-populate.
 
@@ -77,60 +77,60 @@ CMakeFiles/lvgl-populate-complete: lvgl-populate-prefix/src/lvgl-populate-stamp/
 CMakeFiles/lvgl-populate-complete: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-build
 CMakeFiles/lvgl-populate-complete: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-install
 CMakeFiles/lvgl-populate-complete: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-test
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'lvgl-populate'"
-	/opt/homebrew/bin/cmake -E make_directory /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles
-	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate-complete
-	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-done
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'lvgl-populate'"
+	/opt/homebrew/bin/cmake -E make_directory /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles
+	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate-complete
+	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-done
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update:
 .PHONY : lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-build: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-configure
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'lvgl-populate'"
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "No build step for 'lvgl-populate'"
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-build
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-configure: lvgl-populate-prefix/tmp/lvgl-populate-cfgcmd.txt
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-configure: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'lvgl-populate'"
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-configure
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "No configure step for 'lvgl-populate'"
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-configure
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-download: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-gitinfo.txt
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-download: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-mkdir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'lvgl-populate'"
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps && /opt/homebrew/bin/cmake -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/tmp/lvgl-populate-gitclone.cmake
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-download
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'lvgl-populate'"
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps && /opt/homebrew/bin/cmake -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/tmp/lvgl-populate-gitclone.cmake
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-download
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-install: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'lvgl-populate'"
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-install
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'lvgl-populate'"
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-install
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-mkdir:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'lvgl-populate'"
-	/opt/homebrew/bin/cmake -Dcfgdir= -P /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/tmp/lvgl-populate-mkdirs.cmake
-	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-mkdir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'lvgl-populate'"
+	/opt/homebrew/bin/cmake -Dcfgdir= -P /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/tmp/lvgl-populate-mkdirs.cmake
+	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-mkdir
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch-info.txt
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'lvgl-populate'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'lvgl-populate'"
 	/opt/homebrew/bin/cmake -E echo_append
-	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch
+	/opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update:
 .PHONY : lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-test: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-install
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No test step for 'lvgl-populate'"
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-test
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No test step for 'lvgl-populate'"
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E echo_append
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-build && /opt/homebrew/bin/cmake -E touch /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-test
 
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update: lvgl-populate-prefix/tmp/lvgl-populate-gitupdate.cmake
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update-info.txt
 lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update: lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-download
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Performing update step for 'lvgl-populate'"
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src && /opt/homebrew/bin/cmake -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/tmp/lvgl-populate-gitupdate.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Performing update step for 'lvgl-populate'"
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src && /opt/homebrew/bin/cmake -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/tmp/lvgl-populate-gitupdate.cmake
 
 CMakeFiles/lvgl-populate.dir/codegen:
 .PHONY : CMakeFiles/lvgl-populate.dir/codegen
@@ -157,6 +157,6 @@ CMakeFiles/lvgl-populate.dir/clean:
 .PHONY : CMakeFiles/lvgl-populate.dir/clean
 
 CMakeFiles/lvgl-populate.dir/depend:
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate.dir/DependInfo.cmake "--color=$(COLOR)" lvgl-populate
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate.dir/DependInfo.cmake "--color=$(COLOR)" lvgl-populate
 .PHONY : CMakeFiles/lvgl-populate.dir/depend
 

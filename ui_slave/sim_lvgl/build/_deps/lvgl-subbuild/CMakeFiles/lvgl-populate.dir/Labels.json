@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate-complete.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/CMakeFiles/lvgl-populate-complete.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-build.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-build.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-configure.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-configure.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-download.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-download.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-install.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-install.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-mkdir.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-mkdir.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-patch.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-test.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-test.rule"
 		},
 		{
-			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update.rule"
+			"file" : "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/lvgl-populate-prefix/src/lvgl-populate-stamp/lvgl-populate-update.rule"
 		}
 	],
 	"target" : 

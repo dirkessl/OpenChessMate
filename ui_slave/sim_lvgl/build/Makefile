@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl
+CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build
+CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -213,341 +213,341 @@ lvgl_demos/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/build
 .PHONY : lvgl_demos/fast
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.s
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.o: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.o
 
 # target to build an object file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.i: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.i
 
 # target to preprocess a source file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.i
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.i
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.i
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.i
 
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.s: Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.s
 
 # target to generate assembly for a file
-Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.s
-.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.s
+Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.s
+.PHONY : Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -589,48 +589,48 @@ help:
 	@echo "... lvgl_demos"
 	@echo "... lvgl_examples"
 	@echo "... ui_slave_lvgl"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.s"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.o"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.i"
-	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.s"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.o"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.i"
+	@echo "... Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

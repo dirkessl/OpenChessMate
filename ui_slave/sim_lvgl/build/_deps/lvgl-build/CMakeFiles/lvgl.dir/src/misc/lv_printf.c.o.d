@@ -1,6 +1,6 @@
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_printf.c.o: \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/lv_printf.c \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/lv_printf.h \
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/lv_printf.c \
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/lv_printf.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/inttypes.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/inttypes.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_inttypes.h \
@@ -33,9 +33,9 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_printf.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/../lv_conf_internal.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/../lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h \
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/../lv_conf_internal.h \
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/../lv_conf_kconfig.h \
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stdarg_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stdarg___gnuc_va_list.h \
@@ -53,5 +53,5 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_printf.c.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stddef_null.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stddef_max_align_t.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stddef_offsetof.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/lv_types.h \
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src/src/misc/lv_types.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdbool.h

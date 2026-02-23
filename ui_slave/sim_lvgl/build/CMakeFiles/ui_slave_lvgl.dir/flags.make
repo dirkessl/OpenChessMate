@@ -3,19 +3,19 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE
+C_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -DSIMULATOR
 
-C_INCLUDES = -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/../src -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/../src/fonts -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/../src/pieces -I/opt/homebrew/Cellar/sdl2/2.32.10/include -isystem /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2
+C_INCLUDES = -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/../src -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/../src/fonts -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/../src/pieces -I/opt/homebrew/Cellar/sdl2/2.32.10/include -isystem /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2
 
-C_FLAGSarm64 = -std=gnu11 -arch arm64
+C_FLAGSarm64 = -g -std=gnu11 -arch arm64
 
-C_FLAGS = -std=gnu11 -arch arm64
+C_FLAGS = -g -std=gnu11 -arch arm64
 
-CXX_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE
+CXX_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -DSIMULATOR
 
-CXX_INCLUDES = -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/../src -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/../src/fonts -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/../src/pieces -I/opt/homebrew/Cellar/sdl2/2.32.10/include -isystem /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2
+CXX_INCLUDES = -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/../src -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/../src/fonts -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/../src/pieces -I/opt/homebrew/Cellar/sdl2/2.32.10/include -isystem /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2
 
-CXX_FLAGSarm64 = -std=gnu++17 -arch arm64
+CXX_FLAGSarm64 = -g -std=gnu++17 -arch arm64
 
-CXX_FLAGS = -std=gnu++17 -arch arm64
+CXX_FLAGS = -g -std=gnu++17 -arch arm64
 

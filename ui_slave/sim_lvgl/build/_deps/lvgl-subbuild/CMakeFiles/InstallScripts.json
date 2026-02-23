@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/cmake_install.cmake"
+		"/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-subbuild/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

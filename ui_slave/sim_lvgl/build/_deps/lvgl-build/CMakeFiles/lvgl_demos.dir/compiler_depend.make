@@ -278,7 +278,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_cogwheel_argb.c.o: _deps/lvgl-src/demos/benchmark/assets/img_benchmark_cogwheel_argb.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -557,7 +557,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_cogwheel_chroma_keyed.c.o: _deps/lvgl-src/demos/benchmark/assets/img_benchmark_cogwheel_chroma_keyed.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -836,7 +836,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_cogwheel_indexed16.c.o: _deps/lvgl-src/demos/benchmark/assets/img_benchmark_cogwheel_indexed16.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1115,7 +1115,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_cogwheel_rgb.c.o: _deps/lvgl-src/demos/benchmark/assets/img_benchmark_cogwheel_rgb.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1394,7 +1394,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_cogwheel_rgb565a8.c.o: _deps/lvgl-src/demos/benchmark/assets/img_benchmark_cogwheel_rgb565a8.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1673,7 +1673,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/img_benchmark_
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/lv_font_bechmark_montserrat_12_compr_az.c.c.o: _deps/lvgl-src/demos/benchmark/assets/lv_font_bechmark_montserrat_12_compr_az.c.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1952,7 +1952,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/lv_font_bechma
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/lv_font_bechmark_montserrat_16_compr_az.c.c.o: _deps/lvgl-src/demos/benchmark/assets/lv_font_bechmark_montserrat_16_compr_az.c.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2231,7 +2231,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/lv_font_bechma
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/lv_font_bechmark_montserrat_28_compr_az.c.c.o: _deps/lvgl-src/demos/benchmark/assets/lv_font_bechmark_montserrat_28_compr_az.c.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2510,7 +2510,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/assets/lv_font_bechma
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/lv_demo_benchmark.c.o: _deps/lvgl-src/demos/benchmark/lv_demo_benchmark.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2791,7 +2791,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/benchmark/lv_demo_benchmark.c.o
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/benchmark/lv_demo_benchmark.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/keypad_encoder/lv_demo_keypad_encoder.c.o: _deps/lvgl-src/demos/keypad_encoder/lv_demo_keypad_encoder.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3072,7 +3072,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/keypad_encoder/lv_demo_keypad_e
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/keypad_encoder/lv_demo_keypad_encoder.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_corner_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_corner_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3353,7 +3353,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_list_pause.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_list_pause.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3634,7 +3634,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_list_pause_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_list_pause_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3915,7 +3915,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_list_play.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_list_play.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -4196,7 +4196,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_list_play_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_list_play_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -4477,7 +4477,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_loop.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_loop.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -4758,7 +4758,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_loop_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_loop_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5039,7 +5039,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_next.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_next.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5320,7 +5320,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_next_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_next_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5601,7 +5601,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_pause.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_pause.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5882,7 +5882,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_pause_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_pause_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6163,7 +6163,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_play.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_play.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6444,7 +6444,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_play_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_play_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6725,7 +6725,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_prev.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_prev.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7006,7 +7006,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_prev_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_prev_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7287,7 +7287,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_rnd.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_rnd.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7568,7 +7568,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_btn_rnd_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_rnd_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7849,7 +7849,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_corner_left.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_corner_left.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -8130,7 +8130,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_corner_left_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_corner_left_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -8411,7 +8411,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_corner_right.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_corner_right.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -8692,7 +8692,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_corner_right_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_corner_right_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -8973,7 +8973,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_cover_1.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_cover_1.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9254,7 +9254,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_cover_1_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_cover_1_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9535,7 +9535,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_cover_2.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_cover_2.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9816,7 +9816,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_cover_2_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_cover_2_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -10097,7 +10097,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_cover_3.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_cover_3.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -10378,7 +10378,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_cover_3_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_cover_3_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -10659,7 +10659,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_1.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_1.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -10940,7 +10940,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_1_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_1_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -11221,7 +11221,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_2.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_2.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -11502,7 +11502,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_2_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_2_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -11783,7 +11783,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_3.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_3.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12064,7 +12064,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_3_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_3_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12345,7 +12345,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_4.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_4.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12626,7 +12626,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_icon_4_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_icon_4_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12907,7 +12907,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_list_border.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_list_border.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -13188,7 +13188,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_list_border_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_list_border_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -13469,7 +13469,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_logo.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_logo.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -13750,7 +13750,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_slider_knob.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_slider_knob.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14031,7 +14031,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_slider_knob_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_slider_knob_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14312,7 +14312,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_wave_bottom.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_wave_bottom.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14593,7 +14593,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_wave_bottom_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_wave_bottom_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14874,7 +14874,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_wave_top.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_wave_top.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15155,7 +15155,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_wave_top_large.c.o: _deps/lvgl-src/demos/music/assets/img_lv_demo_music_wave_top_large.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15436,7 +15436,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/assets/img_lv_demo_music_
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/lv_demo_music.c.o: _deps/lvgl-src/demos/music/lv_demo_music.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15717,7 +15717,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/lv_demo_music.c.o: _deps/
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/lv_demo_music_list.c.o: _deps/lvgl-src/demos/music/lv_demo_music_list.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15999,7 +15999,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/lv_demo_music_list.c.o: _
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
   _deps/lvgl-src/demos/music/lv_demo_music_list.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/lv_demo_music_main.c.o: _deps/lvgl-src/demos/music/lv_demo_music_main.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -16281,7 +16281,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/music/lv_demo_music_main.c.o: _
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/music/lv_demo_music.h \
   _deps/lvgl-src/demos/music/lv_demo_music_main.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/stress/lv_demo_stress.c.o: _deps/lvgl-src/demos/stress/lv_demo_stress.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -16562,7 +16562,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/stress/lv_demo_stress.c.o: _dep
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/stress/lv_demo_stress.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/assets/img_clothes.c.o: _deps/lvgl-src/demos/widgets/assets/img_clothes.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -16841,7 +16841,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/assets/img_clothes.c.o:
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/assets/img_demo_widgets_avatar.c.o: _deps/lvgl-src/demos/widgets/assets/img_demo_widgets_avatar.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -17120,7 +17120,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/assets/img_demo_widgets
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/assets/img_lvgl_logo.c.o: _deps/lvgl-src/demos/widgets/assets/img_lvgl_logo.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -17399,7 +17399,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/assets/img_lvgl_logo.c.
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/lv_demo_widgets.c.o: _deps/lvgl-src/demos/widgets/lv_demo_widgets.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -17680,7 +17680,7 @@ _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/demos/widgets/lv_demo_widgets.c.o: _d
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/demos/lv_demos.h \
   _deps/lvgl-src/demos/widgets/lv_demo_widgets.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 
 _deps/lvgl-src/demos/widgets/lv_demo_widgets.c:
@@ -17773,14 +17773,6 @@ _deps/lvgl-src/demos/benchmark/assets/lv_font_bechmark_montserrat_12_compr_az.c.
 
 _deps/lvgl-src/demos/benchmark/assets/img_benchmark_cogwheel_rgb.c:
 
-_deps/lvgl-src/src/draw/lv_draw_label.h:
-
-_deps/lvgl-src/src/core/lv_event.h:
-
-_deps/lvgl-src/src/extra/widgets/msgbox/lv_msgbox.h:
-
-/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h:
-
 _deps/lvgl-src/src/draw/lv_draw_transform.h:
 
 _deps/lvgl-src/src/widgets/lv_textarea.h:
@@ -17856,6 +17848,12 @@ _deps/lvgl-src/src/extra/widgets/spinbox/lv_spinbox.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_posix_availability.h:
 
 _deps/lvgl-src/src/extra/widgets/tabview/lv_tabview.h:
+
+_deps/lvgl-src/src/draw/lv_draw_label.h:
+
+_deps/lvgl-src/src/core/lv_event.h:
+
+_deps/lvgl-src/src/extra/widgets/msgbox/lv_msgbox.h:
 
 _deps/lvgl-src/src/extra/widgets/meter/lv_meter.h:
 
@@ -18196,6 +18194,8 @@ _deps/lvgl-src/demos/music/lv_demo_music_list.c:
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityVersions.h:
 
 _deps/lvgl-src/src/misc/lv_types.h:
+
+/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h:
 
 _deps/lvgl-src/demos/music/assets/img_lv_demo_music_btn_rnd.c:
 

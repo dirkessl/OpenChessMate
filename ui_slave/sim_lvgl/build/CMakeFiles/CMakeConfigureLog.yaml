@@ -23,8 +23,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -37,13 +35,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/Users/essl.dirk/bin/uname"
       - "/Users/essl.dirk/.local/bin/uname"
       - "/usr/local/bin/uname"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/uname"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/uname"
       - "/opt/homebrew/bin/uname"
       - "/opt/homebrew/sbin/uname"
       - "/System/Cryptexes/App/usr/bin/uname"
@@ -53,8 +49,6 @@ events:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -68,11 +62,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "message-v1"
     backtrace:
@@ -104,8 +94,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -118,21 +106,17 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/Users/essl.dirk/bin/gmake"
       - "/Users/essl.dirk/.local/bin/gmake"
       - "/usr/local/bin/gmake"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/gmake"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/gmake"
     found: "/opt/homebrew/bin/gmake"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -146,11 +130,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -180,8 +160,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -194,13 +172,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/Users/essl.dirk/bin/cc"
       - "/Users/essl.dirk/.local/bin/cc"
       - "/usr/local/bin/cc"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/cc"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/cc"
       - "/opt/homebrew/bin/cc"
       - "/opt/homebrew/sbin/cc"
       - "/System/Cryptexes/App/usr/bin/cc"
@@ -210,8 +186,6 @@ events:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -225,11 +199,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -260,8 +230,6 @@ events:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -275,11 +243,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "message-v1"
     backtrace:
@@ -300,7 +264,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
       
       The C compiler identification is AppleClang, found in:
-        /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/4.2.3/CompilerIdC/a.out
+        /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/4.2.3/CompilerIdC/a.out
       
   -
     kind: "message-v1"
@@ -367,8 +331,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -380,15 +342,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     found: "/usr/bin/ar"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -402,11 +362,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -431,8 +387,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -444,15 +398,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     found: "/usr/bin/ranlib"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -466,11 +418,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -495,8 +443,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -508,15 +454,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     found: "/usr/bin/strip"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -530,11 +474,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -559,8 +499,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -572,15 +510,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     found: "/usr/bin/ld"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -594,11 +530,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -623,8 +555,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -636,15 +566,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     found: "/usr/bin/nm"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -658,11 +586,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -687,8 +611,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -700,15 +622,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     found: "/usr/bin/objdump"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -722,11 +642,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -751,8 +667,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -764,14 +678,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/usr/bin/objcopy"
       - "/Users/essl.dirk/bin/objcopy"
       - "/Users/essl.dirk/.local/bin/objcopy"
       - "/usr/local/bin/objcopy"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/objcopy"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/objcopy"
       - "/opt/homebrew/bin/objcopy"
       - "/opt/homebrew/sbin/objcopy"
       - "/System/Cryptexes/App/usr/bin/objcopy"
@@ -783,15 +695,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/objcopy"
       - "/opt/pmk/env/global/bin/objcopy"
       - "/Library/Apple/usr/bin/objcopy"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/objcopy"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/objcopy"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -805,11 +715,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -834,8 +740,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -847,14 +751,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/usr/bin/readelf"
       - "/Users/essl.dirk/bin/readelf"
       - "/Users/essl.dirk/.local/bin/readelf"
       - "/usr/local/bin/readelf"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/readelf"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/readelf"
       - "/opt/homebrew/bin/readelf"
       - "/opt/homebrew/sbin/readelf"
       - "/System/Cryptexes/App/usr/bin/readelf"
@@ -866,15 +768,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/readelf"
       - "/opt/pmk/env/global/bin/readelf"
       - "/Library/Apple/usr/bin/readelf"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/readelf"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/readelf"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -888,11 +788,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -917,8 +813,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -930,14 +824,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/usr/bin/dlltool"
       - "/Users/essl.dirk/bin/dlltool"
       - "/Users/essl.dirk/.local/bin/dlltool"
       - "/usr/local/bin/dlltool"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/dlltool"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/dlltool"
       - "/opt/homebrew/bin/dlltool"
       - "/opt/homebrew/sbin/dlltool"
       - "/System/Cryptexes/App/usr/bin/dlltool"
@@ -949,15 +841,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/dlltool"
       - "/opt/pmk/env/global/bin/dlltool"
       - "/Library/Apple/usr/bin/dlltool"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/dlltool"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/dlltool"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -971,11 +861,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -1000,8 +886,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -1013,14 +897,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/usr/bin/addr2line"
       - "/Users/essl.dirk/bin/addr2line"
       - "/Users/essl.dirk/.local/bin/addr2line"
       - "/usr/local/bin/addr2line"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/addr2line"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/addr2line"
       - "/opt/homebrew/bin/addr2line"
       - "/opt/homebrew/sbin/addr2line"
       - "/System/Cryptexes/App/usr/bin/addr2line"
@@ -1032,15 +914,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/addr2line"
       - "/opt/pmk/env/global/bin/addr2line"
       - "/Library/Apple/usr/bin/addr2line"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/addr2line"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/addr2line"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1054,11 +934,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -1083,8 +959,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -1096,14 +970,12 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/usr/bin/tapi"
       - "/Users/essl.dirk/bin/tapi"
       - "/Users/essl.dirk/.local/bin/tapi"
       - "/usr/local/bin/tapi"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/tapi"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/tapi"
       - "/opt/homebrew/bin/tapi"
       - "/opt/homebrew/sbin/tapi"
       - "/System/Cryptexes/App/usr/bin/tapi"
@@ -1115,15 +987,13 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/tapi"
       - "/opt/pmk/env/global/bin/tapi"
       - "/Library/Apple/usr/bin/tapi"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/tapi"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/tapi"
     found: false
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1137,11 +1007,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -1175,8 +1041,6 @@ events:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1190,11 +1054,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "find-v1"
     backtrace:
@@ -1225,8 +1085,6 @@ events:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1240,11 +1098,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
   -
     kind: "message-v1"
     backtrace:
@@ -1265,7 +1119,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is AppleClang, found in:
-        /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/4.2.3/CompilerIdCXX/a.out
+        /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/4.2.3/CompilerIdCXX/a.out
       
   -
     kind: "message-v1"
@@ -1331,8 +1185,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -1345,13 +1197,11 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
     searched_directories:
       - "/Users/essl.dirk/bin/install_name_tool"
       - "/Users/essl.dirk/.local/bin/install_name_tool"
       - "/usr/local/bin/install_name_tool"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/install_name_tool"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/install_name_tool"
       - "/opt/homebrew/bin/install_name_tool"
       - "/opt/homebrew/sbin/install_name_tool"
       - "/System/Cryptexes/App/usr/bin/install_name_tool"
@@ -1361,8 +1211,6 @@ events:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1376,11 +1224,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
       CMAKE_INSTALL_PREFIX: "/usr/local"
   -
     kind: "try_compile-v1"
@@ -1391,8 +1235,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt"
-      binary: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt"
+      source: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf"
+      binary: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -1404,19 +1248,19 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt'
+        Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_72d8e/fast
-        /opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_72d8e.dir/build.make CMakeFiles/cmTC_72d8e.dir/build
-        gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt'
-        Building C object CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_2d2f8/fast
+        /opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_2d2f8.dir/build.make CMakeFiles/cmTC_2d2f8.dir/build
+        gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf'
+        Building C object CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         Apple clang version 17.0.0 (clang-1700.6.3.2)
         Target: arm64-apple-darwin25.2.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
         clang: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
-         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         clang -cc1 version 17.0.0 (clang-1700.6.3.2) default target arm64-apple-darwin25.2.0
         ignoring nonexistent directory "/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"
@@ -1429,13 +1273,13 @@ events:
          /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
          /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks (framework directory)
         End of search list.
-        Linking C executable cmTC_72d8e
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72d8e.dir/link.txt --verbose=1
+        Linking C executable cmTC_2d2f8
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d2f8.dir/link.txt --verbose=1
         Apple clang version 17.0.0 (clang-1700.6.3.2)
         Target: arm64-apple-darwin25.2.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_72d8e -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a
+         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_2d2f8 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld PROJECT:ld-1230.1
         BUILD 06:36:05 Dec  2 2025
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em armv8m.main armv8.1m.main
@@ -1448,8 +1292,8 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks
-        /usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -o cmTC_72d8e
-        gmake[1]: Leaving directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt'
+        /usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -o cmTC_2d2f8
+        gmake[1]: Leaving directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf'
         
       exitCode: 0
   -
@@ -1491,19 +1335,19 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt']
+        ignore line: [Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_72d8e/fast]
-        ignore line: [/opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_72d8e.dir/build.make CMakeFiles/cmTC_72d8e.dir/build]
-        ignore line: [gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt']
-        ignore line: [Building C object CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_2d2f8/fast]
+        ignore line: [/opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_2d2f8.dir/build.make CMakeFiles/cmTC_2d2f8.dir/build]
+        ignore line: [gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf']
+        ignore line: [Building C object CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Apple clang version 17.0.0 (clang-1700.6.3.2)]
         ignore line: [Target: arm64-apple-darwin25.2.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
         ignore line: [clang: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
-        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-13XXbt -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-ao05kf -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [clang -cc1 version 17.0.0 (clang-1700.6.3.2) default target arm64-apple-darwin25.2.0]
         ignore line: [ignoring nonexistent directory "/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"]
@@ -1516,13 +1360,13 @@ events:
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking C executable cmTC_72d8e]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72d8e.dir/link.txt --verbose=1]
+        ignore line: [Linking C executable cmTC_2d2f8]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d2f8.dir/link.txt --verbose=1]
         ignore line: [Apple clang version 17.0.0 (clang-1700.6.3.2)]
         ignore line: [Target: arm64-apple-darwin25.2.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_72d8e -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_2d2f8 -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
           arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -1539,12 +1383,12 @@ events:
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_72d8e] ==> ignore
+          arg [cmTC_2d2f8] ==> ignore
           arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_72d8e.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_2d2f8.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lSystem] ==> lib [System]
           arg [/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
         linker tool for 'C': /Library/Developer/CommandLineTools/usr/bin/ld
@@ -1587,8 +1431,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8"
-      binary: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8"
+      source: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4"
+      binary: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1601,20 +1445,20 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8'
+        Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_c881e/fast
-        /opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_c881e.dir/build.make CMakeFiles/cmTC_c881e.dir/build
-        gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8'
-        Building CXX object CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_8cf3d/fast
+        /opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_8cf3d.dir/build.make CMakeFiles/cmTC_8cf3d.dir/build
+        gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4'
+        Building CXX object CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -arch arm64   -v -Wl,-v -MD -MT CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Apple clang version 17.0.0 (clang-1700.6.3.2)
         Target: arm64-apple-darwin25.2.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
         clang++: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"
-         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8 -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8 -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+         "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4 -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4 -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         clang -cc1 version 17.0.0 (clang-1700.6.3.2) default target arm64-apple-darwin25.2.0
         ignoring nonexistent directory "/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"
@@ -1628,13 +1472,13 @@ events:
          /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
          /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks (framework directory)
         End of search list.
-        Linking CXX executable cmTC_c881e
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c881e.dir/link.txt --verbose=1
+        Linking CXX executable cmTC_8cf3d
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cf3d.dir/link.txt --verbose=1
         Apple clang version 17.0.0 (clang-1700.6.3.2)
         Target: arm64-apple-darwin25.2.0
         Thread model: posix
         InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_c881e -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a
+         "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_8cf3d -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a
         @(#)PROGRAM:ld PROJECT:ld-1230.1
         BUILD 06:36:05 Dec  2 2025
         configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em armv8m.main armv8.1m.main
@@ -1647,8 +1491,8 @@ events:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift
         Framework search paths:
         	/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks
-        /usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_c881e
-        gmake[1]: Leaving directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8'
+        /usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_8cf3d
+        gmake[1]: Leaving directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4'
         
       exitCode: 0
   -
@@ -1692,20 +1536,20 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8']
+        ignore line: [Change Dir: '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_c881e/fast]
-        ignore line: [/opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_c881e.dir/build.make CMakeFiles/cmTC_c881e.dir/build]
-        ignore line: [gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8']
-        ignore line: [Building CXX object CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /opt/homebrew/bin/gmake -f Makefile cmTC_8cf3d/fast]
+        ignore line: [/opt/homebrew/bin/gmake  -f CMakeFiles/cmTC_8cf3d.dir/build.make CMakeFiles/cmTC_8cf3d.dir/build]
+        ignore line: [gmake[1]: Entering directory '/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4']
+        ignore line: [Building CXX object CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -arch arm64   -v -Wl -v -MD -MT CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Apple clang version 17.0.0 (clang-1700.6.3.2)]
         ignore line: [Target: arm64-apple-darwin25.2.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
         ignore line: [clang++: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"]
-        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8 -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-fZ5nF8 -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -target-sdk-version=26.2 -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -target-cpu apple-m1 -target-feature +zcm -target-feature +zcz -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4 -target-linker-version 1230.1 -v -fcoverage-compilation-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/CMakeScratch/TryCompile-Xcprf4 -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/17 -dependency-file CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o.d -skip-unused-modulemap-deps -MT CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/17/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-reorder-init-list -Wno-implicit-int-float-conversion -Wno-c99-designator -Wno-final-dtor-non-final-class -Wno-extra-semi-stmt -Wno-misleading-indentation -Wno-quoted-include-in-framework-header -Wno-implicit-fallthrough -Wno-enum-enum-conversion -Wno-enum-float-conversion -Wno-elaborated-enum-base -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fno-cxx-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -x c++ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [clang -cc1 version 17.0.0 (clang-1700.6.3.2) default target arm64-apple-darwin25.2.0]
         ignore line: [ignoring nonexistent directory "/usr/local/include"]
         ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"]
@@ -1719,13 +1563,13 @@ events:
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
         ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks (framework directory)]
         ignore line: [End of search list.]
-        ignore line: [Linking CXX executable cmTC_c881e]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c881e.dir/link.txt --verbose=1]
+        ignore line: [Linking CXX executable cmTC_8cf3d]
+        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8cf3d.dir/link.txt --verbose=1]
         ignore line: [Apple clang version 17.0.0 (clang-1700.6.3.2)]
         ignore line: [Target: arm64-apple-darwin25.2.0]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
-        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_c881e -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
+        link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.2 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_8cf3d -L/usr/local/lib -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
           arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
           arg [-demangle] ==> ignore
           arg [-lto_library] ==> ignore, skip following value
@@ -1742,12 +1586,12 @@ events:
           arg [-mllvm] ==> ignore
           arg [-enable-linkonceodr-outlining] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_c881e] ==> ignore
+          arg [cmTC_8cf3d] ==> ignore
           arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
           arg [-search_paths_first] ==> ignore
           arg [-headerpad_max_install_names] ==> ignore
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_c881e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_8cf3d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lc++] ==> lib [c++]
           arg [-lSystem] ==> lib [System]
           arg [/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.osx.a]
@@ -1809,8 +1653,6 @@ events:
       - "/Users/essl.dirk/bin/"
       - "/Users/essl.dirk/.local/bin/"
       - "/usr/local/bin/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/System/Cryptexes/App/usr/bin/"
@@ -1823,7 +1665,7 @@ events:
       - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
       - "/opt/pmk/env/global/bin/"
       - "/Library/Apple/usr/bin/"
-      - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts/"
+      - "/Applications/iTerm.app/Contents/Resources/utilities/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/bin/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/sbin/"
       - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/"
@@ -1859,16 +1701,12 @@ events:
       - "/Users/essl.dirk/bin/git"
       - "/Users/essl.dirk/.local/bin/git"
       - "/usr/local/bin/git"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/git"
-      - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/git"
     found: "/opt/homebrew/bin/git"
     search_context:
       ENV{PATH}:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1882,11 +1720,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"
@@ -1940,11 +1774,11 @@ events:
         CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
     candidates:
       -
-        path: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/pkgRedirects/SDL2Config.cmake"
+        path: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/pkgRedirects/SDL2Config.cmake"
         mode: "config"
         reason: "no_exist"
       -
-        path: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/pkgRedirects/sdl2-config.cmake"
+        path: "/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/pkgRedirects/sdl2-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
@@ -1969,22 +1803,6 @@ events:
         reason: "no_exist"
       -
         path: "/usr/local/sdl2-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/SDL2Config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand/sdl2-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/SDL2Config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/sdl2-config.cmake"
         mode: "config"
         reason: "no_exist"
       -
@@ -2016,8 +1834,6 @@ events:
         - "/Users/essl.dirk/bin"
         - "/Users/essl.dirk/.local/bin"
         - "/usr/local/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -2031,11 +1847,7 @@ events:
         - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
         - "/opt/pmk/env/global/bin"
         - "/Library/Apple/usr/bin"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand"
-        - "/Users/essl.dirk/Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli"
-        - "/Users/essl.dirk/bin"
-        - "/Users/essl.dirk/.local/bin"
-        - "/Users/essl.dirk/.vscode/extensions/ms-python.debugpy-2025.18.0-darwin-arm64/bundled/scripts/noConfigScripts"
+        - "/Applications/iTerm.app/Contents/Resources/utilities"
       CMAKE_INSTALL_PREFIX: "/usr/local"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr"

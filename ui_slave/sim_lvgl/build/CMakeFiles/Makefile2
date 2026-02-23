@@ -54,10 +54,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl
+CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build
+CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -113,14 +113,14 @@ _deps/lvgl-build/clean: _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/clean
 CMakeFiles/ui_slave_lvgl.dir/all: _deps/lvgl-build/CMakeFiles/lvgl.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=97,98,99,100 "Built target ui_slave_lvgl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=97,98,99,100 "Built target ui_slave_lvgl"
 .PHONY : CMakeFiles/ui_slave_lvgl.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ui_slave_lvgl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 46
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 46
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ui_slave_lvgl.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 0
 .PHONY : CMakeFiles/ui_slave_lvgl.dir/rule
 
 # Convenience name for target.
@@ -130,7 +130,7 @@ ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/rule
 # codegen rule for target.
 CMakeFiles/ui_slave_lvgl.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ui_slave_lvgl.dir/build.make CMakeFiles/ui_slave_lvgl.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=97,98,99,100 "Finished codegen for target ui_slave_lvgl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=97,98,99,100 "Finished codegen for target ui_slave_lvgl"
 .PHONY : CMakeFiles/ui_slave_lvgl.dir/codegen
 
 # clean rule for target.
@@ -145,14 +145,14 @@ CMakeFiles/ui_slave_lvgl.dir/clean:
 _deps/lvgl-build/CMakeFiles/lvgl.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42 "Built target lvgl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42 "Built target lvgl"
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/lvgl-build/CMakeFiles/lvgl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 42
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 42
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/lvgl-build/CMakeFiles/lvgl.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 0
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl.dir/rule
 
 # Convenience name for target.
@@ -162,7 +162,7 @@ lvgl: _deps/lvgl-build/CMakeFiles/lvgl.dir/rule
 # codegen rule for target.
 _deps/lvgl-build/CMakeFiles/lvgl.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42 "Finished codegen for target lvgl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42 "Finished codegen for target lvgl"
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl.dir/codegen
 
 # clean rule for target.
@@ -177,14 +177,14 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/clean:
 _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/all: _deps/lvgl-build/CMakeFiles/lvgl.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Built target lvgl_examples"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Built target lvgl_examples"
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 81
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 0
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/rule
 
 # Convenience name for target.
@@ -194,7 +194,7 @@ lvgl_examples: _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/rule
 # codegen rule for target.
 _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Finished codegen for target lvgl_examples"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Finished codegen for target lvgl_examples"
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/codegen
 
 # clean rule for target.
@@ -209,14 +209,14 @@ _deps/lvgl-build/CMakeFiles/lvgl_examples.dir/clean:
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/all: _deps/lvgl-build/CMakeFiles/lvgl.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=43,44,45,46,47,48,49,50,51,52,53,54,55,56,57 "Built target lvgl_demos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=43,44,45,46,47,48,49,50,51,52,53,54,55,56,57 "Built target lvgl_demos"
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 57
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles 0
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/rule
 
 # Convenience name for target.
@@ -226,7 +226,7 @@ lvgl_demos: _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/rule
 # codegen rule for target.
 _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/build.make _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=43,44,45,46,47,48,49,50,51,52,53,54,55,56,57 "Finished codegen for target lvgl_demos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=43,44,45,46,47,48,49,50,51,52,53,54,55,56,57 "Finished codegen for target lvgl_demos"
 .PHONY : _deps/lvgl-build/CMakeFiles/lvgl_demos.dir/codegen
 
 # clean rule for target.

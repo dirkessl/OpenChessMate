@@ -35,6 +35,11 @@ static std::queue<std::string> g_incoming;
 static std::mutex g_in_mutex;
 static std::atomic<bool> g_running{true};
 
+// Mouse state for LVGL input device
+static int g_mouse_x = 0;
+static int g_mouse_y = 0;
+static bool g_mouse_pressed = false;
+
 // ---------------------------------------------------------------------------
 // TCP server thread
 // ---------------------------------------------------------------------------
@@ -110,7 +115,7 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  int screen_w = 320, screen_h = 520;
+  int screen_w = 480, screen_h = 800;
   g_window = SDL_CreateWindow("OpenChess UI (LVGL)",
                               SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                               screen_w, screen_h, SDL_WINDOW_SHOWN);
@@ -173,6 +178,20 @@ int main(int argc, char** argv) {
   std::cout << "LVGL display registered (" << screen_w << "x" << screen_h
             << ")\n";
 
+  // ---- Mouse input device ----
+  static lv_indev_drv_t indev_drv;
+  lv_indev_drv_init(&indev_drv);
+  indev_drv.type = LV_INDEV_TYPE_POINTER;
+  indev_drv.read_cb = [](lv_indev_drv_t* drv, lv_indev_data_t* data) {
+    (void)drv;
+    data->point.x = g_mouse_x;
+    data->point.y = g_mouse_y;
+    data->state = g_mouse_pressed ? LV_INDEV_STATE_PRESSED
+                                  : LV_INDEV_STATE_RELEASED;
+  };
+  lv_indev_drv_register(&indev_drv);
+  std::cout << "Mouse input device registered\n";
+
   // ---- Create shared chess UI ----
   chess_ui_create(screen_w, screen_h, &lv_font_montserrat_14, platformSend);
 
@@ -185,6 +204,20 @@ int main(int argc, char** argv) {
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
       if (e.type == SDL_QUIT) g_running = false;
+      if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT) {
+        g_mouse_pressed = true;
+        g_mouse_x = e.button.x;
+        g_mouse_y = e.button.y;
+      }
+      if (e.type == SDL_MOUSEBUTTONUP && e.button.button == SDL_BUTTON_LEFT) {
+        g_mouse_pressed = false;
+        g_mouse_x = e.button.x;
+        g_mouse_y = e.button.y;
+      }
+      if (e.type == SDL_MOUSEMOTION) {
+        g_mouse_x = e.motion.x;
+        g_mouse_y = e.motion.y;
+      }
     }
     auto now = std::chrono::steady_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(

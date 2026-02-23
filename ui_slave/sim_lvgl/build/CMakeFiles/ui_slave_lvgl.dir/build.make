@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl
+CMAKE_SOURCE_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build
+CMAKE_BINARY_DIR = /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ui_slave_lvgl.dir/depend.make
@@ -73,256 +73,256 @@ CMakeFiles/ui_slave_lvgl.dir/codegen:
 .PHONY : CMakeFiles/ui_slave_lvgl.dir/codegen
 
 CMakeFiles/ui_slave_lvgl.dir/main.cpp.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/main.cpp.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/main.cpp
+CMakeFiles/ui_slave_lvgl.dir/main.cpp.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/main.cpp
 CMakeFiles/ui_slave_lvgl.dir/main.cpp.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ui_slave_lvgl.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/main.cpp.o -MF CMakeFiles/ui_slave_lvgl.dir/main.cpp.o.d -o CMakeFiles/ui_slave_lvgl.dir/main.cpp.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ui_slave_lvgl.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/main.cpp.o -MF CMakeFiles/ui_slave_lvgl.dir/main.cpp.o.d -o CMakeFiles/ui_slave_lvgl.dir/main.cpp.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/main.cpp
 
 CMakeFiles/ui_slave_lvgl.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ui_slave_lvgl.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/main.cpp > CMakeFiles/ui_slave_lvgl.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/main.cpp > CMakeFiles/ui_slave_lvgl.dir/main.cpp.i
 
 CMakeFiles/ui_slave_lvgl.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ui_slave_lvgl.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/main.cpp -o CMakeFiles/ui_slave_lvgl.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/main.cpp -o CMakeFiles/ui_slave_lvgl.dir/main.cpp.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.s
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o: CMakeFiles/ui_slave_lvgl.dir/flags.make
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o: /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o: CMakeFiles/ui_slave_lvgl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o -MF CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o.d -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o -c /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.i
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c > CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.i
 
-CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.s
+CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c -o CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.s
 
 # Object files for target ui_slave_lvgl
 ui_slave_lvgl_OBJECTS = \
 "CMakeFiles/ui_slave_lvgl.dir/main.cpp.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o" \
-"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o"
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o" \
+"CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o"
 
 # External object files for target ui_slave_lvgl
 ui_slave_lvgl_EXTERNAL_OBJECTS =
 
 ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/main.cpp.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/chess_ui.cpp.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/fonts/open_chess_font_32.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bB.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bK.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bN.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bP.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bQ.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/bR.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wB.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wK.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wN.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wP.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wQ.c.o
-ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/src/pieces/wR.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/chess_ui.cpp.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/fonts/open_chess_font_32.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bB.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bK.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bN.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bP.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bQ.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/bR.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wB.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wK.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wN.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wP.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wQ.c.o
+ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/src/pieces/wR.c.o
 ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/build.make
 ui_slave_lvgl: lib/liblvgl.a
 ui_slave_lvgl: /opt/homebrew/Cellar/sdl2/2.32.10/lib/libSDL2.dylib
 ui_slave_lvgl: CMakeFiles/ui_slave_lvgl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable ui_slave_lvgl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable ui_slave_lvgl"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ui_slave_lvgl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -334,6 +334,6 @@ CMakeFiles/ui_slave_lvgl.dir/clean:
 .PHONY : CMakeFiles/ui_slave_lvgl.dir/clean
 
 CMakeFiles/ui_slave_lvgl.dir/depend:
-	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/CMakeFiles/ui_slave_lvgl.dir/DependInfo.cmake "--color=$(COLOR)" ui_slave_lvgl
+	cd /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/CMakeFiles/ui_slave_lvgl.dir/DependInfo.cmake "--color=$(COLOR)" ui_slave_lvgl
 .PHONY : CMakeFiles/ui_slave_lvgl.dir/depend
 

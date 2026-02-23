@@ -147,7 +147,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_disp.c.o: _deps/lvgl-src/src/co
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_event.c.o: _deps/lvgl-src/src/core/lv_event.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -292,7 +292,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_event.c.o: _deps/lvgl-src/src/c
   _deps/lvgl-src/src/core/lv_obj_style.h \
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_group.c.o: _deps/lvgl-src/src/core/lv_group.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -450,7 +450,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_group.c.o: _deps/lvgl-src/src/c
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/core/lv_group.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_indev.c.o: _deps/lvgl-src/src/core/lv_indev.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -601,7 +601,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_indev.c.o: _deps/lvgl-src/src/c
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_refr.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_indev_scroll.c.o: _deps/lvgl-src/src/core/lv_indev_scroll.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -747,7 +747,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_indev_scroll.c.o: _deps/lvgl-sr
   _deps/lvgl-src/src/core/lv_obj_style.h \
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj.c.o: _deps/lvgl-src/src/core/lv_obj.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1038,7 +1038,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj.c.o: _deps/lvgl-src/src/cor
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_refr.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_class.c.o: _deps/lvgl-src/src/core/lv_obj_class.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1184,7 +1184,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_class.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_draw.c.o: _deps/lvgl-src/src/core/lv_obj_draw.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1331,7 +1331,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_draw.c.o: _deps/lvgl-src/sr
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_pos.c.o: _deps/lvgl-src/src/core/lv_obj_pos.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1484,7 +1484,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_pos.c.o: _deps/lvgl-src/src
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_refr.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_scroll.c.o: _deps/lvgl-src/src/core/lv_obj_scroll.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1632,7 +1632,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_scroll.c.o: _deps/lvgl-src/
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_style.c.o: _deps/lvgl-src/src/core/lv_obj_style.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1784,7 +1784,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_style.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_style_gen.c.o: _deps/lvgl-src/src/core/lv_obj_style_gen.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -1928,7 +1928,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_style_gen.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/core/lv_obj_style.h \
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_tree.c.o: _deps/lvgl-src/src/core/lv_obj_tree.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2116,7 +2116,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_obj_tree.c.o: _deps/lvgl-src/sr
   _deps/lvgl-src/src/core/lv_obj_style.h \
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_refr.c.o: _deps/lvgl-src/src/core/lv_refr.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2274,7 +2274,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_refr.c.o: _deps/lvgl-src/src/co
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_refr.h \
   _deps/lvgl-src/src/core/lv_theme.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_theme.c.o: _deps/lvgl-src/src/core/lv_theme.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2553,7 +2553,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/core/lv_theme.c.o: _deps/lvgl-src/src/c
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/arm2d/lv_gpu_arm2d.c.o: _deps/lvgl-src/src/draw/arm2d/lv_gpu_arm2d.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2711,7 +2711,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/arm2d/lv_gpu_arm2d.c.o: _deps/lvgl
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
   _deps/lvgl-src/src/draw/arm2d/lv_gpu_arm2d.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw.c.o: _deps/lvgl-src/src/draw/lv_draw.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2840,7 +2840,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw.c.o: _deps/lvgl-src/src/dr
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_arc.c.o: _deps/lvgl-src/src/draw/lv_draw_arc.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -2951,7 +2951,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_arc.c.o: _deps/lvgl-src/sr
   _deps/lvgl-src/src/misc/lv_style.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_img.c.o: _deps/lvgl-src/src/draw/lv_draw_img.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3105,7 +3105,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_img.c.o: _deps/lvgl-src/sr
   _deps/lvgl-src/src/draw/lv_img_buf.h \
   _deps/lvgl-src/src/draw/lv_img_cache.h \
   _deps/lvgl-src/src/draw/lv_img_decoder.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_label.c.o: _deps/lvgl-src/src/draw/lv_draw_label.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3251,7 +3251,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_label.c.o: _deps/lvgl-src/
   _deps/lvgl-src/src/misc/lv_style.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_layer.c.o: _deps/lvgl-src/src/draw/lv_draw_layer.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3396,7 +3396,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_layer.c.o: _deps/lvgl-src/
   _deps/lvgl-src/src/misc/lv_style.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_line.c.o: _deps/lvgl-src/src/draw/lv_draw_line.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3542,7 +3542,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_line.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/core/lv_refr.h \
   _deps/lvgl-src/src/misc/lv_math.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_mask.c.o: _deps/lvgl-src/src/draw/lv_draw_mask.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3661,7 +3661,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_mask.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/misc/lv_style.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_rect.c.o: _deps/lvgl-src/src/draw/lv_draw_rect.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3772,7 +3772,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_rect.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/misc/lv_style.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_transform.c.o: _deps/lvgl-src/src/draw/lv_draw_transform.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3883,7 +3883,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_transform.c.o: _deps/lvgl-
   _deps/lvgl-src/src/misc/lv_style.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_triangle.c.o: _deps/lvgl-src/src/draw/lv_draw_triangle.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -3994,7 +3994,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_draw_triangle.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/misc/lv_style.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_img_buf.c.o: _deps/lvgl-src/src/draw/lv_img_buf.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -4088,7 +4088,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_img_buf.c.o: _deps/lvgl-src/src
   _deps/lvgl-src/src/draw/lv_draw_img.h \
   _deps/lvgl-src/src/draw/lv_img_buf.h \
   _deps/lvgl-src/src/draw/lv_img_decoder.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_img_cache.c.o: _deps/lvgl-src/src/draw/lv_img_cache.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -4196,7 +4196,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_img_cache.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/draw/lv_img_buf.h \
   _deps/lvgl-src/src/draw/lv_img_cache.h \
   _deps/lvgl-src/src/draw/lv_img_decoder.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_img_decoder.c.o: _deps/lvgl-src/src/draw/lv_img_decoder.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -4310,7 +4310,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/lv_img_decoder.c.o: _deps/lvgl-src
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/draw/lv_img_buf.h \
   _deps/lvgl-src/src/draw/lv_img_decoder.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/lv_gpu_nxp.c.o: _deps/lvgl-src/src/draw/nxp/lv_gpu_nxp.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4338,7 +4338,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/lv_gpu_nxp.c.o: _deps/lvgl-src
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/lv_gpu_nxp.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/pxp/lv_draw_pxp_blend.c.o: _deps/lvgl-src/src/draw/nxp/pxp/lv_draw_pxp_blend.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4366,7 +4366,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/pxp/lv_draw_pxp_blend.c.o: _de
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/pxp/lv_draw_pxp_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/pxp/lv_gpu_nxp_pxp.c.o: _deps/lvgl-src/src/draw/nxp/pxp/lv_gpu_nxp_pxp.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4394,7 +4394,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/pxp/lv_gpu_nxp_pxp.c.o: _deps/
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/pxp/lv_gpu_nxp_pxp.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/pxp/lv_gpu_nxp_pxp_osa.c.o: _deps/lvgl-src/src/draw/nxp/pxp/lv_gpu_nxp_pxp_osa.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4422,7 +4422,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/pxp/lv_gpu_nxp_pxp_osa.c.o: _d
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/pxp/lv_gpu_nxp_pxp_osa.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_draw_vglite_arc.c.o: _deps/lvgl-src/src/draw/nxp/vglite/lv_draw_vglite_arc.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4450,7 +4450,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_draw_vglite_arc.c.o:
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/vglite/lv_draw_vglite_arc.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_draw_vglite_blend.c.o: _deps/lvgl-src/src/draw/nxp/vglite/lv_draw_vglite_blend.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4478,7 +4478,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_draw_vglite_blend.c.
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/vglite/lv_draw_vglite_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_draw_vglite_rect.c.o: _deps/lvgl-src/src/draw/nxp/vglite/lv_draw_vglite_rect.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4506,7 +4506,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_draw_vglite_rect.c.o
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/vglite/lv_draw_vglite_rect.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_gpu_nxp_vglite.c.o: _deps/lvgl-src/src/draw/nxp/vglite/lv_gpu_nxp_vglite.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4534,7 +4534,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/nxp/vglite/lv_gpu_nxp_vglite.c.o: 
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/nxp/vglite/lv_gpu_nxp_vglite.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4561,7 +4561,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl.c.o: _deps/lvgl-sr
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_arc.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_arc.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4588,7 +4588,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_arc.c.o: _deps/lvg
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_bg.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_bg.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4615,7 +4615,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_bg.c.o: _deps/lvgl
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_composite.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_composite.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4642,7 +4642,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_composite.c.o: _de
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_img.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_img.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4669,7 +4669,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_img.c.o: _deps/lvg
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_label.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_label.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4696,7 +4696,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_label.c.o: _deps/l
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_layer.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_layer.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4723,7 +4723,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_layer.c.o: _deps/l
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_line.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_line.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4750,7 +4750,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_line.c.o: _deps/lv
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_mask.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_mask.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4777,7 +4777,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_mask.c.o: _deps/lv
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_polygon.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_polygon.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4804,7 +4804,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_polygon.c.o: _deps
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_rect.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_rect.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4831,7 +4831,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_rect.c.o: _deps/lv
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_stack_blur.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_stack_blur.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4859,7 +4859,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_stack_blur.c.o: _d
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_stack_blur.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_texture_cache.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_texture_cache.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4886,7 +4886,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_texture_cache.c.o:
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_utils.c.o: _deps/lvgl-src/src/draw/sdl/lv_draw_sdl_utils.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -4913,7 +4913,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sdl/lv_draw_sdl_utils.c.o: _deps/l
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/stm32_dma2d/lv_gpu_stm32_dma2d.c.o: _deps/lvgl-src/src/draw/stm32_dma2d/lv_gpu_stm32_dma2d.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5071,7 +5071,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/stm32_dma2d/lv_gpu_stm32_dma2d.c.o
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
   _deps/lvgl-src/src/draw/stm32_dma2d/lv_gpu_stm32_dma2d.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5197,7 +5197,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw.c.o: _deps/lvgl-src/
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_arc.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_arc.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5322,7 +5322,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_arc.c.o: _deps/lvgl-
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_blend.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5469,7 +5469,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_blend.c.o: _deps/lvg
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_dither.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5563,7 +5563,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_dither.c.o: _deps/lv
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_gradient.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5674,7 +5674,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_gradient.c.o: _deps/
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_img.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_img.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5821,7 +5821,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_img.c.o: _deps/lvgl-
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_layer.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_layer.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -5968,7 +5968,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_layer.c.o: _deps/lvg
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_letter.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_letter.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6116,7 +6116,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_letter.c.o: _deps/lv
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_line.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_line.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6263,7 +6263,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_line.c.o: _deps/lvgl
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_polygon.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_polygon.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6388,7 +6388,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_polygon.c.o: _deps/l
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_rect.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_rect.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6538,7 +6538,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_rect.c.o: _deps/lvgl
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_dither.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_transform.c.o: _deps/lvgl-src/src/draw/sw/lv_draw_sw_transform.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6685,7 +6685,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/sw/lv_draw_sw_transform.c.o: _deps
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_gradient.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/swm341_dma2d/lv_gpu_swm341_dma2d.c.o: _deps/lvgl-src/src/draw/swm341_dma2d/lv_gpu_swm341_dma2d.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6843,7 +6843,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/draw/swm341_dma2d/lv_gpu_swm341_dma2d.c
   _deps/lvgl-src/src/draw/sw/lv_draw_sw.h \
   _deps/lvgl-src/src/draw/sw/lv_draw_sw_blend.h \
   _deps/lvgl-src/src/draw/swm341_dma2d/lv_gpu_swm341_dma2d.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/layouts/flex/lv_flex.c.o: _deps/lvgl-src/src/extra/layouts/flex/lv_flex.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -6991,7 +6991,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/layouts/flex/lv_flex.c.o: _deps/l
   _deps/lvgl-src/src/core/lv_obj.h \
   _deps/lvgl-src/src/extra/layouts/grid/lv_grid.h \
   _deps/lvgl-src/src/extra/layouts/lv_layouts.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/layouts/grid/lv_grid.c.o: _deps/lvgl-src/src/extra/layouts/grid/lv_grid.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7139,7 +7139,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/layouts/grid/lv_grid.c.o: _deps/l
   _deps/lvgl-src/src/core/lv_obj.h \
   _deps/lvgl-src/src/extra/layouts/grid/lv_grid.h \
   _deps/lvgl-src/src/extra/layouts/lv_layouts.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/bmp/lv_bmp.c.o: _deps/lvgl-src/src/extra/libs/bmp/lv_bmp.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7418,7 +7418,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/bmp/lv_bmp.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/ffmpeg/lv_ffmpeg.c.o: _deps/lvgl-src/src/extra/libs/ffmpeg/lv_ffmpeg.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7697,7 +7697,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/ffmpeg/lv_ffmpeg.c.o: _deps/
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/libs/ffmpeg/lv_ffmpeg.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/freetype/lv_freetype.c.o: _deps/lvgl-src/src/extra/libs/freetype/lv_freetype.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -7976,7 +7976,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/freetype/lv_freetype.c.o: _d
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/libs/freetype/lv_freetype.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_fatfs.c.o: _deps/lvgl-src/src/extra/libs/fsdrv/lv_fs_fatfs.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -8255,7 +8255,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_fatfs.c.o: _deps
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_posix.c.o: _deps/lvgl-src/src/extra/libs/fsdrv/lv_fs_posix.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -8534,7 +8534,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_posix.c.o: _deps
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_stdio.c.o: _deps/lvgl-src/src/extra/libs/fsdrv/lv_fs_stdio.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -8813,7 +8813,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_stdio.c.o: _deps
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_win32.c.o: _deps/lvgl-src/src/extra/libs/fsdrv/lv_fs_win32.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9092,7 +9092,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/fsdrv/lv_fs_win32.c.o: _deps
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/gif/gifdec.c.o: _deps/lvgl-src/src/extra/libs/gif/gifdec.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9161,7 +9161,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/gif/gifdec.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/extra/libs/gif/gifdec.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/gif/lv_gif.c.o: _deps/lvgl-src/src/extra/libs/gif/lv_gif.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9440,7 +9440,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/gif/lv_gif.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/libs/gif/lv_gif.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/png/lodepng.c.o: _deps/lvgl-src/src/extra/libs/png/lodepng.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9720,7 +9720,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/png/lodepng.c.o: _deps/lvgl-
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/libs/png/lodepng.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/png/lv_png.c.o: _deps/lvgl-src/src/extra/libs/png/lv_png.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -9999,7 +9999,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/png/lv_png.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/qrcode/lv_qrcode.c.o: _deps/lvgl-src/src/extra/libs/qrcode/lv_qrcode.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -10278,7 +10278,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/qrcode/lv_qrcode.c.o: _deps/
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/libs/qrcode/lv_qrcode.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/qrcode/qrcodegen.c.o: _deps/lvgl-src/src/extra/libs/qrcode/qrcodegen.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -10663,7 +10663,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/rlottie/lv_rlottie.c.o: _dep
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/libs/rlottie/lv_rlottie.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/sjpg/lv_sjpg.c.o: _deps/lvgl-src/src/extra/libs/sjpg/lv_sjpg.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -10942,7 +10942,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/sjpg/lv_sjpg.c.o: _deps/lvgl
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/sjpg/tjpgd.c.o: _deps/lvgl-src/src/extra/libs/sjpg/tjpgd.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -10970,7 +10970,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/libs/sjpg/tjpgd.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/extra/libs/sjpg/tjpgd.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/lv_extra.c.o: _deps/lvgl-src/src/extra/lv_extra.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -11249,7 +11249,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/lv_extra.c.o: _deps/lvgl-src/src/
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/fragment/lv_fragment.c.o: _deps/lvgl-src/src/extra/others/fragment/lv_fragment.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -11277,7 +11277,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/fragment/lv_fragment.c.o: 
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/extra/others/fragment/lv_fragment.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/fragment/lv_fragment_manager.c.o: _deps/lvgl-src/src/extra/others/fragment/lv_fragment_manager.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -11305,7 +11305,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/fragment/lv_fragment_manag
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/extra/others/fragment/lv_fragment.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/gridnav/lv_gridnav.c.o: _deps/lvgl-src/src/extra/others/gridnav/lv_gridnav.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -11450,7 +11450,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/gridnav/lv_gridnav.c.o: _d
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/extra/others/gridnav/lv_gridnav.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/ime/lv_ime_pinyin.c.o: _deps/lvgl-src/src/extra/others/ime/lv_ime_pinyin.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -11729,7 +11729,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/ime/lv_ime_pinyin.c.o: _de
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/others/ime/lv_ime_pinyin.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/imgfont/lv_imgfont.c.o: _deps/lvgl-src/src/extra/others/imgfont/lv_imgfont.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12008,7 +12008,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/imgfont/lv_imgfont.c.o: _d
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/others/imgfont/lv_imgfont.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/monkey/lv_monkey.c.o: _deps/lvgl-src/src/extra/others/monkey/lv_monkey.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12287,7 +12287,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/monkey/lv_monkey.c.o: _dep
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/others/monkey/lv_monkey.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/msg/lv_msg.c.o: _deps/lvgl-src/src/extra/others/msg/lv_msg.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12432,7 +12432,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/msg/lv_msg.c.o: _deps/lvgl
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/extra/others/msg/lv_msg.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/snapshot/lv_snapshot.c.o: _deps/lvgl-src/src/extra/others/snapshot/lv_snapshot.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12578,7 +12578,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/others/snapshot/lv_snapshot.c.o: 
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/extra/others/snapshot/lv_snapshot.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/themes/basic/lv_theme_basic.c.o: _deps/lvgl-src/src/extra/themes/basic/lv_theme_basic.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -12867,7 +12867,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/themes/basic/lv_theme_basic.c.o: 
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/extra/themes/basic/lv_theme_basic.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/themes/default/lv_theme_default.c.o: _deps/lvgl-src/src/extra/themes/default/lv_theme_default.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -13156,7 +13156,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/themes/default/lv_theme_default.c
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/extra/themes/default/lv_theme_default.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/themes/mono/lv_theme_mono.c.o: _deps/lvgl-src/src/extra/themes/mono/lv_theme_mono.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -13445,7 +13445,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/themes/mono/lv_theme_mono.c.o: _d
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/extra/themes/mono/lv_theme_mono.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/animimg/lv_animimg.c.o: _deps/lvgl-src/src/extra/widgets/animimg/lv_animimg.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -13731,7 +13731,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/animimg/lv_animimg.c.o: _
   _deps/lvgl-src/src/misc/lv_math.h \
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/extra/widgets/animimg/lv_animimg.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/calendar/lv_calendar.c.o: _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14017,7 +14017,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/calendar/lv_calendar.c.o:
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/widgets/lv_btnmatrix.h \
   _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/calendar/lv_calendar_header_arrow.c.o: _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar_header_arrow.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14174,7 +14174,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/calendar/lv_calendar_head
   _deps/lvgl-src/src/extra/layouts/flex/lv_flex.h \
   _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar.h \
   _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar_header_arrow.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/calendar/lv_calendar_header_dropdown.c.o: _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar_header_dropdown.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14333,7 +14333,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/calendar/lv_calendar_head
   _deps/lvgl-src/src/extra/layouts/flex/lv_flex.h \
   _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar.h \
   _deps/lvgl-src/src/extra/widgets/calendar/lv_calendar_header_dropdown.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/chart/lv_chart.c.o: _deps/lvgl-src/src/extra/widgets/chart/lv_chart.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14613,7 +14613,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/chart/lv_chart.c.o: _deps
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/chart/lv_chart.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/colorwheel/lv_colorwheel.c.o: _deps/lvgl-src/src/extra/widgets/colorwheel/lv_colorwheel.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -14893,7 +14893,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/colorwheel/lv_colorwheel.
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/colorwheel/lv_colorwheel.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/imgbtn/lv_imgbtn.c.o: _deps/lvgl-src/src/extra/widgets/imgbtn/lv_imgbtn.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15172,7 +15172,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/imgbtn/lv_imgbtn.c.o: _de
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/widgets/imgbtn/lv_imgbtn.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/keyboard/lv_keyboard.c.o: _deps/lvgl-src/src/extra/widgets/keyboard/lv_keyboard.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15363,7 +15363,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/keyboard/lv_keyboard.c.o:
   _deps/lvgl-src/src/widgets/lv_label.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/extra/widgets/keyboard/lv_keyboard.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/led/lv_led.c.o: _deps/lvgl-src/src/extra/widgets/led/lv_led.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15643,7 +15643,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/led/lv_led.c.o: _deps/lvg
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/led/lv_led.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/list/lv_list.c.o: _deps/lvgl-src/src/extra/widgets/list/lv_list.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15803,7 +15803,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/list/lv_list.c.o: _deps/l
   _deps/lvgl-src/src/core/lv_obj.h \
   _deps/lvgl-src/src/extra/layouts/flex/lv_flex.h \
   _deps/lvgl-src/src/extra/widgets/list/lv_list.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/menu/lv_menu.c.o: _deps/lvgl-src/src/extra/widgets/menu/lv_menu.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -15960,7 +15960,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/menu/lv_menu.c.o: _deps/l
   _deps/lvgl-src/src/core/lv_obj.h \
   _deps/lvgl-src/src/extra/layouts/flex/lv_flex.h \
   _deps/lvgl-src/src/extra/widgets/menu/lv_menu.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/meter/lv_meter.c.o: _deps/lvgl-src/src/extra/widgets/meter/lv_meter.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -16240,7 +16240,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/meter/lv_meter.c.o: _deps
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/meter/lv_meter.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/msgbox/lv_msgbox.c.o: _deps/lvgl-src/src/extra/widgets/msgbox/lv_msgbox.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -16520,7 +16520,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/msgbox/lv_msgbox.c.o: _de
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/msgbox/lv_msgbox.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/span/lv_span.c.o: _deps/lvgl-src/src/extra/widgets/span/lv_span.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -16800,7 +16800,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/span/lv_span.c.o: _deps/l
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/span/lv_span.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/spinbox/lv_spinbox.c.o: _deps/lvgl-src/src/extra/widgets/spinbox/lv_spinbox.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -17080,7 +17080,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/spinbox/lv_spinbox.c.o: _
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/spinbox/lv_spinbox.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/spinner/lv_spinner.c.o: _deps/lvgl-src/src/extra/widgets/spinner/lv_spinner.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -17359,7 +17359,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/spinner/lv_spinner.c.o: _
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/widgets/spinner/lv_spinner.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/tabview/lv_tabview.c.o: _deps/lvgl-src/src/extra/widgets/tabview/lv_tabview.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -17639,7 +17639,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/tabview/lv_tabview.c.o: _
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/extra/widgets/tabview/lv_tabview.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/tileview/lv_tileview.c.o: _deps/lvgl-src/src/extra/widgets/tileview/lv_tileview.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -17785,7 +17785,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/tileview/lv_tileview.c.o:
   _deps/lvgl-src/src/core/lv_obj_style_gen.h \
   _deps/lvgl-src/src/core/lv_obj_tree.h \
   _deps/lvgl-src/src/extra/widgets/tileview/lv_tileview.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/win/lv_win.c.o: _deps/lvgl-src/src/extra/widgets/win/lv_win.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -18064,7 +18064,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/extra/widgets/win/lv_win.c.o: _deps/lvg
   _deps/lvgl-src/src/widgets/lv_textarea.h \
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/extra/widgets/win/lv_win.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font.c.o: _deps/lvgl-src/src/font/lv_font.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -18134,7 +18134,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font.c.o: _deps/lvgl-src/src/fo
   _deps/lvgl-src/src/misc/lv_utils.h \
   _deps/lvgl-src/src/font/lv_font.h \
   _deps/lvgl-src/src/font/lv_symbol_def.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_dejavu_16_persian_hebrew.c.o: _deps/lvgl-src/src/font/lv_font_dejavu_16_persian_hebrew.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -18413,7 +18413,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_dejavu_16_persian_hebrew.c
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_fmt_txt.c.o: _deps/lvgl-src/src/font/lv_font_fmt_txt.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -18503,7 +18503,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_fmt_txt.c.o: _deps/lvgl-sr
   _deps/lvgl-src/src/font/lv_font.h \
   _deps/lvgl-src/src/font/lv_font_fmt_txt.h \
   _deps/lvgl-src/src/font/lv_symbol_def.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_loader.c.o: _deps/lvgl-src/src/font/lv_font_loader.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -18784,7 +18784,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_loader.c.o: _deps/lvgl-src
   _deps/lvgl-src/src/lvgl.h \
   _deps/lvgl-src/src/misc/lv_fs.h \
   _deps/lvgl-src/src/font/lv_font_loader.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_10.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_10.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -19063,7 +19063,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_10.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_12.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_12.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -19342,7 +19342,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_12.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_12_subpx.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_12_subpx.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -19621,7 +19621,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_12_subpx.c.o: _
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_14.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_14.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -19900,7 +19900,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_14.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_16.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_16.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -20179,7 +20179,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_16.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_18.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_18.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -20458,7 +20458,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_18.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_20.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_20.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -20737,7 +20737,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_20.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_22.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_22.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -21016,7 +21016,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_22.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_24.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_24.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -21295,7 +21295,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_24.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_26.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_26.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -21574,7 +21574,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_26.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_28.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_28.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -21853,7 +21853,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_28.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_28_compressed.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_28_compressed.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -22132,7 +22132,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_28_compressed.c
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_30.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_30.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -22411,7 +22411,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_30.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_32.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_32.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -22690,7 +22690,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_32.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_34.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_34.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -22969,7 +22969,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_34.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_36.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_36.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -23248,7 +23248,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_36.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_38.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_38.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -23527,7 +23527,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_38.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_40.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_40.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -23806,7 +23806,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_40.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_42.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_42.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -24085,7 +24085,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_42.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_44.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_44.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -24364,7 +24364,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_44.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_46.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_46.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -24643,7 +24643,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_46.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_48.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_48.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -24922,7 +24922,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_48.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_8.c.o: _deps/lvgl-src/src/font/lv_font_montserrat_8.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -25201,7 +25201,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_montserrat_8.c.o: _deps/lv
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_simsun_16_cjk.c.o: _deps/lvgl-src/src/font/lv_font_simsun_16_cjk.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -25480,7 +25480,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_simsun_16_cjk.c.o: _deps/l
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_unscii_16.c.o: _deps/lvgl-src/src/font/lv_font_unscii_16.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -25759,7 +25759,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_unscii_16.c.o: _deps/lvgl-
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_unscii_8.c.o: _deps/lvgl-src/src/font/lv_font_unscii_8.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26038,7 +26038,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/font/lv_font_unscii_8.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/widgets/lv_switch.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/hal/lv_hal_disp.c.o: _deps/lvgl-src/src/hal/lv_hal_disp.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26214,7 +26214,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/hal/lv_hal_disp.c.o: _deps/lvgl-src/src
   _deps/lvgl-src/src/hal/lv_hal_disp.h \
   _deps/lvgl-src/src/hal/lv_hal_indev.h \
   _deps/lvgl-src/src/hal/lv_hal_tick.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/hal/lv_hal_indev.c.o: _deps/lvgl-src/src/hal/lv_hal_indev.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26371,7 +26371,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/hal/lv_hal_indev.c.o: _deps/lvgl-src/sr
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
   _deps/lvgl-src/src/hal/lv_hal_disp.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/hal/lv_hal_tick.c.o: _deps/lvgl-src/src/hal/lv_hal_tick.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -26410,7 +26410,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/hal/lv_hal_tick.c.o: _deps/lvgl-src/src
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/hal/lv_hal_tick.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_anim.c.o: _deps/lvgl-src/src/misc/lv_anim.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26496,7 +26496,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_anim.c.o: _deps/lvgl-src/src/mi
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_anim_timeline.c.o: _deps/lvgl-src/src/misc/lv_anim_timeline.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26563,7 +26563,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_anim_timeline.c.o: _deps/lvgl-s
   _deps/lvgl-src/src/misc/lv_log.h \
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_area.c.o: _deps/lvgl-src/src/misc/lv_area.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -26593,7 +26593,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_area.c.o: _deps/lvgl-src/src/mi
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/misc/lv_area.h \
   _deps/lvgl-src/src/misc/lv_math.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_async.c.o: _deps/lvgl-src/src/misc/lv_async.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26660,7 +26660,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_async.c.o: _deps/lvgl-src/src/m
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_bidi.c.o: _deps/lvgl-src/src/misc/lv_bidi.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26744,7 +26744,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_bidi.c.o: _deps/lvgl-src/src/mi
   _deps/lvgl-src/src/misc/lv_printf.h \
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_color.c.o: _deps/lvgl-src/src/misc/lv_color.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26810,7 +26810,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_color.c.o: _deps/lvgl-src/src/m
   _deps/lvgl-src/src/misc/lv_math.h \
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_fs.c.o: _deps/lvgl-src/src/misc/lv_fs.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26898,7 +26898,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_fs.c.o: _deps/lvgl-src/src/misc
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_gc.c.o: _deps/lvgl-src/src/misc/lv_gc.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -26982,7 +26982,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_gc.c.o: _deps/lvgl-src/src/misc
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_ll.c.o: _deps/lvgl-src/src/misc/lv_ll.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27046,7 +27046,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_ll.c.o: _deps/lvgl-src/src/misc
   _deps/lvgl-src/src/misc/lv_ll.h \
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_log.c.o: _deps/lvgl-src/src/misc/lv_log.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -27075,7 +27075,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_log.c.o: _deps/lvgl-src/src/mis
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/misc/lv_log.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_lru.c.o: _deps/lvgl-src/src/misc/lv_lru.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27141,7 +27141,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_lru.c.o: _deps/lvgl-src/src/mis
   _deps/lvgl-src/src/misc/lv_math.h \
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_math.c.o: _deps/lvgl-src/src/misc/lv_math.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -27169,7 +27169,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_math.c.o: _deps/lvgl-src/src/mi
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/misc/lv_math.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_mem.c.o: _deps/lvgl-src/src/misc/lv_mem.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27256,7 +27256,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_mem.c.o: _deps/lvgl-src/src/mis
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_tlsf.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_printf.c.o: _deps/lvgl-src/src/misc/lv_printf.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27313,7 +27313,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_printf.c.o: _deps/lvgl-src/src/
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/misc/lv_printf.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_style.c.o: _deps/lvgl-src/src/misc/lv_style.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27424,7 +27424,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_style.c.o: _deps/lvgl-src/src/m
   _deps/lvgl-src/src/misc/lv_style_gen.h \
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_style_gen.c.o: _deps/lvgl-src/src/misc/lv_style_gen.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27514,7 +27514,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_style_gen.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/misc/lv_style_gen.h \
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_templ.c.o: _deps/lvgl-src/src/misc/lv_templ.c
 
@@ -27600,7 +27600,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_timer.c.o: _deps/lvgl-src/src/m
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_timer.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_tlsf.c.o: _deps/lvgl-src/src/misc/lv_tlsf.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27671,7 +27671,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_tlsf.c.o: _deps/lvgl-src/src/mi
   _deps/lvgl-src/src/misc/lv_mem.h \
   _deps/lvgl-src/src/misc/lv_tlsf.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_txt.c.o: _deps/lvgl-src/src/misc/lv_txt.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27791,7 +27791,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_txt.c.o: _deps/lvgl-src/src/mis
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_txt_ap.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_txt_ap.c.o: _deps/lvgl-src/src/misc/lv_txt_ap.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -27909,7 +27909,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_txt_ap.c.o: _deps/lvgl-src/src/
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_txt_ap.h \
   _deps/lvgl-src/src/misc/lv_types.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/misc/lv_utils.c.o: _deps/lvgl-src/src/misc/lv_utils.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
@@ -28093,7 +28093,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_arc.c.o: _deps/lvgl-src/src/
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/misc/lv_math.h \
   _deps/lvgl-src/src/widgets/lv_arc.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_bar.c.o: _deps/lvgl-src/src/widgets/lv_bar.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -28248,7 +28248,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_bar.c.o: _deps/lvgl-src/src/
   _deps/lvgl-src/src/widgets/lv_bar.h \
   _deps/lvgl-src/src/widgets/lv_btn.h \
   _deps/lvgl-src/src/widgets/lv_label.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_btn.c.o: _deps/lvgl-src/src/widgets/lv_btn.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -28396,7 +28396,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_btn.c.o: _deps/lvgl-src/src/
   _deps/lvgl-src/src/lv_conf_internal.h \
   _deps/lvgl-src/src/lv_conf_kconfig.h \
   _deps/lvgl-src/src/widgets/lv_btn.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_btnmatrix.c.o: _deps/lvgl-src/src/widgets/lv_btnmatrix.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -28549,7 +28549,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_btnmatrix.c.o: _deps/lvgl-sr
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_txt_ap.h \
   _deps/lvgl-src/src/widgets/lv_btnmatrix.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_canvas.c.o: _deps/lvgl-src/src/widgets/lv_canvas.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -28713,7 +28713,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_canvas.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/misc/lv_fs.h \
   _deps/lvgl-src/src/widgets/lv_img.h \
   _deps/lvgl-src/src/widgets/lv_canvas.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_checkbox.c.o: _deps/lvgl-src/src/widgets/lv_checkbox.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -28864,7 +28864,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_checkbox.c.o: _deps/lvgl-src
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_txt_ap.h \
   _deps/lvgl-src/src/widgets/lv_checkbox.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_dropdown.c.o: _deps/lvgl-src/src/widgets/lv_dropdown.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -29029,7 +29029,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_dropdown.c.o: _deps/lvgl-src
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/widgets/lv_label.h \
   _deps/lvgl-src/src/widgets/lv_dropdown.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_img.c.o: _deps/lvgl-src/src/widgets/lv_img.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -29185,7 +29185,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_img.c.o: _deps/lvgl-src/src/
   _deps/lvgl-src/src/misc/lv_math.h \
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/widgets/lv_img.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_label.c.o: _deps/lvgl-src/src/widgets/lv_label.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -29342,7 +29342,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_label.c.o: _deps/lvgl-src/sr
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/misc/lv_txt_ap.h \
   _deps/lvgl-src/src/widgets/lv_label.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_line.c.o: _deps/lvgl-src/src/widgets/lv_line.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -29491,7 +29491,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_line.c.o: _deps/lvgl-src/src
   _deps/lvgl-src/src/misc/lv_assert.h \
   _deps/lvgl-src/src/misc/lv_math.h \
   _deps/lvgl-src/src/widgets/lv_line.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_objx_templ.c.o: _deps/lvgl-src/src/widgets/lv_objx_templ.c
 
@@ -29647,7 +29647,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_roller.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/widgets/lv_label.h \
   _deps/lvgl-src/src/widgets/lv_roller.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_slider.c.o: _deps/lvgl-src/src/widgets/lv_slider.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -29809,7 +29809,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_slider.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/widgets/lv_img.h \
   _deps/lvgl-src/src/widgets/lv_label.h \
   _deps/lvgl-src/src/widgets/lv_slider.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_switch.c.o: _deps/lvgl-src/src/widgets/lv_switch.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -29965,7 +29965,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_switch.c.o: _deps/lvgl-src/s
   _deps/lvgl-src/src/misc/lv_math.h \
   _deps/lvgl-src/src/widgets/lv_img.h \
   _deps/lvgl-src/src/widgets/lv_switch.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_table.c.o: _deps/lvgl-src/src/widgets/lv_table.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -30122,7 +30122,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_table.c.o: _deps/lvgl-src/sr
   _deps/lvgl-src/src/misc/lv_txt_ap.h \
   _deps/lvgl-src/src/widgets/lv_label.h \
   _deps/lvgl-src/src/widgets/lv_table.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_textarea.c.o: _deps/lvgl-src/src/widgets/lv_textarea.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -30278,7 +30278,7 @@ _deps/lvgl-build/CMakeFiles/lvgl.dir/src/widgets/lv_textarea.c.o: _deps/lvgl-src
   _deps/lvgl-src/src/misc/lv_txt.h \
   _deps/lvgl-src/src/widgets/lv_label.h \
   _deps/lvgl-src/src/widgets/lv_textarea.h \
-  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h
+  /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h
 
 
 _deps/lvgl-src/src/widgets/lv_textarea.c:
@@ -30695,8 +30695,6 @@ _deps/lvgl-src/src/draw/lv_draw_label.h:
 
 _deps/lvgl-src/src/core/lv_event.h:
 
-/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include/lv_conf.h:
-
 _deps/lvgl-src/src/extra/widgets/msgbox/lv_msgbox.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h:
@@ -30829,16 +30827,6 @@ _deps/lvgl-src/src/misc/lv_utils.c:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdbool.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arm/types.h:
-
-_deps/lvgl-src/src/extra/widgets/keyboard/lv_keyboard.h:
-
-_deps/lvgl-src/src/draw/lv_draw_line.h:
-
-_deps/lvgl-src/src/core/lv_refr.c:
-
-_deps/lvgl-src/lvgl.h:
-
 _deps/lvgl-src/src/extra/libs/ffmpeg/lv_ffmpeg.h:
 
 _deps/lvgl-src/src/extra/widgets/animimg/lv_animimg.c:
@@ -30870,6 +30858,22 @@ _deps/lvgl-src/src/core/lv_indev.c:
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int64_t.h:
 
 _deps/lvgl-src/src/core/lv_indev.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arm/types.h:
+
+_deps/lvgl-src/src/extra/widgets/keyboard/lv_keyboard.h:
+
+_deps/lvgl-src/src/draw/lv_draw_line.h:
+
+_deps/lvgl-src/src/core/lv_refr.c:
+
+_deps/lvgl-src/lvgl.h:
+
+_deps/lvgl-src/src/draw/sdl/lv_draw_sdl.h:
+
+_deps/lvgl-src/src/misc/lv_mem.h:
+
+/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include/lv_conf.h:
 
 _deps/lvgl-src/src/core/lv_theme.h:
 
@@ -31004,10 +31008,6 @@ _deps/lvgl-src/src/draw/nxp/vglite/lv_gpu_nxp_vglite.h:
 _deps/lvgl-src/src/widgets/lv_objx_templ.c:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_intptr_t.h:
-
-_deps/lvgl-src/src/draw/sdl/lv_draw_sdl.h:
-
-_deps/lvgl-src/src/misc/lv_mem.h:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/__stdarg_va_copy.h:
 

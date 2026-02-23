@@ -4,9 +4,9 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE
 
-C_INCLUDES = -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/include -isystem /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChess/ui_slave/sim_lvgl/build/_deps/lvgl-src
+C_INCLUDES = -I/Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/include -isystem /Users/essl.dirk/Nextcloud/CloudDrive/development/OpenChessMate/ui_slave/sim_lvgl/build/_deps/lvgl-src
 
-C_FLAGSarm64 = -std=gnu11 -arch arm64
+C_FLAGSarm64 = -g -std=gnu11 -arch arm64
 
-C_FLAGS = -std=gnu11 -arch arm64
+C_FLAGS = -g -std=gnu11 -arch arm64
 
