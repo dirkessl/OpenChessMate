@@ -23,3 +23,6 @@ Thumbs.db
 
 # Firmware binaries downloaded by GitHub Pages workflow (not committed to repo)
 docs/firmware/
+
+# build directory of lvgl siulator
+ui_slave/sim_lvgl/build/
