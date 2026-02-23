@@ -120,6 +120,7 @@ static bool s_show_clock = true;
 static bool s_show_captures = true;
 static bool s_show_movelist = true;
 static bool s_clock_from_settings = false; // track where clock screen was opened from
+static bool s_settings_from_game = false;  // track if settings opened from game screen
 
 // Settings persistence via simple config file
 static const char* SETTINGS_FILE = "chess_settings.dat";
@@ -1248,7 +1249,12 @@ static void settings_toggle_cb(lv_event_t* e) {
 static void settings_back_cb(lv_event_t* e) {
   (void)e;
   if (s_settings_screen) lv_obj_add_flag(s_settings_screen, LV_OBJ_FLAG_HIDDEN);
-  if (s_welcome_screen) lv_obj_clear_flag(s_welcome_screen, LV_OBJ_FLAG_HIDDEN);
+  if (s_settings_from_game) {
+    if (s_game_screen) lv_obj_clear_flag(s_game_screen, LV_OBJ_FLAG_HIDDEN);
+  } else {
+    if (s_welcome_screen) lv_obj_clear_flag(s_welcome_screen, LV_OBJ_FLAG_HIDDEN);
+  }
+  s_settings_from_game = false;
 }
 
 static void settings_clock_btn_cb(lv_event_t* e) {
@@ -1260,7 +1266,14 @@ static void settings_clock_btn_cb(lv_event_t* e) {
 
 static void cogwheel_cb(lv_event_t* e) {
   (void)e;
-  if (s_welcome_screen) lv_obj_add_flag(s_welcome_screen, LV_OBJ_FLAG_HIDDEN);
+  // Determine whether we came from welcome or game screen
+  bool from_game = s_game_screen && !lv_obj_has_flag(s_game_screen, LV_OBJ_FLAG_HIDDEN);
+  s_settings_from_game = from_game;
+  if (from_game) {
+    if (s_game_screen) lv_obj_add_flag(s_game_screen, LV_OBJ_FLAG_HIDDEN);
+  } else {
+    if (s_welcome_screen) lv_obj_add_flag(s_welcome_screen, LV_OBJ_FLAG_HIDDEN);
+  }
   if (s_settings_screen) lv_obj_clear_flag(s_settings_screen, LV_OBJ_FLAG_HIDDEN);
 }
 
@@ -2075,6 +2088,23 @@ void chess_ui_create(int screen_w, int screen_h,
 
   updateClockDisplay();
   lv_timer_create(clockTimerCb, 1000, nullptr);
+
+  // ---------- Settings cogwheel on game screen (bottom-left, very dim) ----------
+  {
+    lv_obj_t* cog = lv_btn_create(s_game_screen);
+    lv_obj_set_size(cog, 36, 36);
+    lv_obj_set_pos(cog, 4, screen_h - 40);
+    lv_obj_set_style_radius(cog, LV_RADIUS_CIRCLE, 0);
+    lv_obj_set_style_bg_opa(cog, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_shadow_width(cog, 0, 0);
+    lv_obj_set_style_border_width(cog, 0, 0);
+    lv_obj_add_event_cb(cog, cogwheel_cb, LV_EVENT_CLICKED, nullptr);
+    lv_obj_t* lbl = lv_label_create(cog);
+    lv_label_set_text(lbl, LV_SYMBOL_SETTINGS);
+    lv_obj_set_style_text_color(lbl, lv_color_hex(0x444444), 0);
+    lv_obj_set_style_text_font(lbl, &lv_font_montserrat_14, 0);
+    lv_obj_center(lbl);
+  }
 
   // ==========================================================================
   // CLOCK SETUP SCREEN (starts hidden, shown via Clock button)
