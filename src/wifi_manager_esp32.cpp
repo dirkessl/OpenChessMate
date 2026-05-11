@@ -103,16 +103,12 @@ void WiFiManagerESP32::begin() {
   server.on("/ota/settings", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleOtaSettings(request); });
   server.on("/ota/apply", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleOtaApply(request); });
   // OTA manual upload endpoints - JS sends raw binary body (application/octet-stream), so only the body handler (3rd callback) fires; the multipart file handler (2nd) is unused.
-  server.on(
-      "/ota/upload/firmware", HTTP_POST,
-      [](AsyncWebServerRequest* request) {},
-      NULL,
-      [this](AsyncWebServerRequest* request, uint8_t* data, size_t len, size_t index, size_t total) { this->onFirmwareUploadBody(request, data, len, index, total); });
-  server.on(
-      "/ota/upload/web", HTTP_POST,
-      [](AsyncWebServerRequest* request) {},
-      NULL,
-      [this](AsyncWebServerRequest* request, uint8_t* data, size_t len, size_t index, size_t total) { this->onWebAssetsUploadBody(request, data, len, index, total); });
+  server.on("/ota/upload/firmware", HTTP_POST, [](AsyncWebServerRequest* request) {}, NULL, [this](AsyncWebServerRequest* request, uint8_t* data, size_t len, size_t index, size_t total) { this->onFirmwareUploadBody(request, data, len, index, total); });
+  server.on("/ota/upload/web", HTTP_POST, [](AsyncWebServerRequest* request) {}, NULL, [this](AsyncWebServerRequest* request, uint8_t* data, size_t len, size_t index, size_t total) { this->onWebAssetsUploadBody(request, data, len, index, total); });
+#ifndef CHESSCONNECT_ENABLED
+  server.on("/chessconnect", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(404, "text/plain", "Not Found"); });
+  server.on("/chessconnect", HTTP_POST, [this](AsyncWebServerRequest* request) { request->send(404, "text/plain", "Not Found"); });
+#endif
   // Serve sound files directly (no gzip variant exists, avoids .gz probe errors)
   server.serveStatic("/sounds/", LittleFS, "/sounds/").setTryGzipFirst(false);
   // Serve piece SVGs with aggressive caching, otherwise chrome doesn't actually use the cached versions

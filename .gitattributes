@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# git-crypt: encrypt all ChessConnect source files
+src/chessconnect/** filter=git-crypt diff=git-crypt

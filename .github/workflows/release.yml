@@ -32,6 +32,15 @@ jobs:
       - name: Install PlatformIO
         run: pip install platformio
 
+      - name: Install git-crypt
+        run: sudo apt-get update && sudo apt-get install -y git-crypt
+
+      - name: Unlock encrypted sources
+        run: |
+          printf '%s' "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+          git-crypt unlock /tmp/git-crypt-key
+          rm /tmp/git-crypt-key
+
       - name: Extract version from tag
         id: version
         run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
@@ -39,6 +48,7 @@ jobs:
       - name: Inject version into firmware
         run: |
           sed -i 's/#define FIRMWARE_VERSION "dev"/#define FIRMWARE_VERSION "${{ steps.version.outputs.version }}"/' src/version.h
+          sed -i '/#define DEV_BUILD/d' src/version.h
           echo "Firmware version set to: ${{ steps.version.outputs.version }}"
           cat src/version.h
 
@@ -91,7 +101,7 @@ jobs:
             ## OpenChess ${{ github.ref_name }}
 
             ### Flash via Browser (ESP Web Tools)
-            Visit the [OpenChess Web Installer](https://joojoooo.github.io/OpenChess/flash.html) to flash your ESP32 directly from your browser.
+            Use the [OpenChess Web Installer](https://joojoooo.github.io/OpenChess/flash.html) to flash your ESP32 directly from the browser.
 
             ### Release Files
             | File | Description |
@@ -100,13 +110,8 @@ jobs:
             | `bootloader.bin` | ESP32 bootloader |
             | `partitions.bin` | Partition table |
             | `boot_app0.bin` | OTA boot selector |
-            | `littlefs.bin` | Web UI filesystem image (initial flash only) |
-            | `web_assets.tar` | Web UI assets for OTA updates (preserves saved games) |
-
-            ### OTA Updates
-            The board checks for updates automatically at boot (can be disabled in Board Settings).
-            - **Firmware**: Updated via `firmware.bin`
-            - **Web UI**: Updated via `web_assets.tar` (preserves saved games on LittleFS)
+            | `littlefs.bin` | Web UI filesystem image |
+            | `web_assets.tar` | Web UI assets for OTA updates |
 
   # Deploy GitHub Pages with the new release firmware so the Web Installer can fetch
   # binaries from the same origin (GitHub Pages has CORS headers, GitHub Releases does not).

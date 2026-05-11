@@ -194,6 +194,8 @@ class WiFiManagerESP32 {
   WiFiManagerESP32(BoardDriver* boardDriver, MoveHistory* moveHistory);
   void begin();
 
+  AsyncWebServer& getServer() { return server; }
+
   // OTA update support
   OtaUpdater& getOtaUpdater() { return otaUpdater; }
   bool isAutoOtaEnabled() const { return autoOtaEnabled; }

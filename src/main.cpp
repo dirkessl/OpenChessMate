@@ -4,6 +4,10 @@
 #include "chess_lichess.h"
 #include "chess_moves.h"
 #include "chess_utils.h"
+#ifdef CHESSCONNECT_ENABLED
+#include "chessconnect/chess_connect.h"
+#include "chessconnect/chessconnect_service.h"
+#endif
 #include "led_colors.h"
 #include "move_history.h"
 #include "ota_updater.h"
@@ -22,7 +26,8 @@ enum GameMode {
   MODE_CHESS_MOVES = 1,
   MODE_BOT = 2,
   MODE_LICHESS = 3,
-  MODE_SENSOR_TEST = 4
+  MODE_SENSOR_TEST = 4,
+  MODE_CHESS_CONNECT = 5
 };
 
 BotConfig botConfig = {StockfishSettings::medium(), true};
@@ -35,6 +40,9 @@ WiFiManagerESP32 wifiManager(&boardDriver, &moveHistory);
 ChessMoves* chessMoves = nullptr;
 ChessBot* chessBot = nullptr;
 ChessLichess* chessLichess = nullptr;
+#ifdef CHESSCONNECT_ENABLED
+ChessConnect* chessConnect = nullptr;
+#endif
 SensorTest* sensorTest = nullptr;
 
 GameMode currentMode = MODE_SELECTION;
@@ -63,12 +71,13 @@ void setup() {
     Serial.println("LittleFS mounted successfully");
   moveHistory.begin();
   boardDriver.beginHardware();
+#ifdef CHESSCONNECT_ENABLED
+  chessConnectInit(wifiManager.getServer());
+#endif
   wifiManager.begin();
   boardDriver.checkCalibration();
   Serial.println();
-  // Kick off NTP time sync (non-blocking, will resolve in background)
-  configTime(0, 0, "pool.ntp.org", "time.nist.gov");
-
+  configTime(0, 0, "pool.ntp.org", "time.nist.gov"); // NTP time sync (non-blocking)
   // Check for a live game that can be resumed
   uint8_t resumeMode = 0, resumePlayerColor = 0, resumeBotDepth = 0;
   if (moveHistory.hasLiveGame() && moveHistory.getLiveGameInfo(resumeMode, resumePlayerColor, resumeBotDepth)) {
@@ -114,6 +123,11 @@ void loop() {
     } else if (currentMode == MODE_LICHESS && modeInitialized && chessLichess != nullptr) {
       chessLichess->setBoardStateFromFEN(editFen);
       Serial.println("Board edit applied to Lichess mode");
+#ifdef CHESSCONNECT_ENABLED
+    } else if (currentMode == MODE_CHESS_CONNECT && modeInitialized && chessConnect != nullptr) {
+      chessConnect->setBoardStateFromFEN(editFen);
+      Serial.println("Board edit applied to ChessConnect mode");
+#endif
     } else {
       Serial.println("Warning: Board edit received but no active game mode");
     }
@@ -131,6 +145,10 @@ void loop() {
       chessBot->resignGame(resignColor);
     } else if (currentMode == MODE_LICHESS && modeInitialized && chessLichess != nullptr) {
       chessLichess->resignGame(resignColor);
+#ifdef CHESSCONNECT_ENABLED
+    } else if (currentMode == MODE_CHESS_CONNECT && modeInitialized && chessConnect != nullptr) {
+      chessConnect->resignGame(resignColor);
+#endif
     } else {
       Serial.println("Warning: Resign received but no active game mode");
     }
@@ -146,6 +164,10 @@ void loop() {
       chessBot->drawGame();
     } else if (currentMode == MODE_LICHESS && modeInitialized && chessLichess != nullptr) {
       chessLichess->drawGame();
+#ifdef CHESSCONNECT_ENABLED
+    } else if (currentMode == MODE_CHESS_CONNECT && modeInitialized && chessConnect != nullptr) {
+      chessConnect->drawGame();
+#endif
     } else {
       Serial.println("Warning: Draw received but no active game mode");
     }
@@ -182,6 +204,19 @@ void loop() {
       boardDriver.clearAllLEDs();
     }
   }
+
+#ifdef CHESSCONNECT_ENABLED
+  if (chessConnectHasNewGame()) {
+    if (currentMode == MODE_SELECTION || currentMode == MODE_CHESS_CONNECT) {
+      Serial.println("[BLE] New game from ChessConnect");
+      currentMode = MODE_CHESS_CONNECT;
+      modeInitialized = false;
+      boardDriver.clearAllLEDs();
+    } else {
+      Serial.println("[BLE] New game from ChessConnect - waiting for current game to end");
+    }
+  }
+#endif
 
   if (currentMode == MODE_SELECTION) {
     handleGameSelection();
@@ -227,6 +262,16 @@ void loop() {
           sensorTest->update();
       }
       break;
+#ifdef CHESSCONNECT_ENABLED
+    case MODE_CHESS_CONNECT:
+      if (chessConnect != nullptr) {
+        if (chessConnect->isGameOver())
+          showGameSelection();
+        else
+          chessConnect->update();
+      }
+      break;
+#endif
     default:
       showGameSelection();
       break;
@@ -372,6 +417,15 @@ void initializeSelectedMode(GameMode mode) {
       sensorTest = new SensorTest(&boardDriver);
       sensorTest->begin();
       break;
+#ifdef CHESSCONNECT_ENABLED
+    case MODE_CHESS_CONNECT:
+      Serial.println("Starting 'ChessConnect Mode'...");
+      if (chessConnect != nullptr)
+        delete chessConnect;
+      chessConnect = new ChessConnect(&boardDriver, &chessEngine, &wifiManager);
+      chessConnect->begin();
+      break;
+#endif
     default:
       showGameSelection();
       break;

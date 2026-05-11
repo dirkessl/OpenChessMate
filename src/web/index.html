@@ -234,6 +234,64 @@
             </div>
         </div>
 
+        <!-- ChessConnect BLE Section -->
+        <div class="settings-section" id="chessconnect-section">
+            <div class="section-header" onclick="toggleSection('chessconnect')">
+                <span class="section-icon" id="chessconnect-icon">▶</span>
+                <h3>ChessConnect</h3>
+            </div>
+            <div class="section-content" id="chessconnect-content">
+                <p class="section-description">
+                    Emulate a Bluetooth Low Energy (BLE) chess board to play on
+                    <a href="https://chessconnect.de" target="_blank" style="color: #ec8703;">
+                        ChessConnect
+                    </a>
+                </p>
+                <div id="chessconnect-controls" style="display: none;">
+                    <div class="toggle-row toggle-row-divider">
+                        <div>
+                            <label class="toggle-label" for="bleAutoStart">Automatic Start</label>
+                            <p class="toggle-description">
+                                Automatically start the BLE server on boot
+                            </p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="bleAutoStart">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bleBoard">Board to Emulate</label>
+                        <select id="bleBoard"></select>
+                    </div>
+
+                    <div class="ble-status" id="ble-status" style="margin: 12px 0; font-size: 14px;">
+                        <span id="ble-running-status">Checking...</span>
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button type="button" id="bleStartBtn" class="button"
+                            style="background-color: #4CAF50; flex: 1;">
+                            Start BLE
+                        </button>
+                        <button type="button" id="bleStopBtn" class="button"
+                            style="background-color: #f44336; flex: 1;">
+                            Stop BLE
+                        </button>
+                    </div>
+                </div>
+                <div id="chessconnect-unsupported">
+                    <p class="section-description" style="color: #f44336">
+                        To enable this feature, flash a precompiled firmware using the
+                        <a href="https://joojoooo.github.io/OpenChess/flash.html" target="_blank" style="color: #fff;">
+                            Web Flasher
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!-- OTA Updates Section -->
         <div class="settings-section">
             <div class="section-header" onclick="toggleSection('ota')">
@@ -331,7 +389,7 @@
             var msgEl = document.getElementById('modalMessage');
             var inputEl = document.getElementById('modalInput');
             var cancelBtn = document.getElementById('modalCancelBtn');
-            msgEl.textContent = message;
+            msgEl.innerHTML = message;
             if (type === 'prompt') {
                 inputEl.style.display = '';
                 inputEl.value = '';
@@ -369,6 +427,7 @@
             lichess: false,
             board: false,
             hwconfig: false,
+            chessconnect: false,
             ota: false
         };
 
@@ -624,7 +683,117 @@
         updateLichessInfo();
         updateBoardSettings();
         updateHardwareConfig();
+        updateChessConnectInfo();
         updateOtaStatus();
+
+        // ========== ChessConnect ==========
+
+        function postChessConnect(body) {
+            return fetch('/chessconnect', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: body
+            });
+        }
+
+        function updateChessConnectInfo() {
+            fetch('/chessconnect')
+                .then(r => {
+                    if (r.status === 404) {
+                        document.getElementById('chessconnect-controls').style.display = 'none';
+                        document.getElementById('chessconnect-unsupported').style.display = '';
+                        return null;
+                    }
+                    return r.json();
+                })
+                .then(data => {
+                    if (!data) return;
+                    document.getElementById('chessconnect-controls').style.display = '';
+                    document.getElementById('chessconnect-unsupported').style.display = 'none';
+                    document.getElementById('bleAutoStart').checked = !!data.autoStart;
+                    const select = document.getElementById('bleBoard');
+                    select.innerHTML = '';
+                    (data.boards || []).forEach(b => {
+                        const opt = document.createElement('option');
+                        opt.value = b;
+                        opt.textContent = b;
+                        if (b === data.board) opt.selected = true;
+                        select.appendChild(opt);
+                    });
+                    updateBleStatus(data.runningBoard);
+                })
+                .catch(() => { });
+        }
+
+        function updateBleStatus(runningBoard) {
+            const runningStatusEl = document.getElementById('ble-running-status');
+            const startBtn = document.getElementById('bleStartBtn');
+            const stopBtn = document.getElementById('bleStopBtn');
+            if (runningBoard) {
+                runningStatusEl.innerHTML = '<span style="color:#4CAF50;">● Running</span> <span style="color:#aaa;">(' + runningBoard + ')</span>';
+                startBtn.disabled = true;
+                startBtn.style.opacity = '0.5';
+                stopBtn.disabled = false;
+                stopBtn.style.opacity = '1';
+            } else {
+                runningStatusEl.innerHTML = '<span style="color:#888;">● Stopped</span>';
+                startBtn.disabled = false;
+                startBtn.style.opacity = '1';
+                stopBtn.disabled = true;
+                stopBtn.style.opacity = '0.5';
+            }
+        }
+
+        async function pushChessConnectSettings() {
+            var body = 'autoStart=' + (document.getElementById('bleAutoStart').checked ? '1' : '0') + '&board=' + encodeURIComponent(document.getElementById('bleBoard').value);
+            try {
+                var r = await postChessConnect(body);
+                if (!r.ok) showAlert(await r.text());
+            } catch (e) { }
+            updateChessConnectInfo();
+        }
+
+        document.getElementById('bleAutoStart').addEventListener('change', pushChessConnectSettings);
+        document.getElementById('bleBoard').addEventListener('change', pushChessConnectSettings);
+
+        async function startBle(confirmed) {
+            var btn = document.getElementById('bleStartBtn');
+            btn.disabled = true;
+            btn.textContent = 'Starting...';
+            var r;
+            try {
+                r = await postChessConnect('action=start' + (confirmed ? '&confirm=1' : ''));
+            } catch (e) {
+                showAlert('Error starting BLE server');
+                btn.textContent = 'Start BLE';
+                btn.disabled = false;
+                return;
+            }
+            var msg = await r.text();
+            btn.textContent = 'Start BLE';
+            btn.disabled = false;
+            if (r.status === 402) {
+                if (await showConfirm(msg)) await startBle(true);
+                return;
+            }
+            showAlert(msg);
+            updateChessConnectInfo();
+        }
+
+        document.getElementById('bleStartBtn').addEventListener('click', function () { startBle(false); });
+
+        document.getElementById('bleStopBtn').addEventListener('click', async function () {
+            this.disabled = true;
+            this.textContent = 'Stopping...';
+            try {
+                var r = await postChessConnect('action=stop');
+                showAlert(await r.text());
+            } catch (e) {
+                showAlert('Error stopping BLE server');
+            }
+            this.textContent = 'Stop BLE';
+            updateChessConnectInfo();
+        });
 
         // Board settings functions
         function updateBoardSettings() {
