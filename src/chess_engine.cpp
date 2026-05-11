@@ -186,10 +186,13 @@ void ChessEngine::getPossibleMoves(const char board[8][8], int row, int col, int
   getPseudoLegalMoves(board, row, col, pseudoMoveCount, pseudoMoves, true);
 
   // Filter out moves that would leave the king in check
-  moveCount = 0;
   for (int i = 0; i < pseudoMoveCount; i++) {
     int toRow = pseudoMoves[i][0];
     int toCol = pseudoMoves[i][1];
+
+    // A legal chess move never captures the opponent king
+    if (toupper(board[toRow][toCol]) == 'K')
+      continue;
 
     // Only add this move if it doesn't leave the king in check
     if (!wouldMoveLeaveKingInCheck(board, row, col, toRow, toCol)) {
@@ -417,28 +420,18 @@ bool ChessEngine::isValidSquare(int row, int col) const {
 }
 
 // Move validation
-bool ChessEngine::isValidMove(const char board[8][8], int fromRow, int fromCol, int toRow, int toCol) {
+bool ChessEngine::isValidMove(const char board[8][8], int fromRow, int fromCol, int toRow, int toCol, char currentTurn) {
+  if (ChessUtils::getPieceColor(board[fromRow][fromCol]) != currentTurn)
+    return false;
+
   int moveCount = 0;
   int moves[28][2]; // Maximum possible moves for a queen
-
   getPossibleMoves(board, fromRow, fromCol, moveCount, moves);
-
-  // First check if it's a pseudo-legal move (piece can move there according to its movement rules)
-  bool isPseudoLegal = false;
   for (int i = 0; i < moveCount; i++)
-    if (moves[i][0] == toRow && moves[i][1] == toCol) {
-      isPseudoLegal = true;
-      break;
-    }
+    if (moves[i][0] == toRow && moves[i][1] == toCol)
+      return true;
 
-  if (!isPseudoLegal)
-    return false; // Not even a valid move according to piece rules
-
-  // Check if this move would leave the king in check (illegal move)
-  if (wouldMoveLeaveKingInCheck(board, fromRow, fromCol, toRow, toCol))
-    return false; // Move would leave king in check
-
-  return true; // Move is legal
+  return false;
 }
 
 // Check if a pawn move results in promotion

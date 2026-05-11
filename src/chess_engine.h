@@ -100,7 +100,7 @@ class ChessEngine {
   void getPossibleMoves(const char board[8][8], int row, int col, int& moveCount, int moves[][2]);
 
   // Move validation
-  bool isValidMove(const char board[8][8], int fromRow, int fromCol, int toRow, int toCol);
+  bool isValidMove(const char board[8][8], int fromRow, int fromCol, int toRow, int toCol, char currentTurn);
 
   // Game state checks
   bool findKingPosition(const char board[8][8], char kingColor, int& kingRow, int& kingCol) const;

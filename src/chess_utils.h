@@ -21,6 +21,10 @@ class ChessUtils {
     return (piece >= 'a' && piece <= 'z') ? 'b' : 'w';
   }
 
+  static char oppositeColor(char color) {
+    return color == 'w' ? 'b' : 'w';
+  }
+
   static bool isWhitePiece(char piece) {
     return (piece >= 'A' && piece <= 'Z');
   }
