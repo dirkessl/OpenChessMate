@@ -42,16 +42,27 @@
 
     function buildSingleImage(imgData) {
         const container = el('div', { className: 'image-container' });
+        if (imgData.maxWidth) {
+            container.classList.add('media-bounded');
+            container.style.maxWidth = imgData.maxWidth;
+        }
+        if (imgData.noZoom) container.classList.add('image-static');
         const attrs = {
             src: IMG + encodeURI(imgData.file),
             alt: imgData.alt || ''
         };
         if (!imgData.noZoom) attrs.className = 'zoomable';
-        if (imgData.maxWidth) attrs.style = { maxWidth: imgData.maxWidth };
         container.append(el('img', attrs));
         if (imgData.caption) {
             container.append(el('span', { className: 'image-caption' }, imgData.caption));
         }
+        return container;
+    }
+
+    function buildVideoEmbed(embedHtml, maxWidth) {
+        const container = el('div', { className: 'video-embed' });
+        if (maxWidth) container.style.maxWidth = maxWidth;
+        container.innerHTML = embedHtml;
         return container;
     }
 
@@ -77,7 +88,17 @@
         );
 
         const imgDiv = el('div', { className: 'hero-image' });
-        imgDiv.append(el('img', { src: IMG + hero.image, alt: 'OpenChess demo' }));
+        if (hero.image && hero.videoEmbed) {
+            imgDiv.classList.add('hero-media-pair');
+            imgDiv.append(
+                el('img', { src: IMG + hero.image, alt: 'OpenChess demo' }),
+                buildVideoEmbed(hero.videoEmbed)
+            );
+        } else if (hero.videoEmbed) {
+            imgDiv.append(buildVideoEmbed(hero.videoEmbed));
+        } else {
+            imgDiv.append(el('img', { src: IMG + hero.image, alt: 'OpenChess demo' }));
+        }
 
         section.append(textDiv, imgDiv);
         contentEl.append(section);
@@ -122,6 +143,10 @@
 
             if (step.items && step.items.length)
                 step.items.forEach(item => card.insertAdjacentHTML('beforeend', item));
+
+            if (step.videoEmbed) {
+                card.append(buildVideoEmbed(step.videoEmbed, step.videoMaxWidth));
+            }
 
             if (step.images && step.images.length) {
                 // Demo gallery: split into rows of 2

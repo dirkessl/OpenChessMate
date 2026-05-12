@@ -5,7 +5,8 @@
         "title": "Build Your Own",
         "titleAccent": "Smart Chess Board",
         "description": "A complete step-by-step guide to building an ESP32-powered chess board, 100% DIY, with LED move indicators, hall-effect piece detection, Stockfish AI, and Lichess online play.",
-        "image": "video.gif"
+        "image": "video.gif",
+        "videoEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bYm5_dK6EnQ?start=29\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
     },
     "materials": {
         "navLabel": "Materials",
@@ -709,6 +710,8 @@
                 {
                     "title": "Demo Video",
                     "centerContent": true,
+                    "videoEmbed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bYm5_dK6EnQ?start=29\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+                    "videoMaxWidth": "600px",
                     "images": [
                         {
                             "file": "video.gif",
@@ -726,7 +729,7 @@
         "title": "Software Setup",
         "intro": "With the hardware built, flash the firmware to bring your chess board to life.",
         "webInstaller": {
-            "text": "<h3><strong>⚡ Quick Flash</strong></h3>Don't want to build firmware from sources? Use the <a href=\"flash.html\">Web Installer</a> to flash your ESP32 directly from the browser (Chrome/Edge only)</br>",
+            "text": "<h3><strong>⚡ Quick Flash</strong></h3>Use the <a href=\"flash.html\">Web Installer</a> to flash your ESP32 directly from the browser (Chrome/Edge only)</br>",
             "buttonText": "Open Web Installer",
             "buttonUrl": "flash.html"
         },
@@ -742,11 +745,12 @@
                 ]
             },
             {
-                "title": "2. Flash",
+                "title": "2. Compile & Flash",
                 "items": [
                     "Connect the ESP32 via USB",
                     "Hold the <strong>BOOT</strong> button on the ESP32",
-                    "Click <strong>Upload</strong> (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd>) in Visual Studio Code"
+                    "Click <strong>Upload</strong> (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd>) in Visual Studio Code",
+                    "⚠️ Compiling from sources <span style=\"color: var(--red);\">won't include</span> <strong>ChessConnect</strong> (use the Web Installer for that feature)"
                 ]
             },
             {
@@ -769,7 +773,8 @@
                 "title": "5. Play!",
                 "items": [
                     "Power on the board - LEDs light up in the center for game selection",
-                    "Place a piece on a lit square:<ul><li><strong style=\"color: #2196F3;\">Blue</strong> - Human vs Human</li><li><strong style=\"color: #4CAF50;\">Green</strong> - Human vs Stockfish</li><li><strong style=\"color: #FFEB3B;\">Yellow</strong> - Online (Lichess)</li><li><strong style=\"color: #F44336;\">Red</strong> - Sensor Test</li></ul>"
+                    "Place a piece on a lit square:<ul><li><strong style=\"color: #2196F3;\">Blue</strong> - Human vs Human</li><li><strong style=\"color: #4CAF50;\">Green</strong> - Human vs Stockfish</li><li><strong style=\"color: #FFEB3B;\">Yellow</strong> - Online (Lichess)</li><li><strong style=\"color: #F44336;\">Red</strong> - Sensor Test</li></ul>",
+                    "<strong>ChessConnect</strong><ul><li>Download the <a href=\"https://chessconnect.de\" target=\"_blank\">ChessConnect</a> app or extension</li><li>In the OpenChess WebUI, choose a board to emulate and start the BLE server</li><li>In ChessConnect, select the emulated board and connect</li><li>Start a game right from ChessConnect</li><li>Watch the <a href=\"https://youtu.be/bYm5_dK6EnQ\" target=\"_blank\">video guide</a></li></ul>"
                 ]
             }
         ],
