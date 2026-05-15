@@ -12,11 +12,10 @@ void ChessMoves::begin() {
   webLog.println("=== Starting Chess Moves Mode ===");
   initializeBoard();
   if (moveHistory->hasLiveGame()) {
-    webLog.println("Resuming live game...");
-    replaying = true;
-    moveHistory->replayIntoGame(this);
-    replaying = false;
-    wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+    if (!resumeLiveGameIfBoardMatches()) {
+      gameOver = true;
+      return;
+    }
   } else {
     moveHistory->startGame(GAME_MODE_CHESS_MOVES);
     moveHistory->addFen(ChessUtils::boardToFEN(board, currentTurn, chessEngine));

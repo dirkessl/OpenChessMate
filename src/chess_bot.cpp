@@ -18,11 +18,10 @@ void ChessBot::begin() {
   if (wifiManager->ensureConnected()) {
     initializeBoard();
     if (moveHistory->hasLiveGame()) {
-      webLog.println("Resuming live bot game...");
-      replaying = true;
-      moveHistory->replayIntoGame(this);
-      replaying = false;
-      wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+      if (!resumeLiveGameIfBoardMatches()) {
+        gameOver = true;
+        return;
+      }
     } else {
       moveHistory->startGame(GAME_MODE_BOT, botConfig.playerIsWhite ? 'w' : 'b', (uint8_t)botConfig.stockfishSettings.depth);
       moveHistory->addFen(ChessUtils::boardToFEN(board, currentTurn, chessEngine));

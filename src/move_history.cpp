@@ -352,7 +352,7 @@ bool MoveHistory::replayIntoGame(ChessGame* game) {
     return false;
   }
 
-  webLog.println("MoveHistory: resuming from FEN: " + lastFen);
+  webLog.println("MoveHistory: restoring from FEN: " + lastFen);
 
   // Set board state from last FEN
   recording = false;
@@ -372,7 +372,7 @@ bool MoveHistory::replayIntoGame(ChessGame* game) {
   header = hdr;
   recording = true;
 
-  webLog.printf("MoveHistory: replayed %d moves from last FEN marker, game resumed\n", (moves.size() - 1) - lastFenIdx);
+  webLog.printf("MoveHistory: replayed %d moves from last FEN marker\n", (moves.size() - 1) - lastFenIdx);
   return true;
 }
 

@@ -739,10 +739,11 @@
             const result = RESULT_NAMES[meta.result] || 'Unknown';
             const winner = formatWinner(meta.winnerColor, meta.result);
             const opponent = formatOpponent(meta);
+            const resultText = (meta.winnerColor === 'd' || meta.winnerColor === '?') ? result : winner + ' - ' + result;
 
             metaHtml += '<span class=\"meta-date\">' + date + '</span>';
             metaHtml += '<span class=\"meta-mode\">' + opponent + '</span>';
-            metaHtml += '<span class=\"meta-result\">' + (meta.winnerColor === 'd' ? result : winner + ' - ' + result) + '</span>';
+            metaHtml += '<span class=\"meta-result\">' + resultText + '</span>';
             metaHtml += '</div>';
 
             $('#reviewMeta').html(metaHtml);
@@ -952,6 +953,7 @@
             if (winnerChar === 'w') return '<span class="winner-square white-square"></span> White wins';
             if (winnerChar === 'b') return '<span class="winner-square black-square"></span> Black wins';
             if (winnerChar === 'd') return '\u00bd Draw';
+            if (winnerChar === '?') return 'In Progress';
             return '-';
         }
 

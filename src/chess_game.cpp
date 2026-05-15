@@ -34,18 +34,46 @@ void ChessGame::initializeBoard() {
   wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
 }
 
+bool ChessGame::physicalBoardMatches(const char targetBoard[8][8]) {
+  boardDriver->readSensors();
+  for (int row = 0; row < 8; row++)
+    for (int col = 0; col < 8; col++)
+      if ((targetBoard[row][col] != ' ') != boardDriver->getSensorState(row, col))
+        return false;
+
+  return true;
+}
+
+bool ChessGame::resumeLiveGameIfBoardMatches() {
+  if (!moveHistory || !moveHistory->hasLiveGame())
+    return false;
+
+  webLog.println("Live game found, verifying position before resume...");
+
+  replaying = true;
+  bool replayed = moveHistory->replayIntoGame(this);
+  replaying = false;
+
+  if (!replayed) {
+    webLog.println("Live game restore failed, discarding invalid live game.");
+    moveHistory->discardLiveGame();
+    return false;
+  }
+
+  if (!physicalBoardMatches(board)) {
+    webLog.println("Live game ended, position doesn't match. Manually resume from WebUI GameHistory");
+    moveHistory->finishGame(RESULT_IN_PROGRESS, '?');
+    return false;
+  }
+
+  webLog.println("Physical board matches saved live game, resuming...");
+  wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+  return true;
+}
+
 void ChessGame::waitForBoardSetup(const char targetBoard[8][8], bool showFirework) {
   // Quick check: if the board already matches, return immediately
-  boardDriver->readSensors();
-  bool allCorrect = true;
-  for (int row = 0; row < 8 && allCorrect; row++) {
-    for (int col = 0; col < 8; col++) {
-      if ((targetBoard[row][col] != ' ') != boardDriver->getSensorState(row, col)) {
-        allCorrect = false;
-        break;
-      }
-    }
-  }
+  bool allCorrect = physicalBoardMatches(targetBoard);
   if (allCorrect) {
     if (showFirework)
       boardDriver->fireworkAnimation();

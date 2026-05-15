@@ -85,12 +85,12 @@ void setup() {
     webLog.println("========== Live game found on flash ==========");
     switch (resumeMode) {
       case GAME_MODE_CHESS_MOVES:
-        webLog.println("Resuming Chess Moves game...");
+        webLog.println("Checking Chess Moves game for possible resume...");
         currentMode = MODE_CHESS_MOVES;
         resumingGame = true;
         break;
       case GAME_MODE_BOT:
-        webLog.printf("Resuming Bot game (player=%c, depth=%d)...\n", (char)resumePlayerColor, resumeBotDepth);
+        webLog.printf("Checking Bot game for possible resume (player=%c, depth=%d)...\n", (char)resumePlayerColor, resumeBotDepth);
         currentMode = MODE_BOT;
         resumingGame = true;
         botConfig.playerIsWhite = (resumePlayerColor == 'w');
