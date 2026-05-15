@@ -57,6 +57,7 @@ struct ScannedNetwork {
 class WiFiManagerESP32 {
  private:
   AsyncWebServer server;
+  AsyncEventSource* boardEvents;
   DNSServer dnsServer;
 
   TaskHandle_t pendingWiFiTaskHandle = nullptr;
@@ -151,7 +152,8 @@ class WiFiManagerESP32 {
 
   // Web interface methods
   String getWiFiInfoJSON();
-  String getBoardUpdateJSON();
+  void sendBoardEvent(const char* eventType, const String& data);
+  void sendInitialBoardEvents(AsyncEventSourceClient* client);
   String getLichessInfoJSON();
   String getBoardSettingsJSON();
   void handleBoardEditSuccess(AsyncWebServerRequest* request);

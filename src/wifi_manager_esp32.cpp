@@ -16,7 +16,7 @@ static const IPAddress AP_IP(200, 200, 200, 1);
 static const IPAddress AP_GATEWAY(200, 200, 200, 1);
 static const IPAddress AP_SUBNET(255, 255, 255, 0);
 
-WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), hasPendingResume(false), pendingResignColor('?'), promotion{}, boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
+WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), boardEvents(nullptr), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), hasPendingResume(false), pendingResignColor('?'), promotion{}, boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
   promotion.reset();
   pendingWiFi.reset();
 }
@@ -82,8 +82,11 @@ void WiFiManagerESP32::begin() {
   // Apple
   server.on("/hotspot-detect.html", HTTP_GET, [sendCaptiveRedirect](AsyncWebServerRequest* request) { sendCaptiveRedirect(request); });
   // Set up OpenChess web server routes
-  server.on("/board-update", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(200, "application/json", this->getBoardUpdateJSON()); });
-  server.on("/board-update", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleBoardEditSuccess(request); });
+  server.on("/fen", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(200, "text/plain", currentFen); });
+  server.on("/fen", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleBoardEditSuccess(request); });
+  boardEvents = new AsyncEventSource("/board-events");
+  boardEvents->onConnect([this](AsyncEventSourceClient* client) { this->sendInitialBoardEvents(client); });
+  server.addHandler(boardEvents);
   server.on("/promotion", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handlePromotion(request); });
   server.on("/resign", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleResign(request); });
   server.on("/draw", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleDraw(request); });
@@ -130,17 +133,17 @@ void WiFiManagerESP32::begin() {
   xTaskCreate(pendingWiFiBackgroundTask, "WiFi_Pending_Task", 8192, this, 4, &pendingWiFiTaskHandle);
 }
 
-String WiFiManagerESP32::getBoardUpdateJSON() {
-  JsonDocument doc;
-  doc["fen"] = currentFen;
-  doc["evaluation"] = serialized(String(boardEvaluation, 2));
-  if (promotion.pending) {
-    JsonObject promo = doc["promotion"].to<JsonObject>();
-    promo["color"] = String(promotion.color);
-  }
-  String output;
-  serializeJson(doc, output);
-  return output;
+void WiFiManagerESP32::sendBoardEvent(const char* eventType, const String& data) {
+  if (!boardEvents || boardEvents->count() == 0) return;
+  boardEvents->send(data.c_str(), eventType);
+}
+
+void WiFiManagerESP32::sendInitialBoardEvents(AsyncEventSourceClient* client) {
+  client->send(currentFen.c_str(), "fen", 0, 1000);
+  String evaluationPayload = String(boardEvaluation, 2);
+  client->send(evaluationPayload.c_str(), "evaluation");
+  String promotionPayload = promotion.pending ? String(promotion.color) : String();
+  client->send(promotionPayload.c_str(), "promotion");
 }
 
 String WiFiManagerESP32::getWiFiInfoJSON() {
@@ -520,6 +523,8 @@ LichessConfig WiFiManagerESP32::getLichessConfig() {
 void WiFiManagerESP32::updateBoardState(const String& fen, float evaluation) {
   currentFen = fen;
   boardEvaluation = evaluation;
+  sendBoardEvent("fen", currentFen);
+  sendBoardEvent("evaluation", String(boardEvaluation, 2));
 }
 
 bool WiFiManagerESP32::getPendingBoardEdit(String& fenOut) {
@@ -533,6 +538,7 @@ bool WiFiManagerESP32::getPendingBoardEdit(String& fenOut) {
 void WiFiManagerESP32::clearPendingEdit() {
   currentFen = pendingFenEdit;
   hasPendingEdit = false;
+  sendBoardEvent("fen", currentFen);
 }
 
 bool WiFiManagerESP32::getPendingResign(char& resignColor) {
@@ -580,11 +586,13 @@ void WiFiManagerESP32::startPromotionWait(char color) {
   promotion.color = color;
   promotion.choice = ' ';
   promotion.pending = true;
+  sendBoardEvent("promotion", String(promotion.color));
   webLog.printf("Promotion wait started for %s\n", color == 'w' ? "White" : "Black");
 }
 
 void WiFiManagerESP32::clearPromotion() {
   promotion.reset();
+  sendBoardEvent("promotion", String());
 }
 
 void WiFiManagerESP32::checkPendingWiFi() {

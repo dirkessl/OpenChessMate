@@ -222,7 +222,7 @@
         let fullmoveNumber = 1;
         let previousValidFen = START_POSITION;
         let isEditingFen = false;
-        let updateInterval = null;
+        let boardEventSource = null;
         let boardOrientation = 'white';
         let focusMode = false;
         let previousPosition = null;
@@ -676,11 +676,8 @@
             reviewTotalMoves = computeGlobalTotal(segments);
             reviewMoveIndex = reviewTotalMoves; // Start at last position
 
-            // Stop polling
-            if (updateInterval) {
-                clearInterval(updateInterval);
-                updateInterval = null;
-            }
+            // Stop live updates while reviewing a saved game
+            stopBoardUpdates();
 
             // Hide eval bar, show review panel
             $('#eval-container').hide();
@@ -725,7 +722,7 @@
             }
 
             updateMoveCounter();
-            startPolling();
+            startBoardUpdates();
         }
 
         function buildReviewPanel() {
@@ -1014,10 +1011,7 @@
             }
 
             editMode = true;
-            if (updateInterval) {
-                clearInterval(updateInterval);
-                updateInterval = null;
-            }
+            stopBoardUpdates();
 
             const currentPosition = board.position();
 
@@ -1061,9 +1055,9 @@
             $('#edit-instructions').removeClass('visible');
             $('#fen-section').removeClass('visible');
 
-            // Resume polling after short delay to allow things to hide smoothly and
-            // To allow the server FEN to be already updated on the first fetch
-            setTimeout(() => { startPolling(); }, 250);
+            // Resume board events after a short delay to allow the server FEN
+            // to be updated before the first stream snapshot arrives.
+            setTimeout(() => { startBoardUpdates(); }, 250);
         }
 
         // Board change handler - immediately update FEN display after any board change
@@ -1452,7 +1446,6 @@
         // ==========================================
 
         let promotionPending = false;
-        let promotionCooldownUntil = 0;
 
         function showPromotionOverlay(color) {
             const pieces = (color === 'w') ? [{ code: 'q', piece: 'wQ' }, { code: 'r', piece: 'wR' }, { code: 'b', piece: 'wB' }, { code: 'n', piece: 'wN' }] : [{ code: 'q', piece: 'bQ' }, { code: 'r', piece: 'bR' }, { code: 'b', piece: 'bB' }, { code: 'n', piece: 'bN' }];
@@ -1479,7 +1472,6 @@
 
         function selectPromotion(piece) {
             hidePromotionOverlay();
-            promotionCooldownUntil = Date.now() + 2000;
             fetch('/promotion', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -1491,101 +1483,132 @@
             });
         }
 
-        // Fetch board state from server
-        function fetchBoardState() {
-            if (editMode || reviewMode) return;
+        // Apply live board state from the SSE FEN channel
+        function applyBoardFen(fen) {
+            if (!fen || editMode || reviewMode) return;
 
-            fetch('/board-update')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.fen) {
-                        if (liveSegments.length > 0) {
-                            const lastSeg = liveSegments[liveSegments.length - 1];
-                            const serverPosFen = data.fen.split(' ')[0];
-                            const engineFen = lastSeg.engine.fen().split(' ')[0];
-                            if (serverPosFen !== engineFen) {
-                                // Try to find a move that leads to this position
-                                const legalMoves = lastSeg.engine.moves({ verbose: true });
-                                let foundMove = false;
-                                for (const m of legalMoves) {
-                                    if (m.after.split(' ')[0] === serverPosFen) {
-                                        lastSeg.engine.move(m.san);
-                                        lastSeg.moveCount = lastSeg.engine.history().length;
-                                        computeSegmentOffsets(liveSegments);
-                                        totalMoves = computeGlobalTotal(liveSegments);
-                                        if (isLive) moveIndex = totalMoves;
-                                        foundMove = true;
-                                        break;
-                                    }
-                                }
-                                if (!foundMove) {
-                                    // Position changed dramatically (board edit) -add new segment
-                                    try {
-                                        const newEngine = new Chess(data.fen);
-                                        liveSegments.push({
-                                            fen: data.fen,
-                                            engine: newEngine,
-                                            moveCount: 0,
-                                            globalOffset: 0,
-                                            span: 0
-                                        });
-                                        computeSegmentOffsets(liveSegments);
-                                        totalMoves = computeGlobalTotal(liveSegments);
-                                        moveIndex = totalMoves;
-                                        isLive = true;
-                                    } catch (e) {
-                                        console.log('Failed to create new segment:', e);
-                                    }
-                                }
-                                updateMoveCounter();
-                            }
-                        } else {
-                            // Initialize first segment
-                            try {
-                                const engine = new Chess(data.fen);
-                                liveSegments.push({
-                                    fen: data.fen,
-                                    engine: engine,
-                                    moveCount: 0,
-                                    globalOffset: 0,
-                                    span: 1
-                                });
-                                computeSegmentOffsets(liveSegments);
-                                totalMoves = computeGlobalTotal(liveSegments);
-                                moveIndex = 0;
-                                isLive = true;
-                                updateMoveCounter();
-                            } catch (e) {
-                                console.log('Failed to init segments:', e);
-                            }
-                        }
-
-                        // Only update board display if viewing live position
-                        if (isLive) {
-                            parseFullFen(data.fen);
+            if (liveSegments.length > 0) {
+                const lastSeg = liveSegments[liveSegments.length - 1];
+                const serverPosFen = fen.split(' ')[0];
+                const engineFen = lastSeg.engine.fen().split(' ')[0];
+                if (serverPosFen !== engineFen) {
+                    // Try to find a move that leads to this position
+                    const legalMoves = lastSeg.engine.moves({ verbose: true });
+                    let foundMove = false;
+                    for (const m of legalMoves) {
+                        if (m.after.split(' ')[0] === serverPosFen) {
+                            lastSeg.engine.move(m.san);
+                            lastSeg.moveCount = lastSeg.engine.history().length;
+                            computeSegmentOffsets(liveSegments);
+                            totalMoves = computeGlobalTotal(liveSegments);
+                            if (isLive) moveIndex = totalMoves;
+                            foundMove = true;
+                            break;
                         }
                     }
-                    if (data.evaluation !== undefined && isLive) {
-                        updateEvaluationBar(data.evaluation);
+                    if (!foundMove) {
+                        // Position changed dramatically (board edit) - add new segment
+                        try {
+                            const newEngine = new Chess(fen);
+                            liveSegments.push({
+                                fen: fen,
+                                engine: newEngine,
+                                moveCount: 0,
+                                globalOffset: 0,
+                                span: 0
+                            });
+                            computeSegmentOffsets(liveSegments);
+                            totalMoves = computeGlobalTotal(liveSegments);
+                            moveIndex = totalMoves;
+                            isLive = true;
+                        } catch (e) {
+                            console.log('Failed to create new segment:', e);
+                        }
                     }
-                    // Show promotion overlay if server is waiting for a promotion choice
-                    if (data.promotion && !promotionPending && Date.now() > promotionCooldownUntil) {
-                        showPromotionOverlay(data.promotion.color);
-                    } else if (!data.promotion && promotionPending) {
-                        // Server no longer waiting (e.g. timed out) - hide overlay
-                        hidePromotionOverlay();
-                    }
-                })
-                .catch(error => {
-                    console.log('Fetch failed:', error);
-                });
+                    updateMoveCounter();
+                }
+            } else {
+                // Initialize first segment
+                try {
+                    const engine = new Chess(fen);
+                    liveSegments.push({
+                        fen: fen,
+                        engine: engine,
+                        moveCount: 0,
+                        globalOffset: 0,
+                        span: 1
+                    });
+                    computeSegmentOffsets(liveSegments);
+                    totalMoves = computeGlobalTotal(liveSegments);
+                    moveIndex = 0;
+                    isLive = true;
+                    updateMoveCounter();
+                } catch (e) {
+                    console.log('Failed to init segments:', e);
+                }
+            }
+
+            // Only update board display if viewing live position
+            if (isLive) {
+                parseFullFen(fen);
+            }
         }
 
-        // Start polling for updates
-        function startPolling() {
-            if (updateInterval) clearInterval(updateInterval);
-            fetchBoardState();
-            updateInterval = setInterval(fetchBoardState, 500);
+        function applyEvaluation(evaluation) {
+            const value = Number(evaluation);
+            if (!Number.isFinite(value) || !isLive || editMode || reviewMode) return;
+            updateEvaluationBar(value);
+        }
+
+        function applyPromotionState(color) {
+            if (editMode || reviewMode) return;
+
+            if ((color === 'w' || color === 'b') && !promotionPending) {
+                showPromotionOverlay(color);
+            } else if (!color && promotionPending) {
+                // Server no longer waiting (e.g. timed out) - hide overlay
+                hidePromotionOverlay();
+            }
+        }
+
+        // Start live updates from server-sent events
+        function startBoardUpdates() {
+            if (boardEventSource || editMode || reviewMode) return;
+
+            if (!window.EventSource) {
+                console.log('Server-sent events are not supported by this browser.');
+                return;
+            }
+
+            const es = new EventSource('/board-events');
+            boardEventSource = es;
+
+            es.addEventListener('fen', event => {
+                if (boardEventSource !== es) return;
+                applyBoardFen(event.data);
+            });
+
+            es.addEventListener('evaluation', event => {
+                if (boardEventSource !== es) return;
+                applyEvaluation(event.data);
+            });
+
+            es.addEventListener('promotion', event => {
+                if (boardEventSource !== es) return;
+                applyPromotionState(event.data);
+            });
+
+            es.addEventListener('error', () => {
+                if (boardEventSource === es) {
+                    console.log('Board event stream reconnecting...');
+                }
+            });
+        }
+
+        function stopBoardUpdates() {
+            if (!boardEventSource) return;
+            boardEventSource.close();
+            boardEventSource = null;
         }
 
         // Send edited board to server
@@ -1599,7 +1622,7 @@
                 return;
             }
 
-            fetch('/board-update', {
+            fetch('/fen', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: 'fen=' + encodeURIComponent(fen)
@@ -1681,11 +1704,11 @@
 
         // Sync board from server
         function syncFromServer() {
-            fetch('/board-update')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.fen) {
-                        parseFullFen(data.fen, false); // Don't play sound for manual sync
+            fetch('/fen')
+                .then(response => response.text())
+                .then(fen => {
+                    if (fen) {
+                        parseFullFen(fen, false); // Don't play sound for manual sync
                         updateFenDisplay();
                     }
                 })
@@ -1699,9 +1722,9 @@
             loadSettings();
             initBoard();
 
-            // Try to load live game history before starting polling
+            // Try to load live game history before opening the event stream
             loadLiveGame().then(() => {
-                startPolling();
+                startBoardUpdates();
             });
 
             $('#modeToggleBtn').on('click', function () {
