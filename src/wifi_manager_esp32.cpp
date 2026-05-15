@@ -15,7 +15,7 @@ static const IPAddress AP_IP(200, 200, 200, 1);
 static const IPAddress AP_GATEWAY(200, 200, 200, 1);
 static const IPAddress AP_SUBNET(255, 255, 255, 0);
 
-WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), pendingResignColor('?'), promotion{}, lastBoardPollTime(0), boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
+WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), pendingResignColor('?'), promotion{}, boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
   promotion.reset();
   pendingWiFi.reset();
 }
@@ -123,7 +123,6 @@ void WiFiManagerESP32::begin() {
 }
 
 String WiFiManagerESP32::getBoardUpdateJSON() {
-  this->lastBoardPollTime = millis();
   JsonDocument doc;
   doc["fen"] = currentFen;
   doc["evaluation"] = serialized(String(boardEvaluation, 2));
@@ -578,11 +577,6 @@ void WiFiManagerESP32::startPromotionWait(char color) {
 
 void WiFiManagerESP32::clearPromotion() {
   promotion.reset();
-}
-
-bool WiFiManagerESP32::isWebClientConnected() const {
-  // Consider web client connected if it polled within the last 2 seconds
-  return lastBoardPollTime > 0 && (millis() - lastBoardPollTime < 2000);
 }
 
 void WiFiManagerESP32::checkPendingWiFi() {

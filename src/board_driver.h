@@ -196,8 +196,9 @@ class BoardDriver {
   // LED Control (use acquireLEDs/releaseLEDs for multi-call sequences)
   void acquireLEDs(); // Block until LED strip available
   void releaseLEDs(); // Release LED strip
-  void clearAllLEDs(bool show = true);
+  void clearAllLEDs(bool show = true, bool acquireLedMutex = false);
   void setSquareLED(int row, int col, LedRGB color);
+  void showPromotionChoice(int choiceIndex, bool rotate, int kingRow, int kingCol, int promotionRow, int promotionCol);
   void showLEDs();
 
   // Animation Functions (queued for async execution)

@@ -670,7 +670,9 @@ void BoardDriver::releaseLEDs() {
   xSemaphoreGive(ledMutex);
 }
 
-void BoardDriver::clearAllLEDs(bool show) {
+void BoardDriver::clearAllLEDs(bool show, bool acquireLedMutex) {
+  if (acquireLedMutex)
+    acquireLEDs();
   for (int row = 0; row < NUM_ROWS; row++)
     for (int col = 0; col < NUM_COLS; col++)
       currentColors[row][col] = LedColors::Off;
@@ -678,6 +680,8 @@ void BoardDriver::clearAllLEDs(bool show) {
     strip->SetPixelColor(i, RgbColor(0));
   if (show)
     showLEDs();
+  if (acquireLedMutex)
+    releaseLEDs();
 }
 
 void BoardDriver::setSquareLED(int row, int col, LedRGB color) {
@@ -872,6 +876,64 @@ void BoardDriver::doPromotion(int row, int col) {
   clearAllLEDs(false);
   setSquareLED(row, col, LedColors::Yellow);
   showLEDs();
+}
+
+void BoardDriver::showPromotionChoice(int choiceIndex, bool rotate, int kingRow, int kingCol, int promotionRow, int promotionCol) {
+  static const char* const PROMOTION_LETTERS[][8] = {
+      {
+          "........",
+          "..####..",
+          ".#....#.",
+          ".#....#.",
+          ".#....#.",
+          ".#..#.#.",
+          ".#...##.",
+          "..####.#",
+      },
+      {
+          "........",
+          "..####..",
+          "..#...#.",
+          "..#...#.",
+          "..####..",
+          "..#.#...",
+          "..#..#..",
+          "..#...#.",
+      },
+      {
+          "........",
+          "..#...#.",
+          "..#..#..",
+          "..#.#...",
+          "..##....",
+          "..#.#...",
+          "..#..#..",
+          "..#...#.",
+      },
+      {
+          "........",
+          "..####..",
+          "..#...#.",
+          "..#...#.",
+          "..####..",
+          "..#...#.",
+          "..#...#.",
+          "..####..",
+      },
+  };
+  acquireLEDs();
+  clearAllLEDs(false);
+  for (int row = 0; row < 8; row++) {
+    for (int col = 0; col < 8; col++) {
+      if (PROMOTION_LETTERS[choiceIndex][row][col] == '#')
+        setSquareLED(rotate ? (7 - row) : row, rotate ? (7 - col) : col, LedColors::White);
+    }
+  }
+  if (kingRow >= 0 && kingCol >= 0)
+    setSquareLED(kingRow, kingCol, LedColors::Green);
+  setSquareLED(promotionRow, promotionCol, LedColors::Yellow);
+  showLEDs();
+  releaseLEDs();
 }
 
 void BoardDriver::flashBoardAnimation(LedRGB color, int times) {

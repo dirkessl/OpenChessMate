@@ -109,9 +109,6 @@ class WiFiManagerESP32 {
   };
   PromotionState promotion;
 
-  // Web client heartbeat (tracks whether board.html is actively polling)
-  unsigned long lastBoardPollTime; // millis() of last /board-update GET request
-
   // Deferred WiFi actions (set by web handler, processed by worker task)
   enum PendingAction {
     NONE,
@@ -225,8 +222,6 @@ class WiFiManagerESP32 {
   bool isPromotionPending() const { return promotion.pending; }
   char getPromotionChoice() const { return promotion.choice; }
   void clearPromotion();
-  // Web client connection check
-  bool isWebClientConnected() const;
   // Check if WiFi is connected (re-attempts if not)
   bool ensureConnected();
   // Processes deferred WiFi actions (called by pendingWiFiBackgroundTask)

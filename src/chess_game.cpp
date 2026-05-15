@@ -149,7 +149,7 @@ void ChessGame::applyMove(int fromRow, int fromCol, int toRow, int toCol, char p
     if (promotion != ' ' && promotion != '\0') {
       promotion = ChessUtils::isWhitePiece(piece) ? toupper(promotion) : tolower(promotion);
     } else if (!replaying && !isRemoteMove) {
-      promotion = waitForPromotionChoice(piece);
+      promotion = waitForPromotionChoice(piece, toRow, toCol);
     } else {
       // Remote move without specified promotion, default to queen
       promotion = ChessUtils::isWhitePiece(piece) ? 'Q' : 'q';
@@ -407,27 +407,74 @@ void ChessGame::setBoardStateFromFEN(const String& fen) {
     waitForBoardSetup(board, false);
 }
 
-char ChessGame::waitForPromotionChoice(char piece) {
-  if (!wifiManager->isWebClientConnected())
-    return ChessUtils::isWhitePiece(piece) ? 'Q' : 'q';
-
+char ChessGame::waitForPromotionChoice(char piece, int promotionRow, int promotionCol) {
+  startPromotionChoice();
   wifiManager->startPromotionWait(ChessUtils::getPieceColor(piece));
+
+  static constexpr char PROMOTION_PIECES[] = {'q', 'r', 'n', 'b'};
+  char promotion = ' ';
+  bool selectionActive = false;
+  int choiceIndex = 0;
+  bool rotateLetter = ChessUtils::isBlackPiece(piece);
+  unsigned long lastCycle = 0;
+  int kingRow = -1;
+  int kingCol = -1;
+  chessEngine->findKingPosition(board, ChessUtils::getPieceColor(piece), kingRow, kingCol);
+
   unsigned long promotionStart = millis();
-  while (wifiManager->isPromotionPending() && wifiManager->getPromotionChoice() == ' ') {
-    if (millis() - promotionStart >= PROMOTION_TIMEOUT_MS) {
-      Serial.println("Promotion timeout - defaulting to queen");
+  unsigned long now = promotionStart;
+  while (now - promotionStart < PROMOTION_TIMEOUT_MS) {
+    now = millis();
+    if (getPromotionChoice(promotion) && promotion != ' ')
       break;
+    if (wifiManager->isPromotionPending() && (promotion = wifiManager->getPromotionChoice()) != ' ')
+      break;
+
+    boardDriver->readSensors();
+
+    if (!selectionActive) {
+      if (!boardDriver->getSensorState(promotionRow, promotionCol)) {
+        Serial.println("Promotion piece selection started, lift the king to cycle, place a piece on the promotion square to choose");
+        selectionActive = true;
+        choiceIndex = 0;
+        boardDriver->showPromotionChoice(choiceIndex, rotateLetter, kingRow, kingCol, promotionRow, promotionCol);
+      }
+      delay(25);
+      continue;
     }
-    delay(25);
+
+    if (!boardDriver->getSensorState(kingRow, kingCol)) {
+      if (now - lastCycle >= 1000) {
+        choiceIndex = (choiceIndex + 1) % sizeof(PROMOTION_PIECES);
+        lastCycle = now;
+        boardDriver->showPromotionChoice(choiceIndex, rotateLetter, kingRow, kingCol, promotionRow, promotionCol);
+      }
+    }
+
+    if (boardDriver->getSensorState(promotionRow, promotionCol)) {
+      if (!boardDriver->getSensorState(kingRow, kingCol)) {
+        Serial.println("Promotion choice done while cycling, restarting selection");
+        boardDriver->blinkSquare(promotionRow, promotionCol, LedColors::Red, 2, false);
+        selectionActive = false;
+      } else {
+        promotion = PROMOTION_PIECES[choiceIndex];
+        break;
+      }
+    }
+
+    delay(SENSOR_READ_DELAY_MS);
   }
 
-  char promotion = wifiManager->getPromotionChoice();
   wifiManager->clearPromotion();
-  boardDriver->clearAllLEDs();
+  boardDriver->blinkSquare(promotionRow, promotionCol, LedColors::Green, 1);
+  boardDriver->clearAllLEDs(true, true);
 
-  if (promotion != ' ')
+  if (promotion != ' ') {
     return ChessUtils::isWhitePiece(piece) ? toupper(promotion) : tolower(promotion);
-  return ChessUtils::isWhitePiece(piece) ? 'Q' : 'q';
+  } else {
+    Serial.println("Promotion timeout, defaulting to Queen");
+    return ChessUtils::isWhitePiece(piece) ? 'Q' : 'q';
+  }
 }
 
 void ChessGame::resignGame(char resigningColor) {

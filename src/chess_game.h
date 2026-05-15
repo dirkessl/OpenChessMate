@@ -38,6 +38,7 @@ class ChessGame {
   void waitForBoardSetup(const char targetBoard[8][8], bool showFirework = true);
   void applyMove(int fromRow, int fromCol, int toRow, int toCol, char promotion = ' ', bool isRemoteMove = false);
   bool tryPlayerMove(char playerColor, int& fromRow, int& fromCol, int& toRow, int& toCol);
+  char waitForPromotionChoice(char piece, int promotionRow, int promotionCol);
   void updateGameStatus();
 
   // Chess rule helpers
@@ -49,7 +50,8 @@ class ChessGame {
 
   // Virtual hooks (overridden in subclasses)
   virtual void waitForRemoteMoveCompletion(int fromRow, int fromCol, int toRow, int toCol, bool isCapture, bool isEnPassant = false, int enPassantCapturedPawnRow = -1) {}
-  virtual char waitForPromotionChoice(char piece);
+  virtual void startPromotionChoice() {}
+  virtual bool getPromotionChoice(char&) { return false; }
 
  public:
   virtual ~ChessGame();
