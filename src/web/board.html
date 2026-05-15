@@ -745,8 +745,12 @@
             metaHtml += '<span class=\"meta-mode\">' + opponent + '</span>';
             metaHtml += '<span class=\"meta-result\">' + resultText + '</span>';
             metaHtml += '</div>';
+            if (meta.result === 0 && meta.gameId) {
+                metaHtml += '<button id="resumeGameBtn" class="review-resume-btn" title="Resume game">Resume</button>';
+            }
 
             $('#reviewMeta').html(metaHtml);
+            $('#resumeGameBtn').on('click', resumeReviewedGame);
 
             // Build move list with segments
             let movesHtml = '';
@@ -908,6 +912,31 @@
             } catch (e) {
                 console.log('Failed to select game:', e);
                 alert('Error loading game data');
+            }
+        }
+
+        async function resumeReviewedGame() {
+            if (!reviewGameMeta || reviewGameMeta.result !== 0 || !reviewGameMeta.gameId) return;
+
+            const btn = $('#resumeGameBtn');
+            btn.prop('disabled', true).text('Resuming...');
+            try {
+                const resp = await fetch('/games/resume?id=' + reviewGameMeta.gameId, { method: 'POST' });
+                if (!resp.ok) {
+                    const msg = await resp.text();
+                    alert(msg || 'Failed to resume game');
+                    btn.prop('disabled', false).text('Resume');
+                    return;
+                }
+
+                exitReviewMode();
+                liveSegments = [];
+                liveGameLoaded = false;
+                await loadLiveGame();
+            } catch (e) {
+                console.log('Failed to resume game:', e);
+                alert('Network error while resuming game');
+                btn.prop('disabled', false).text('Resume');
             }
         }
 

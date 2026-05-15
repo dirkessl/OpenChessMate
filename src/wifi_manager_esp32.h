@@ -94,6 +94,7 @@ class WiFiManagerESP32 {
   // Pending resign/draw from web interface
   volatile bool hasPendingResign;
   volatile bool hasPendingDraw;
+  volatile bool hasPendingResume;
   char pendingResignColor; // 'w' or 'b' — the side resigning
 
   // Promotion state for web-based piece selection
@@ -166,6 +167,7 @@ class WiFiManagerESP32 {
   void handleHardwareConfig(AsyncWebServerRequest* request);
   void handleGamesRequest(AsyncWebServerRequest* request);
   void handleDeleteGame(AsyncWebServerRequest* request);
+  void handleResumeGame(AsyncWebServerRequest* request);
   // OTA update handlers
   void handleOtaStatus(AsyncWebServerRequest* request);
   void handleOtaSettings(AsyncWebServerRequest* request);
@@ -215,8 +217,10 @@ class WiFiManagerESP32 {
   // Resign/Draw management (from web interface)
   bool getPendingResign(char& resignColor);
   bool getPendingDraw();
+  bool getPendingGameResume() const { return hasPendingResume; }
   void clearPendingResign();
   void clearPendingDraw();
+  void clearPendingGameResume() { hasPendingResume = false; }
   // Promotion management (from web interface)
   void startPromotionWait(char color);
   bool isPromotionPending() const { return promotion.pending; }

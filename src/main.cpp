@@ -55,6 +55,7 @@ void showGameSelection();
 void handleGameSelection();
 void handleBotConfigSelection();
 void initializeSelectedMode(GameMode mode);
+bool resumeLiveGameFromFlash(bool requireBoardMatch);
 
 void setup() {
   Serial.begin(115200);
@@ -77,22 +78,24 @@ void setup() {
 #endif
   wifiManager.begin();
   boardDriver.checkCalibration();
-  webLog.println();
   configTime(0, 0, "pool.ntp.org", "time.nist.gov"); // NTP time sync (non-blocking)
-  // Check for a live game that can be resumed
+  if (!resumeLiveGameFromFlash(true))
+    showGameSelection();
+}
+
+bool resumeLiveGameFromFlash(bool requireBoardMatch) {
   uint8_t resumeMode = 0, resumePlayerColor = 0, resumeBotDepth = 0;
   if (moveHistory.hasLiveGame() && moveHistory.getLiveGameInfo(resumeMode, resumePlayerColor, resumeBotDepth)) {
     webLog.println("========== Live game found on flash ==========");
+    GameMode nextMode = MODE_SELECTION;
     switch (resumeMode) {
       case GAME_MODE_CHESS_MOVES:
         webLog.println("Checking Chess Moves game for possible resume...");
-        currentMode = MODE_CHESS_MOVES;
-        resumingGame = true;
+        nextMode = MODE_CHESS_MOVES;
         break;
       case GAME_MODE_BOT:
         webLog.printf("Checking Bot game for possible resume (player=%c, depth=%d)...\n", (char)resumePlayerColor, resumeBotDepth);
-        currentMode = MODE_BOT;
-        resumingGame = true;
+        nextMode = MODE_BOT;
         botConfig.playerIsWhite = (resumePlayerColor == 'w');
         botConfig.stockfishSettings = StockfishSettings(resumeBotDepth);
         break;
@@ -102,19 +105,30 @@ void setup() {
         break;
     }
     webLog.println("================================================");
-    if (currentMode != MODE_SELECTION)
-      return; // Skip showing game selection
+    if (nextMode != MODE_SELECTION) {
+      currentMode = nextMode;
+      modeInitialized = false;
+      resumingGame = true;
+      moveHistory.setRequireBoardMatchOnResume(requireBoardMatch);
+      return true;
+    }
   }
 
-  showGameSelection();
+  return false;
 }
 
 void loop() {
+  if (wifiManager.getPendingGameResume()) {
+    wifiManager.clearPendingGameResume();
+    webLog.println("Resume requested from WebUI GameHistory");
+    if (!resumeLiveGameFromFlash(false))
+      showGameSelection();
+  }
+
   // Check for pending board edits from WiFi (FEN-based)
   String editFen;
   if (wifiManager.getPendingBoardEdit(editFen)) {
     webLog.println("Applying board edit from WiFi interface...");
-
     if (currentMode == MODE_CHESS_MOVES && modeInitialized && chessMoves != nullptr) {
       chessMoves->setBoardStateFromFEN(editFen);
       webLog.println("Board edit applied to Chess Moves mode");
@@ -387,8 +401,9 @@ void handleGameSelection() {
 void initializeSelectedMode(GameMode mode) {
   if (resumingGame)
     resumingGame = false;
-  else
-    moveHistory.discardLiveGame(); // Discard any incomplete live game that wasn't properly finished or resumed (finishGame already removes live files for completed games)
+  else if (moveHistory.hasLiveGame())
+    moveHistory.finishGame(RESULT_IN_PROGRESS, '?');
+
   switch (mode) {
     case MODE_CHESS_MOVES:
       webLog.println("Starting 'Chess Moves'...");

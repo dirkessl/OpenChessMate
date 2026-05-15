@@ -16,7 +16,7 @@ static const IPAddress AP_IP(200, 200, 200, 1);
 static const IPAddress AP_GATEWAY(200, 200, 200, 1);
 static const IPAddress AP_SUBNET(255, 255, 255, 0);
 
-WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), pendingResignColor('?'), promotion{}, boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
+WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), hasPendingResume(false), pendingResignColor('?'), promotion{}, boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
   promotion.reset();
   pendingWiFi.reset();
 }
@@ -56,7 +56,7 @@ void WiFiManagerESP32::begin() {
     webLog.println("- MAC Address: " + WiFi.softAPmacAddress());
     webLog.println("Configure WiFi credentials from WebUI to join your WiFi network");
   }
-  webLog.println("=====================================\n");
+  webLog.println("=====================================");
 
   if (autoOtaEnabled && lastUpdateInfo.available)
     otaUpdater.applyUpdate(lastUpdateInfo);
@@ -97,6 +97,7 @@ void WiFiManagerESP32::begin() {
   server.on("/board-calibrate", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleBoardCalibration(request); });
   server.on("/games", HTTP_GET, [this](AsyncWebServerRequest* request) { this->handleGamesRequest(request); });
   server.on("/games", HTTP_DELETE, [this](AsyncWebServerRequest* request) { this->handleDeleteGame(request); });
+  server.on("/games/resume", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleResumeGame(request); });
   server.on("/hardware-config", HTTP_GET, [this](AsyncWebServerRequest* request) { this->getHardwareConfigJSON(request); });
   server.on("/hardware-config", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleHardwareConfig(request); });
   // OTA update endpoints
@@ -775,6 +776,32 @@ void WiFiManagerESP32::handleDeleteGame(AsyncWebServerRequest* request) {
     request->send(200, "text/plain", "OK");
   else
     request->send(404, "text/plain", "Game not found");
+}
+
+void WiFiManagerESP32::handleResumeGame(AsyncWebServerRequest* request) {
+  if (!request->hasArg("id")) {
+    request->send(400, "text/plain", "Missing id parameter");
+    return;
+  }
+
+  int id = request->arg("id").toInt();
+  if (id <= 0) {
+    request->send(400, "text/plain", "Invalid game id");
+    return;
+  }
+
+  if (moveHistory->hasLiveGame()) {
+    request->send(409, "text/plain", "A live game already exists");
+    return;
+  }
+
+  if (!moveHistory->restoreGameAsLive(id)) {
+    request->send(400, "text/plain", "Game cannot be resumed");
+    return;
+  }
+
+  hasPendingResume = true;
+  request->send(200, "text/plain", "OK");
 }
 
 // ========== OTA Update Handlers ==========

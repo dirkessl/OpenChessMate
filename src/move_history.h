@@ -61,6 +61,9 @@ class MoveHistory {
 
   bool isRecording() const { return recording; }
 
+  void setRequireBoardMatchOnResume(bool requireMatch) { requireBoardMatchOnResume = requireMatch; }
+  bool requiresBoardMatchOnResume() const { return requireBoardMatchOnResume; }
+
   // Returns true if live.bin exists on flash
   bool hasLiveGame();
 
@@ -79,6 +82,10 @@ class MoveHistory {
 
   // Delete a single completed game by id
   bool deleteGame(int id);
+
+  // Move a saved in-progress game back to live storage for resume
+  bool restoreGameAsLive(int id);
+
   // LittleFS.exists() wrapper that suppresses noisy vfs_api log output
   static bool quietExists(const char* path);
 
@@ -96,6 +103,7 @@ class MoveHistory {
 
  private:
   bool recording;
+  bool requireBoardMatchOnResume;
   GameHeader header;
 
   static constexpr const char* GAMES_DIR = "/games";

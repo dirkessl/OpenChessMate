@@ -48,7 +48,7 @@ bool ChessGame::resumeLiveGameIfBoardMatches() {
   if (!moveHistory || !moveHistory->hasLiveGame())
     return false;
 
-  webLog.println("Live game found, verifying position before resume...");
+  webLog.println("Live game found, restoring saved position...");
 
   replaying = true;
   bool replayed = moveHistory->replayIntoGame(this);
@@ -60,13 +60,19 @@ bool ChessGame::resumeLiveGameIfBoardMatches() {
     return false;
   }
 
-  if (!physicalBoardMatches(board)) {
+  if (memcmp(board, INITIAL_BOARD, sizeof(INITIAL_BOARD)) == 0 && currentTurn == 'w') {
+    webLog.println("Live game restored to initial position, discarding empty live game.");
+    moveHistory->discardLiveGame();
+    return false;
+  }
+
+  if (moveHistory->requiresBoardMatchOnResume() && !physicalBoardMatches(board)) {
     webLog.println("Live game ended, position doesn't match. Manually resume from WebUI GameHistory");
     moveHistory->finishGame(RESULT_IN_PROGRESS, '?');
     return false;
   }
 
-  webLog.println("Physical board matches saved live game, resuming...");
+  webLog.println("Resuming game from saved position...");
   wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
   return true;
 }

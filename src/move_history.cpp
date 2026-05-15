@@ -7,7 +7,7 @@
 #include <sys/stat.h>
 #include <time.h>
 
-MoveHistory::MoveHistory() : recording(false) {
+MoveHistory::MoveHistory() : recording(false), requireBoardMatchOnResume(true) {
   memset(&header, 0, sizeof(header));
 }
 
@@ -409,4 +409,67 @@ bool MoveHistory::deleteGame(int id) {
   String path = gamePath(id);
   if (!quietExists(path.c_str())) return false;
   return LittleFS.remove(path);
+}
+
+bool MoveHistory::restoreGameAsLive(int id) {
+  String path = gamePath(id);
+  if (!quietExists(path.c_str()) || quietExists(LIVE_MOVES_PATH))
+    return false;
+
+  File f = LittleFS.open(path, "r");
+  if (!f || f.size() < sizeof(GameHeader)) {
+    if (f) f.close();
+    return false;
+  }
+
+  GameHeader hdr;
+  f.read((uint8_t*)&hdr, sizeof(hdr));
+  const size_t liveSize = sizeof(GameHeader) + ((size_t)hdr.moveCount * 2);
+
+  if (hdr.version != FORMAT_VERSION || hdr.result != RESULT_IN_PROGRESS || hdr.fenEntryCnt == 0 || f.size() <= liveSize) {
+    f.close();
+    return false;
+  }
+
+  std::vector<uint8_t> liveData(liveSize);
+  f.seek(0);
+  if (f.read(liveData.data(), liveData.size()) != liveData.size()) {
+    f.close();
+    return false;
+  }
+
+  std::vector<uint8_t> fenData(f.size() - liveSize);
+  if (!fenData.empty()) {
+    f.seek(liveSize);
+    if (f.read(fenData.data(), fenData.size()) != fenData.size()) {
+      f.close();
+      return false;
+    }
+  }
+  f.close();
+
+  discardLiveGame();
+  if (!LittleFS.rename(path.c_str(), LIVE_MOVES_PATH))
+    return false;
+
+  File live = LittleFS.open(LIVE_MOVES_PATH, "w");
+  if (!live || live.write(liveData.data(), liveData.size()) != liveData.size()) {
+    if (live) live.close();
+    return false;
+  }
+  live.close();
+
+  File fen = LittleFS.open(LIVE_FEN_PATH, "w");
+  if (!fen)
+    return false;
+  if (!fenData.empty() && fen.write(fenData.data(), fenData.size()) != fenData.size()) {
+    fen.close();
+    return false;
+  }
+  fen.close();
+
+  header = hdr;
+  recording = true;
+  webLog.printf("MoveHistory: restored game_%02d.bin as live game\n", id);
+  return true;
 }
