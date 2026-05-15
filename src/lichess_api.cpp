@@ -1,4 +1,5 @@
 #include "lichess_api.h"
+#include "web_logger.h"
 #include <ArduinoJson.h>
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
@@ -23,7 +24,7 @@ String LichessAPI::makeHttpRequest(const String& method, const String& path, con
   client.setInsecure(); // For simplicity; in production, use proper cert validation
 
   if (!client.connect(LICHESS_API_HOST, LICHESS_API_PORT)) {
-    Serial.println("Lichess API: Connection failed");
+    webLog.println("Lichess API: Connection failed");
     return "";
   }
 
@@ -50,7 +51,7 @@ String LichessAPI::makeHttpRequest(const String& method, const String& path, con
   unsigned long timeout = millis() + 10000;
   while (client.connected() && !client.available()) {
     if (millis() > timeout) {
-      Serial.println("Lichess API: Request timeout");
+      webLog.println("Lichess API: Request timeout");
       client.stop();
       return "";
     }
@@ -85,13 +86,13 @@ bool LichessAPI::verifyToken(String& username) {
   JsonDocument doc;
   DeserializationError error = deserializeJson(doc, response);
   if (error) {
-    Serial.println("Lichess API: JSON parse error in verifyToken");
+    webLog.println("Lichess API: JSON parse error in verifyToken");
     return false;
   }
 
   if (doc.containsKey("username")) {
     username = doc["username"].as<String>();
-    Serial.println("Lichess API: Verified token for user: " + username);
+    webLog.println("Lichess API: Verified token for user: " + username);
     return true;
   }
 
@@ -162,7 +163,7 @@ bool LichessAPI::pollForGameEvent(LichessEvent& event) {
     String color = game["color"].as<String>();
     event.myColor = (color == "white") ? 'w' : 'b';
 
-    Serial.println("Lichess: Found active game: " + event.gameId);
+    webLog.println("Lichess: Found active game: " + event.gameId);
     return true;
   }
 
@@ -267,18 +268,18 @@ bool LichessAPI::pollGameStream(const String& gameId, LichessGameState& state) {
   client.stop();
 
   if (!foundData || jsonLine.length() == 0) {
-    Serial.println("Lichess: No JSON data received from game stream");
+    webLog.println("Lichess: No JSON data received from game stream");
     return false;
   }
 
-  Serial.println("Lichess: Game stream JSON: " + jsonLine.substring(0, min((size_t)200, jsonLine.length())));
+  webLog.println("Lichess: Game stream JSON: " + jsonLine.substring(0, min((size_t)200, jsonLine.length())));
 
   // Try to parse as gameFull first, then as gameState
   if (parseGameFullEvent(jsonLine, state)) {
     return true;
   }
 
-  Serial.println("Lichess: parseGameFullEvent failed, trying parseGameStateEvent");
+  webLog.println("Lichess: parseGameFullEvent failed, trying parseGameStateEvent");
   return parseGameStateEvent(jsonLine, state);
 }
 
@@ -313,7 +314,7 @@ bool LichessAPI::parseGameFullEvent(const String& json, LichessGameState& state)
   JsonDocument doc;
   DeserializationError error = deserializeJson(doc, json);
   if (error) {
-    Serial.println("Lichess: JSON parse error in parseGameFullEvent");
+    webLog.println("Lichess: JSON parse error in parseGameFullEvent");
     return false;
   }
 
@@ -407,11 +408,11 @@ bool LichessAPI::makeMove(const String& gameId, const String& move) {
   }
 
   if (doc.containsKey("ok") && doc["ok"].as<bool>()) {
-    Serial.println("Lichess: Move sent successfully: " + move);
+    webLog.println("Lichess: Move sent successfully: " + move);
     return true;
   }
 
-  Serial.println("Lichess: Move failed: " + response);
+  webLog.println("Lichess: Move failed: " + response);
   return false;
 }
 

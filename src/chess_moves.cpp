@@ -2,16 +2,17 @@
 #include "chess_utils.h"
 #include "led_colors.h"
 #include "move_history.h"
+#include "web_logger.h"
 #include "wifi_manager_esp32.h"
 #include <Arduino.h>
 
 ChessMoves::ChessMoves(BoardDriver* bd, ChessEngine* ce, WiFiManagerESP32* wm, MoveHistory* mh) : ChessGame(bd, ce, wm, mh) {}
 
 void ChessMoves::begin() {
-  Serial.println("=== Starting Chess Moves Mode ===");
+  webLog.println("=== Starting Chess Moves Mode ===");
   initializeBoard();
   if (moveHistory->hasLiveGame()) {
-    Serial.println("Resuming live game...");
+    webLog.println("Resuming live game...");
     replaying = true;
     moveHistory->replayIntoGame(this);
     replaying = false;

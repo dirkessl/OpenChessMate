@@ -1,5 +1,6 @@
 #include "chess_utils.h"
 #include "chess_engine.h"
+#include "web_logger.h"
 
 extern "C" {
 #include "nvs_flash.h"
@@ -196,7 +197,7 @@ void ChessUtils::fenToBoard(const String& fen, char board[8][8], char& currentTu
 }
 
 void ChessUtils::printBoard(const char board[8][8]) {
-  Serial.println("====== BOARD ======");
+  webLog.println("====== BOARD ======");
   for (int row = 0; row < 8; row++) {
     String rowStr = String(8 - row) + " ";
     for (int col = 0; col < 8; col++) {
@@ -204,10 +205,10 @@ void ChessUtils::printBoard(const char board[8][8]) {
       rowStr += (piece == ' ') ? String(". ") : String(piece) + " ";
     }
     rowStr += " " + String(8 - row);
-    Serial.println(rowStr);
+    webLog.println(rowStr);
   }
-  Serial.println("  a b c d e f g h");
-  Serial.println("===================");
+  webLog.println("  a b c d e f g h");
+  webLog.println("===================");
 }
 
 float ChessUtils::evaluatePosition(const char board[8][8]) {
@@ -305,13 +306,13 @@ bool ChessUtils::parseUCIMove(const String& move, int& fromRow, int& fromCol, in
 bool ChessUtils::ensureNvsInitialized() {
   esp_err_t err = nvs_flash_init();
   if (err != ESP_OK) {
-    Serial.printf("[NVS] Init failed with error 0x%x, erasing and retrying...\n", err);
+    webLog.printf("[NVS] Init failed with error 0x%x, erasing and retrying...\n", err);
     nvs_flash_erase();
     err = nvs_flash_init();
     if (err == ESP_OK) {
-      Serial.println("[NVS] Successfully initialized after erase");
+      webLog.println("[NVS] Successfully initialized after erase");
     } else {
-      Serial.printf("[NVS] Still failed after erase: 0x%x\n", err);
+      webLog.printf("[NVS] Still failed after erase: 0x%x\n", err);
     }
   }
   return err == ESP_OK;

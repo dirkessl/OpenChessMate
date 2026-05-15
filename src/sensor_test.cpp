@@ -1,5 +1,6 @@
 #include "sensor_test.h"
 #include "chess_utils.h"
+#include "web_logger.h"
 #include <Arduino.h>
 
 SensorTest::SensorTest(BoardDriver* bd) : boardDriver(bd), complete(false) {
@@ -7,7 +8,7 @@ SensorTest::SensorTest(BoardDriver* bd) : boardDriver(bd), complete(false) {
 }
 
 void SensorTest::begin() {
-  Serial.println("Sensor Test: Visit all squares with a piece to complete the test!");
+  webLog.println("Sensor Test: Visit all squares with a piece to complete the test!");
   complete = false;
   memset(visited, false, sizeof(visited));
   boardDriver->clearAllLEDs();
@@ -33,7 +34,7 @@ void SensorTest::update() {
   boardDriver->showLEDs();
   if (visitedCount == 64) {
     complete = true;
-    Serial.println("Sensor Test complete! All squares verified");
+    webLog.println("Sensor Test complete! All squares verified");
     boardDriver->fireworkAnimation();
   }
 }

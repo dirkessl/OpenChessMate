@@ -1,6 +1,7 @@
 #include "chess_lichess.h"
 #include "chess_utils.h"
 #include "led_colors.h"
+#include "web_logger.h"
 #include "wifi_manager_esp32.h"
 #include <Arduino.h>
 
@@ -17,18 +18,18 @@ ChessLichess::ChessLichess(BoardDriver* bd, ChessEngine* ce, WiFiManagerESP32* w
       lastPollTime(0) {}
 
 void ChessLichess::begin() {
-  Serial.println("=== Starting Lichess Mode ===");
+  webLog.println("=== Starting Lichess Mode ===");
 
   if (!wifiManager->ensureConnected()) {
-    Serial.println("Failed to connect to WiFi. Lichess mode unavailable.");
+    webLog.println("Failed to connect to WiFi. Lichess mode unavailable.");
     boardDriver->flashBoardAnimation(LedColors::Red);
     gameOver = true;
     return;
   }
 
   if (lichessConfig.apiToken.length() == 0) {
-    Serial.println("No Lichess API token configured!");
-    Serial.println("Please set your Lichess API token via the web interface.");
+    webLog.println("No Lichess API token configured!");
+    webLog.println("Please set your Lichess API token via the web interface.");
     boardDriver->flashBoardAnimation(LedColors::Red);
     gameOver = true;
     return;
@@ -37,22 +38,22 @@ void ChessLichess::begin() {
   String username;
   LichessAPI::setToken(lichessConfig.apiToken);
   if (!LichessAPI::verifyToken(username)) {
-    Serial.println("Invalid Lichess API token!");
+    webLog.println("Invalid Lichess API token!");
     boardDriver->flashBoardAnimation(LedColors::Red);
     gameOver = true;
     return;
   }
 
-  Serial.println("Logged in as: " + username);
-  Serial.println("Waiting for a Lichess game to start...");
-  Serial.println("Start a game on lichess.org or accept a challenge!");
-  Serial.println("====================================");
+  webLog.println("Logged in as: " + username);
+  webLog.println("Waiting for a Lichess game to start...");
+  webLog.println("Start a game on lichess.org or accept a challenge!");
+  webLog.println("====================================");
 
   waitForLichessGame();
 }
 
 void ChessLichess::waitForLichessGame() {
-  Serial.println("Searching for active Lichess games...");
+  webLog.println("Searching for active Lichess games...");
   std::atomic<bool>* stopAnimation = boardDriver->startWaitingAnimation();
   LichessEvent event;
   event.type = LichessEventType::UNKNOWN;
@@ -67,9 +68,9 @@ void ChessLichess::waitForLichessGame() {
   currentGameId = event.gameId;
   myColor = event.myColor;
 
-  Serial.println("=== Game Found! ===");
-  Serial.println("Game ID: " + currentGameId);
-  Serial.printf("Playing as: %s\n", myColor == 'w' ? "White" : "Black");
+  webLog.println("=== Game Found! ===");
+  webLog.println("Game ID: " + currentGameId);
+  webLog.printf("Playing as: %s\n", myColor == 'w' ? "White" : "Black");
 
   // Get full game state
   LichessGameState state;
@@ -78,10 +79,10 @@ void ChessLichess::waitForLichessGame() {
   state.fen = event.fen; // Use FEN from initial event as fallback
 
   if (LichessAPI::pollGameStream(currentGameId, state)) {
-    Serial.println("Got full game state from stream");
+    webLog.println("Got full game state from stream");
   } else {
     // Fallback: Use data from the initial event
-    Serial.println("Warning: Could not get full game state, using initial event data");
+    webLog.println("Warning: Could not get full game state, using initial event data");
     state.gameStarted = true;
     state.gameEnded = false;
     state.lastMove = "";
@@ -106,7 +107,7 @@ void ChessLichess::waitForLichessGame() {
   // Wait for board setup with the current position
   waitForBoardSetup(board);
 
-  Serial.println("Board synchronized! Game starting...");
+  webLog.println("Board synchronized! Game starting...");
   wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
 }
 
@@ -120,12 +121,12 @@ void ChessLichess::syncBoardWithLichess(const LichessGameState& state) {
   if (state.fen.length() > 0 && state.fen != "startpos")
     setBoardStateFromFEN(state.fen);
   else
-    Serial.println("No FEN provided, assuming starting position");
+    webLog.println("No FEN provided, assuming starting position");
 
   lastKnownMoves = "";
   currentTurn = state.isMyTurn ? myColor : (myColor == 'w' ? 'b' : 'w');
 
-  Serial.printf("My color: %s, Is my turn: %s\n", myColor == 'w' ? "White" : "Black", state.isMyTurn ? "Yes" : "No");
+  webLog.printf("My color: %s, Is my turn: %s\n", myColor == 'w' ? "White" : "Black", state.isMyTurn ? "Yes" : "No");
 }
 
 void ChessLichess::update() {
@@ -173,9 +174,9 @@ void ChessLichess::update() {
   state.gameId = currentGameId;
   if (LichessAPI::pollGameStream(currentGameId, state)) {
     if (state.gameEnded) {
-      Serial.println("Game ended! Status: " + state.status);
+      webLog.println("Game ended! Status: " + state.status);
       if (state.winner.length() > 0)
-        Serial.println("Winner: " + state.winner);
+        webLog.println("Winner: " + state.winner);
       if (stopAnimation) {
         stopAnimation->store(true);
         stopAnimation = nullptr;
@@ -192,20 +193,20 @@ void ChessLichess::update() {
       lastKnownMoves = state.lastMove;
       // Skip if this is the move we just sent (avoid processing our own move)
       if (state.lastMove == lastSentMove) {
-        Serial.println("Skipping own move echo: " + state.lastMove);
+        webLog.println("Skipping own move echo: " + state.lastMove);
       } else {
-        Serial.println("Lichess move received: " + state.lastMove);
+        webLog.println("Lichess move received: " + state.lastMove);
         if (ChessUtils::parseUCIMove(state.lastMove, fromRow, fromCol, toRow, toCol, promotion)) {
           if (stopAnimation) {
             stopAnimation->store(true);
             stopAnimation = nullptr;
           }
-          Serial.printf("Lichess UCI move: %s = (%d,%d) -> (%d,%d)%s%c\n", state.lastMove.c_str(), fromRow, fromCol, toRow, toCol, promotion == ' ' ? "" : " Promotion to: ", promotion);
+          webLog.printf("Lichess UCI move: %s = (%d,%d) -> (%d,%d)%s%c\n", state.lastMove.c_str(), fromRow, fromCol, toRow, toCol, promotion == ' ' ? "" : " Promotion to: ", promotion);
           applyMove(fromRow, fromCol, toRow, toCol, promotion, true);
           updateGameStatus();
           wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
         } else {
-          Serial.println("Failed to parse Lichess UCI move: " + state.lastMove);
+          webLog.println("Failed to parse Lichess UCI move: " + state.lastMove);
         }
       }
     }
@@ -215,7 +216,7 @@ void ChessLichess::update() {
 
 void ChessLichess::sendMoveToLichess(int fromRow, int fromCol, int toRow, int toCol, char promotion) {
   String uciMove = ChessUtils::toUCIMove(fromRow, fromCol, toRow, toCol, promotion);
-  Serial.println("Sending move to Lichess: " + uciMove);
+  webLog.println("Sending move to Lichess: " + uciMove);
 
   // Track this move so we don't process it as a remote move when it echoes back
   lastSentMove = uciMove;
@@ -229,14 +230,14 @@ void ChessLichess::sendMoveToLichess(int fromRow, int fromCol, int toRow, int to
       sent = true;
       break;
     } else {
-      Serial.printf("ERROR: Failed to send move to Lichess! Attempt %d/%d\n", attempt + 1, maxRetries);
+      webLog.printf("ERROR: Failed to send move to Lichess! Attempt %d/%d\n", attempt + 1, maxRetries);
       delay(500);
       attempt++;
     }
   }
   if (!sent) {
     gameOver = true;
-    Serial.println("ERROR: All attempts to send move to Lichess failed, ending game!");
+    webLog.println("ERROR: All attempts to send move to Lichess failed, ending game!");
     boardDriver->flashBoardAnimation(LedColors::Red);
     lastSentMove = "";
   }
