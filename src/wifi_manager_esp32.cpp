@@ -3,6 +3,7 @@
 #include "chess_utils.h"
 #include "move_history.h"
 #include "version.h"
+#include "web_logger.h"
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <Preferences.h>
@@ -109,6 +110,12 @@ void WiFiManagerESP32::begin() {
   server.on("/chessconnect", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(404, "text/plain", "Not Found"); });
   server.on("/chessconnect", HTTP_POST, [this](AsyncWebServerRequest* request) { request->send(404, "text/plain", "Not Found"); });
 #endif
+  // Serial logs streaming (Server-Sent Events) + reboot
+  webLog.begin(server);
+  server.on("/reboot", HTTP_POST, [](AsyncWebServerRequest* request) {
+    request->send(200, "text/plain", "Rebooting...");
+    xTaskCreate([](void*) { delay(500); ESP.restart(); vTaskDelete(NULL); }, "reboot", 2048, NULL, 1, NULL);
+  });
   // Serve sound files directly (no gzip variant exists, avoids .gz probe errors)
   server.serveStatic("/sounds/", LittleFS, "/sounds/").setTryGzipFirst(false);
   // Serve piece SVGs with aggressive caching, otherwise chrome doesn't actually use the cached versions

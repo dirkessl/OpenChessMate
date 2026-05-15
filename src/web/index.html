@@ -267,7 +267,7 @@
                     </div>
 
                     <div class="ble-status" id="ble-status" style="margin: 12px 0; font-size: 14px;">
-                        <span id="ble-running-status">Checking...</span>
+                        <span id="ble-running-status">● Checking...</span>
                     </div>
 
                     <div style="display: flex; gap: 10px;">
@@ -340,6 +340,30 @@
                         </div>
                         <span id="ota-progress-text">Uploading...</span>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logs Section -->
+        <div class="settings-section" id="logs-section">
+            <div class="section-header" onclick="toggleSection('logs')">
+                <span class="section-icon" id="logs-icon">▶</span>
+                <h3>Logs</h3>
+            </div>
+            <div class="section-content" id="logs-content">
+                <div class="logs-toolbar">
+                    <span id="logs-status" class="logs-status">● Disconnected</span>
+                    <div class="logs-toolbar-buttons">
+                        <button type="button" id="logsCopyBtn" class="logs-btn"
+                            title="Copy logs to clipboard">Copy</button>
+                        <button type="button" id="logsFullscreenBtn" class="logs-btn"
+                            title="Toggle fullscreen">⛶</button>
+                        <button type="button" id="logsRebootBtn" class="logs-btn logs-btn-danger"
+                            title="Reboot the ESP32">Reboot</button>
+                    </div>
+                </div>
+                <div class="logs-viewport" id="logsViewport">
+                    <pre id="logsView" class="logs-view"></pre>
                 </div>
             </div>
         </div>
@@ -428,7 +452,8 @@
             board: false,
             hwconfig: false,
             chessconnect: false,
-            ota: false
+            ota: false,
+            logs: false
         };
 
         function toggleSection(name) {
@@ -438,6 +463,7 @@
                     sectionStates[key] = false;
                     document.getElementById(key + '-content').classList.remove('expanded');
                     document.getElementById(key + '-icon').textContent = '▶';
+                    if (key === 'logs') logsDisconnect();
                 }
             }
 
@@ -454,9 +480,12 @@
                 setTimeout(() => {
                     content.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 500);
+
+                if (name === 'logs') logsConnect();
             } else {
                 content.classList.remove('expanded');
                 icon.textContent = '▶';
+                if (name === 'logs') logsDisconnect();
             }
         }
 
@@ -1135,6 +1164,133 @@
             xhr.setRequestHeader('X-File-Name', file.name);
             xhr.send(file);
         }
+
+        // ========== Logs (Server-Sent Events) ==========
+
+        let logsEventSource = null, logsAutoFollow = true, logsLastEventAt = 0;
+        let logsHeartbeatTimer = null, logsReconnectTimer = null;
+        const LOGS_MAX_LINES = 1000;
+
+        function logsSetStatus(text, color) {
+            const el = document.getElementById('logs-status');
+            el.textContent = text;
+            el.style.color = color || '#888';
+        }
+
+        function logsAppend(line) {
+            const view = document.getElementById('logsView');
+            const viewport = document.getElementById('logsViewport');
+            const node = document.createTextNode(line + '\n');
+            view.appendChild(node);
+            while (view.childNodes.length > LOGS_MAX_LINES) {
+                view.removeChild(view.firstChild);
+            }
+            if (logsAutoFollow) {
+                viewport.scrollTop = viewport.scrollHeight;
+            }
+        }
+
+        function logsClearTimers() {
+            clearInterval(logsHeartbeatTimer);
+            clearTimeout(logsReconnectTimer);
+            logsHeartbeatTimer = logsReconnectTimer = null;
+        }
+
+        function logsRestart(es) {
+            if (logsEventSource !== es) return;
+            logsSetStatus('● Connecting...');
+            logsEventSource = null;
+            es.close();
+            logsClearTimers();
+            logsReconnectTimer = setTimeout(() => {
+                logsReconnectTimer = null;
+                if (sectionStates.logs) logsConnect();
+            }, 250);
+        }
+
+        function logsConnect() {
+            if (logsEventSource) return;
+            clearTimeout(logsReconnectTimer);
+            logsReconnectTimer = null;
+            logsSetStatus('● Connecting...');
+            const es = logsEventSource = new EventSource('/logs/stream');
+            const active = () => logsEventSource === es && (logsLastEventAt = Date.now(), true);
+            logsLastEventAt = Date.now();
+            logsHeartbeatTimer = setInterval(() => Date.now() - logsLastEventAt > 3000 && logsRestart(es), 500);
+            es.addEventListener('open', () => active() && logsSetStatus('● Connected', '#4CAF50'));
+            es.addEventListener('clear', () => active() && (document.getElementById('logsView').textContent = ''));
+            es.addEventListener('error', () => {
+                if (logsEventSource !== es) return;
+                es.readyState === EventSource.CLOSED ? logsRestart(es) : logsSetStatus('● Connecting...');
+            });
+            es.addEventListener('heartbeat', () => { active(); });
+            es.addEventListener('log', e => active() && logsAppend(e.data));
+        }
+
+        function logsDisconnect() {
+            if (logsEventSource) logsEventSource.close();
+            logsEventSource = null;
+            logsClearTimers();
+            logsSetStatus('● Disconnected', '#f44336');
+        }
+
+        // Auto-follow scroll: engage when user is at the bottom, disengage when scrolled up
+        document.getElementById('logsViewport').addEventListener('scroll', function () {
+            const distFromBottom = this.scrollHeight - this.scrollTop - this.clientHeight;
+            logsAutoFollow = distFromBottom < 8;
+        });
+
+        document.getElementById('logsCopyBtn').addEventListener('click', async function () {
+            const text = document.getElementById('logsView').textContent;
+            try {
+                await navigator.clipboard.writeText(text);
+                const orig = this.textContent;
+                this.textContent = 'Copied!';
+                setTimeout(() => { this.textContent = orig; }, 1200);
+            } catch (e) {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (_) { }
+                document.body.removeChild(ta);
+            }
+        });
+
+        function logsSetFullscreen(on) {
+            const section = document.getElementById('logs-section');
+            section.classList.toggle('logs-fs', on);
+            document.body.classList.toggle('logs-fs-body', on);
+            const viewport = document.getElementById('logsViewport');
+            requestAnimationFrame(() => {
+                if (logsAutoFollow) viewport.scrollTop = viewport.scrollHeight;
+            });
+        }
+
+        document.getElementById('logsFullscreenBtn').addEventListener('click', function () {
+            const section = document.getElementById('logs-section');
+            logsSetFullscreen(!section.classList.contains('logs-fs'));
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && document.getElementById('logs-section').classList.contains('logs-fs')) {
+                logsSetFullscreen(false);
+            }
+        });
+
+        document.getElementById('logsRebootBtn').addEventListener('click', async function () {
+            if (!await showConfirm('Reboot the ESP32 now?')) return;
+            this.disabled = true;
+            const orig = this.textContent;
+            this.textContent = 'Rebooting...';
+            try {
+                await fetch('/reboot', { method: 'POST' });
+            } catch (_) { }
+            logsSetStatus('● Rebooting...');
+            setTimeout(() => { this.disabled = false; this.textContent = orig; }, 5000);
+        });
     </script>
 </body>
 
