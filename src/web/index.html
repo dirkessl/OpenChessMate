@@ -46,6 +46,64 @@
             </div>
         </div>
 
+        <!-- ChessConnect BLE Section -->
+        <div class="settings-section" id="chessconnect-section">
+            <div class="section-header" onclick="toggleSection('chessconnect')">
+                <span class="section-icon" id="chessconnect-icon">▶</span>
+                <h3>ChessConnect</h3>
+            </div>
+            <div class="section-content" id="chessconnect-content">
+                <p class="section-description">
+                    Emulate a Bluetooth Low Energy (BLE) chess board to play on
+                    <a href="https://chessconnect.de" target="_blank" style="color: #ec8703;">
+                        ChessConnect
+                    </a>
+                </p>
+                <div id="chessconnect-controls" style="display: none;">
+                    <div class="toggle-row toggle-row-divider">
+                        <div>
+                            <label class="toggle-label" for="bleAutoStart">Automatic Start</label>
+                            <p class="toggle-description">
+                                Automatically start the BLE server on boot
+                            </p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="bleAutoStart">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bleBoard">Board to Emulate</label>
+                        <select id="bleBoard"></select>
+                    </div>
+
+                    <div class="ble-status" id="ble-status" style="margin: 12px 0; font-size: 14px;">
+                        <span id="ble-running-status">● Checking...</span>
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button type="button" id="bleStartBtn" class="button"
+                            style="background-color: #4CAF50; flex: 1;">
+                            Start BLE
+                        </button>
+                        <button type="button" id="bleStopBtn" class="button"
+                            style="background-color: #f44336; flex: 1;">
+                            Stop BLE
+                        </button>
+                    </div>
+                </div>
+                <div id="chessconnect-unsupported">
+                    <p class="section-description" style="color: #f44336">
+                        To enable this feature, flash a precompiled firmware using the
+                        <a href="https://joojoooo.github.io/OpenChess/flash.html" target="_blank" style="color: #fff;">
+                            Web Flasher
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!-- Lichess Settings Section -->
         <div class="settings-section">
             <div class="section-header" onclick="toggleSection('lichess')">
@@ -231,64 +289,6 @@
 
                     <input type="submit" style="background-color: #4CAF50;" value="Save & Reboot">
                 </form>
-            </div>
-        </div>
-
-        <!-- ChessConnect BLE Section -->
-        <div class="settings-section" id="chessconnect-section">
-            <div class="section-header" onclick="toggleSection('chessconnect')">
-                <span class="section-icon" id="chessconnect-icon">▶</span>
-                <h3>ChessConnect</h3>
-            </div>
-            <div class="section-content" id="chessconnect-content">
-                <p class="section-description">
-                    Emulate a Bluetooth Low Energy (BLE) chess board to play on
-                    <a href="https://chessconnect.de" target="_blank" style="color: #ec8703;">
-                        ChessConnect
-                    </a>
-                </p>
-                <div id="chessconnect-controls" style="display: none;">
-                    <div class="toggle-row toggle-row-divider">
-                        <div>
-                            <label class="toggle-label" for="bleAutoStart">Automatic Start</label>
-                            <p class="toggle-description">
-                                Automatically start the BLE server on boot
-                            </p>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="bleAutoStart">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bleBoard">Board to Emulate</label>
-                        <select id="bleBoard"></select>
-                    </div>
-
-                    <div class="ble-status" id="ble-status" style="margin: 12px 0; font-size: 14px;">
-                        <span id="ble-running-status">● Checking...</span>
-                    </div>
-
-                    <div style="display: flex; gap: 10px;">
-                        <button type="button" id="bleStartBtn" class="button"
-                            style="background-color: #4CAF50; flex: 1;">
-                            Start BLE
-                        </button>
-                        <button type="button" id="bleStopBtn" class="button"
-                            style="background-color: #f44336; flex: 1;">
-                            Stop BLE
-                        </button>
-                    </div>
-                </div>
-                <div id="chessconnect-unsupported">
-                    <p class="section-description" style="color: #f44336">
-                        To enable this feature, flash a precompiled firmware using the
-                        <a href="https://joojoooo.github.io/OpenChess/flash.html" target="_blank" style="color: #fff;">
-                            Web Flasher
-                        </a>
-                    </p>
-                </div>
             </div>
         </div>
 
