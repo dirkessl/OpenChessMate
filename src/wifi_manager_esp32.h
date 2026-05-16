@@ -76,6 +76,7 @@ class WiFiManagerESP32 {
   int profileCount;
   bool scanAllChannels;
   int connectedProfileIndex; // Index of currently connected profile, or -1
+  bool wifiRadioDisabled;    // True after the user disables WiFi until the next boot
 
   // Scan results (populated by deferred scan task)
   ScannedNetwork* scanResults;
@@ -149,6 +150,7 @@ class WiFiManagerESP32 {
   bool connectToSavedProfile(); // Try all saved profiles, promote winner; returns true if connected
   void startAPFallback();
   void performScan();
+  void disableWiFiRadio();
 
   // Web interface methods
   String getWiFiInfoJSON();
@@ -159,6 +161,7 @@ class WiFiManagerESP32 {
   void handleBoardEditSuccess(AsyncWebServerRequest* request);
   void handlePromotion(AsyncWebServerRequest* request);
   void handleConnectWiFi(AsyncWebServerRequest* request);
+  void handleDisableWiFiRadio(AsyncWebServerRequest* request);
   void handleGameSelection(AsyncWebServerRequest* request);
   void handleSaveLichessToken(AsyncWebServerRequest* request);
   void handleBoardSettings(AsyncWebServerRequest* request);

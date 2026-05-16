@@ -73,6 +73,19 @@
                         </label>
                     </div>
 
+                    <div class="toggle-row toggle-row-divider">
+                        <div>
+                            <label class="toggle-label" for="disableWifiRadioBtn">WiFi Radio</label>
+                            <p class="toggle-description">
+                                Turn off until next boot to make Bluetooth more reliable
+                            </p>
+                        </div>
+                        <button type="button" id="disableWifiRadioBtn" class="button"
+                            style="background-color: #f44336; width: auto; min-width: 92px; padding: 7px 14px; font-size: 14px; border-radius: 14px; margin: 0; flex: 0 0 auto;">
+                            Disable
+                        </button>
+                    </div>
+
                     <div class="form-group">
                         <label for="bleBoard">Board to Emulate</label>
                         <select id="bleBoard"></select>
@@ -822,6 +835,28 @@
             }
             this.textContent = 'Stop BLE';
             updateChessConnectInfo();
+        });
+
+        document.getElementById('disableWifiRadioBtn').addEventListener('click', async function () {
+            if (!await showConfirm("Disable the ESP32 WiFi radio? You won't be able to access the WebUI until next boot")) return;
+            const btn = this;
+            btn.disabled = true;
+            btn.textContent = 'Disabling...';
+            try {
+                const r = await fetch('/disable-wifi-radio', { method: 'POST' });
+                const msg = await r.text();
+                if (r.ok) {
+                    btn.textContent = 'Disabled';
+                    showAlert(msg);
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = 'Disable';
+                    showAlert(msg || 'Error disabling WiFi radio');
+                }
+            } catch (e) {
+                btn.textContent = 'Disabled';
+                showAlert('WiFi radio disable request sent. Reboot the ESP32 to access the WebUI again.');
+            }
         });
 
         // Board settings functions

@@ -16,7 +16,7 @@ static const IPAddress AP_IP(200, 200, 200, 1);
 static const IPAddress AP_GATEWAY(200, 200, 200, 1);
 static const IPAddress AP_SUBNET(255, 255, 255, 0);
 
-WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), boardEvents(nullptr), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), hasPendingResume(false), pendingResignColor('?'), promotion{}, boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
+WiFiManagerESP32::WiFiManagerESP32(BoardDriver* bd, MoveHistory* mh) : boardDriver(bd), moveHistory(mh), server(HTTP_PORT), boardEvents(nullptr), gameMode("0"), lichessToken(""), botConfig(), scanAllChannels(false), profileCount(0), connectedProfileIndex(-1), wifiRadioDisabled(false), scanResults(nullptr), scanResultCount(0), currentFen(INITIAL_FEN), hasPendingEdit(false), hasPendingResign(false), hasPendingDraw(false), hasPendingResume(false), pendingResignColor('?'), promotion{}, boardEvaluation(0.0f), otaUpdater(bd), autoOtaEnabled(false), otaChecked(false) {
   promotion.reset();
   pendingWiFi.reset();
 }
@@ -92,6 +92,7 @@ void WiFiManagerESP32::begin() {
   server.on("/draw", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleDraw(request); });
   server.on("/wifi", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(200, "application/json", this->getWiFiInfoJSON()); });
   server.on("/wifi", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleConnectWiFi(request); });
+  server.on("/disable-wifi-radio", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleDisableWiFiRadio(request); });
   server.on("/gameselect", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleGameSelection(request); });
   server.on("/lichess", HTTP_GET, [this](AsyncWebServerRequest* request) { request->send(200, "application/json", this->getLichessInfoJSON()); });
   server.on("/lichess", HTTP_POST, [this](AsyncWebServerRequest* request) { this->handleSaveLichessToken(request); });
@@ -246,6 +247,8 @@ void WiFiManagerESP32::handleDraw(AsyncWebServerRequest* request) {
 }
 
 void WiFiManagerESP32::handleConnectWiFi(AsyncWebServerRequest* request) {
+  if (wifiRadioDisabled) return;
+
   // Handle scanAllChannels toggle
   if (request->hasArg("scanAllChannels")) {
     bool newScanAll = request->arg("scanAllChannels") == "1";
@@ -318,6 +321,35 @@ void WiFiManagerESP32::handleConnectWiFi(AsyncWebServerRequest* request) {
   }
 
   request->send(400, "text/plain", "Missing or invalid parameters");
+}
+
+void WiFiManagerESP32::handleDisableWiFiRadio(AsyncWebServerRequest* request) {
+  request->send(200, "text/plain", "WiFi radio disabling now. The WebUI will be unavailable until the ESP32 boots again.");
+
+  xTaskCreate(
+      [](void* param) {
+        delay(500);
+        static_cast<WiFiManagerESP32*>(param)->disableWiFiRadio();
+        vTaskDelete(nullptr);
+      },
+      "disableWiFiRadioTask", 2048, this, 3, nullptr);
+}
+
+void WiFiManagerESP32::disableWiFiRadio() {
+  webLog.println("Disabling ESP32 WiFi radio until next boot...");
+  wifiRadioDisabled = true;
+  pendingWiFi.action = NONE;
+  connectedProfileIndex = -1;
+
+  stopCaptivePortal();
+  MDNS.end();
+  WiFi.scanDelete();
+  WiFi.setAutoReconnect(false);
+  WiFi.disconnect(true, false);
+  WiFi.softAPdisconnect(true);
+  WiFi.mode(WIFI_OFF);
+
+  webLog.println("WiFi radio disabled. Reboot the ESP32 to restore WebUI access.");
 }
 
 void WiFiManagerESP32::handleGameSelection(AsyncWebServerRequest* request) {
@@ -596,6 +628,8 @@ void WiFiManagerESP32::clearPromotion() {
 }
 
 void WiFiManagerESP32::checkPendingWiFi() {
+  if (wifiRadioDisabled) return;
+
   // Auto-reconnect: if we were connected to a network and lost it, try to reconnect
   if (connectedProfileIndex >= 0 && WiFi.status() != WL_CONNECTED) {
     webLog.println("WiFi connection lost, attempting reconnect...");
@@ -704,6 +738,8 @@ void WiFiManagerESP32::checkPendingWiFi() {
 }
 
 bool WiFiManagerESP32::ensureConnected() {
+  if (wifiRadioDisabled) return false;
+
   if (WiFi.status() == WL_CONNECTED) return true;
   webLog.println("WiFi not connected, attempting reconnect...");
   if (connectToSavedProfile()) return true;
@@ -1030,6 +1066,8 @@ void WiFiManagerESP32::promoteProfile(int index) {
 }
 
 bool WiFiManagerESP32::waitForConnection(int maxAttempts) {
+  if (wifiRadioDisabled) return false;
+
   for (int i = 0; i < maxAttempts; i++) {
     boardDriver->showConnectingAnimation();
     wl_status_t st = WiFi.status();
@@ -1041,6 +1079,8 @@ bool WiFiManagerESP32::waitForConnection(int maxAttempts) {
 }
 
 bool WiFiManagerESP32::tryConnect(const String& ssid, const String& password, const uint8_t* bssid, uint8_t channel) {
+  if (wifiRadioDisabled) return false;
+
   bool isFast = (bssid != nullptr && channel > 0);
   if (isFast)
     webLog.printf("  Fast connect: SSID=%s, Password=%s, Channel=%d, BSSID=%02X:%02X:%02X:%02X:%02X:%02X\n", ssid.c_str(), password.c_str(), channel, bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
@@ -1113,6 +1153,8 @@ bool WiFiManagerESP32::tryConnectProfile(int index) {
 }
 
 bool WiFiManagerESP32::connectToSavedProfile() {
+  if (wifiRadioDisabled) return false;
+
   for (int i = 0; i < profileCount; i++) {
     if (tryConnectProfile(i)) {
       promoteProfile(i);
@@ -1124,6 +1166,8 @@ bool WiFiManagerESP32::connectToSavedProfile() {
 }
 
 void WiFiManagerESP32::startAPFallback() {
+  if (wifiRadioDisabled) return;
+
   webLog.println("Starting AP fallback...");
   WiFi.mode(WIFI_AP);
   if (!WiFi.softAPConfig(AP_IP, AP_GATEWAY, AP_SUBNET))
@@ -1172,6 +1216,8 @@ void WiFiManagerESP32::pendingWiFiBackgroundTask(void* param) {
 }
 
 void WiFiManagerESP32::performScan() {
+  if (wifiRadioDisabled) return;
+
   static bool scanInProgress = false;
   if (scanInProgress) return;
   scanInProgress = true;
