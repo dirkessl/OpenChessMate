@@ -12,32 +12,537 @@
 </head>
 
 <body>
-
     <!-- Sidebar Navigation -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h2>♟ OpenChess</h2>
             <span class="sidebar-subtitle">Build Guide</span>
         </div>
-        <ul id="nav-links" class="nav-links"></ul>
+        <ul id="nav-links" class="nav-links">
+            <li><a href="#hero" class="active">Overview</a></li>
+            <li><a href="#materials">Materials</a></li>
+            <li><a href="#schematics">Schematics</a></li>
+            <li><a href="#pcb-overview">PCB Overview</a></li>
+            <li><a href="#led-strip">LED Strip</a></li>
+            <li><a href="#sensors">Sensor Placement</a></li>
+            <li><a href="#wiring-gnd">Wiring - GND</a></li>
+            <li><a href="#wiring-led">Wiring - LED Strip</a></li>
+            <li><a href="#wiring-rows">Wiring - Rows</a></li>
+            <li><a href="#wiring-5v">Wiring - 5V</a></li>
+            <li><a href="#plastic-pcb-done">Plastic PCB Done</a></li>
+            <li><a href="#chess-pieces">Chess Pieces</a></li>
+            <li><a href="#board-finishing">Board Finishing</a></li>
+            <li><a href="#main-pcb">Main PCB Connection</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#software">Software Setup</a></li>
+        </ul>
     </nav>
-
     <!-- Mobile top bar -->
-    <div id="mobile-topbar">
+    <header id="mobile-topbar">
         <button id="menu-toggle" aria-label="Toggle menu">☰</button>
         <span>♟ OpenChess Build Guide</span>
-    </div>
+    </header>
+    <!-- Main Content -->
+    <main id="content">
 
-    <!-- Main Content — built dynamically from content.json -->
-    <main id="content"></main>
+        <section id="hero" class="hero-section">
+            <div class="hero-text">
+                <h1>Build Your Own<br><span class="accent">Smart Chess Board</span></h1>
+                <p class="hero-description">A complete step-by-step guide to building an ESP32-powered chess board, 100% DIY, with LED move indicators, hall-effect piece detection, Stockfish AI, and Lichess online play. </p>
+                <a href="#materials" class="btn-primary">Get Started →</a>
+                <a href="https://github.com/joojoooo/OpenChess" target="_blank" class="btn-secondary">View on GitHub</a>
+            </div>
+            <div class="hero-image hero-media-pair">
+                <img src="./BuildGuide/video.gif" alt="OpenChess demo">
+                <div class="video-embed"><iframe width="560" height="315" src="https://www.youtube.com/embed/bYm5_dK6EnQ?start=29" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>
+            </div>
+        </section>
 
+        <section id="materials" class="section">
+            <h2 class="section-title">Materials Required</h2>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">🧱</div>
+                    <h3>Board + Plastic PCB</h3>
+                    <p>Print the board and plastic PCB from <a href="https://makerworld.com/en/models/1953392-openchess-plastic-pcb" target="_blank">MakerWorld</a></p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">🔧</div>
+                    <h3>ESP32 Dev Board</h3>
+                    <p>Any cheap ESP32 board - the brains of the chess board</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">💡</div>
+                    <h3>WS2812B LED Strip</h3>
+                    <p>30 LEDs/m, ~3 meters - lights up each square</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">📦</div>
+                    <h3>A3144 Hall Effect Sensors</h3>
+                    <p>64 pcs (TO-92 package) - one per square to detect pieces</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">🧲</div>
+                    <h3>Neodymium Magnets</h3>
+                    <p>8×4mm (32 pcs) or 8×2mm (64 pcs, stack 2) - embedded in chess pieces</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">💿</div>
+                    <h3>Iron Discs 12×1mm</h3>
+                    <p>64 pcs - placed under the board to hold pieces and spread magnetic field for reliable detection </p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">📦</div>
+                    <h3>74HC595 Shift Register</h3>
+                    <p>1 pc - drives the column scanning</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">🔌</div>
+                    <h3>USB-C Female Port</h3>
+                    <p>1 pc - for powering the board without having the ESP32 USB port hanging off the side</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">⚡</div>
+                    <h3>Resistors</h3>
+                    <p>8 pcs 10k Ohm - pull-up resistors for the hall effect sensors outputs + 8 pcs 1k Ohm - for the PNP transistors' base</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">↕️</div>
+                    <h3>Level Shifter (3.3V→5V)</h3>
+                    <p>4-channel - for LED data and shift register signals</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">🔀</div>
+                    <h3>PNP Transistors</h3>
+                    <p>8 pcs (2N3906, BC557, etc.) - for powering A3144 sensor columns from shift register</p>
+                </div>
+            </div>
+            <div class="info-box"><strong>Tools needed:</strong> Soldering iron, tape, glue, wire strippers, cutter, flush cutters, multimeter</div>
+        </section>
+
+        <section id="schematics" class="section">
+            <h2 class="section-title">Schematics</h2>
+            <p class="section-intro">These diagrams show how to connect all the electronic components together. Study and understand them before you start soldering.</p>
+            <div class="step-card">
+                <h3>Full Circuit</h3>
+                <p>Interactive circuit diagram. Zoom and pan using the scroll wheel and left/right click. Hover on a pin to show the label. <a href="https://app.cirkitdesigner.com/project/81018bb4-8fca-487b-82c5-0471690d4d98" target="_blank">View the project on Cirkit</a></p>
+                <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; max-height: 70vh;"><iframe src="https://app.cirkitdesigner.com/project/81018bb4-8fca-487b-82c5-0471690d4d98?view=interactive_preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>ESP32 + PCB Wiring</h3>
+                <p>Overview of the ESP32 connected to the main PCB - showing shift register signals, sensor rows/cols, LED data, pull-up resistors and power lines.</p>
+                <span class="image-container"><img src="./BuildGuide/schematics/ESP32_PCB.webp" alt="ESP32 PCB wiring schematic"></span>
+            </div>
+            <div class="step-card">
+                <h3>Plastic PCB Wiring</h3>
+                <p>DIY plastic PCB wiring, 3D model on <a href="https://makerworld.com/en/models/1953392-openchess-plastic-pcb" target="_blank">MakerWorld</a>.</p>
+                <span class="image-container"><img src="./BuildGuide/schematics/Plastic_PCB.webp" alt="Plastic PCB layout"></span>
+            </div>
+            <div class="step-card">
+                <h3>Transistor Circuits - Column Drivers</h3>
+                <p>PNP transistors should be used to switch 5V power to each sensor column via the shift register outputs. This prevents voltage drop and protects the shift register from overcurrent. If you don't use them, don't be surprised when the magnets aren't detected. I didn't use them for my own prototype because I just copied the original Concept-Bytes PCB 1:1, it luckily worked for me but as soon as other people started building it and having issues, that's when we realized the original PCB design is REALLY BAD !</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/schematics/PNP.webp" alt="PNP transistor circuit"><span class="image-caption">PNP Configuration</span></span>
+                    <span class="image-container"><img src="./BuildGuide/schematics/NPN.webp" alt="NPN transistor circuit"><span class="image-caption">NPN Configuration</span></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Original PCB Layout</h3>
+                <p>The original Concept-Bytes PCB design, useful if you want to connect the ESP32 to it</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/schematics/original_PCB.webp" alt="Original PCB schematic"></span>
+                    <span class="image-container"><img src="./BuildGuide/schematics/original_PCB_grid.webp" alt="Original PCB grid layout"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="pcb-overview" class="section">
+            <h2 class="section-title">Step 1 - PCB Overview</h2>
+            <p class="section-intro">Get familiar with the main PCB before we start on the board itself. This is where the ESP32, shift register, transistors, and connectors live. </p>
+            <div class="step-card">
+                <h3>PCB Bottom Side</h3>
+                <p>Build and test the PCB, following the schematics above. This is mine, notice it doesn't use transistors nor a level shifter, but they're highly recommended for reliability.</p>
+                <span class="image-container"><img src="./BuildGuide/PCB_BOTTOM.webp" alt="PCB bottom view"></span>
+            </div>
+            <div class="step-card">
+                <h3>PCB Top Side</h3>
+                <p>Top view of the PCB with and without the ESP32 mounted. GND and Shift Register QA are routed on this side.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/PCB_TOP.webp" alt="PCB top view"><span class="image-caption">PCB top view without ESP32</span></span>
+                    <span class="image-container"><img src="./BuildGuide/PCB_TOP_W_ESP32.webp" alt="PCB top view with ESP32"><span class="image-caption">PCB top view with ESP32 mounted</span></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>PCB Thickness Reference</h3>
+                <p>The default board can fit PCBs up to 12mm thick or 8mm when using the LED strip/wire spacers. Mine was 9mm and I used spacers so it wouldn't fit by 1mm. If your PCB doesn't fit, scale and move the "BorderScale" object part in BambuStudio to achieve the thickness you prefer.</p>
+                <span class="image-container"><img src="./BuildGuide/PCB_THICKNESS.webp" alt="PCB thickness"></span>
+            </div>
+        </section>
+
+        <section id="led-strip" class="section">
+            <h2 class="section-title">Step 2 - LED Strip Installation</h2>
+            <p class="section-intro">Glue the LEDs flush for even light diffusion without shadows. Cut the strip for easier installation, you'll reconnect it later and control it as one continuous strip in software. Test the strip with the ESP32 before cutting to ensure all LEDs work.</p>
+            <div class="step-card">
+                <h3>Cut the LED Strip</h3>
+                <p>Cut the WS2812B LED strip at every 8th LED along the marked cut lines. You'll have 8 segments of 8 LEDs each (64 LEDs total)</p>
+                <span class="image-container"><img src="./BuildGuide/CUT_LED_STRIP.webp" alt="Cutting LED strip"></span>
+            </div>
+            <div class="step-card">
+                <h3>Glue Strip End</h3>
+                <p>Remove the bi-adhesive backing and glue the first LED into position: there is a notch in the plastic PCB indicating where the LED center should be placed. Start from one corner and make sure the data arrow direction is correct.</p>
+                <span class="image-container"><img src="./BuildGuide/GLUE_1_END.webp" alt="Gluing first strip end"></span>
+            </div>
+            <div class="step-card">
+                <h3>Serpentine Routing</h3>
+                <p>Route the strips in a serpentine (zig-zag) pattern - each row reverses direction (critical for correct LED data signal flow). If you want to add spacers, now's the time to insert them between the strip and the board surface before pushing down on the glue.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/SERPENTINE_ROUTING_1.webp" alt="Serpentine routing step 1"></span>
+                    <span class="image-container"><img src="./BuildGuide/SERPENTINE_ROUTING_2.webp" alt="Serpentine routing step 2"></span>
+                    <span class="image-container"><img src="./BuildGuide/SERPENTINE_ROUTING_3.webp" alt="Serpentine routing step 3"></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Strip Installation Complete</h3>
+                <p>Front and back views of the completed LED strip installation.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/STRIP_DONE_FRONT.webp" alt="LED strip done - front"><span class="image-caption">Front view</span></span>
+                    <span class="image-container"><img src="./BuildGuide/STRIP_DONE_BACK.webp" alt="LED strip done - back"><span class="image-caption">Back view</span></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>With Spacers Installed</h3>
+                <p>The strip will have some slack which might cause accidental ungluing, to prevent it you can add spacers. Make sure your ESP32 PCB is thin enough to fit under the board with them in place.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/STRIP_DONE_FRONT_W_SPACER.webp" alt="Strip with spacer - front"><span class="image-caption">Front with spacers</span></span>
+                    <span class="image-container"><img src="./BuildGuide/STRIP_DONE_BACK_W_SPACER.webp" alt="Strip with spacer - back"><span class="image-caption">Back with spacers</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="sensors" class="section">
+            <h2 class="section-title">Step 3 - Sensor Placement</h2>
+            <p class="section-intro">Install the A3144 hall-effect sensors - one per square, right next to each LED. These will detect the magnets embedded in the chess pieces.</p>
+            <div class="step-card">
+                <h3>Apply Glue on Sensor Holder</h3>
+                <p>Put a small dab of glue where the sensor will sit.</p>
+                <span class="image-container"><img src="./BuildGuide/SENSOR_GLUE.webp" alt="Applying glue for sensor"></span>
+            </div>
+            <div class="step-card">
+                <h3>Place the Sensor</h3>
+                <p>Bend the A3144 sensor pins 90 degrees and place it on the holder as shown in the picture, pins should stick out the back.</p>
+                <span class="image-container"><img src="./BuildGuide/SENSOR_PLACE.webp" alt="Placing the sensor"></span>
+            </div>
+            <div class="step-card">
+                <h3>Push Sensor into Glue</h3>
+                <p>Press the sensor into the holder and glue.</p>
+                <span class="image-container"><img src="./BuildGuide/SENSOR_PUSH.webp" alt="Pushing sensor down"></span>
+            </div>
+            <div class="step-card">
+                <h3>Reinforce with More Glue</h3>
+                <p>Add more glue around the sensor to secure it firmly, you don't want it moving around when you start soldering wires to it.</p>
+                <span class="image-container"><img src="./BuildGuide/SENSOR_MORE_GLUE.webp" alt="Adding more glue to sensor"></span>
+            </div>
+        </section>
+
+        <section id="wiring-gnd" class="section">
+            <h2 class="section-title">Step 4 - Wiring: Ground (GND)</h2>
+            <p class="section-intro">Run ground wires through the board's wire guides, connecting sensor GND pins and LED strip GND together. This creates a common ground reference for the entire board, which we then can easily insulate to avoid shorts with other wires we add later.</p>
+            <div class="step-card">
+                <h3>Pass GND Wires Through Guides</h3>
+                <p>Thread the ground wires through the built-in wire guides on the board. These keep the wiring tidy and prevent shorts.</p>
+                <span class="image-container"><img src="./BuildGuide/PASS_GND_WIRES_THROUGH_GUIDES.webp" alt="Passing GND wires through guides"></span>
+            </div>
+            <div class="step-card">
+                <h3>Move Sensor GND Over Pin</h3>
+                <p>Bend the GND wires over the sensor's GND pins. This creates distance from the plastic and forces the wire to stay tight and close to the pin, making it easier to solder. Cut the sensor GND pins flush to keep things tidy.</p>
+                <span class="image-container"><img src="./BuildGuide/MOVE_SENSOR_GND_OVER_PIN.webp" alt="Moving sensor GND over pin"></span>
+            </div>
+            <div class="step-card">
+                <h3>LED Strip GND Connection</h3>
+                <p>Connect the LED strip GND pads to the same ground bus.</p>
+                <span class="image-container"><img src="./BuildGuide/LED_STRIP_GND.webp" alt="LED strip GND"></span>
+            </div>
+            <div class="step-card">
+                <h3>Solder LED Strip GND</h3>
+                <p>Solder GND wires to the LED strip GND pads.</p>
+                <span class="image-container"><img src="./BuildGuide/SOLDER_LED_STRIP_GND.webp" alt="Soldering LED strip GND"></span>
+            </div>
+            <div class="step-card">
+                <h3>Solder Sensor GND</h3>
+                <p>Solder the ground wires to each sensor's GND pin.</p>
+                <span class="image-container"><img src="./BuildGuide/SOLDER_SENSOR_GND.webp" alt="Soldering sensor GND"></span>
+            </div>
+            <div class="step-card">
+                <h3>Solder GND Wires</h3>
+                <p>Continue soldering all GND connections row by row until every sensor and LED strip segment shares a common ground.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/SOLDER_GND_WIRES.webp" alt="Soldering GND wires"><span class="image-caption">In progress</span></span>
+                    <span class="image-container"><img src="./BuildGuide/SOLDER_GND_WIRES_DONE.webp" alt="GND wires done"><span class="image-caption">Completed</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="wiring-led" class="section">
+            <h2 class="section-title">Step 5 - Wiring: LED Strip Data &amp; Power</h2>
+            <p class="section-intro">Connect the LED data and 5V between LED strip segments, turning the 8 segments back into one continuous strip.</p>
+            <div class="step-card">
+                <h3>Cover GND Wires</h3>
+                <p>Apply tape over the ground wires to insulate them and prevent shorts with other wires.</p>
+                <span class="image-container"><img src="./BuildGuide/COVER_GND_WIRES.webp" alt="Covering GND wires"></span>
+            </div>
+            <div class="step-card">
+                <h3>Solder All LED Strip Wires</h3>
+                <p>Solder the LED data and 5V wires between each LED strip segment following the serpentine layout.</p>
+                <span class="image-container"><img src="./BuildGuide/SOLDER_ALL_LED_STRIP_WIRES.webp" alt="Soldering LED strip wires"></span>
+            </div>
+            <div class="step-card">
+                <h3>Cover All LED Strip Wires</h3>
+                <p>Insulate all LED strip connections with tape to prevent shorts.</p>
+                <span class="image-container"><img src="./BuildGuide/COVER_ALL_LED_STRIP_WIRES.webp" alt="Covering LED strip wires"></span>
+            </div>
+        </section>
+
+        <section id="wiring-rows" class="section">
+            <h2 class="section-title">Step 6 - Wiring: Sensor Row Wires</h2>
+            <p class="section-intro">Connect the sensor output pins in each row. All 8 sensors in a row share one output wire that goes to an ESP32 GPIO pin.</p>
+            <div class="step-card">
+                <h3>Pass Row Wires</h3>
+                <p>Thread row wires through the board as you did for the GND wires, connecting each sensor's output pin in the same row. I melted some PLA with my soldering iron over the wires to secure them in place. </p>
+                <span class="image-container"><img src="./BuildGuide/PASS_ROW_WIRES.webp" alt="Passing row wires"></span>
+            </div>
+            <div class="step-card">
+                <h3>Solder Row Wires</h3>
+                <p>Solder each row wire to the output pin of every sensor in that row. Each row goes to a different ESP32 GPIO pin.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/SOLDER_ROW_WIRES.webp" alt="Soldering row wires"><span class="image-caption">In progress</span></span>
+                    <span class="image-container"><img src="./BuildGuide/SOLDER_ROW_WIRES_DONE.webp" alt="Row wires done"><span class="image-caption">Completed</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="wiring-5v" class="section">
+            <h2 class="section-title">Step 7 - Wiring: Sensor 5V (Column Power)</h2>
+            <p class="section-intro">Connect each column's sensor VCC (5V) pins. These are driven by PNP transistors controlled by the shift register - only one column is powered at a time during scanning.</p>
+            <div class="step-card">
+                <h3>Pass 5V Wires - Method 1</h3>
+                <p>First method: route the 5V wires through the wire guides along each column. Tape is required to insulate the 5V wires from the GND/row wires.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/PASS_A3144_5V_WIRES_1ST_METHOD.webp" alt="5V wires method 1"><span class="image-caption">Routing</span></span>
+                    <span class="image-container"><img src="./BuildGuide/PASS_A3144_5V_WIRES_1ST_METHOD_DONE.webp" alt="5V wires method 1 done"><span class="image-caption">Completed</span></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Pass 5V Wires - Method 2 (Alternative)</h3>
+                <p>Alternative routing method for the 5V column wires - choose whichever you prefer. This spacer requires a thin ESP32 PCB to fit under the board, but allows easier wire routing on top of other GND/row wires, avoiding the need of tape to prevent shorts.</p>
+                <span class="image-container"><img src="./BuildGuide/PASS_A3144_5V_WIRES_2ND_METHOD.webp" alt="5V wires method 2"></span>
+            </div>
+            <div class="step-card">
+                <h3>Cut Extra Pin Length</h3>
+                <p>Trim the excess sensor pin length with flush cutters to keep things tidy and prevent shorts.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/CUT_EXTRA_PIN_LENGTH.webp" alt="Cutting extra pin length"><span class="image-caption">Before cutting</span></span>
+                    <span class="image-container"><img src="./BuildGuide/CUT_EXTRA_PIN_LENGTH_DONE.webp" alt="Extra pin length cut"><span class="image-caption">After cutting</span></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Solder 5V Connections</h3>
+                <p>Solder the 5V wires to each sensor's VCC pin along the column. Each column wire will connect back to a transistor on the PCB (or to the shift register outputs if not using transistors)</p>
+                <span class="image-container"><img src="./BuildGuide/SOLDER_A3144_5V.webp" alt="Soldering A3144 5V"></span>
+            </div>
+        </section>
+
+        <section id="plastic-pcb-done" class="section">
+            <h2 class="section-title">Step 8 - Plastic PCB Complete!</h2>
+            <p class="section-intro">The board's sensor grid and LED array are now fully wired. Here's what the completed assembly looks like from different angles.</p>
+            <div class="step-card">
+                <h3>All Wires Soldered</h3>
+                <p>Two perspectives showing the full sensor wiring - GND, row & column.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/ALL_WIRES_SOLDERED_PERSPECTIVE1.webp" alt="All wires - perspective 1"></span>
+                    <span class="image-container"><img src="./BuildGuide/ALL_WIRES_SOLDERED_PERSPECTIVE2.webp" alt="All wires - perspective 2"></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Completed Plastic PCB</h3>
+                <p>Back and front views of the fully assembled plastic PCB - ready to be connected to the main ESP32 PCB.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/PLASTIC_PCB_DONE_BACK.webp" alt="Plastic PCB done - back"><span class="image-caption">Back</span></span>
+                    <span class="image-container"><img src="./BuildGuide/PLASTIC_PCB_DONE_FRONT.webp" alt="Plastic PCB done - front"><span class="image-caption">Front</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="chess-pieces" class="section">
+            <h2 class="section-title">Step 9 - Chess Pieces: Magnets &amp; Iron Discs</h2>
+            <p class="section-intro">Prepare the chess pieces with embedded magnets and install iron discs under the board.</p>
+            <div class="step-card">
+                <h3>Iron Disc Size</h3>
+                <p>12×1mm iron discs - these sit under each square to spread the magnetic field from the piece's magnet, making detection possible across the whole square surface. They also keep the pieces in place.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/IRON_DISC_SIZE.webp" alt="Iron disc size reference"><span class="image-caption">Disc diameter (12mm)</span></span>
+                    <span class="image-container"><img src="./BuildGuide/IRON_DISC_3D_PRINT_SIZE.webp" alt="Iron discs done - back"><span class="image-caption">Disc holder diameter</span></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Glue Iron Discs</h3>
+                <p>Glue one iron disc centered on each of the 64 squares. Make sure they're flush against the board surface and securely attached.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/GLUE_IRON_DISC.webp" alt="Gluing iron disc"><span class="image-caption">Gluing</span></span>
+                    <span class="image-container"><img src="./BuildGuide/GLUE_IRON_DISC_DONE.webp" alt="Iron disc glued"><span class="image-caption">Done (1)</span></span>
+                    <span class="image-container"><img src="./BuildGuide/GLUE_IRON_DISC_DONE_BACK.webp" alt="Iron discs done - back"><span class="image-caption">Done (64)</span></span>
+                </div>
+            </div>
+            <div class="step-card">
+                <h3>Glue magnets</h3>
+                <p>Glue one or two neodymium magnets into the bottom of each chess piece. The magnets should be flush with the piece's base for optimal detection. Make sure to orient the magnets with the south pole facing the board! To determine which side is the south pole, simply power the board and try both sides, only 1 side will work. TIP: you can use a hairdryer to soften the PLA plastic to make inserting magnets easier</p>
+                <span class="image-container"><img src="./BuildGuide/GLUE_MAGNETS.webp" alt="Gluing magnets"></span>
+            </div>
+        </section>
+
+        <section id="board-finishing" class="section">
+            <h2 class="section-title">Step 10 - Board Finishing</h2>
+            <p class="section-intro">Parchment paper can be used to diffuse the light. Do a test to make sure light shines evenly.</p>
+            <div class="step-card">
+                <h3>Glue Parchment Paper</h3>
+                <p>Apply a sheet of parchment paper (baking paper) under each square. This acts as a light diffuser, spreading each LED's light evenly across the square ring, for a uniform glow without weird shadows. </p>
+                <span class="image-container"><img src="./BuildGuide/GLUE_PARCHMENT_PAPER.webp" alt="Gluing parchment paper"></span>
+            </div>
+            <div class="step-card">
+                <h3>Light Test &amp; Final Look</h3>
+                <p>Test how light shines through the rings. With no light backing the rings should not be visible.</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/BOARD_DONE_FRONT_LIGHT_TEST.webp" alt="Board light test"><span class="image-caption">Light backing</span></span>
+                    <span class="image-container"><img src="./BuildGuide/BOARD_DONE_FRONT.webp" alt="Board done - front"><span class="image-caption">No light backing</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="main-pcb" class="section">
+            <h2 class="section-title">Step 11 - Main PCB Connection</h2>
+            <p class="section-intro">Connect the board's wires to the main ESP32 PCB to bring everything to life.</p>
+            <div class="step-card">
+                <h3>Apply Tape</h3>
+                <p>Use double-sided tape or insulating tape on the PCB mounting area to secure it and prevent shorts against the bare metal wires.</p>
+                <span class="image-container"><img src="./BuildGuide/PCB_TAPE.webp" alt="PCB tape"></span>
+            </div>
+            <div class="step-card">
+                <h3>PCB Placement</h3>
+                <p>Mount the main PCB in position. Ensure it's secure and the row/column wires are oriented correctly towards their soldering pads.</p>
+                <span class="image-container"><img src="./BuildGuide/PCB_PLACEMENT.webp" alt="PCB placement"></span>
+            </div>
+            <div class="step-card">
+                <h3>Solder Rows &amp; Columns to PCB</h3>
+                <p>Solder each row wire and column wire to the correct PCB pads. Double-check against the schematic - each row wire goes to a specific GPIO pin and each column goes to a transistor output (or shift register output if not using transistors).</p>
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/PCB_SOLDER_ROWS_N_COLS.webp" alt="Soldering rows and columns"><span class="image-caption">Overview</span></span>
+                    <span class="image-container"><img src="./BuildGuide/PCB_SOLDER_ROWS_COLS_CLOSEUP.webp" alt="Solder closeup"><span class="image-caption">Close-up</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="section">
+            <h2 class="section-title">Finished Board in Action</h2>
+            <p class="section-intro">Here's the completed smart chess board playing a game against Stockfish. Legal moves are visualized on the board when a piece is picked up.</p>
+            <div class="step-card">
+                <div class="image-row">
+                    <span class="image-container"><img src="./BuildGuide/OpenChess%20-%20Plastic%20PCB%20(Bot%20config).webp" alt="Bot configuration"><span class="image-caption">Bot difficulty and side selection</span></span>
+                    <span class="image-container"><img src="./BuildGuide/OpenChess%20-%20Plastic%20PCB%20(move%201).webp" alt="Move 1"><span class="image-caption">Human picks up Pawn, valid moves light up</span></span>
+                </div>
+                <div class="image-row" style="margin-top: 1.5rem">
+                    <span class="image-container"><img src="./BuildGuide/OpenChess%20-%20Plastic%20PCB%20(move%202).webp" alt="Move 2"><span class="image-caption">Stockfish shows the move it wants to play</span></span>
+                    <span class="image-container"><img src="./BuildGuide/OpenChess%20-%20Plastic%20PCB%20(move%203).webp" alt="Move 3"><span class="image-caption">Human picks up Queen, valid moves light up</span></span>
+                </div>
+            </div>
+            <div class="step-card" style="text-align: center">
+                <h3>Demo Video</h3>
+                <div class="video-embed" style="max-width: 600px"><iframe width="560" height="315" src="https://www.youtube.com/embed/bYm5_dK6EnQ?start=29" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                <span class="image-container media-bounded" style="max-width: 600px"><img src="./BuildGuide/video.gif" alt="OpenChess demo video"></span>
+            </div>
+        </section>
+
+        <section id="software" class="section">
+            <h2 class="section-title">Software Setup</h2>
+            <p class="section-intro">With the hardware built, flash the firmware to bring your chess board to life.</p>
+            <div class="info-box" style="margin-bottom: 1.5rem">
+                <h3><strong>⚡ Quick Flash</strong></h3>Use the <a href="flash.html">Web Installer</a> to flash your ESP32 directly from the browser (Chrome/Edge only)</br>
+                <a href="flash.html" class="btn-primary" style="display: inline-block; margin-top: 12px; font-size: 0.95rem; padding: 10px 24px">Open Web Installer</a>
+            </div>
+            <div class="info-box premium-box">
+                <h3><strong>ChessConnect</strong></h3>
+                <p>ChessConnect is a paid premium feature with a limited free trial. It is closed-source and only included in the precompiled firmware from the <a href="flash.html">Web Installer</a> or <a href="https://github.com/joojoooo/OpenChess/releases" target="_blank">GitHub releases</a>.</br>When the trial is used up, the rest of OpenChess keeps working normally but BLE board emulation stops. You can support this project and buy full access on <a href="https://ko-fi.com/s/a16a8bed86" target="_blank">Ko-fi</a>:</p>
+                <div class="kofi-widget">
+                    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                    <script type='text/javascript'>kofiwidget2.init('Buy on Ko-fi', '#72a4f2', 's/a16a8bed86'); kofiwidget2.draw();</script>
+                </div>
+            </div>
+            <div class="step-card software-steps">
+                <h3>1. Install Tools</h3>
+                <ul>
+                    <li>Install <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+                    <li>Install the <a href="https://platformio.org/install/ide?install=vscode" target="_blank">PlatformIO IDE</a> extension</li>
+                    <li>Install <a href="https://nodejs.org/" target="_blank">Node.js</a> (includes <code>npm</code>, needed to minify web assets)</li>
+                    <li>Open a terminal and run <code>npm install -g html-minifier-terser clean-css-cli terser</code>
+                    </li>
+                    <li>Open the <code>.code-workspace</code> file in Visual Studio Code</li>
+                </ul>
+                <h3>2. Compile &amp; Flash</h3>
+                <ul>
+                    <li>Connect the ESP32 via USB</li>
+                    <li>Hold the <strong>BOOT</strong> button on the ESP32</li>
+                    <li>Click <strong>Upload</strong> (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd>) in Visual Studio Code</li>
+                    <li>⚠️ Compiling from sources <span style="color: var(--red);">won't include</span>
+                        <strong>ChessConnect</strong> (use the Web Installer for that feature)
+                    </li>
+                </ul>
+                <h3>3. Connect to Web UI</h3>
+                <ul>
+                    <li>Connect to the <strong>OpenChess</strong> WiFi (password: <strong>chess123</strong>)</li>
+                    <li>Go to <a href='http://openchess.local' target='_blank'><strong>http://openchess.local</strong></a> to configure your board</li>
+                    <li>Click on the <strong>GPIO</strong> section to set the correct pins and transistor type (PNP/NPN) <strong>BEFORE</strong> connecting wires to GPIOs. Incorrect configuration with wires connected can cause short circuits </li>
+                </ul>
+                <h3>4. Calibrate</h3>
+                <ul>
+                    <li>After booting (or rebooting with new pins), the board enters calibration mode</li>
+                    <li>Follow the Serial Monitor Console instructions (115200 baud) to calibrate sensors and LEDs</li>
+                    <li>Calibration data is saved and only needs to be done once</li>
+                </ul>
+                <h3>5. Play!</h3>
+                <ul>
+                    <li>Power on the board - LEDs light up in the center for game selection</li>
+                    <li>Place a piece on a lit square:<ul>
+                            <li><strong style="color: #2196F3;">Blue</strong> - Human vs Human</li>
+                            <li><strong style="color: #4CAF50;">Green</strong> - Human vs Stockfish</li>
+                            <li><strong style="color: #FFEB3B;">Yellow</strong> - Online (Lichess)</li>
+                            <li><strong style="color: #F44336;">Red</strong> - Sensor Test</li>
+                        </ul>
+                    </li>
+                    <li><strong>ChessConnect</strong>
+                        <ul>
+                            <li>This is a paid premium feature with a limited free trial. Use the Web Installer or a GitHub release build to get firmware that includes it</li>
+                            <li>Download the <a href="https://chessconnect.de" target="_blank">ChessConnect</a> app or extension</li>
+                            <li>In the OpenChess WebUI, choose a board to emulate and start the BLE server</li>
+                            <li>In ChessConnect, select the emulated board and connect</li>
+                            <li>Start a game right from ChessConnect</li>
+                            <li>When the trial is over, buy full access on <a href="https://ko-fi.com/s/a16a8bed86" target="_blank">Ko-fi</a> to keep using ChessConnect</li>
+                            <li>Watch the <a href="https://youtu.be/bYm5_dK6EnQ" target="_blank">video guide</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="info-box"><strong>Need help?</strong> Enable Serial Monitor at 115200 baud for detailed diagnostics. Check the <a href="https://github.com/joojoooo/OpenChess" target="_blank">GitHub repository</a> for the latest updates and to report issues.</div>
+        </section>
+
+        <footer>
+            <p>OpenChess - <a href="https://github.com/joojoooo/OpenChess" target="_blank">View on GitHub</a></p>
+        </footer>
+    </main>
     <!-- Floating Step Navigator -->
     <div id="step-nav" class="step-nav hidden">
         <button id="step-prev" class="step-nav-btn" aria-label="Previous step">&#8249;</button>
         <span id="step-counter" class="step-nav-counter">1 / 1</span>
         <button id="step-next" class="step-nav-btn" aria-label="Next step">&#8250;</button>
     </div>
-
     <!-- Image Zoom Modal -->
     <div id="zoom-modal" class="zoom-modal">
         <span class="zoom-close">&times;</span>
@@ -46,8 +551,6 @@
         <button id="zoom-next" class="zoom-nav zoom-next" aria-label="Next image">&#8250;</button>
         <div id="zoom-counter" class="zoom-counter"></div>
     </div>
-
     <script src="script.js"></script>
 </body>
-
 </html>

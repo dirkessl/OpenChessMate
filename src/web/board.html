@@ -18,7 +18,6 @@
     <!-- Audio elements for move sounds -->
     <audio id="moveSound" src="./sounds/move.mp3" preload="auto"></audio>
     <audio id="captureSound" src="./sounds/capture.mp3" preload="auto"></audio>
-
     <!-- Game selector overlay -->
     <div id="gameSelectorOverlay" class="settings-overlay">
         <div class="settings-popup" style="width: 400px; max-height: 85vh;">
@@ -36,7 +35,6 @@
             <div id="noGamesMsg" style="display:none; text-align:center; color:#aaa; padding:20px;">No games found</div>
         </div>
     </div>
-
     <!-- Promotion overlay -->
     <div id="promotionOverlay" class="settings-overlay">
         <div class="promotion-popup">
@@ -46,7 +44,6 @@
             </div>
         </div>
     </div>
-
     <!-- Settings popup overlay -->
     <div id="settingsPopup" class="settings-overlay">
         <div class="settings-popup">
@@ -54,7 +51,6 @@
                 <span>⚙️ Settings</span>
                 <button class="settings-close-btn" id="closeSettings">×</button>
             </h3>
-
             <div class="settings-group">
                 <label>Display</label>
                 <div class="settings-row">
@@ -65,7 +61,6 @@
                     </label>
                 </div>
             </div>
-
             <div class="settings-group">
                 <label>Sound</label>
                 <div class="settings-row">
@@ -76,7 +71,6 @@
                     </label>
                 </div>
             </div>
-
             <div class="settings-group">
                 <label>Board Colors</label>
                 <div class="color-picker-group">
@@ -91,27 +85,22 @@
                     <button id="resetColorsBtn" class="fen-btn" title="Reset to default">↻</button>
                 </div>
             </div>
-
             <div class="settings-group">
                 <label>Piece Theme</label>
                 <div class="piece-theme-row">
                     <select id="settingPieceTheme"></select>
                     <button id="addThemeBtn" class="fen-btn" title="Add custom theme">+</button>
-                    <button id="deleteThemeBtn" class="fen-btn" title="Delete custom theme"
-                        style="display:none;">−</button>
+                    <button id="deleteThemeBtn" class="fen-btn" title="Delete custom theme" style="display:none;">−</button>
                 </div>
                 <a id="themeUrlDisplay" class="theme-url-display" href="#" target="_blank"></a>
             </div>
         </div>
     </div>
-
     <div class="container" style="padding-top: 43px;">
         <!-- <h2>Chess Board</h2> -->
-
         <!-- Chess board wrapper -->
         <div class="board-wrapper">
             <div id="board" class="chessboard-container"></div>
-
             <!-- Control buttons in margin above board -->
             <div class="board-toolbar">
                 <div class="board-controls-left">
@@ -119,8 +108,7 @@
                     <button id="focusBtn" class="board-ctrl-btn" title="Focus mode">⛶</button>
                 </div>
                 <div class="board-controls-action-left">
-                    <button id="drawBtn" class="board-ctrl-btn game-action-btn" title="Offer draw">½ <span
-                            class="action-label">Draw</span></button>
+                    <button id="drawBtn" class="board-ctrl-btn game-action-btn" title="Offer draw">½ <span class="action-label">Draw</span></button>
                 </div>
                 <div class="board-controls-center">
                     <button id="navFirst" class="board-ctrl-btn nav-btn" title="First move">⏮</button>
@@ -130,8 +118,7 @@
                     <button id="navLast" class="board-ctrl-btn nav-btn" title="Last move / Live">⏭</button>
                 </div>
                 <div class="board-controls-action-right">
-                    <button id="resignBtn" class="board-ctrl-btn game-action-btn" title="Resign">⚐ <span
-                            class="action-label">Resign</span></button>
+                    <button id="resignBtn" class="board-ctrl-btn game-action-btn" title="Resign">⚐ <span class="action-label">Resign</span></button>
                 </div>
                 <div class="board-controls-right">
                     <button id="gameSelectorBtn" class="board-ctrl-btn" title="Game history">↺</button>
@@ -139,32 +126,26 @@
                 </div>
             </div>
         </div>
-
         <!-- Evaluation bar (hidden in edit mode and review mode) -->
         <div class="eval-bar-container" id="eval-container">
             <div id="eval-bar"></div>
             <div id="eval-text">--</div>
         </div>
-
         <!-- Game review panel (shown in review mode) -->
         <div id="review-panel" class="review-panel anim-panel">
             <div class="review-meta" id="reviewMeta"></div>
             <div class="review-moves" id="reviewMoves"></div>
         </div>
-
         <!-- Edit mode instructions (above board, hidden on interaction) -->
         <div class="info-box anim-panel" id="edit-instructions">Drag pieces to edit the board</div>
-
         <!-- FEN display/edit section (shown in edit mode) -->
         <div id="fen-section" class="config-panel anim-panel">
-
             <!-- Edit controls -->
             <div class="controls controls-sm game-options">
                 <button id="sync-btn" class="button" style="background-color: #6c757d;">⟳ Sync</button>
                 <button id="start-btn" class="button" style="background-color: #17a2b8;">↻ Reset</button>
                 <button id="clear-btn" class="button" style="background-color: #dc3545;">✕ Clear</button>
             </div>
-
             <!-- Turn and Castling controls -->
             <div class="game-options">
                 <div class="option-group">
@@ -184,29 +165,21 @@
                     </div>
                 </div>
             </div>
-
             <!-- FEN input and copy/edit buttons -->
             <div class="fen-container">
                 <input type="text" id="fen-input" readonly>
                 <button id="fen-copy-btn" class="fen-btn" title="Copy FEN">📋</button>
                 <button id="fen-edit-btn" class="fen-btn" title="Edit FEN">✏️</button>
             </div>
-
             <!-- Apply button to send to server -->
-            <button id="apply-btn" class="button" style="background-color: #28a745; margin-bottom: 0;">
-                Apply Changes
-            </button>
+            <button id="apply-btn" class="button" style="background-color: #28a745; margin-bottom: 0;"> Apply Changes </button>
         </div>
-
         <!-- Mode toggle button -->
         <button id="modeToggleBtn" class="button">Edit Board</button>
-
         <!-- Exit review mode button (hidden by default) -->
         <button id="exitReviewBtn" class="button" style="display:none;">View Board</button>
-
         <a href="./index.html" class="back-button">OpenChess Home</a>
     </div>
-
     <script>
         // Constants
         const START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
@@ -2060,5 +2033,4 @@
         }
     </script>
 </body>
-
 </html>

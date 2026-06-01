@@ -1,226 +1,12 @@
 /* ============================================
-   OpenChess Build Guide — JSON-driven Builder + Interactivity
+   OpenChess Build Guide
    ============================================ */
 
-(async function () {
+(function () {
     'use strict';
 
-    // ---------- Load content.json ----------
-    const resp = await fetch('content.json');
-    const data = await resp.json();
-    const IMG = data.imagePath || '../BuildGuide/';
-    const GITHUB = data.githubUrl || '#';
-
     const contentEl = document.getElementById('content');
-    const navUl = document.getElementById('nav-links');
-
-    // ---------- Helper: create element shorthand ----------
-    function el(tag, attrs, ...children) {
-        const e = document.createElement(tag);
-        if (attrs) Object.entries(attrs).forEach(([k, v]) => {
-            if (k === 'className') e.className = v;
-            else if (k === 'innerHTML') e.innerHTML = v;
-            else if (k === 'style' && typeof v === 'object') Object.assign(e.style, v);
-            else e.setAttribute(k, v);
-        });
-        children.forEach(c => {
-            if (c == null) return;
-            e.append(typeof c === 'string' ? document.createTextNode(c) : c);
-        });
-        return e;
-    }
-
-    // ---------- Helper: build image container(s) ----------
-    function buildImages(images) {
-        if (images.length === 1) {
-            return buildSingleImage(images[0]);
-        }
-        const row = el('div', { className: 'image-row' });
-        images.forEach(img => row.append(buildSingleImage(img)));
-        return row;
-    }
-
-    function buildSingleImage(imgData) {
-        const container = el('div', { className: 'image-container' });
-        if (imgData.maxWidth) {
-            container.classList.add('media-bounded');
-            container.style.maxWidth = imgData.maxWidth;
-        }
-        if (imgData.noZoom) container.classList.add('image-static');
-        const attrs = {
-            src: IMG + encodeURI(imgData.file),
-            alt: imgData.alt || ''
-        };
-        if (!imgData.noZoom) attrs.className = 'zoomable';
-        container.append(el('img', attrs));
-        if (imgData.caption) {
-            container.append(el('span', { className: 'image-caption' }, imgData.caption));
-        }
-        return container;
-    }
-
-    function buildVideoEmbed(embedHtml, maxWidth) {
-        const container = el('div', { className: 'video-embed' });
-        if (maxWidth) container.style.maxWidth = maxWidth;
-        container.innerHTML = embedHtml;
-        return container;
-    }
-
-    // ---------- Add nav link ----------
-    function addNavLink(href, label, isFirst) {
-        const li = el('li');
-        const a = el('a', { href: '#' + href }, label);
-        if (isFirst) a.classList.add('active');
-        li.append(a);
-        navUl.append(li);
-    }
-
-    // ---------- Build: Hero ----------
-    function buildHero(hero) {
-        const section = el('section', { id: 'hero', className: 'hero-section' });
-
-        const textDiv = el('div', { className: 'hero-text' });
-        textDiv.append(
-            el('h1', { innerHTML: hero.title + '<br><span class="accent">' + hero.titleAccent + '</span>' }),
-            el('p', { className: 'hero-description' }, hero.description),
-            el('a', { href: '#materials', className: 'btn-primary' }, 'Get Started →'),
-            el('a', { href: GITHUB, className: 'btn-secondary', target: '_blank' }, 'View on GitHub')
-        );
-
-        const imgDiv = el('div', { className: 'hero-image' });
-        if (hero.image && hero.videoEmbed) {
-            imgDiv.classList.add('hero-media-pair');
-            imgDiv.append(
-                el('img', { src: IMG + hero.image, alt: 'OpenChess demo' }),
-                buildVideoEmbed(hero.videoEmbed)
-            );
-        } else if (hero.videoEmbed) {
-            imgDiv.append(buildVideoEmbed(hero.videoEmbed));
-        } else {
-            imgDiv.append(el('img', { src: IMG + hero.image, alt: 'OpenChess demo' }));
-        }
-
-        section.append(textDiv, imgDiv);
-        contentEl.append(section);
-        addNavLink('hero', 'Overview', true);
-    }
-
-    // ---------- Build: Materials ----------
-    function buildMaterials(mat) {
-        const section = el('section', { id: 'materials', className: 'section' });
-        section.append(el('h2', { className: 'section-title' }, 'Materials Required'));
-
-        const grid = el('div', { className: 'materials-grid' });
-        mat.items.forEach(item => {
-            grid.append(
-                el('div', { className: 'material-card' },
-                    el('div', { className: 'material-icon' }, item.icon),
-                    el('h3', null, item.name),
-                    el('p', null, item.description)
-                )
-            );
-        });
-        section.append(grid);
-
-        section.append(el('div', { className: 'info-box', innerHTML: '<strong>Tools needed:</strong> ' + mat.toolsNote }));
-
-        contentEl.append(section);
-        addNavLink('materials', mat.navLabel);
-    }
-
-    // ---------- Build: Step sections ----------
-    function buildStepSection(sec) {
-        const section = el('section', { id: sec.id, className: 'section' });
-        section.append(el('h2', { className: 'section-title' }, sec.title));
-        if (sec.intro) section.append(el('p', { className: 'section-intro' }, sec.intro));
-
-        (sec.steps || []).forEach(step => {
-            const card = el('div', { className: 'step-card' });
-
-            if (step.centerContent) card.style.textAlign = 'center';
-            if (step.title) card.append(el('h3', null, step.title));
-            if (step.description) card.append(el('p', { innerHTML: step.description }));
-
-            if (step.items && step.items.length)
-                step.items.forEach(item => card.insertAdjacentHTML('beforeend', item));
-
-            if (step.videoEmbed) {
-                card.append(buildVideoEmbed(step.videoEmbed, step.videoMaxWidth));
-            }
-
-            if (step.images && step.images.length) {
-                // Demo gallery: split into rows of 2
-                if (sec.id === 'demo' && step.images.length > 2 && !step.centerContent) {
-                    for (let i = 0; i < step.images.length; i += 2) {
-                        const row = el('div', { className: 'image-row' });
-                        if (i > 0) row.style.marginTop = '1.5rem';
-                        row.append(buildSingleImage(step.images[i]));
-                        if (step.images[i + 1]) row.append(buildSingleImage(step.images[i + 1]));
-                        card.append(row);
-                    }
-                } else {
-                    card.append(buildImages(step.images));
-                }
-            }
-
-            section.append(card);
-        });
-
-        contentEl.append(section);
-        addNavLink(sec.id, sec.navLabel);
-    }
-
-    // ---------- Build: Software ----------
-    function buildSoftware(sw) {
-        const section = el('section', { id: 'software', className: 'section' });
-        section.append(el('h2', { className: 'section-title' }, sw.title));
-        if (sw.intro) section.append(el('p', { className: 'section-intro' }, sw.intro));
-
-        // Web Installer callout
-        if (sw.webInstaller) {
-            const installerBox = el('div', { className: 'info-box', style: { marginBottom: '1.5rem' } });
-            installerBox.innerHTML = sw.webInstaller.text;
-            const btn = el('a', {
-                href: sw.webInstaller.buttonUrl,
-                className: 'btn-primary',
-                style: { display: 'inline-block', marginTop: '12px', fontSize: '0.95rem', padding: '10px 24px' }
-            }, sw.webInstaller.buttonText);
-            installerBox.append(btn);
-            section.append(installerBox);
-        }
-
-        const card = el('div', { className: 'step-card software-steps' });
-        sw.steps.forEach(step => {
-            card.append(el('h3', null, step.title));
-            const ul = el('ul');
-            step.items.forEach(item => ul.append(el('li', { innerHTML: item })));
-            card.append(ul);
-        });
-        section.append(card);
-
-        if (sw.helpNote) {
-            section.append(el('div', { className: 'info-box', innerHTML: '<strong>Need help?</strong> ' + sw.helpNote }));
-        }
-
-        contentEl.append(section);
-        addNavLink('software', sw.navLabel);
-    }
-
-    // ---------- Build: Footer ----------
-    function buildFooter() {
-        const footer = el('footer');
-        footer.append(el('p', { innerHTML: 'OpenChess Build Guide — <a href="' + GITHUB + '" target="_blank">View on GitHub</a>' }));
-        contentEl.append(footer);
-    }
-
-    // =====================
-    //  Assemble the page
-    // =====================
-    buildHero(data.hero);
-    buildMaterials(data.materials);
-    data.sections.forEach(sec => buildStepSection(sec));
-    buildSoftware(data.software);
-    buildFooter();
+    if (!contentEl) return;
 
     // ---------- Defer iframe loading to prevent focus-steal scroll ----------
     (function () {
@@ -242,10 +28,6 @@
         iframes.forEach(iframe => io.observe(iframe));
     })();
 
-    // ====================================================
-    //  Interactive features (init after DOM is built)
-    // ====================================================
-
     // --- Sidebar active link tracking ---
     (function () {
         const sections = document.querySelectorAll('section[id]');
@@ -264,58 +46,6 @@
         updateActiveLink();
     })();
 
-    // --- Scroll-to-section helper (resilient to lazy-loaded images) ---
-    function scrollToSection(targetEl) {
-        if (!targetEl) return;
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-        // Only images above or inside the target section can shift its
-        // position — ignore anything further down the page.
-        const targetBottom = targetEl.offsetTop + targetEl.offsetHeight;
-        const pending = Array.from(contentEl.querySelectorAll('img'))
-            .filter(img => !img.complete && img.offsetTop <= targetBottom);
-        if (!pending.length) return;
-
-        let settled = false;
-        const stop = () => { settled = true; };
-        const timeout = setTimeout(stop, 5000);
-
-        function reScroll() {
-            if (settled) return;
-            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        pending.forEach(img => img.addEventListener('load', reScroll, { once: true }));
-
-        Promise.all(pending.map(img =>
-            img.complete ? Promise.resolve() :
-                new Promise(r => img.addEventListener('load', r, { once: true }))
-        )).then(() => { clearTimeout(timeout); stop(); });
-    }
-
-    // Ensure deep links (e.g. #software) work on first load/reload
-    // after sections are created from JSON.
-    function scrollToHash({ smooth = true } = {}) {
-        const rawHash = window.location.hash;
-        if (!rawHash || rawHash.length <= 1) return;
-
-        const id = decodeURIComponent(rawHash.slice(1));
-        const target = document.getElementById(id);
-        if (!target) return;
-
-        if (smooth) {
-            scrollToSection(target);
-            return;
-        }
-
-        target.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-
-    // Native hash scrolling can happen before async content exists.
-    // Re-apply once content is built.
-    scrollToHash({ smooth: false });
-    window.addEventListener('hashchange', () => scrollToHash({ smooth: true }));
-
     // --- Mobile sidebar toggle + nav click handler ---
     (function () {
         const sidebar = document.getElementById('sidebar');
@@ -327,14 +57,7 @@
         }
 
         navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const id = link.getAttribute('href').slice(1);
-                const target = document.getElementById(id);
-                if (target) {
-                    history.replaceState(null, '', '#' + id);
-                    scrollToSection(target);
-                }
+            link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) sidebar.classList.remove('open');
             });
         });
@@ -354,7 +77,7 @@
         const prevBtn = document.getElementById('zoom-prev');
         const nextBtn = document.getElementById('zoom-next');
         const counter = document.getElementById('zoom-counter');
-        const zoomables = Array.from(document.querySelectorAll('.zoomable'));
+        const zoomables = Array.from(contentEl.querySelectorAll('img'));
 
         let currentIndex = 0;
         let scale = 1, translateX = 0, translateY = 0;

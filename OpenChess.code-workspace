@@ -6,6 +6,13 @@
 	],
 	"settings": {
 		"editor.formatOnSave": true,
+		"html.format.wrapLineLength": 1024,
+		"html.format.preserveNewLines": false,
+		"html.format.wrapAttributes": "auto",
+		"html.format.extraLiners": "head, body, section, footer",
+		"[html]": {
+			"editor.defaultFormatter": "vscode.html-language-features"
+		},
 		"C_Cpp.clang_format_fallbackStyle": "Google",
 		"search.exclude": {
 			"**/data/**": true

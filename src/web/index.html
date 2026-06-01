@@ -21,31 +21,24 @@
                 <div class="toggle-row toggle-row-divider">
                     <div>
                         <label class="toggle-label" for="scanAllChannels">Scan All WiFi Channels</label>
-                        <p class="toggle-description">
-                            Enable for mesh networks (+10s connection time)
-                        </p>
+                        <p class="toggle-description"> Enable for mesh networks (+10s connection time) </p>
                     </div>
                     <label class="toggle-switch">
                         <input type="checkbox" id="scanAllChannels">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
-
                 <label style="margin-bottom: 5px;">Saved Networks</label>
                 <div class="network-list" id="savedNetworks">
                     <div class="network-item" style="color: #888; text-align: center;">Loading...</div>
                 </div>
-
                 <label style="margin-top: 12px; margin-bottom: 5px;">Available Networks</label>
                 <div class="network-list" id="scannedNetworks">
                     <div class="network-item" style="color: #888; text-align: center;">No scan results</div>
                 </div>
-                <button type="button" id="scanBtn" class="button" style="background-color: #4CAF50; margin-top: 16px;">
-                    Scan for Networks
-                </button>
+                <button type="button" id="scanBtn" class="button" style="background-color: #4CAF50; margin-top: 16px;"> Scan for Networks </button>
             </div>
         </div>
-
         <!-- ChessConnect BLE Section -->
         <div class="settings-section" id="chessconnect-section">
             <div class="section-header" onclick="toggleSection('chessconnect')">
@@ -53,70 +46,44 @@
                 <h3>ChessConnect</h3>
             </div>
             <div class="section-content" id="chessconnect-content">
-                <p class="section-description">
-                    Emulate a Bluetooth Low Energy (BLE) chess board to play on
-                    <a href="https://chessconnect.de" target="_blank" style="color: #ec8703;">
-                        ChessConnect
-                    </a>
+                <p class="section-description"> Emulate a Bluetooth Low Energy (BLE) chess board to play on <a href="https://chessconnect.de" target="_blank" style="color: #ec8703;"> ChessConnect </a>
                 </p>
                 <div id="chessconnect-controls" style="display: none;">
                     <div class="toggle-row toggle-row-divider">
                         <div>
                             <label class="toggle-label" for="bleAutoStart">Automatic Start</label>
-                            <p class="toggle-description">
-                                Automatically start the BLE server on boot
-                            </p>
+                            <p class="toggle-description"> Automatically start the BLE server on boot </p>
                         </div>
                         <label class="toggle-switch">
                             <input type="checkbox" id="bleAutoStart">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
-
                     <div class="toggle-row toggle-row-divider">
                         <div>
                             <label class="toggle-label" for="disableWifiRadioBtn">WiFi Radio</label>
-                            <p class="toggle-description">
-                                Turn off until next boot to make Bluetooth more reliable
-                            </p>
+                            <p class="toggle-description"> Turn off until next boot to make Bluetooth more reliable </p>
                         </div>
-                        <button type="button" id="disableWifiRadioBtn" class="button"
-                            style="background-color: #f44336; width: auto; min-width: 92px; padding: 7px 14px; font-size: 14px; border-radius: 14px; margin: 0; flex: 0 0 auto;">
-                            Disable
-                        </button>
+                        <button type="button" id="disableWifiRadioBtn" class="button" style="background-color: #f44336; width: auto; min-width: 92px; padding: 7px 14px; font-size: 14px; border-radius: 14px; margin: 0; flex: 0 0 auto;"> Disable </button>
                     </div>
-
                     <div class="form-group">
                         <label for="bleBoard">Board to Emulate</label>
                         <select id="bleBoard"></select>
                     </div>
-
                     <div class="ble-status" id="ble-status" style="margin: 12px 0; font-size: 14px;">
                         <span id="ble-running-status">● Checking...</span>
                     </div>
-
                     <div style="display: flex; gap: 10px;">
-                        <button type="button" id="bleStartBtn" class="button"
-                            style="background-color: #4CAF50; flex: 1;">
-                            Start BLE
-                        </button>
-                        <button type="button" id="bleStopBtn" class="button"
-                            style="background-color: #f44336; flex: 1;">
-                            Stop BLE
-                        </button>
+                        <button type="button" id="bleStartBtn" class="button" style="background-color: #4CAF50; flex: 1;"> Start BLE </button>
+                        <button type="button" id="bleStopBtn" class="button" style="background-color: #f44336; flex: 1;"> Stop BLE </button>
                     </div>
                 </div>
                 <div id="chessconnect-unsupported">
-                    <p class="section-description" style="color: #f44336">
-                        To enable this feature, flash a precompiled firmware using the
-                        <a href="https://joojoooo.github.io/OpenChess/flash.html" target="_blank" style="color: #fff;">
-                            Web Flasher
-                        </a>
+                    <p class="section-description" style="color: #f44336"> To enable this feature, flash a precompiled firmware using the <a href="https://joojoooo.github.io/OpenChess/flash.html" target="_blank" style="color: #fff;"> Web Flasher </a>
                     </p>
                 </div>
             </div>
         </div>
-
         <!-- Lichess Settings Section -->
         <div class="settings-section">
             <div class="section-header" onclick="toggleSection('lichess')">
@@ -124,11 +91,7 @@
                 <h3>Lichess</h3>
             </div>
             <div class="section-content" id="lichess-content">
-                <p class="section-description">
-                    Play Lichess games on your physical board.
-                    <a href="https://lichess.org/account/oauth/token" target="_blank" style="color: #ec8703;">
-                        Get your API token here
-                    </a>
+                <p class="section-description"> Play Lichess games on your physical board. <a href="https://lichess.org/account/oauth/token" target="_blank" style="color: #ec8703;"> Get your API token here </a>
                 </p>
                 <div class="lichess-status" id="lichess-status">
                     <span id="lichess-token-status">No token configured</span>
@@ -136,14 +99,12 @@
                 <form id="lichessForm">
                     <div class="form-group">
                         <label for="lichessToken">API Token:</label>
-                        <input type="text" name="lichessToken" id="lichessToken" value=""
-                            placeholder="lip_xxxxxxxxxxxxx">
+                        <input type="text" name="lichessToken" id="lichessToken" value="" placeholder="lip_xxxxxxxxxxxxx">
                     </div>
                     <input type="submit" style="background-color: #4CAF50;" value="Save Lichess Token">
                 </form>
             </div>
         </div>
-
         <!-- Board Settings Section -->
         <div class="settings-section">
             <div class="section-header" onclick="toggleSection('board')">
@@ -151,35 +112,23 @@
                 <h3>LEDs & Board</h3>
             </div>
             <div class="section-content" id="board-content">
-                <p class="section-description">
-                    Adjust the LED brightness and dark square dimming for your chess board.
-                </p>
+                <p class="section-description"> Adjust the LED brightness and dark square dimming for your chess board. </p>
                 <form id="boardSettingsForm">
                     <div class="form-group">
-                        <label for="brightness">LED Brightness: <span id="brightness-value"
-                                style="color: #ec8703;">255</span></label>
-                        <input type="range" id="brightness" name="brightness" min="10" max="255" value="255"
-                            class="slider-input">
+                        <label for="brightness">LED Brightness: <span id="brightness-value" style="color: #ec8703;">255</span></label>
+                        <input type="range" id="brightness" name="brightness" min="10" max="255" value="255" class="slider-input">
                     </div>
                     <div class="form-group">
-                        <label for="dimMultiplier">Dark Square Dimming: <span id="dim-value"
-                                style="color: #ec8703;">70%</span></label>
-                        <input type="range" id="dimMultiplier" name="dimMultiplier" min="20" max="100" value="70"
-                            class="slider-input">
+                        <label for="dimMultiplier">Dark Square Dimming: <span id="dim-value" style="color: #ec8703;">70%</span></label>
+                        <input type="range" id="dimMultiplier" name="dimMultiplier" min="20" max="100" value="70" class="slider-input">
                     </div>
                     <input type="submit" style="background-color: #4CAF50;" value="Save LED Settings">
                 </form>
                 <div class="hr-divider"></div>
-                <p class="section-description" style="margin: 0;">
-                    Run board calibration to map LEDs and sensors to the correct squares.
-                </p>
-                <button type="button" id="calibrateBtn" class="button" style="background-color: #f44336;">
-                    Start Board Calibration
-                </button>
-
+                <p class="section-description" style="margin: 0;"> Run board calibration to map LEDs and sensors to the correct squares. </p>
+                <button type="button" id="calibrateBtn" class="button" style="background-color: #f44336;"> Start Board Calibration </button>
             </div>
         </div>
-
         <!-- Hardware GPIO Configuration Section -->
         <div class="settings-section">
             <div class="section-header" onclick="toggleSection('hwconfig')">
@@ -187,20 +136,12 @@
                 <h3>GPIO</h3>
             </div>
             <div class="section-content" id="hwconfig-content">
-
                 <!-- Warning Banner -->
                 <div class="hw-warning-banner">
                     <div class="hw-warning-title">⚡ Short Circuit Risk</div>
-                    <div class="hw-warning-text">
-                        Set the correct pins and transistor type (PNP/NPN)
-                        <span class="hw-before">BEFORE</span>
-                        connecting wires to GPIOs. Incorrect configuration with wires connected can cause short
-                        circuits.
-                    </div>
+                    <div class="hw-warning-text"> Set the correct pins and transistor type (PNP/NPN) <span class="hw-before">BEFORE</span> connecting wires to GPIOs. Incorrect configuration with wires connected can cause short circuits. </div>
                 </div>
-
                 <form id="hwConfigForm">
-
                     <!-- LED Strip + Shift Register merged card -->
                     <div class="hw-section">
                         <div class="hw-section-title-split">
@@ -211,29 +152,23 @@
                             <div class="hw-top-pins">
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-srClkPin">SRCLK</label>
-                                    <input type="number" id="hw-srClkPin" min="0" max="39"
-                                        class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
+                                    <input type="number" id="hw-srClkPin" min="0" max="39" class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-srLatchPin">RCLK</label>
-                                    <input type="number" id="hw-srLatchPin" min="0" max="39"
-                                        class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
+                                    <input type="number" id="hw-srLatchPin" min="0" max="39" class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-srDataPin">SER</label>
-                                    <input type="number" id="hw-srDataPin" min="0" max="39"
-                                        class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
+                                    <input type="number" id="hw-srDataPin" min="0" max="39" class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
                                 </div>
                                 <div class="hw-top-pins-divider"></div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-ledPin">DIN</label>
-                                    <input type="number" id="hw-ledPin" min="0" max="39"
-                                        class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
+                                    <input type="number" id="hw-ledPin" min="0" max="39" class="hw-gpio-input hw-gpio-input-sr" placeholder="—">
                                 </div>
                             </div>
-
                             <div class="hr-divider"></div>
-
                             <div class="hw-transistor-row">
                                 <div class="hw-transistor-info">
                                     <label class="toggle-label">Transistor Type</label>
@@ -250,7 +185,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Row Inputs Section -->
                     <div class="hw-section">
                         <div class="hw-section-title">Row Inputs</div>
@@ -258,53 +192,43 @@
                             <div class="hw-row-pins">
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row0">Row 0</label>
-                                    <input type="number" id="hw-row0" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row0" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row1">Row 1</label>
-                                    <input type="number" id="hw-row1" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row1" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row2">Row 2</label>
-                                    <input type="number" id="hw-row2" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row2" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row3">Row 3</label>
-                                    <input type="number" id="hw-row3" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row3" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row4">Row 4</label>
-                                    <input type="number" id="hw-row4" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row4" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row5">Row 5</label>
-                                    <input type="number" id="hw-row5" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row5" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row6">Row 6</label>
-                                    <input type="number" id="hw-row6" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row6" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                                 <div class="hw-field">
                                     <label class="hw-field-label" for="hw-row7">Row 7</label>
-                                    <input type="number" id="hw-row7" min="0" max="39" class="hw-gpio-input"
-                                        placeholder="—">
+                                    <input type="number" id="hw-row7" min="0" max="39" class="hw-gpio-input" placeholder="—">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <input type="submit" style="background-color: #4CAF50;" value="Save & Reboot">
                 </form>
             </div>
         </div>
-
         <!-- OTA Updates Section -->
         <div class="settings-section">
             <div class="section-header" onclick="toggleSection('ota')">
@@ -315,16 +239,13 @@
                 <div class="toggle-row toggle-row-divider">
                     <div>
                         <label class="toggle-label" for="autoOtaToggle">Automatic Updates</label>
-                        <p class="toggle-description">
-                            Install new versions automatically when available
-                        </p>
+                        <p class="toggle-description"> Install new versions automatically when available </p>
                     </div>
                     <label class="toggle-switch">
                         <input type="checkbox" id="autoOtaToggle">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
-
                 <div class="ota-version-info" id="ota-version-info">
                     <div class="ota-version-row">
                         <span>Current version:</span>
@@ -335,15 +256,11 @@
                         <a id="latest-version" href="#" target="_blank">loading...</a>
                     </div>
                 </div>
-
                 <div class="ota-manual-section">
-                    <p class="section-description" style="margin-bottom: 5px;">
-                        Manual update: drag & drop firmware (.bin) or web assets (.tar) files below.
-                    </p>
+                    <p class="section-description" style="margin-bottom: 5px;"> Manual update: drag & drop firmware (.bin) or web assets (.tar) files below. </p>
                     <div class="ota-drop-zone" id="otaDropZone">
                         <div class="ota-drop-icon">📦</div>
-                        <div class="ota-drop-text">Drop <strong>.bin</strong> (firmware) or <strong>.tar</strong> (web
-                            assets) here</div>
+                        <div class="ota-drop-text">Drop <strong>.bin</strong> (firmware) or <strong>.tar</strong> (web assets) here</div>
                         <div class="ota-drop-subtext">or click to select a file</div>
                         <input type="file" id="otaFileInput" accept=".bin,.tar" style="display:none;">
                     </div>
@@ -356,7 +273,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Logs Section -->
         <div class="settings-section" id="logs-section">
             <div class="section-header" onclick="toggleSection('logs')">
@@ -367,12 +283,9 @@
                 <div class="logs-toolbar">
                     <span id="logs-status" class="logs-status">● Disconnected</span>
                     <div class="logs-toolbar-buttons">
-                        <button type="button" id="logsCopyBtn" class="logs-btn"
-                            title="Copy logs to clipboard">Copy</button>
-                        <button type="button" id="logsFullscreenBtn" class="logs-btn"
-                            title="Toggle fullscreen">⛶</button>
-                        <button type="button" id="logsRebootBtn" class="logs-btn logs-btn-danger"
-                            title="Reboot the ESP32">Reboot</button>
+                        <button type="button" id="logsCopyBtn" class="logs-btn" title="Copy logs to clipboard">Copy</button>
+                        <button type="button" id="logsFullscreenBtn" class="logs-btn" title="Toggle fullscreen">⛶</button>
+                        <button type="button" id="logsRebootBtn" class="logs-btn logs-btn-danger" title="Reboot the ESP32">Reboot</button>
                     </div>
                 </div>
                 <div class="logs-viewport" id="logsViewport">
@@ -380,7 +293,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Update Available Popup Overlay -->
         <div class="update-overlay" id="updateOverlay">
             <div class="update-popup">
@@ -392,29 +304,23 @@
                     <span>New: <a id="popup-new-version" href="#" target="_blank"></a></span>
                 </div>
                 <div class="update-popup-actions">
-                    <button type="button" id="updateNowBtn" class="button"
-                        style="background-color: #4CAF50; margin: 5px 0;">Update Now</button>
-                    <button type="button" id="updateLaterBtn" class="button"
-                        style="background-color: #666; margin: 5px 0;">Later</button>
+                    <button type="button" id="updateNowBtn" class="button" style="background-color: #4CAF50; margin: 5px 0;">Update Now</button>
+                    <button type="button" id="updateLaterBtn" class="button" style="background-color: #666; margin: 5px 0;">Later</button>
                 </div>
                 <div id="update-popup-status" class="update-popup-status" style="display:none;"></div>
             </div>
         </div>
-
         <!-- Custom Modal -->
         <div class="modal-overlay" id="modalOverlay">
             <div class="modal-box">
                 <p id="modalMessage"></p>
                 <input type="text" id="modalInput" style="display:none;" autocomplete="off">
                 <div class="modal-actions">
-                    <button type="button" id="modalOkBtn" class="button"
-                        style="background-color: #4CAF50; margin: 5px 0;">Confirm</button>
-                    <button type="button" id="modalCancelBtn" class="button"
-                        style="background-color: #666; margin: 5px 0;">Cancel</button>
+                    <button type="button" id="modalOkBtn" class="button" style="background-color: #4CAF50; margin: 5px 0;">Confirm</button>
+                    <button type="button" id="modalCancelBtn" class="button" style="background-color: #666; margin: 5px 0;">Cancel</button>
                 </div>
             </div>
         </div>
-
         <a href="./game.html" class="button">GameMode Selection</a>
         <a href="./board.html" class="button">View Board</a>
     </div>
@@ -1328,5 +1234,4 @@
         });
     </script>
 </body>
-
 </html>

@@ -254,6 +254,12 @@ kbd {
     border-radius: var(--radius);
     border: 1px solid var(--border);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
 }
 
 .hero-media-pair>img {
@@ -342,6 +348,7 @@ kbd {
 
 /* ---- Images ---- */
 .image-container {
+    display: block;
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-sm);
@@ -355,6 +362,7 @@ kbd {
 }
 
 .image-container img {
+    display: block;
     width: 100%;
     max-height: 60vh;
     object-fit: contain;
@@ -364,14 +372,6 @@ kbd {
 
 .image-container img:hover {
     transform: scale(1.02);
-}
-
-.image-container.image-static img {
-    cursor: default;
-}
-
-.image-container.image-static img:hover {
-    transform: none;
 }
 
 .image-caption {
@@ -439,6 +439,23 @@ kbd {
 
 .info-box strong {
     color: var(--accent);
+}
+
+.premium-box {
+    margin-bottom: 1.5rem;
+}
+
+.premium-box p {
+    margin-top: 0.75rem;
+}
+
+.kofi-widget {
+    margin-top: 1rem;
+    min-height: 40px;
+}
+
+.kofi-widget iframe {
+    max-width: 100%;
 }
 
 /* ---- Software Steps ---- */

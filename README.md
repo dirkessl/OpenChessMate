@@ -3,11 +3,6 @@ OpenChess is a smart chessboard, it can show legal moves, plays against you usin
 
 <p align="center"><img src="docs/BuildGuide/OpenChess - Plastic PCB (Bot config).webp" width="50%"></p>
 
-## ☕ Support the project
-Love this project? You can [support it on Ko-fi](https://ko-fi.com/joojooo) Every contribution makes a difference!
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/joojooo)
-
 ## 🛠️ Build Guide
 - **👣 [Step-by-step build guide](https://joojoooo.github.io/OpenChess)** - covers materials, schematics, assembly, and [software setup](https://joojoooo.github.io/OpenChess/index.html#software)
 - **⚡ [Web Flasher](https://joojoooo.github.io/OpenChess/flash.html)** - easily flash your ESP32 directly from the browser
@@ -23,7 +18,11 @@ This fork can emulate BLE (Bluetooth Low Energy) chess boards and is compatible 
 5. Watch the [video guide](https://youtu.be/bYm5_dK6EnQ)
 
 > [!NOTE]
-> This is a premium feature with a free trial. It's **closed-source** and only included in precompiled [GitHub releases](https://github.com/joojoooo/OpenChess/releases)
+> This is a paid premium feature with a limited free trial. It's **closed-source** and only included in precompiled firmware from [GitHub releases](https://github.com/joojoooo/OpenChess/releases)
+
+## ☕ Support the project
+If you love this project, you can support development and buy full ChessConnect access here:</br>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/s/a16a8bed86)
 
 ## ✨ Features
 Highlights of this fork compared with the original Concept-Bytes project:

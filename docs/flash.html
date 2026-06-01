@@ -218,12 +218,10 @@
 <body>
     <div class="container">
         <a href="index.html" class="back-link">← Back to Build Guide</a>
-
         <div class="header">
             <h1>♟ OpenChess <span class="accent">Web Installer</span></h1>
             <p>Flash your ESP32 directly from the browser, no Arduino/PlatformIO IDE needed</p>
         </div>
-
         <div class="card">
             <h2><span class="step-number">1</span> Requirements</h2>
             <ul>
@@ -231,62 +229,33 @@
                 <li><strong>USB drivers</strong> installed for your board (CP2102 or CH340)</li>
             </ul>
         </div>
-
         <div class="card install-section">
             <h2 style="justify-content: center;"><span class="step-number">2</span> Flash OpenChess</h2>
             <p style="margin-bottom: 20px;">Connect your ESP32 via USB and click the button below</p>
-
             <esp-web-install-button id="installButton" manifest="manifest.json">
                 <button slot="activate">Install OpenChess</button>
                 <span slot="unsupported">
-                    <p style="color: var(--red);">Your browser does not support Web Serial.<br>
-                        Please use Chrome, Edge or Opera
-                    </p>
+                    <p style="color: var(--red);">Your browser does not support Web Serial.<br> Please use Chrome, Edge or Opera </p>
                 </span>
                 <span slot="not-allowed">
-                    <p style="color: var(--yellow);">Web Serial access was denied.<br>
-                        Please grant permission and try again.
-                    </p>
+                    <p style="color: var(--yellow);">Web Serial access was denied.<br> Please grant permission and try again. </p>
                 </span>
             </esp-web-install-button>
-
-            <div class="info-box" style="margin-top: 24px;">
-                Future updates can be installed automatically over WiFi (OTA) from the webUI
-            </div>
+            <div class="info-box" style="margin-top: 24px;"> Future updates can be installed automatically over WiFi (OTA) from the webUI </div>
         </div>
-
         <div class="card">
             <h2><span class="step-number">3</span> After Flashing</h2>
             <ul>
-                <li>
-                    Connect to the <strong>OpenChess</strong> WiFi (password: <strong>chess123</strong>)
-                </li>
-                <li>
-                    Go to
-                    <a href="http://openchess.local" target="_blank"><strong>http://openchess.local</strong></a>
-                    to configure your board
-                </li>
-                <li>
-                    Click on the <strong>GPIO</strong> section to set the correct pins and transistor type
-                    (PNP/NPN) <strong>BEFORE</strong> connecting wires to GPIOs.
-                    Incorrect configuration with wires connected can cause short circuits
-                </li>
-                <li>
-                    Follow the Serial Monitor Console instructions (115200 baud) to calibrate sensors and LEDs.
-                    Calibration data is saved and only needs to be done once
-                </li>
-                <li>
-                    Start a game from the WebUI,
-                    <a href="https://youtu.be/bYm5_dK6EnQ" target="_blank">ChessConnect</a>
-                    , or by placing a piece on the physical board
-                </li>
+                <li> Connect to the <strong>OpenChess</strong> WiFi (password: <strong>chess123</strong>) </li>
+                <li> Go to <a href="http://openchess.local" target="_blank"><strong>http://openchess.local</strong></a> to configure your board </li>
+                <li> Click on the <strong>GPIO</strong> section to set the correct pins and transistor type (PNP/NPN) <strong>BEFORE</strong> connecting wires to GPIOs. Incorrect configuration with wires connected can cause short circuits </li>
+                <li> Follow the Serial Monitor Console instructions (115200 baud) to calibrate sensors and LEDs. Calibration data is saved and only needs to be done once </li>
+                <li> Start a game from the WebUI, <a href="https://youtu.be/bYm5_dK6EnQ" target="_blank">ChessConnect</a> , or by placing a piece on the physical board </li>
             </ul>
         </div>
     </div>
 
-    <footer>
-        OpenChess - <a href="https://github.com/joojoooo/OpenChess" target="_blank">View on GitHub</a>
+    <footer> OpenChess - <a href="https://github.com/joojoooo/OpenChess" target="_blank">View on GitHub</a>
     </footer>
 </body>
-
 </html>

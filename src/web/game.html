@@ -32,11 +32,9 @@
                 <p>Test board sensors</p>
             </div>
         </div>
-
         <!-- Bot Configuration Panel (hidden by default) -->
         <div id="botConfigPanel" class="config-panel anim-panel">
             <h3>Bot Configuration</h3>
-
             <div class="form-group">
                 <label for="botPlayerColor">Your Color:</label>
                 <select id="botPlayerColor">
@@ -44,7 +42,6 @@
                     <option value="black">Play as Black (bot is White)</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="botDifficulty">Difficulty:</label>
                 <select id="botDifficulty">
@@ -54,15 +51,9 @@
                     <option value="4">Expert (Depth 15, Very Slow)</option>
                 </select>
             </div>
-
-            <button onclick="selectGame(2)" class="button" style="background-color: #4CAF50;">
-                Start Game
-            </button>
-            <button onclick="hideBotConfig()" class="button" style="background-color: #f44336;">
-                Cancel
-            </button>
+            <button onclick="selectGame(2)" class="button" style="background-color: #4CAF50;"> Start Game </button>
+            <button onclick="hideBotConfig()" class="button" style="background-color: #f44336;"> Cancel </button>
         </div>
-
         <a href="./board.html" class="button">View Board</a>
         <a href="./index.html" class="back-button">OpenChess Home</a>
     </div>
@@ -109,5 +100,4 @@
         }
     </script>
 </body>
-
 </html>
