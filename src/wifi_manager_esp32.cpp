@@ -45,7 +45,6 @@ void WiFiManagerESP32::begin() {
   if (connected) {
     webLog.println("Connected to WiFi network:");
     webLog.println("- SSID: " + profiles[0].ssid);
-    webLog.println("- Password: " + profiles[0].password);
     webLog.println("- Website: http://" MDNS_HOSTNAME ".local (" + WiFi.localIP().toString() + ")");
   } else {
     startAPFallback();
@@ -1083,9 +1082,9 @@ bool WiFiManagerESP32::tryConnect(const String& ssid, const String& password, co
 
   bool isFast = (bssid != nullptr && channel > 0);
   if (isFast)
-    webLog.printf("  Fast connect: SSID=%s, Password=%s, Channel=%d, BSSID=%02X:%02X:%02X:%02X:%02X:%02X\n", ssid.c_str(), password.c_str(), channel, bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
+    webLog.printf("  Fast connect: SSID=%s, Channel=%d, BSSID=%02X:%02X:%02X:%02X:%02X:%02X\n", ssid.c_str(), channel, bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
   else
-    webLog.printf("  Standard connect: SSID=%s, Password=%s\n", ssid.c_str(), password.c_str());
+    webLog.printf("  Standard connect: SSID=%s\n", ssid.c_str());
 
   stopCaptivePortal();
   WiFi.disconnect(false, true);
