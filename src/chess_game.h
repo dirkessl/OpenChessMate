@@ -34,6 +34,7 @@ class ChessGame {
   ChessGame(BoardDriver* bd, ChessEngine* ce, WiFiManagerESP32* wm, MoveHistory* mh);
 
   // Common initialization and game flow methods
+  String currentFEN() const;
   void initializeBoard();
   bool physicalBoardMatches(const char targetBoard[8][8]);
   bool resumeLiveGameIfBoardMatches();

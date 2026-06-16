@@ -18,7 +18,7 @@ void ChessMoves::begin() {
     }
   } else {
     moveHistory->startGame(GAME_MODE_CHESS_MOVES);
-    moveHistory->addFen(ChessUtils::boardToFEN(board, currentTurn, chessEngine));
+    moveHistory->addFen(currentFEN());
   }
   waitForBoardSetup(board);
 }
@@ -33,7 +33,7 @@ void ChessMoves::update() {
   if (tryPlayerMove(currentTurn, fromRow, fromCol, toRow, toCol)) {
     applyMove(fromRow, fromCol, toRow, toCol);
     updateGameStatus();
-    wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+    wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
   }
 
   boardDriver->updateSensorPrev();

@@ -303,6 +303,129 @@ bool ChessUtils::parseUCIMove(const String& move, int& fromRow, int& fromCol, in
   return true;
 }
 
+ChessUtils::FENDiffResult ChessUtils::getMoveFromFENDiff(const char before[8][8], const String& afterFen, char activeColor, int& fromRow, int& fromCol, int& toRow, int& toCol, char& promotion) {
+  promotion = ' ';
+  fromRow = fromCol = toRow = toCol = -1;
+  if (afterFen.length() == 0 || (activeColor != 'w' && activeColor != 'b'))
+    return FENDiffResult::DifferentPosition;
+
+  char after[8][8];
+  char afterTurn = activeColor;
+  fenToBoard(afterFen, after, afterTurn, nullptr);
+
+  struct Change {
+    int row;
+    int col;
+    char before;
+    char after;
+  };
+
+  Change changes[4];
+  int changeCount = 0;
+  for (int row = 0; row < 8; row++) {
+    for (int col = 0; col < 8; col++) {
+      if (before[row][col] == after[row][col]) continue;
+      if (changeCount >= 4) return FENDiffResult::DifferentPosition;
+      changes[changeCount++] = {row, col, before[row][col], after[row][col]};
+    }
+  }
+
+  if (changeCount == 0)
+    return afterTurn == activeColor ? FENDiffResult::SamePosition : FENDiffResult::DifferentPosition;
+
+  auto isOwnPiece = [&](char piece) -> bool {
+    return piece != ' ' && getPieceColor(piece) == activeColor;
+  };
+  auto isPromotionPiece = [](char piece) -> bool {
+    piece = tolower(piece);
+    return piece == 'q' || piece == 'r' || piece == 'b' || piece == 'n';
+  };
+  auto finishMove = [&](const Change* from, const Change* to) -> FENDiffResult {
+    if (!from || !to || !isOwnPiece(from->before) || from->after != ' ' || !isOwnPiece(to->after))
+      return FENDiffResult::DifferentPosition;
+    if (to->before != ' ' && getPieceColor(to->before) == activeColor)
+      return FENDiffResult::DifferentPosition;
+
+    char movedPiece = from->before;
+    char landedPiece = to->after;
+    char promo = ' ';
+    int promotionRow = isWhitePiece(movedPiece) ? 0 : 7;
+    bool pawnReachedBackRank = tolower(movedPiece) == 'p' && to->row == promotionRow;
+    if (tolower(movedPiece) == 'p' && tolower(landedPiece) != 'p') {
+      promo = tolower(landedPiece);
+      if (!pawnReachedBackRank || !isPromotionPiece(promo)) return FENDiffResult::DifferentPosition;
+    } else if (movedPiece != landedPiece || pawnReachedBackRank) {
+      return FENDiffResult::DifferentPosition;
+    }
+
+    fromRow = from->row;
+    fromCol = from->col;
+    toRow = to->row;
+    toCol = to->col;
+    promotion = promo;
+    return FENDiffResult::Move;
+  };
+
+  if (changeCount == 2) {
+    const Change* from = nullptr;
+    const Change* to = nullptr;
+    for (int i = 0; i < changeCount; i++) {
+      if (isOwnPiece(changes[i].before) && changes[i].after == ' ')
+        from = &changes[i];
+      else if (isOwnPiece(changes[i].after))
+        to = &changes[i];
+    }
+    return finishMove(from, to);
+  }
+
+  if (changeCount == 3) {
+    const Change* from = nullptr;
+    const Change* to = nullptr;
+    const Change* captured = nullptr;
+    for (int i = 0; i < changeCount; i++) {
+      if (isOwnPiece(changes[i].before) && changes[i].after == ' ')
+        from = &changes[i];
+      else if (isOwnPiece(changes[i].after) && changes[i].before == ' ')
+        to = &changes[i];
+      else if (changes[i].before != ' ' && changes[i].after == ' ')
+        captured = &changes[i];
+    }
+    if (!from || !to || !captured) return FENDiffResult::DifferentPosition;
+    if (tolower(from->before) != 'p' || tolower(to->after) != 'p' || tolower(captured->before) != 'p')
+      return FENDiffResult::DifferentPosition;
+    if (getPieceColor(captured->before) == activeColor || abs(to->row - from->row) != 1 || abs(to->col - from->col) != 1)
+      return FENDiffResult::DifferentPosition;
+    if (captured->row != from->row || captured->col != to->col)
+      return FENDiffResult::DifferentPosition;
+    return finishMove(from, to);
+  }
+
+  if (changeCount == 4) {
+    const Change* from = nullptr;
+    const Change* to = nullptr;
+    char king = activeColor == 'w' ? 'K' : 'k';
+    char rook = activeColor == 'w' ? 'R' : 'r';
+    for (int i = 0; i < changeCount; i++) {
+      if (changes[i].before == king && changes[i].after == ' ')
+        from = &changes[i];
+      else if (changes[i].before == ' ' && changes[i].after == king)
+        to = &changes[i];
+    }
+    if (!from || !to || from->row != to->row || abs(to->col - from->col) != 2)
+      return FENDiffResult::DifferentPosition;
+
+    int row = from->row;
+    bool kingSide = to->col > from->col;
+    int rookFromCol = kingSide ? 7 : 0;
+    int rookToCol = kingSide ? 5 : 3;
+    if (before[row][rookFromCol] != rook || after[row][rookFromCol] != ' ' || before[row][rookToCol] != ' ' || after[row][rookToCol] != rook)
+      return FENDiffResult::DifferentPosition;
+    return finishMove(from, to);
+  }
+
+  return FENDiffResult::DifferentPosition;
+}
+
 bool ChessUtils::ensureNvsInitialized() {
   esp_err_t err = nvs_flash_init();
   if (err != ESP_OK) {

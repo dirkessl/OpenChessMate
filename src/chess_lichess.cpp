@@ -108,7 +108,7 @@ void ChessLichess::waitForLichessGame() {
   waitForBoardSetup(board);
 
   webLog.println("Board synchronized! Game starting...");
-  wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+  wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
 }
 
 void ChessLichess::syncBoardWithLichess(const LichessGameState& state) {
@@ -151,7 +151,7 @@ void ChessLichess::update() {
     if (isPromotion)
       promotion = tolower(board[toRow][toCol]);
     updateGameStatus();
-    wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+    wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
     // Then send move to Lichess (blocking)
     sendMoveToLichess(fromRow, fromCol, toRow, toCol, promotion);
     boardDriver->updateSensorPrev();
@@ -204,7 +204,7 @@ void ChessLichess::update() {
           webLog.printf("Lichess UCI move: %s = (%d,%d) -> (%d,%d)%s%c\n", state.lastMove.c_str(), fromRow, fromCol, toRow, toCol, promotion == ' ' ? "" : " Promotion to: ", promotion);
           applyMove(fromRow, fromCol, toRow, toCol, promotion, true);
           updateGameStatus();
-          wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+          wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
         } else {
           webLog.println("Failed to parse Lichess UCI move: " + state.lastMove);
         }

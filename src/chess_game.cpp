@@ -25,13 +25,17 @@ ChessGame::~ChessGame() {
   }
 }
 
+String ChessGame::currentFEN() const {
+  return ChessUtils::boardToFEN(board, currentTurn, chessEngine);
+}
+
 void ChessGame::initializeBoard() {
   currentTurn = 'w';
   gameOver = false;
   memcpy(board, INITIAL_BOARD, sizeof(INITIAL_BOARD));
   chessEngine->reset();
   chessEngine->recordPosition(board, currentTurn);
-  wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+  wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
 }
 
 bool ChessGame::physicalBoardMatches(const char targetBoard[8][8]) {
@@ -73,7 +77,7 @@ bool ChessGame::resumeLiveGameIfBoardMatches() {
   }
 
   webLog.println("Resuming game from saved position...");
-  wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+  wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
   return true;
 }
 
@@ -434,7 +438,7 @@ void ChessGame::setBoardStateFromFEN(const String& fen) {
   chessEngine->recordPosition(board, currentTurn);
   if (moveHistory && moveHistory->isRecording())
     moveHistory->addFen(fen);
-  wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), ChessUtils::evaluatePosition(board));
+  wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
   webLog.println("Board state set from FEN: " + fen);
   ChessUtils::printBoard(board);
   // Guide the user to set up the physical board to match the new position

@@ -81,6 +81,15 @@ class ChessUtils {
   // promotion character (or ' ' if none)
   static bool parseUCIMove(const String& move, int& fromRow, int& fromCol, int& toRow, int& toCol, char& promotion);
 
+  enum class FENDiffResult : uint8_t {
+    SamePosition,
+    Move,
+    DifferentPosition
+  };
+
+  // Compare the current board with a received FEN and extract one move.
+  static FENDiffResult getMoveFromFENDiff(const char before[8][8], const String& afterFen, char activeColor, int& fromRow, int& fromCol, int& toRow, int& toCol, char& promotion);
+
   // Initialize NVS for ESP32 (required before Preferences.begin)
   static bool ensureNvsInitialized();
 };

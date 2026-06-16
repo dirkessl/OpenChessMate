@@ -24,7 +24,7 @@ void ChessBot::begin() {
       }
     } else {
       moveHistory->startGame(GAME_MODE_BOT, botConfig.playerIsWhite ? 'w' : 'b', (uint8_t)botConfig.stockfishSettings.depth);
-      moveHistory->addFen(ChessUtils::boardToFEN(board, currentTurn, chessEngine));
+      moveHistory->addFen(currentFEN());
     }
     waitForBoardSetup(board);
   } else {
@@ -51,13 +51,13 @@ void ChessBot::update() {
     if (tryPlayerMove(currentTurn, fromRow, fromCol, toRow, toCol)) {
       applyMove(fromRow, fromCol, toRow, toCol);
       updateGameStatus();
-      wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), currentEvaluation);
+      wifiManager->updateBoardState(currentFEN(), currentEvaluation);
     }
   } else {
     // Bot's turn
     makeBotMove();
     updateGameStatus();
-    wifiManager->updateBoardState(ChessUtils::boardToFEN(board, currentTurn, chessEngine), currentEvaluation);
+    wifiManager->updateBoardState(currentFEN(), currentEvaluation);
   }
 
   boardDriver->updateSensorPrev();
@@ -129,7 +129,7 @@ void ChessBot::makeBotMove() {
   webLog.println("=== BOT MOVE CALCULATION ===");
   std::atomic<bool>* stopAnimation = boardDriver->startThinkingAnimation();
   String bestMove;
-  String response = makeStockfishRequest(ChessUtils::boardToFEN(board, currentTurn, chessEngine));
+  String response = makeStockfishRequest(currentFEN());
   if (stopAnimation) stopAnimation->store(true);
   if (parseStockfishResponse(response, bestMove, currentEvaluation)) {
     webLog.println("=== STOCKFISH EVALUATION ===");
