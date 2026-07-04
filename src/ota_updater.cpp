@@ -12,6 +12,12 @@
 // TAR header is always 512 bytes
 static const size_t TAR_BLOCK_SIZE = 512;
 
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+static constexpr const char* OTA_FIRMWARE_ASSET_NAME = "firmware-esp32s3.bin";
+#else
+static constexpr const char* OTA_FIRMWARE_ASSET_NAME = "firmware.bin";
+#endif
+
 OtaUpdater::OtaUpdater(BoardDriver* bd) : boardDriver(bd) {}
 
 const char* OtaUpdater::getCurrentVersion() {
@@ -148,12 +154,12 @@ OtaUpdateInfo OtaUpdater::checkForUpdate() {
   info.available = true;
   webLog.printf("OTA: Update available: v%s (current: %s)\n", info.version.c_str(), FIRMWARE_VERSION);
 
-  // Find firmware.bin and web_assets.tar in release assets
+  // Find the target firmware asset and web_assets.tar in release assets
   JsonArray assets = doc["assets"];
   for (JsonObject asset : assets) {
     String name = asset["name"] | "";
     String url = asset["browser_download_url"] | "";
-    if (name == "firmware.bin")
+    if (name == OTA_FIRMWARE_ASSET_NAME)
       info.firmwareUrl = url;
     else if (name == "web_assets.tar")
       info.webAssetsUrl = url;

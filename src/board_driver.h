@@ -80,6 +80,12 @@ struct HardwareConfig {
 #define DEBOUNCE_MS 125
 #define CALIBRATION_WARNING_INTERVAL_MS 4000
 
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+using OpenChessLedMethod = NeoEsp32Rmt0Ws2812xMethod;
+#else
+using OpenChessLedMethod = NeoEsp32I2s1Ws2812xMethod;
+#endif
+
 // Animation job types for async queue
 enum class AnimationType : uint8_t { CAPTURE,
                                      PROMOTION,
@@ -122,7 +128,7 @@ struct AnimationJob {
 // ---------------------------
 class BoardDriver {
  private:
-  NeoPixelBusLg<NeoGrbFeature, NeoEsp32I2s1Ws2812xMethod, NeoGammaNullMethod>* strip;
+  NeoPixelBusLg<NeoGrbFeature, OpenChessLedMethod, NeoGammaNullMethod>* strip;
 
   // Animation queue system
   static QueueHandle_t animationQueue;

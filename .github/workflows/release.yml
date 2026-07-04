@@ -53,10 +53,12 @@ jobs:
           cat src/version.h
 
       - name: Build firmware
-        run: pio run
+        run: |
+          pio run -e esp32dev
+          pio run -e esp32s3
 
       - name: Build LittleFS image
-        run: pio run -t buildfs
+        run: pio run -e esp32dev -t buildfs
 
       - name: Create web assets TAR for OTA
         run: |
@@ -70,16 +72,18 @@ jobs:
       - name: Prepare release artifacts
         run: |
           mkdir -p release
-          # Firmware binary
+          # ESP32 firmware bundle
           cp .pio/build/esp32dev/firmware.bin release/firmware.bin
-          # Bootloader (built by PlatformIO)
           cp .pio/build/esp32dev/bootloader.bin release/bootloader.bin
-          # Partition table
           cp .pio/build/esp32dev/partitions.bin release/partitions.bin
-          # Boot app (OTA boot selector)
           cp $HOME/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin release/boot_app0.bin
-          # LittleFS filesystem image
           cp .pio/build/esp32dev/littlefs.bin release/littlefs.bin
+          # ESP32-S3 firmware bundle
+          cp .pio/build/esp32s3/firmware.bin release/firmware-esp32s3.bin
+          cp .pio/build/esp32s3/bootloader.bin release/bootloader-esp32s3.bin
+          cp .pio/build/esp32s3/partitions.bin release/partitions-esp32s3.bin
+          cp $HOME/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin release/boot_app0-esp32s3.bin
+          cp .pio/build/esp32dev/littlefs.bin release/littlefs-esp32s3.bin
           # Web assets TAR for OTA updates
           cp web_assets.tar release/web_assets.tar
           echo "=== Release artifacts ==="
@@ -96,6 +100,11 @@ jobs:
             release/partitions.bin
             release/boot_app0.bin
             release/littlefs.bin
+            release/firmware-esp32s3.bin
+            release/bootloader-esp32s3.bin
+            release/partitions-esp32s3.bin
+            release/boot_app0-esp32s3.bin
+            release/littlefs-esp32s3.bin
             release/web_assets.tar
           body: |
             ## OpenChess ${{ github.ref_name }}

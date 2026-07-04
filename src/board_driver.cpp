@@ -57,7 +57,7 @@ void BoardDriver::beginHardware() {
   // Load hardware pin configuration from NVS (must happen before any GPIO or strip init)
   loadHardwareConfig();
   // https://github.com/Makuna/NeoPixelBus/wiki/ESP32-NeoMethods
-  strip = new NeoPixelBusLg<NeoGrbFeature, NeoEsp32I2s1Ws2812xMethod, NeoGammaNullMethod>(LED_COUNT, hwConfig.ledPin);
+  strip = new NeoPixelBusLg<NeoGrbFeature, OpenChessLedMethod, NeoGammaNullMethod>(LED_COUNT, hwConfig.ledPin);
   strip->Begin();
   showLEDs();        // turn off all LEDs
   loadLedSettings(); // Load LED settings from NVS (brightness, dim multiplier)
