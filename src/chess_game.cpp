@@ -433,7 +433,7 @@ void ChessGame::updateGameStatus() {
     waitForBoardSetup(board, false);
 }
 
-void ChessGame::setBoardStateFromFEN(const String& fen) {
+void ChessGame::setBoardStateFromFEN(const String& fen, bool waitForSetup, bool showFirework) {
   ChessUtils::fenToBoard(fen, board, currentTurn, chessEngine);
   chessEngine->recordPosition(board, currentTurn);
   if (moveHistory && moveHistory->isRecording())
@@ -442,8 +442,8 @@ void ChessGame::setBoardStateFromFEN(const String& fen) {
   webLog.println("Board state set from FEN: " + fen);
   ChessUtils::printBoard(board);
   // Guide the user to set up the physical board to match the new position
-  if (!replaying)
-    waitForBoardSetup(board, false);
+  if (!replaying && waitForSetup)
+    waitForBoardSetup(board, showFirework);
 }
 
 char ChessGame::waitForPromotionChoice(char piece, int promotionRow, int promotionCol) {

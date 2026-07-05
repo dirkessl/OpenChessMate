@@ -62,7 +62,7 @@ class ChessGame {
   virtual void begin() = 0;
   virtual void update() = 0;
 
-  void setBoardStateFromFEN(const String& fen);
+  void setBoardStateFromFEN(const String& fen, bool waitForSetup = true, bool showFirework = false);
   bool isGameOver() const { return gameOver; }
 
   // Resign: the resigning color loses
