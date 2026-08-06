@@ -32,10 +32,12 @@ String ChessGame::currentFEN() const {
 void ChessGame::initializeBoard() {
   currentTurn = 'w';
   gameOver = false;
+  lastUciMove = "";
   memcpy(board, INITIAL_BOARD, sizeof(INITIAL_BOARD));
   chessEngine->reset();
   chessEngine->recordPosition(board, currentTurn);
   wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
+  sendUiState();
 }
 
 bool ChessGame::physicalBoardMatches(const char targetBoard[8][8]) {
@@ -199,6 +201,9 @@ void ChessGame::applyMove(int fromRow, int fromCol, int toRow, int toCol, char p
 
   if (moveHistory && moveHistory->isRecording())
     moveHistory->addMove(fromRow, fromCol, toRow, toCol, promotion);
+
+  // Record last move in UCI format for UI slave display
+  lastUciMove = ChessUtils::toUCIMove(fromRow, fromCol, toRow, toCol, promotion);
 }
 
 bool ChessGame::tryPlayerMove(char playerColor, int& fromRow, int& fromCol, int& toRow, int& toCol) {
@@ -439,11 +444,38 @@ void ChessGame::setBoardStateFromFEN(const String& fen, bool waitForSetup, bool 
   if (moveHistory && moveHistory->isRecording())
     moveHistory->addFen(fen);
   wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
+  lastUciMove = "";
+  sendUiState();
   webLog.println("Board state set from FEN: " + fen);
   ChessUtils::printBoard(board);
   // Guide the user to set up the physical board to match the new position
   if (!replaying && waitForSetup)
     waitForBoardSetup(board, showFirework);
+}
+
+// Undo the last move (for UI slave)
+void ChessGame::undoMove() {
+  if (moveHistory && moveHistory->isRecording()) {
+    moveHistory->undoLastMove();
+    // Replay the game from the start with the undone move
+    if (moveHistory->getMoveCount() > 0) {
+      initializeBoard();
+      moveHistory->replayIntoGame(this);
+    }
+    sendUiState();
+  }
+}
+
+// Swap sides (for HvH mode only)
+void ChessGame::swapSides() {
+  if (moveHistory && moveHistory->isRecording() && !gameOver) {
+    // Swap the player colors in move history
+    moveHistory->swapPlayerColors();
+    // Replay the game with swapped sides
+    initializeBoard();
+    moveHistory->replayIntoGame(this);
+    sendUiState();
+  }
 }
 
 char ChessGame::waitForPromotionChoice(char piece, int promotionRow, int promotionCol) {
@@ -702,4 +734,9 @@ void ChessGame::applyCastling(int kingFromRow, int kingFromCol, int kingToRow, i
 
 void ChessGame::confirmSquareCompletion(int row, int col) {
   boardDriver->blinkSquare(row, col, LedColors::Green, 1);
+}
+
+void ChessGame::sendUiState() {
+  String fen = ChessUtils::boardToFEN(board, currentTurn, chessEngine);
+  UIComm::sendStateUpdate(fen, lastUciMove);
 }

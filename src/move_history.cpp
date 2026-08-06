@@ -473,3 +473,72 @@ bool MoveHistory::restoreGameAsLive(int id) {
   webLog.printf("MoveHistory: restored game_%02d.bin as live game\n", id);
   return true;
 }
+
+void MoveHistory::undoLastMove() {
+  if (!recording) return;
+
+  // Read live header and moves
+  File fm = LittleFS.open(LIVE_MOVES_PATH, "r");
+  if (!fm || fm.size() < sizeof(GameHeader)) {
+    if (fm) fm.close();
+    return;
+  }
+
+  GameHeader hdr;
+  fm.read((uint8_t*)&hdr, sizeof(hdr));
+  if (hdr.version != FORMAT_VERSION || hdr.moveCount == 0) {
+    fm.close();
+    return;
+  }
+
+  // Read all 2-byte move entries
+  std::vector<uint16_t> moves(hdr.moveCount);
+  for (uint16_t i = 0; i < hdr.moveCount; i++) {
+    uint16_t val;
+    if (fm.read((uint8_t*)&val, 2) != 2) {
+      fm.close();
+      return;
+    }
+    moves[i] = val;
+  }
+  fm.close();
+
+  if (moves.empty()) return;
+
+  // Remove the last move (or FEN marker + move)
+  // Find the last non-FEN entry
+  int lastMoveIdx = moves.size() - 1;
+  while (lastMoveIdx >= 0 && moves[lastMoveIdx] == FEN_MARKER) {
+    lastMoveIdx--;
+  }
+
+  if (lastMoveIdx < 0) return; // No moves to undo
+
+  // Remove the last move (or FEN marker + move pair)
+  moves.erase(moves.begin() + lastMoveIdx);
+  if (lastMoveIdx > 0 && moves[lastMoveIdx - 1] == FEN_MARKER) {
+    // If the previous entry is a FEN marker, remove it too
+    moves.erase(moves.begin() + lastMoveIdx - 1);
+  }
+
+  // Rewrite the moves file
+  File f = LittleFS.open(LIVE_MOVES_PATH, "w");
+  if (!f) return;
+  f.write((const uint8_t*)&hdr, sizeof(hdr));
+  for (uint16_t m : moves) {
+    f.write((const uint8_t*)&m, 2);
+  }
+  f.close();
+
+  hdr.moveCount = moves.size();
+  header = hdr;
+  updateLiveHeader();
+}
+
+void MoveHistory::swapPlayerColors() {
+  if (!recording) return;
+  if (header.mode == GAME_MODE_CHESS_MOVES) {
+    header.playerColor = (header.playerColor == 'w') ? 'b' : 'w';
+    updateLiveHeader();
+  }
+}

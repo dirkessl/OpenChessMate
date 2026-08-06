@@ -5,6 +5,7 @@
 #include "chess_engine.h"
 #include "chess_utils.h"
 #include "led_colors.h"
+#include "ui_comm.h"
 #include <Arduino.h>
 #include <atomic>
 
@@ -25,6 +26,7 @@ class ChessGame {
   char currentTurn; // 'w' or 'b'
   bool gameOver;
   bool replaying;                   // True while replaying moves during resume (suppresses LEDs and physical move waits)
+  String lastUciMove;               // Last move in UCI format (e.g. "e2e4") for UI slave display
   std::atomic<bool>* stopAnimation; // Stop flag for cancellable animations (thinking/waiting), managed by subclasses
 
   // Standard initial chess board setup
@@ -73,8 +75,19 @@ class ChessGame {
   // Returns true if a resign or draw was triggered
   bool checkPhysicalResignOrDraw();
 
+  // Undo the last move (for UI slave)
+  void undoMove();
+  // Swap sides (for HvH mode only)
+  void swapSides();
+
   // Advance turn and record position (extracted from updateGameStatus for replay use)
   void advanceTurn();
+  
+  // Send current FEN + last move to UI slave display
+  void sendUiState();
+  
+  char getCurrentTurn() const { return currentTurn; }
+
 };
 
 #endif // CHESS_GAME_H

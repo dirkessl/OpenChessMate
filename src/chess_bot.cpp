@@ -33,6 +33,7 @@ void ChessBot::begin() {
     gameOver = true;
     return;
   }
+  sendUiState();
 }
 
 void ChessBot::update() {
@@ -52,12 +53,14 @@ void ChessBot::update() {
       applyMove(fromRow, fromCol, toRow, toCol);
       updateGameStatus();
       wifiManager->updateBoardState(currentFEN(), currentEvaluation);
+      sendUiState();
     }
   } else {
     // Bot's turn
     makeBotMove();
     updateGameStatus();
     wifiManager->updateBoardState(currentFEN(), currentEvaluation);
+    sendUiState();
   }
 
   boardDriver->updateSensorPrev();

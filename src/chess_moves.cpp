@@ -21,6 +21,7 @@ void ChessMoves::begin() {
     moveHistory->addFen(currentFEN());
   }
   waitForBoardSetup(board);
+  sendUiState();
 }
 
 void ChessMoves::update() {
@@ -34,6 +35,7 @@ void ChessMoves::update() {
     applyMove(fromRow, fromCol, toRow, toCol);
     updateGameStatus();
     wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
+    sendUiState();
   }
 
   boardDriver->updateSensorPrev();

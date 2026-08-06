@@ -83,6 +83,12 @@ class MoveHistory {
   // Delete a single completed game by id
   bool deleteGame(int id);
 
+  // Undo the last move (for UI slave)
+  void undoLastMove();
+
+  // Swap player colors (for HvH mode)
+  void swapPlayerColors();
+
   // Move a saved in-progress game back to live storage for resume
   bool restoreGameAsLive(int id);
 
@@ -126,6 +132,9 @@ class MoveHistory {
 
   // Collect sorted list of existing game ids
   std::vector<int> listGameIds();
+
+  // Get the current move count for the live game
+  uint16_t getMoveCount() const { return header.moveCount; }
 
   // Obtain a Unix timestamp (returns 0 if NTP has not synced)
   static uint32_t getTimestamp();

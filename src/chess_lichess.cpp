@@ -109,6 +109,7 @@ void ChessLichess::waitForLichessGame() {
 
   webLog.println("Board synchronized! Game starting...");
   wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
+  sendUiState();
 }
 
 void ChessLichess::syncBoardWithLichess(const LichessGameState& state) {
@@ -152,6 +153,7 @@ void ChessLichess::update() {
       promotion = tolower(board[toRow][toCol]);
     updateGameStatus();
     wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
+    sendUiState();
     // Then send move to Lichess (blocking)
     sendMoveToLichess(fromRow, fromCol, toRow, toCol, promotion);
     boardDriver->updateSensorPrev();
@@ -205,6 +207,7 @@ void ChessLichess::update() {
           applyMove(fromRow, fromCol, toRow, toCol, promotion, true);
           updateGameStatus();
           wifiManager->updateBoardState(currentFEN(), ChessUtils::evaluatePosition(board));
+          sendUiState();
         } else {
           webLog.println("Failed to parse Lichess UCI move: " + state.lastMove);
         }
