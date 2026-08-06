@@ -124,6 +124,11 @@ class MoveHistory {
   static uint8_t promoCharToCode(char p);
   static char promoCodeToChar(uint8_t code);
 
+public:
+  // Get the current move count for the live game
+  uint16_t getMoveCount() const { return header.moveCount; }
+
+private:
   // Rewrite the header stored at offset 0 of live.bin
   void updateLiveHeader();
 
@@ -132,9 +137,6 @@ class MoveHistory {
 
   // Collect sorted list of existing game ids
   std::vector<int> listGameIds();
-
-  // Get the current move count for the live game
-  uint16_t getMoveCount() const { return header.moveCount; }
 
   // Obtain a Unix timestamp (returns 0 if NTP has not synced)
   static uint32_t getTimestamp();
