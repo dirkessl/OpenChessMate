@@ -26,3 +26,5 @@ data/
 
 # Firmware binaries downloaded by GitHub Pages workflow (not committed to repo)
 docs/firmware/
+PR_DESCRIPTION.md
+ui_slave/src/secrets.h
